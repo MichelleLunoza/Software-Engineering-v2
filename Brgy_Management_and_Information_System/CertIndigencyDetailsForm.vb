@@ -29,6 +29,8 @@ Public Class CertIndigencyDetailsForm
         DataGridView1.Columns(2).Width = 150
         DataGridView1.Columns(3).Width = 150
 
+
+
     End Sub
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim row As DataGridViewRow = DataGridView1.CurrentRow
@@ -129,6 +131,7 @@ Public Class CertIndigencyDetailsForm
         SaveButton.Enabled = False
         DeleteButton.Enabled = True
 
+        Dim ID = IDTextBox.Text
         Dim Name = NameTextBox.Text
         Dim Purpose = PurposeTextBox.Text
         Dim datetime = DateTextBox.Text
@@ -136,8 +139,8 @@ Public Class CertIndigencyDetailsForm
         Dim cmd As New SqlCommand
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO Certificate_Indigency_Table (Name,Purpose,Date)"
-        query &= "VALUES (@Name,@Purpose,@datetime)"
+        query &= "INSERT INTO Certificate_Indigency_Table (ID,Name,Purpose,Date)"
+        query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
 
 
         con.ConnectionString = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
@@ -145,6 +148,7 @@ Public Class CertIndigencyDetailsForm
             .Connection = con
             .CommandType = CommandType.Text
             .CommandText = query
+            .Parameters.AddWithValue("@ID", ID)
             .Parameters.AddWithValue("@Name", Name)
             .Parameters.AddWithValue("@Purpose", Purpose)
             .Parameters.AddWithValue("@datetime", datetime)
@@ -158,6 +162,8 @@ Public Class CertIndigencyDetailsForm
         PurposeTextBox.ReadOnly = True
 
         Clear()
+        DataGridView1.Visible = True
+        DataGridView2.Visible = False
     End Sub
 
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
@@ -170,5 +176,37 @@ Public Class CertIndigencyDetailsForm
         NameTextBox.ReadOnly = False
         DateTextBox.ReadOnly = False
         PurposeTextBox.ReadOnly = False
+        DataGridView1.Visible = False
+        DataGridView2.Visible = True
+        Clear()
+        AddFunction()
+    End Sub
+    Private Sub AddFunction()
+        Dim con As String = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        Dim query As String = String.Empty
+        query &= "SELECT ID, Name FROM Population"
+
+
+        Dim connection As New SqlConnection(con)
+        Dim dataadapter As New SqlDataAdapter(query, connection)
+        Dim ds As New DataSet()
+
+
+        connection.Open()
+        dataadapter.Fill(ds, "Population")
+        connection.Close()
+        DataGridView2.DataSource = ds
+        DataGridView2.DataMember = "Population"
+        DataGridView2.Columns(0).Width = 150
+        DataGridView2.Columns(1).Width = 420
+
+    End Sub
+
+    Private Sub DataGridView2_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView2.CellClick
+        Dim row As DataGridViewRow = DataGridView2.CurrentRow
+
+        IDTextBox.Text = row.Cells(0).Value.ToString()
+        NameTextBox.Text = row.Cells(1).Value.ToString()
+        DataGridView1.Refresh()
     End Sub
 End Class

@@ -52,8 +52,10 @@ Partial Class BrgyClearanceDetailsForm
         Me.DateLabel = New System.Windows.Forms.Label()
         Me.BackButton = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'GroupBox1
@@ -325,6 +327,15 @@ Partial Class BrgyClearanceDetailsForm
         Me.DataGridView1.Size = New System.Drawing.Size(596, 271)
         Me.DataGridView1.TabIndex = 81
         '
+        'DataGridView2
+        '
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(12, 221)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(596, 271)
+        Me.DataGridView2.TabIndex = 82
+        Me.DataGridView2.Visible = False
+        '
         'BrgyClearanceDetailsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -343,6 +354,7 @@ Partial Class BrgyClearanceDetailsForm
         Me.Controls.Add(Me.Label8)
         Me.Controls.Add(Me.DateLabel)
         Me.Controls.Add(Me.BackButton)
+        Me.Controls.Add(Me.DataGridView2)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "BrgyClearanceDetailsForm"
@@ -351,6 +363,7 @@ Partial Class BrgyClearanceDetailsForm
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -384,4 +397,5 @@ Partial Class BrgyClearanceDetailsForm
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PurposeTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
 End Class
