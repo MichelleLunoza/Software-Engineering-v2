@@ -34,6 +34,7 @@ Partial Class MainForm
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.TimeLabel = New System.Windows.Forms.Label()
+        Me.Button1 = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'LogoutButton
@@ -128,11 +129,21 @@ Partial Class MainForm
         Me.TimeLabel.Size = New System.Drawing.Size(0, 13)
         Me.TimeLabel.TabIndex = 32
         '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(198, 331)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(231, 43)
+        Me.Button1.TabIndex = 33
+        Me.Button1.Text = "Population"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(663, 458)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TimeLabel)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.DateLabel)
@@ -161,4 +172,5 @@ Partial Class MainForm
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents Timer1 As System.Windows.Forms.Timer
     Friend WithEvents TimeLabel As System.Windows.Forms.Label
+    Friend WithEvents Button1 As System.Windows.Forms.Button
 End Class
