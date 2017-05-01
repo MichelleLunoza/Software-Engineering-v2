@@ -3,9 +3,6 @@ Public Class CertIndigencyDetailsForm
 
     Private Sub CertIndigencyDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
-        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString
-        Timer1.Start()
-        Me.DateLabel.Text = DateTime.Now.ToString("mm/dd/yyy")
     End Sub
     Private Sub Display()
         DataGridView1.Refresh()

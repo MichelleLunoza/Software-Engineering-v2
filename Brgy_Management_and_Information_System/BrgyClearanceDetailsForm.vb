@@ -3,9 +3,6 @@ Public Class BrgyClearanceDetailsForm
 
     Private Sub BrgyClearanceDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
-        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString
-        Timer1.Start()
-        Me.DateLabel.Text = DateTime.Now.ToString()
     End Sub
 
     Private Sub SearchnameTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchnameTextBox.TextChanged
