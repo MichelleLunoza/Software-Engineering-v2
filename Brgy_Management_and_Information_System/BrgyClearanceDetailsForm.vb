@@ -5,7 +5,7 @@ Public Class BrgyClearanceDetailsForm
         Display()
         ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString
         Timer1.Start()
-        Me.DateLabel.Text = DateTime.Now.ToString("mm/dd/yyy")
+        Me.DateLabel.Text = DateTime.Now.ToString()
     End Sub
 
     Private Sub SearchnameTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchnameTextBox.TextChanged
@@ -124,44 +124,53 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
-        AddButton.Enabled = True
-        UpdateButton.Enabled = False
-        EditButton.Enabled = True
-        SaveButton.Enabled = False
-        DeleteButton.Enabled = True
+        If PurposeTextBox.Text = "" Then
+            MessageBox.Show("Enter purpose.", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            PurposeTextBox.Focus()
+        ElseIf DateTextBox.Text = "" Then
+            MessageBox.Show("Enter date.", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            DateTextBox.Focus()
+        Else
 
-        Dim ID = IDTextBox.Text
-        Dim Name = NameTextBox.Text
-        Dim Purpose = PurposeTextBox.Text
-        Dim datetime = DateTextBox.Text
-        Dim con As New SqlConnection
-        Dim cmd As New SqlCommand
+            AddButton.Enabled = True
+            UpdateButton.Enabled = False
+            EditButton.Enabled = True
+            SaveButton.Enabled = False
+            DeleteButton.Enabled = True
 
-        Dim query As String = String.Empty
-        query &= "INSERT INTO Brgy_Clearance_Table (ID,Name,Purpose,Date)"
-        query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
+            Dim ID = IDTextBox.Text
+            Dim Name = NameTextBox.Text
+            Dim Purpose = PurposeTextBox.Text
+            Dim datetime = DateTextBox.Text
+            Dim con As New SqlConnection
+            Dim cmd As New SqlCommand
+
+            Dim query As String = String.Empty
+            query &= "INSERT INTO Brgy_Clearance_Table (ID,Name,Purpose,Date)"
+            query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
 
 
-        con.ConnectionString = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-        With cmd
-            .Connection = con
-            .CommandType = CommandType.Text
-            .CommandText = query
-            .Parameters.AddWithValue("@ID", ID)
-            .Parameters.AddWithValue("@Name", Name)
-            .Parameters.AddWithValue("@Purpose", Purpose)
-            .Parameters.AddWithValue("@datetime", datetime)
-        End With
+            con.ConnectionString = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+            With cmd
+                .Connection = con
+                .CommandType = CommandType.Text
+                .CommandText = query
+                .Parameters.AddWithValue("@ID", ID)
+                .Parameters.AddWithValue("@Name", Name)
+                .Parameters.AddWithValue("@Purpose", Purpose)
+                .Parameters.AddWithValue("@datetime", datetime)
+            End With
 
-        con.Open()
-        cmd.ExecuteNonQuery()
+            con.Open()
+            cmd.ExecuteNonQuery()
 
-        NameTextBox.ReadOnly = True
-        DateTextBox.ReadOnly = True
-        PurposeTextBox.ReadOnly = True
-        DataGridView1.Visible = True
-        DataGridView2.Visible = False
-        Clear()
+            NameTextBox.ReadOnly = True
+            DateTextBox.ReadOnly = True
+            PurposeTextBox.ReadOnly = True
+            DataGridView1.Visible = True
+            DataGridView2.Visible = False
+            Clear()
+        End If
     End Sub
 
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
