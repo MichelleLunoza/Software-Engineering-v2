@@ -39,8 +39,12 @@ Public Class PopulationForm
         DataGridView1.Columns(13).Width = 100
     End Sub
 
-    Private Sub ViewDetailsButton_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub ViewDetailsButton_Click(sender As Object, e As EventArgs) Handles ViewDetailsButton.Click
         GroupBox2.Visible = True
+        RegisterButton.Enabled = False
+        ViewDetailsButton.Enabled = False
+        CancelButton.Enabled = True
+        DataGridView1.Visible = True
         Display()
     End Sub
 
@@ -48,5 +52,19 @@ Public Class PopulationForm
         DataGridView2.Visible = True
         DataGridView1.Visible = False
         GroupBox1.Visible = True
+        RegisterButton.Enabled = False
+        ViewDetailsButton.Enabled = False
+        CancelButton.Enabled = True
+    End Sub
+
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+        RegisterButton.Enabled = True
+        ViewDetailsButton.Enabled = True
+        CancelButton.Enabled = False
+        DataGridView2.Visible = False
+        DataGridView1.Visible = False
+        GroupBox1.Visible = False
+        GroupBox2.Visible = False
+
     End Sub
 End Class

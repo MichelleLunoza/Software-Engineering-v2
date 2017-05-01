@@ -55,7 +55,7 @@ Partial Class PopulationForm
         Me.TimeLabel = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.ViewDetailsButton = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
@@ -75,6 +75,7 @@ Partial Class PopulationForm
         Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.RegisterButton = New System.Windows.Forms.Button()
+        Me.CancelButton = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -404,15 +405,16 @@ Partial Class PopulationForm
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(596, 426)
         Me.DataGridView1.TabIndex = 82
+        Me.DataGridView1.Visible = False
         '
-        'Button1
+        'ViewDetailsButton
         '
-        Me.Button1.Location = New System.Drawing.Point(1190, 139)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(117, 50)
-        Me.Button1.TabIndex = 119
-        Me.Button1.Text = "View Details"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.ViewDetailsButton.Location = New System.Drawing.Point(1190, 139)
+        Me.ViewDetailsButton.Name = "ViewDetailsButton"
+        Me.ViewDetailsButton.Size = New System.Drawing.Size(117, 50)
+        Me.ViewDetailsButton.TabIndex = 119
+        Me.ViewDetailsButton.Text = "View Details"
+        Me.ViewDetailsButton.UseVisualStyleBackColor = True
         '
         'GroupBox2
         '
@@ -597,21 +599,32 @@ Partial Class PopulationForm
         Me.RegisterButton.Text = "Register"
         Me.RegisterButton.UseVisualStyleBackColor = True
         '
+        'CancelButton
+        '
+        Me.CancelButton.Enabled = False
+        Me.CancelButton.Location = New System.Drawing.Point(1190, 270)
+        Me.CancelButton.Name = "CancelButton"
+        Me.CancelButton.Size = New System.Drawing.Size(117, 50)
+        Me.CancelButton.TabIndex = 121
+        Me.CancelButton.Text = "Cancel"
+        Me.CancelButton.UseVisualStyleBackColor = True
+        '
         'PopulationForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1339, 696)
+        Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.RegisterButton)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.ViewDetailsButton)
         Me.Controls.Add(Me.TimeLabel)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.Label)
         Me.Controls.Add(Me.SearchnameTextBox)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.DataGridView1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "PopulationForm"
@@ -659,7 +672,7 @@ Partial Class PopulationForm
     Friend WithEvents TimeLabel As System.Windows.Forms.Label
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents ViewDetailsButton As System.Windows.Forms.Button
     Friend WithEvents IDTextBox As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
@@ -680,4 +693,5 @@ Partial Class PopulationForm
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents Label26 As System.Windows.Forms.Label
     Friend WithEvents RegisterButton As System.Windows.Forms.Button
+    Friend WithEvents CancelButton As System.Windows.Forms.Button
 End Class
