@@ -125,45 +125,53 @@ Public Class CertIndigencyDetailsForm
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
-        AddButton.Enabled = True
-        UpdateButton.Enabled = False
-        EditButton.Enabled = True
-        SaveButton.Enabled = False
-        DeleteButton.Enabled = True
+        If DateTextBox.Text = "" Then
+            DateTextBox.Focus()
+            MessageBox.Show("Enter Date.", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        ElseIf PurposeTextBox.Text = "" Then
+            PurposeTextBox.Focus()
+            MessageBox.Show("Enter purpose.", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            AddButton.Enabled = True
+            UpdateButton.Enabled = False
+            EditButton.Enabled = True
+            SaveButton.Enabled = False
+            DeleteButton.Enabled = True
 
-        Dim ID = IDTextBox.Text
-        Dim Name = NameTextBox.Text
-        Dim Purpose = PurposeTextBox.Text
-        Dim datetime = DateTextBox.Text
-        Dim con As New SqlConnection
-        Dim cmd As New SqlCommand
+            Dim ID = IDTextBox.Text
+            Dim Name = NameTextBox.Text
+            Dim Purpose = PurposeTextBox.Text
+            Dim datetime = DateTextBox.Text
+            Dim con As New SqlConnection
+            Dim cmd As New SqlCommand
 
-        Dim query As String = String.Empty
-        query &= "INSERT INTO Certificate_Indigency_Table (ID,Name,Purpose,Date)"
-        query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
+            Dim query As String = String.Empty
+            query &= "INSERT INTO Certificate_Indigency_Table (ID,Name,Purpose,Date)"
+            query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
 
 
-        con.ConnectionString = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-        With cmd
-            .Connection = con
-            .CommandType = CommandType.Text
-            .CommandText = query
-            .Parameters.AddWithValue("@ID", ID)
-            .Parameters.AddWithValue("@Name", Name)
-            .Parameters.AddWithValue("@Purpose", Purpose)
-            .Parameters.AddWithValue("@datetime", datetime)
-        End With
+            con.ConnectionString = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+            With cmd
+                .Connection = con
+                .CommandType = CommandType.Text
+                .CommandText = query
+                .Parameters.AddWithValue("@ID", ID)
+                .Parameters.AddWithValue("@Name", Name)
+                .Parameters.AddWithValue("@Purpose", Purpose)
+                .Parameters.AddWithValue("@datetime", datetime)
+            End With
 
-        con.Open()
-        cmd.ExecuteNonQuery()
+            con.Open()
+            cmd.ExecuteNonQuery()
 
-        NameTextBox.ReadOnly = True
-        DateTextBox.ReadOnly = True
-        PurposeTextBox.ReadOnly = True
+            NameTextBox.ReadOnly = True
+            DateTextBox.ReadOnly = True
+            PurposeTextBox.ReadOnly = True
 
-        Clear()
-        DataGridView1.Visible = True
-        DataGridView2.Visible = False
+            Clear()
+            DataGridView1.Visible = True
+            DataGridView2.Visible = False
+        End If
     End Sub
 
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
