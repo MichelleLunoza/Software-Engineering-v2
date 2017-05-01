@@ -47,7 +47,25 @@ Public Class PopulationForm
         DataGridView1.Visible = True
         Display()
     End Sub
+    Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        Dim row As DataGridViewRow = DataGridView1.CurrentRow
 
+        ID2TextBox.Text = row.Cells(0).Value.ToString()
+        FamIDTextBox.Text = row.Cells(1).Value.ToString()
+        Name2TextBox.Text = row.Cells(2).Value.ToString()
+        FamilyCategoryTextBox.Text = row.Cells(3).Value.ToString()
+        PurokTextBox.Text = row.Cells(4).Value.ToString()
+        GenderTextBox.Text = row.Cells(5).Value.ToString()
+        HHNTextBox.Text = row.Cells(6).Value.ToString()
+        OFWCategoryTextBox.Text = row.Cells(7).Value.ToString()
+        PWDCategoryTextBox.Text = row.Cells(8).Value.ToString()
+        zero_twelve_monthsTextBox.Text = row.Cells(9).Value.ToString()
+        two_five_yrs_oldTextBox.Text = row.Cells(10).Value.ToString()
+        thirteen_seventeen_yrs_oldTextBox.Text = row.Cells(11).Value.ToString()
+        six_twelve_yrs_oldTextBox.Text = row.Cells(12).Value.ToString()
+        senior_citizenCategoryTextBox.Text = row.Cells(13).Value.ToString()
+
+    End Sub
     Private Sub RegisterButton_Click(sender As Object, e As EventArgs) Handles RegisterButton.Click
         DataGridView2.Visible = True
         DataGridView1.Visible = False
@@ -65,6 +83,5 @@ Public Class PopulationForm
         DataGridView1.Visible = False
         GroupBox1.Visible = False
         GroupBox2.Visible = False
-
     End Sub
 End Class

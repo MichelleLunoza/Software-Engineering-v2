@@ -60,7 +60,6 @@ Public Class BrgyClearanceDetailsForm
         NameTextBox.Text = row.Cells(1).Value.ToString()
         DateTextBox.Text = row.Cells(2).Value.ToString()
         PurposeTextBox.Text = row.Cells(3).Value.ToString()
-        DataGridView1.Refresh()
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
