@@ -120,6 +120,7 @@ Partial Class PopulationForm
         Me.GenderCComboBox = New System.Windows.Forms.ComboBox()
         Me.FamCComboBox = New System.Windows.Forms.ComboBox()
         Me.PurokCComboBox = New System.Windows.Forms.ComboBox()
+        Me.EditButton = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -513,7 +514,7 @@ Partial Class PopulationForm
         Me.GroupBox2.Controls.Add(Me.Label25)
         Me.GroupBox2.Controls.Add(Me.HHNTextBox)
         Me.GroupBox2.Controls.Add(Me.Label26)
-        Me.GroupBox2.Location = New System.Drawing.Point(207, 113)
+        Me.GroupBox2.Location = New System.Drawing.Point(666, 136)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(478, 426)
         Me.GroupBox2.TabIndex = 117
@@ -771,7 +772,7 @@ Partial Class PopulationForm
         'CancelButton
         '
         Me.CancelButton.Enabled = False
-        Me.CancelButton.Location = New System.Drawing.Point(1190, 341)
+        Me.CancelButton.Location = New System.Drawing.Point(1190, 429)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(117, 50)
         Me.CancelButton.TabIndex = 121
@@ -1090,11 +1091,21 @@ Partial Class PopulationForm
         Me.PurokCComboBox.Size = New System.Drawing.Size(203, 21)
         Me.PurokCComboBox.TabIndex = 103
         '
+        'EditButton
+        '
+        Me.EditButton.Location = New System.Drawing.Point(1190, 341)
+        Me.EditButton.Name = "EditButton"
+        Me.EditButton.Size = New System.Drawing.Size(117, 50)
+        Me.EditButton.TabIndex = 124
+        Me.EditButton.Text = "Edit"
+        Me.EditButton.UseVisualStyleBackColor = True
+        '
         'PopulationForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1339, 696)
+        Me.Controls.Add(Me.EditButton)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
@@ -1225,4 +1236,5 @@ Partial Class PopulationForm
     Friend WithEvents GenderCComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents FamCComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents PurokCComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents EditButton As System.Windows.Forms.Button
 End Class

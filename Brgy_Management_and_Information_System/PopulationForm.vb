@@ -85,25 +85,73 @@ Public Class PopulationForm
         CancelButton.Enabled = False
         DataGridView2.Visible = False
         DataGridView1.Visible = False
+        DataGridView3.Visible = False
         GroupBox1.Visible = False
         GroupBox2.Visible = False
+        GroupBox3.Visible = False
+
+        Clear()
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
-        DataGridView3.Visible = True
-        GroupBox3.Visible = True
-        GroupBox1.Visible = False
-        GroupBox2.Visible = False
-        DataGridView1.Visible = False
-        ViewDetailsButton.Enabled = False
-        RegisterButton.Enabled = False
-        UpdateButton.Enabled = False
-        CancelButton.Enabled = True
-        UpdateFunction()
+        updateData()
     End Sub
-    Private Sub UpdateFunction()
-        Dim con As String = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+    Private Sub updateData()
+
+        Dim ID = ID3TextBox.Text
+        Dim FamilyID = FamID2TextBox.Text
+        Dim Name = Name3TextBox.Text
+        Dim famCategory = FamCComboBox.SelectedItem.ToString()
+        Dim purok = PurokCComboBox.SelectedItem.ToString()
+        Dim gender = GenderCComboBox.SelectedItem.ToString()
+        Dim HHN = HHN2TextBox.Text
+        Dim OFW = OFWCComboBox.SelectedItem.ToString()
+        Dim PWD = PWDCComboBox.SelectedItem.ToString()
+        Dim zero_twelve_months = zeroCComboBox.SelectedItem.ToString()
+        Dim two_five_yrs_old = twoCComboBox.SelectedItem.ToString()
+        Dim six_twelve_yrs_old = sixCComboBox.SelectedItem.ToString()
+        Dim thirteen_seventeen_yrs_old = thirteenCComboBox.SelectedItem.ToString()
+        Dim senior_citizen = seniorCComboBox.SelectedItem.ToString()
+        Dim con As New SqlConnection
+        Dim cmd As New SqlCommand
+
+
+
         Dim query As String = String.Empty
+        query &= "UPDATE Population SET ID=@ID,Family_ID=@Family_ID,Name=@Name,Family_Category=@famCategory,Purok=@purok,Gender=@gender,HH_Number=@HHN,OFW_Category=@OFW,PWD_Category=@PWD,zero_twelve_months_Category=@zero_twelve_months,two_five_yrs_old_Category=@two_five_yrs_old,six_twelve_yrs_old_Category=@six_twelve_yrs_old,thirteen_seventeen_Category=@thirteen_seventeen_yrs_old,senior_citizen_Category=@senior_citizen WHERE ID=@ID"
+        con.ConnectionString = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        With cmd
+
+
+            .Connection = con
+            .CommandType = CommandType.Text
+            .CommandText = query
+            .Parameters.AddWithValue("@ID", ID)
+            .Parameters.AddWithValue("@Family_ID", FamilyID)
+            .Parameters.AddWithValue("@Name", Name)
+            .Parameters.AddWithValue("@famCategory", famCategory)
+            .Parameters.AddWithValue("@purok", purok)
+            .Parameters.AddWithValue("@gender", gender)
+            .Parameters.AddWithValue("@HHN", HHN)
+            .Parameters.AddWithValue("@OFW", OFW)
+            .Parameters.AddWithValue("@PWD", PWD)
+            .Parameters.AddWithValue("@zero_twelve_months", zero_twelve_months)
+            .Parameters.AddWithValue("@two_five_yrs_old", two_five_yrs_old)
+            .Parameters.AddWithValue("@six_twelve_yrs_old", six_twelve_yrs_old)
+            .Parameters.AddWithValue("@thirteen_seventeen_yrs_old", thirteen_seventeen_yrs_old)
+            .Parameters.AddWithValue("@senior_citizen", senior_citizen)
+        End With
+
+        con.Open()
+        cmd.ExecuteNonQuery()
+        con.Close()
+        MessageBox.Show("Successfully Saved")
+        Clear()
+    End Sub
+    Private Sub DisplayUpdateFunction()
+        Dim query As String = String.Empty
+        Dim con As String = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        'Dim query As String = String.Empty
         query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population"
 
 
@@ -138,10 +186,46 @@ Public Class PopulationForm
     Private Sub DataGridView3_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView3.CellClick
         Dim row As DataGridViewRow = DataGridView3.CurrentRow
 
-        ID2TextBox.Text = row.Cells(0).Value.ToString()
+        ID3TextBox.Text = row.Cells(0).Value.ToString()
         FamID2TextBox.Text = row.Cells(1).Value.ToString()
         Name3TextBox.Text = row.Cells(2).Value.ToString()
         HHN2TextBox.Text = row.Cells(6).Value.ToString()
 
+    End Sub
+
+    Private Sub Clear()
+        IDTextBox.Clear()
+        ID2TextBox.Clear()
+        ID3TextBox.Clear()
+        Family_IDTextBox.Clear()
+        FamIDTextBox.Clear()
+        FamID2TextBox.Clear()
+        PurokTextBox.Clear()
+        GenderTextBox.Clear()
+        HH_NumberTextBox.Clear()
+        HHNTextBox.Clear()
+        HHN2TextBox.Clear()
+        OFWCategoryTextBox.Clear()
+        PWDCategoryTextBox.Clear()
+        zero_twelve_monthsTextBox.Clear()
+        two_five_yrs_oldTextBox.Clear()
+        six_twelve_yrs_oldTextBox.Clear()
+        thirteen_seventeen_yrs_oldTextBox.Clear()
+        senior_citizenCategoryTextBox.Clear()
+
+    End Sub
+
+    Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
+        DataGridView3.Visible = True
+        GroupBox3.Visible = True
+        GroupBox1.Visible = False
+        GroupBox2.Visible = False
+        DataGridView1.Visible = False
+        ViewDetailsButton.Enabled = False
+        RegisterButton.Enabled = False
+        UpdateButton.Enabled = True
+        EditButton.Enabled = False
+        CancelButton.Enabled = True
+        DisplayUpdateFunction()
     End Sub
 End Class
