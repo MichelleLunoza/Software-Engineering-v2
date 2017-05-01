@@ -51,12 +51,16 @@ Partial Class PopulationForm
         Me.senior_citizenComboBox = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.six_twelve_yrs_oldComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label28 = New System.Windows.Forms.Label()
         Me.IDTextBox = New System.Windows.Forms.TextBox()
         Me.TimeLabel = New System.Windows.Forms.Label()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ViewDetailsButton = New System.Windows.Forms.Button()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.six_twelve_yrs_oldTextBox = New System.Windows.Forms.TextBox()
+        Me.Label27 = New System.Windows.Forms.Label()
         Me.senior_citizenCategoryTextBox = New System.Windows.Forms.TextBox()
         Me.thirteen_seventeen_yrs_oldTextBox = New System.Windows.Forms.TextBox()
         Me.two_five_yrs_oldTextBox = New System.Windows.Forms.TextBox()
@@ -85,14 +89,43 @@ Partial Class PopulationForm
         Me.Label26 = New System.Windows.Forms.Label()
         Me.RegisterButton = New System.Windows.Forms.Button()
         Me.CancelButton = New System.Windows.Forms.Button()
-        Me.six_twelve_yrs_oldTextBox = New System.Windows.Forms.TextBox()
-        Me.Label27 = New System.Windows.Forms.Label()
-        Me.six_twelve_yrs_oldComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label28 = New System.Windows.Forms.Label()
+        Me.UpdateButton = New System.Windows.Forms.Button()
+        Me.DataGridView3 = New System.Windows.Forms.DataGridView()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.sixCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.ID3TextBox = New System.Windows.Forms.TextBox()
+        Me.seniorCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.thirteenCComboBox = New System.Windows.Forms.ComboBox()
+        Me.FamID2TextBox = New System.Windows.Forms.TextBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.twoCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Name3TextBox = New System.Windows.Forms.TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.zeroCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.PWDCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.HHN2TextBox = New System.Windows.Forms.TextBox()
+        Me.OFWCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.GenderCComboBox = New System.Windows.Forms.ComboBox()
+        Me.FamCComboBox = New System.Windows.Forms.ComboBox()
+        Me.PurokCComboBox = New System.Windows.Forms.ComboBox()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.GroupBox3.SuspendLayout()
         Me.SuspendLayout()
         '
         'ClearButton
@@ -380,13 +413,32 @@ Partial Class PopulationForm
         Me.GroupBox1.Controls.Add(Me.GenderComboBox)
         Me.GroupBox1.Controls.Add(Me.FamilyComboBox)
         Me.GroupBox1.Controls.Add(Me.PurokComboBox)
-        Me.GroupBox1.Location = New System.Drawing.Point(670, 136)
+        Me.GroupBox1.Location = New System.Drawing.Point(666, 132)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(478, 440)
         Me.GroupBox1.TabIndex = 116
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Personal Information"
         Me.GroupBox1.Visible = False
+        '
+        'six_twelve_yrs_oldComboBox
+        '
+        Me.six_twelve_yrs_oldComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.six_twelve_yrs_oldComboBox.FormattingEnabled = True
+        Me.six_twelve_yrs_oldComboBox.Items.AddRange(New Object() {"yes", "no"})
+        Me.six_twelve_yrs_oldComboBox.Location = New System.Drawing.Point(216, 339)
+        Me.six_twelve_yrs_oldComboBox.Name = "six_twelve_yrs_oldComboBox"
+        Me.six_twelve_yrs_oldComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.six_twelve_yrs_oldComboBox.TabIndex = 117
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(71, 347)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(109, 13)
+        Me.Label28.TabIndex = 116
+        Me.Label28.Text = "6-12 yrs old Category:"
         '
         'IDTextBox
         '
@@ -461,13 +513,30 @@ Partial Class PopulationForm
         Me.GroupBox2.Controls.Add(Me.Label25)
         Me.GroupBox2.Controls.Add(Me.HHNTextBox)
         Me.GroupBox2.Controls.Add(Me.Label26)
-        Me.GroupBox2.Location = New System.Drawing.Point(670, 136)
+        Me.GroupBox2.Location = New System.Drawing.Point(207, 113)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(478, 426)
         Me.GroupBox2.TabIndex = 117
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Personal Information"
         Me.GroupBox2.Visible = False
+        '
+        'six_twelve_yrs_oldTextBox
+        '
+        Me.six_twelve_yrs_oldTextBox.Location = New System.Drawing.Point(216, 339)
+        Me.six_twelve_yrs_oldTextBox.Name = "six_twelve_yrs_oldTextBox"
+        Me.six_twelve_yrs_oldTextBox.ReadOnly = True
+        Me.six_twelve_yrs_oldTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.six_twelve_yrs_oldTextBox.TabIndex = 125
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(71, 349)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(109, 13)
+        Me.Label27.TabIndex = 124
+        Me.Label27.Text = "6-12 yrs old Category:"
         '
         'senior_citizenCategoryTextBox
         '
@@ -702,54 +771,335 @@ Partial Class PopulationForm
         'CancelButton
         '
         Me.CancelButton.Enabled = False
-        Me.CancelButton.Location = New System.Drawing.Point(1190, 270)
+        Me.CancelButton.Location = New System.Drawing.Point(1190, 341)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(117, 50)
         Me.CancelButton.TabIndex = 121
         Me.CancelButton.Text = "Cancel"
         Me.CancelButton.UseVisualStyleBackColor = True
         '
-        'six_twelve_yrs_oldTextBox
+        'UpdateButton
         '
-        Me.six_twelve_yrs_oldTextBox.Location = New System.Drawing.Point(216, 339)
-        Me.six_twelve_yrs_oldTextBox.Name = "six_twelve_yrs_oldTextBox"
-        Me.six_twelve_yrs_oldTextBox.ReadOnly = True
-        Me.six_twelve_yrs_oldTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.six_twelve_yrs_oldTextBox.TabIndex = 125
+        Me.UpdateButton.Location = New System.Drawing.Point(1190, 270)
+        Me.UpdateButton.Name = "UpdateButton"
+        Me.UpdateButton.Size = New System.Drawing.Size(117, 50)
+        Me.UpdateButton.TabIndex = 122
+        Me.UpdateButton.Text = "Update"
+        Me.UpdateButton.UseVisualStyleBackColor = True
         '
-        'Label27
+        'DataGridView3
         '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(71, 349)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(109, 13)
-        Me.Label27.TabIndex = 124
-        Me.Label27.Text = "6-12 yrs old Category:"
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(38, 136)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(596, 426)
+        Me.DataGridView3.TabIndex = 123
+        Me.DataGridView3.Visible = False
         '
-        'six_twelve_yrs_oldComboBox
+        'GroupBox3
         '
-        Me.six_twelve_yrs_oldComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.six_twelve_yrs_oldComboBox.FormattingEnabled = True
-        Me.six_twelve_yrs_oldComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.six_twelve_yrs_oldComboBox.Location = New System.Drawing.Point(216, 339)
-        Me.six_twelve_yrs_oldComboBox.Name = "six_twelve_yrs_oldComboBox"
-        Me.six_twelve_yrs_oldComboBox.Size = New System.Drawing.Size(203, 21)
-        Me.six_twelve_yrs_oldComboBox.TabIndex = 117
+        Me.GroupBox3.Controls.Add(Me.sixCComboBox)
+        Me.GroupBox3.Controls.Add(Me.Label29)
+        Me.GroupBox3.Controls.Add(Me.ID3TextBox)
+        Me.GroupBox3.Controls.Add(Me.seniorCComboBox)
+        Me.GroupBox3.Controls.Add(Me.Label30)
+        Me.GroupBox3.Controls.Add(Me.Label31)
+        Me.GroupBox3.Controls.Add(Me.Label32)
+        Me.GroupBox3.Controls.Add(Me.thirteenCComboBox)
+        Me.GroupBox3.Controls.Add(Me.FamID2TextBox)
+        Me.GroupBox3.Controls.Add(Me.Label33)
+        Me.GroupBox3.Controls.Add(Me.Label34)
+        Me.GroupBox3.Controls.Add(Me.twoCComboBox)
+        Me.GroupBox3.Controls.Add(Me.Name3TextBox)
+        Me.GroupBox3.Controls.Add(Me.Label35)
+        Me.GroupBox3.Controls.Add(Me.Label36)
+        Me.GroupBox3.Controls.Add(Me.zeroCComboBox)
+        Me.GroupBox3.Controls.Add(Me.Label37)
+        Me.GroupBox3.Controls.Add(Me.Label38)
+        Me.GroupBox3.Controls.Add(Me.Label39)
+        Me.GroupBox3.Controls.Add(Me.PWDCComboBox)
+        Me.GroupBox3.Controls.Add(Me.Label40)
+        Me.GroupBox3.Controls.Add(Me.Label41)
+        Me.GroupBox3.Controls.Add(Me.HHN2TextBox)
+        Me.GroupBox3.Controls.Add(Me.OFWCComboBox)
+        Me.GroupBox3.Controls.Add(Me.Label42)
+        Me.GroupBox3.Controls.Add(Me.GenderCComboBox)
+        Me.GroupBox3.Controls.Add(Me.FamCComboBox)
+        Me.GroupBox3.Controls.Add(Me.PurokCComboBox)
+        Me.GroupBox3.Location = New System.Drawing.Point(666, 136)
+        Me.GroupBox3.Name = "GroupBox3"
+        Me.GroupBox3.Size = New System.Drawing.Size(478, 440)
+        Me.GroupBox3.TabIndex = 118
+        Me.GroupBox3.TabStop = False
+        Me.GroupBox3.Text = "Personal Information"
+        Me.GroupBox3.Visible = False
         '
-        'Label28
+        'sixCComboBox
         '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(71, 347)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(109, 13)
-        Me.Label28.TabIndex = 116
-        Me.Label28.Text = "6-12 yrs old Category:"
+        Me.sixCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.sixCComboBox.FormattingEnabled = True
+        Me.sixCComboBox.Items.AddRange(New Object() {"yes", "no"})
+        Me.sixCComboBox.Location = New System.Drawing.Point(216, 339)
+        Me.sixCComboBox.Name = "sixCComboBox"
+        Me.sixCComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.sixCComboBox.TabIndex = 117
+        '
+        'Label29
+        '
+        Me.Label29.AutoSize = True
+        Me.Label29.Location = New System.Drawing.Point(71, 347)
+        Me.Label29.Name = "Label29"
+        Me.Label29.Size = New System.Drawing.Size(109, 13)
+        Me.Label29.TabIndex = 116
+        Me.Label29.Text = "6-12 yrs old Category:"
+        '
+        'ID3TextBox
+        '
+        Me.ID3TextBox.Location = New System.Drawing.Point(216, 33)
+        Me.ID3TextBox.Name = "ID3TextBox"
+        Me.ID3TextBox.ReadOnly = True
+        Me.ID3TextBox.Size = New System.Drawing.Size(203, 20)
+        Me.ID3TextBox.TabIndex = 87
+        '
+        'seniorCComboBox
+        '
+        Me.seniorCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.seniorCComboBox.FormattingEnabled = True
+        Me.seniorCComboBox.Items.AddRange(New Object() {"yes", "no"})
+        Me.seniorCComboBox.Location = New System.Drawing.Point(216, 392)
+        Me.seniorCComboBox.Name = "seniorCComboBox"
+        Me.seniorCComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.seniorCComboBox.TabIndex = 115
+        '
+        'Label30
+        '
+        Me.Label30.AutoSize = True
+        Me.Label30.Location = New System.Drawing.Point(71, 40)
+        Me.Label30.Name = "Label30"
+        Me.Label30.Size = New System.Drawing.Size(21, 13)
+        Me.Label30.TabIndex = 86
+        Me.Label30.Text = "ID:"
+        '
+        'Label31
+        '
+        Me.Label31.AutoSize = True
+        Me.Label31.Location = New System.Drawing.Point(71, 400)
+        Me.Label31.Name = "Label31"
+        Me.Label31.Size = New System.Drawing.Size(119, 13)
+        Me.Label31.TabIndex = 114
+        Me.Label31.Text = "Senior Citizen Category:"
+        '
+        'Label32
+        '
+        Me.Label32.AutoSize = True
+        Me.Label32.Location = New System.Drawing.Point(71, 66)
+        Me.Label32.Name = "Label32"
+        Me.Label32.Size = New System.Drawing.Size(53, 13)
+        Me.Label32.TabIndex = 88
+        Me.Label32.Text = "Family ID:"
+        '
+        'thirteenCComboBox
+        '
+        Me.thirteenCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.thirteenCComboBox.FormattingEnabled = True
+        Me.thirteenCComboBox.Items.AddRange(New Object() {"yes", "no"})
+        Me.thirteenCComboBox.Location = New System.Drawing.Point(216, 365)
+        Me.thirteenCComboBox.Name = "thirteenCComboBox"
+        Me.thirteenCComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.thirteenCComboBox.TabIndex = 113
+        '
+        'FamID2TextBox
+        '
+        Me.FamID2TextBox.Location = New System.Drawing.Point(216, 59)
+        Me.FamID2TextBox.Name = "FamID2TextBox"
+        Me.FamID2TextBox.ReadOnly = True
+        Me.FamID2TextBox.Size = New System.Drawing.Size(203, 20)
+        Me.FamID2TextBox.TabIndex = 89
+        '
+        'Label33
+        '
+        Me.Label33.AutoSize = True
+        Me.Label33.Location = New System.Drawing.Point(71, 373)
+        Me.Label33.Name = "Label33"
+        Me.Label33.Size = New System.Drawing.Size(115, 13)
+        Me.Label33.TabIndex = 112
+        Me.Label33.Text = "13-17 yrs old Category:"
+        '
+        'Label34
+        '
+        Me.Label34.AutoSize = True
+        Me.Label34.Location = New System.Drawing.Point(71, 92)
+        Me.Label34.Name = "Label34"
+        Me.Label34.Size = New System.Drawing.Size(38, 13)
+        Me.Label34.TabIndex = 90
+        Me.Label34.Text = "Name:"
+        '
+        'twoCComboBox
+        '
+        Me.twoCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.twoCComboBox.FormattingEnabled = True
+        Me.twoCComboBox.Items.AddRange(New Object() {"yes", "no"})
+        Me.twoCComboBox.Location = New System.Drawing.Point(216, 312)
+        Me.twoCComboBox.Name = "twoCComboBox"
+        Me.twoCComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.twoCComboBox.TabIndex = 111
+        '
+        'Name3TextBox
+        '
+        Me.Name3TextBox.Location = New System.Drawing.Point(216, 85)
+        Me.Name3TextBox.Name = "Name3TextBox"
+        Me.Name3TextBox.Size = New System.Drawing.Size(203, 20)
+        Me.Name3TextBox.TabIndex = 91
+        '
+        'Label35
+        '
+        Me.Label35.AutoSize = True
+        Me.Label35.Location = New System.Drawing.Point(71, 320)
+        Me.Label35.Name = "Label35"
+        Me.Label35.Size = New System.Drawing.Size(103, 13)
+        Me.Label35.TabIndex = 110
+        Me.Label35.Text = "2-5 yrs old Category:"
+        '
+        'Label36
+        '
+        Me.Label36.AutoSize = True
+        Me.Label36.Location = New System.Drawing.Point(71, 126)
+        Me.Label36.Name = "Label36"
+        Me.Label36.Size = New System.Drawing.Size(84, 13)
+        Me.Label36.TabIndex = 92
+        Me.Label36.Text = "Family Category:"
+        '
+        'zeroCComboBox
+        '
+        Me.zeroCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.zeroCComboBox.FormattingEnabled = True
+        Me.zeroCComboBox.Items.AddRange(New Object() {"yes", "no"})
+        Me.zeroCComboBox.Location = New System.Drawing.Point(216, 285)
+        Me.zeroCComboBox.Name = "zeroCComboBox"
+        Me.zeroCComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.zeroCComboBox.TabIndex = 109
+        '
+        'Label37
+        '
+        Me.Label37.AutoSize = True
+        Me.Label37.Location = New System.Drawing.Point(72, 153)
+        Me.Label37.Name = "Label37"
+        Me.Label37.Size = New System.Drawing.Size(38, 13)
+        Me.Label37.TabIndex = 94
+        Me.Label37.Text = "Purok:"
+        '
+        'Label38
+        '
+        Me.Label38.AutoSize = True
+        Me.Label38.Location = New System.Drawing.Point(71, 293)
+        Me.Label38.Name = "Label38"
+        Me.Label38.Size = New System.Drawing.Size(113, 13)
+        Me.Label38.TabIndex = 108
+        Me.Label38.Text = "0-12 months Category:"
+        '
+        'Label39
+        '
+        Me.Label39.AutoSize = True
+        Me.Label39.Location = New System.Drawing.Point(72, 180)
+        Me.Label39.Name = "Label39"
+        Me.Label39.Size = New System.Drawing.Size(45, 13)
+        Me.Label39.TabIndex = 96
+        Me.Label39.Text = "Gender:"
+        '
+        'PWDCComboBox
+        '
+        Me.PWDCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.PWDCComboBox.FormattingEnabled = True
+        Me.PWDCComboBox.Items.AddRange(New Object() {"yes", "no"})
+        Me.PWDCComboBox.Location = New System.Drawing.Point(216, 258)
+        Me.PWDCComboBox.Name = "PWDCComboBox"
+        Me.PWDCComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.PWDCComboBox.TabIndex = 107
+        '
+        'Label40
+        '
+        Me.Label40.AutoSize = True
+        Me.Label40.Location = New System.Drawing.Point(72, 215)
+        Me.Label40.Name = "Label40"
+        Me.Label40.Size = New System.Drawing.Size(66, 13)
+        Me.Label40.TabIndex = 98
+        Me.Label40.Text = "HH Number:"
+        '
+        'Label41
+        '
+        Me.Label41.AutoSize = True
+        Me.Label41.Location = New System.Drawing.Point(71, 266)
+        Me.Label41.Name = "Label41"
+        Me.Label41.Size = New System.Drawing.Size(81, 13)
+        Me.Label41.TabIndex = 106
+        Me.Label41.Text = "PWD Category:"
+        '
+        'HHN2TextBox
+        '
+        Me.HHN2TextBox.Location = New System.Drawing.Point(216, 208)
+        Me.HHN2TextBox.Name = "HHN2TextBox"
+        Me.HHN2TextBox.Size = New System.Drawing.Size(203, 20)
+        Me.HHN2TextBox.TabIndex = 99
+        '
+        'OFWCComboBox
+        '
+        Me.OFWCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.OFWCComboBox.FormattingEnabled = True
+        Me.OFWCComboBox.Items.AddRange(New Object() {"yes", "no"})
+        Me.OFWCComboBox.Location = New System.Drawing.Point(216, 231)
+        Me.OFWCComboBox.Name = "OFWCComboBox"
+        Me.OFWCComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.OFWCComboBox.TabIndex = 105
+        '
+        'Label42
+        '
+        Me.Label42.AutoSize = True
+        Me.Label42.Location = New System.Drawing.Point(71, 239)
+        Me.Label42.Name = "Label42"
+        Me.Label42.Size = New System.Drawing.Size(80, 13)
+        Me.Label42.TabIndex = 100
+        Me.Label42.Text = "OFW Category:"
+        '
+        'GenderCComboBox
+        '
+        Me.GenderCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.GenderCComboBox.FormattingEnabled = True
+        Me.GenderCComboBox.Items.AddRange(New Object() {"Female", "Male"})
+        Me.GenderCComboBox.Location = New System.Drawing.Point(216, 172)
+        Me.GenderCComboBox.Name = "GenderCComboBox"
+        Me.GenderCComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.GenderCComboBox.TabIndex = 104
+        '
+        'FamCComboBox
+        '
+        Me.FamCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.FamCComboBox.FormattingEnabled = True
+        Me.FamCComboBox.Items.AddRange(New Object() {"Head", "Member"})
+        Me.FamCComboBox.Location = New System.Drawing.Point(216, 118)
+        Me.FamCComboBox.Name = "FamCComboBox"
+        Me.FamCComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.FamCComboBox.TabIndex = 102
+        '
+        'PurokCComboBox
+        '
+        Me.PurokCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.PurokCComboBox.FormattingEnabled = True
+        Me.PurokCComboBox.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7"})
+        Me.PurokCComboBox.Location = New System.Drawing.Point(216, 145)
+        Me.PurokCComboBox.Name = "PurokCComboBox"
+        Me.PurokCComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.PurokCComboBox.TabIndex = 103
         '
         'PopulationForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1339, 696)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.DataGridView3)
+        Me.Controls.Add(Me.UpdateButton)
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.RegisterButton)
         Me.Controls.Add(Me.ViewDetailsButton)
@@ -759,8 +1109,6 @@ Partial Class PopulationForm
         Me.Controls.Add(Me.SearchnameTextBox)
         Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "PopulationForm"
@@ -772,6 +1120,9 @@ Partial Class PopulationForm
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -843,4 +1194,35 @@ Partial Class PopulationForm
     Friend WithEvents Label27 As System.Windows.Forms.Label
     Friend WithEvents six_twelve_yrs_oldComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents Label28 As System.Windows.Forms.Label
+    Friend WithEvents UpdateButton As System.Windows.Forms.Button
+    Friend WithEvents DataGridView3 As System.Windows.Forms.DataGridView
+    Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
+    Friend WithEvents sixCComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents Label29 As System.Windows.Forms.Label
+    Friend WithEvents ID3TextBox As System.Windows.Forms.TextBox
+    Friend WithEvents seniorCComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents Label30 As System.Windows.Forms.Label
+    Friend WithEvents Label31 As System.Windows.Forms.Label
+    Friend WithEvents Label32 As System.Windows.Forms.Label
+    Friend WithEvents thirteenCComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents FamID2TextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Label33 As System.Windows.Forms.Label
+    Friend WithEvents Label34 As System.Windows.Forms.Label
+    Friend WithEvents twoCComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents Name3TextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Label35 As System.Windows.Forms.Label
+    Friend WithEvents Label36 As System.Windows.Forms.Label
+    Friend WithEvents zeroCComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents Label37 As System.Windows.Forms.Label
+    Friend WithEvents Label38 As System.Windows.Forms.Label
+    Friend WithEvents Label39 As System.Windows.Forms.Label
+    Friend WithEvents PWDCComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents Label40 As System.Windows.Forms.Label
+    Friend WithEvents Label41 As System.Windows.Forms.Label
+    Friend WithEvents HHN2TextBox As System.Windows.Forms.TextBox
+    Friend WithEvents OFWCComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents Label42 As System.Windows.Forms.Label
+    Friend WithEvents GenderCComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents FamCComboBox As System.Windows.Forms.ComboBox
+    Friend WithEvents PurokCComboBox As System.Windows.Forms.ComboBox
 End Class

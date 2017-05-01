@@ -43,6 +43,7 @@ Public Class PopulationForm
         GroupBox2.Visible = True
         RegisterButton.Enabled = False
         ViewDetailsButton.Enabled = False
+        UpdateButton.Enabled = False
         CancelButton.Enabled = True
         DataGridView1.Visible = True
         Display()
@@ -70,18 +71,77 @@ Public Class PopulationForm
         DataGridView2.Visible = True
         DataGridView1.Visible = False
         GroupBox1.Visible = True
+        GroupBox2.Visible = False
         RegisterButton.Enabled = False
         ViewDetailsButton.Enabled = False
         CancelButton.Enabled = True
+        UpdateButton.Enabled = False
     End Sub
 
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
         RegisterButton.Enabled = True
         ViewDetailsButton.Enabled = True
+        UpdateButton.Enabled = True
         CancelButton.Enabled = False
         DataGridView2.Visible = False
         DataGridView1.Visible = False
         GroupBox1.Visible = False
         GroupBox2.Visible = False
+    End Sub
+
+    Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
+        DataGridView3.Visible = True
+        GroupBox3.Visible = True
+        GroupBox1.Visible = False
+        GroupBox2.Visible = False
+        DataGridView1.Visible = False
+        ViewDetailsButton.Enabled = False
+        RegisterButton.Enabled = False
+        UpdateButton.Enabled = False
+        CancelButton.Enabled = True
+        UpdateFunction()
+    End Sub
+    Private Sub UpdateFunction()
+        Dim con As String = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        Dim query As String = String.Empty
+        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population"
+
+
+
+        Dim connection As New SqlConnection(con)
+        Dim dataadapter As New SqlDataAdapter(query, connection)
+        Dim ds As New DataSet()
+
+
+        connection.Open()
+        dataadapter.Fill(ds, "Population")
+        connection.Close()
+        DataGridView3.DataSource = ds
+        DataGridView3.DataMember = "Population"
+        DataGridView3.Columns(0).Width = 100
+        DataGridView3.Columns(1).Width = 100
+        DataGridView3.Columns(2).Width = 150
+        DataGridView3.Columns(3).Width = 100
+        DataGridView3.Columns(4).Width = 100
+        DataGridView3.Columns(5).Width = 100
+        DataGridView3.Columns(6).Width = 100
+        DataGridView3.Columns(7).Width = 100
+        DataGridView3.Columns(8).Width = 100
+        DataGridView3.Columns(9).Width = 100
+        DataGridView3.Columns(9).Width = 100
+        DataGridView3.Columns(10).Width = 100
+        DataGridView3.Columns(11).Width = 100
+        DataGridView3.Columns(12).Width = 100
+        DataGridView3.Columns(13).Width = 100
+    End Sub
+
+    Private Sub DataGridView3_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView3.CellClick
+        Dim row As DataGridViewRow = DataGridView3.CurrentRow
+
+        ID2TextBox.Text = row.Cells(0).Value.ToString()
+        FamID2TextBox.Text = row.Cells(1).Value.ToString()
+        Name3TextBox.Text = row.Cells(2).Value.ToString()
+        HHN2TextBox.Text = row.Cells(6).Value.ToString()
+
     End Sub
 End Class
