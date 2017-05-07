@@ -3,13 +3,12 @@ Public Class PopulationForm
 
     Private Sub PopulationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TimeLabel.Text = Date.Now.ToString()
-        Me.MaximumSize = Screen.FromRectangle(Me.Bounds).WorkingArea.Size
     End Sub
     Private Sub Display()
 
-        Dim con As String = "Data Source = AZKHABAN\SQLEXPRESS; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population_"
+        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population_Table"
 
 
 
@@ -19,10 +18,10 @@ Public Class PopulationForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population_")
+        dataadapter.Fill(ds, "Population_Table")
         connection.Close()
         DataGridView1.DataSource = ds
-        DataGridView1.DataMember = "Population_"
+        DataGridView1.DataMember = "Population_Table"
         DataGridView1.Columns(0).Width = 100
         DataGridView1.Columns(1).Width = 100
         DataGridView1.Columns(2).Width = 150
@@ -38,6 +37,7 @@ Public Class PopulationForm
         DataGridView1.Columns(11).Width = 100
         DataGridView1.Columns(12).Width = 100
         DataGridView1.Columns(13).Width = 100
+        DataGridView1.Columns(14).Width = 100
     End Sub
 
     Private Sub ViewDetailsButton_Click(sender As Object, e As EventArgs) Handles ViewDetailsButton.Click
@@ -58,14 +58,15 @@ Public Class PopulationForm
         FamilyCategoryTextBox.Text = row.Cells(3).Value.ToString()
         PurokTextBox.Text = row.Cells(4).Value.ToString()
         GenderTextBox.Text = row.Cells(5).Value.ToString()
-        HHNTextBox.Text = row.Cells(6).Value.ToString()
-        OFWCategoryTextBox.Text = row.Cells(7).Value.ToString()
-        PWDCategoryTextBox.Text = row.Cells(8).Value.ToString()
-        zero_twelve_monthsTextBox.Text = row.Cells(9).Value.ToString()
-        two_five_yrs_oldTextBox.Text = row.Cells(10).Value.ToString()
-        thirteen_seventeen_yrs_oldTextBox.Text = row.Cells(11).Value.ToString()
-        six_twelve_yrs_oldTextBox.Text = row.Cells(12).Value.ToString()
-        senior_citizenCategoryTextBox.Text = row.Cells(13).Value.ToString()
+        Net_IncomeTextBox.Text = row.Cells(6).Value.ToString()
+        HHNTextBox.Text = row.Cells(7).Value.ToString()
+        OFWCategoryTextBox.Text = row.Cells(8).Value.ToString()
+        PWDCategoryTextBox.Text = row.Cells(9).Value.ToString()
+        zero_twelve_monthsTextBox.Text = row.Cells(10).Value.ToString()
+        two_five_yrs_oldTextBox.Text = row.Cells(11).Value.ToString()
+        thirteen_seventeen_yrs_oldTextBox.Text = row.Cells(12).Value.ToString()
+        six_twelve_yrs_oldTextBox.Text = row.Cells(13).Value.ToString()
+        senior_citizenCategoryTextBox.Text = row.Cells(14).Value.ToString()
 
     End Sub
     Private Sub RegisterButton_Click(sender As Object, e As EventArgs) Handles RegisterButton.Click
@@ -122,8 +123,8 @@ Public Class PopulationForm
 
 
         Dim query As String = String.Empty
-        query &= "UPDATE Population_ SET ID=@ID,Family_ID=@Family_ID,Name=@Name,Family_Category=@famCategory,Purok=@purok,Gender=@gender,HH_Number=@HHN,OFW_Category=@OFW,PWD_Category=@PWD,zero_twelve_months_Category=@zero_twelve_months,two_five_yrs_old_Category=@two_five_yrs_old,six_twelve_yrs_old_Category=@six_twelve_yrs_old,thirteen_seventeen_Category=@thirteen_seventeen_yrs_old,senior_citizen_Category=@senior_citizen WHERE ID=@ID"
-        con.ConnectionString = "Data Source = AZKHABAN\SQLEXPRESS; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        query &= "UPDATE Population_Table SET ID=@ID,Family_ID=@Family_ID,Name=@Name,Family_Category=@famCategory,Purok=@purok,Gender=@gender,HH_Number=@HHN,OFW_Category=@OFW,PWD_Category=@PWD,zero_twelve_months_Category=@zero_twelve_months,two_five_yrs_old_Category=@two_five_yrs_old,six_twelve_yrs_old_Category=@six_twelve_yrs_old,thirteen_seventeen_Category=@thirteen_seventeen_yrs_old,senior_citizen_Category=@senior_citizen WHERE ID=@ID"
+        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         With cmd
 
 
@@ -216,6 +217,11 @@ Public Class PopulationForm
         six_twelve_yrs_oldTextBox.Clear()
         thirteen_seventeen_yrs_oldTextBox.Clear()
         senior_citizenCategoryTextBox.Clear()
+        FamilyCategoryTextBox.Clear()
+        Name2TextBox.Clear()
+        Name3TextBox.Clear()
+        NameTextBox.Clear()
+        Net_IncomeTextBox.Clear()
 
     End Sub
 

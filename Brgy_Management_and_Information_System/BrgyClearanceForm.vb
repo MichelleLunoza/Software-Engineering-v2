@@ -69,7 +69,7 @@ Public Class BrgyClearanceForm
         Dim cmd As New SqlCommand
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO Brgy_ClearanceTable (ID,Name,Date,Purpose)"
+        query &= "INSERT INTO Brgy_Clearance_Table (ID,Name,Date,Purpose)"
         query &= "VALUES (@ID,@Name,@Date,@Purpose)"
         con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         With cmd

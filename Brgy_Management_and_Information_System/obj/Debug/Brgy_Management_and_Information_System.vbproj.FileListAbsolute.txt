@@ -95,3 +95,4 @@ C:\Users\MiGutierrez\Downloads\Software-Engineering-v2\Brgy_Management_and_Infor
 C:\Users\MiGutierrez\Downloads\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.Resources.resources
 C:\Users\MiGutierrez\Downloads\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.PopulationForm.resources
 C:\Users\MiGutierrez\Downloads\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.vbproj.GenerateResource.Cache
+C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.vbproj.ResolveComReference.cache

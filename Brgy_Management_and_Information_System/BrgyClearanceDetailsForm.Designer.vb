@@ -48,6 +48,7 @@ Partial Class BrgyClearanceDetailsForm
         Me.BackButton = New System.Windows.Forms.Button()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.ExportButton = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -274,6 +275,15 @@ Partial Class BrgyClearanceDetailsForm
         Me.DataGridView2.TabIndex = 82
         Me.DataGridView2.Visible = False
         '
+        'ExportButton
+        '
+        Me.ExportButton.Location = New System.Drawing.Point(1209, 667)
+        Me.ExportButton.Name = "ExportButton"
+        Me.ExportButton.Size = New System.Drawing.Size(112, 33)
+        Me.ExportButton.TabIndex = 77
+        Me.ExportButton.Text = "Export in Excel"
+        Me.ExportButton.UseVisualStyleBackColor = True
+        '
         'BrgyClearanceDetailsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -281,6 +291,7 @@ Partial Class BrgyClearanceDetailsForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
+        Me.Controls.Add(Me.ExportButton)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.ClearButton)
@@ -327,4 +338,5 @@ Partial Class BrgyClearanceDetailsForm
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents PurposeTextBox As System.Windows.Forms.TextBox
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents ExportButton As System.Windows.Forms.Button
 End Class
