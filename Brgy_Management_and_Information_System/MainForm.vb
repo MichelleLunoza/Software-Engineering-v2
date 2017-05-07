@@ -14,6 +14,17 @@
     End Sub
 
     Private Sub CBMSButton_Click(sender As Object, e As EventArgs) Handles CBMSButton.Click
+        Me.Hide()
+        CBMS_DetailsForm.Show()
+    End Sub
 
+    Private Sub ClearancesButton_Click(sender As Object, e As EventArgs) Handles ClearancesButton.Click
+        Me.Hide()
+        ClearanceForm.Show()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Hide()
+        PopulationForm.Show()
     End Sub
 End Class

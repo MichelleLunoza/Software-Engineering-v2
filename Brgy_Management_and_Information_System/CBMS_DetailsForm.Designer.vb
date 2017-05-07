@@ -191,12 +191,12 @@ Partial Class CBMS_DetailsForm
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(146, 319)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(875, 378)
+        Me.DataGridView1.Size = New System.Drawing.Size(796, 378)
         Me.DataGridView1.TabIndex = 85
         '
         'TotalPurokButton
         '
-        Me.TotalPurokButton.Location = New System.Drawing.Point(1207, 437)
+        Me.TotalPurokButton.Location = New System.Drawing.Point(1180, 381)
         Me.TotalPurokButton.Name = "TotalPurokButton"
         Me.TotalPurokButton.Size = New System.Drawing.Size(112, 56)
         Me.TotalPurokButton.TabIndex = 86
@@ -205,7 +205,7 @@ Partial Class CBMS_DetailsForm
         '
         'TotalFamilyButton
         '
-        Me.TotalFamilyButton.Location = New System.Drawing.Point(1207, 375)
+        Me.TotalFamilyButton.Location = New System.Drawing.Point(1180, 319)
         Me.TotalFamilyButton.Name = "TotalFamilyButton"
         Me.TotalFamilyButton.Size = New System.Drawing.Size(112, 56)
         Me.TotalFamilyButton.TabIndex = 87
@@ -214,7 +214,7 @@ Partial Class CBMS_DetailsForm
         '
         'OverallTotalButton
         '
-        Me.OverallTotalButton.Location = New System.Drawing.Point(1207, 499)
+        Me.OverallTotalButton.Location = New System.Drawing.Point(1180, 443)
         Me.OverallTotalButton.Name = "OverallTotalButton"
         Me.OverallTotalButton.Size = New System.Drawing.Size(112, 56)
         Me.OverallTotalButton.TabIndex = 88

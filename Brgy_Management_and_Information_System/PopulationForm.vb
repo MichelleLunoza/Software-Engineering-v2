@@ -46,7 +46,9 @@ Public Class PopulationForm
         ViewDetailsButton.Enabled = False
         UpdateButton.Enabled = False
         CancelButton.Enabled = True
+        EditButton.Enabled = False
         DataGridView1.Visible = True
+        DeleteButton.Enabled = True
         Display()
     End Sub
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
@@ -75,10 +77,12 @@ Public Class PopulationForm
         GroupBox1.Visible = True
         GroupBox2.Visible = False
         RegisterButton.Enabled = False
+        EditButton.Enabled = False
         ViewDetailsButton.Enabled = False
         CancelButton.Enabled = True
         UpdateButton.Enabled = False
         SaveButton.Enabled = True
+        DeleteButton.Enabled = False
         DisplayRegister()
     End Sub
     Private Sub DisplayRegister()
@@ -120,15 +124,17 @@ Public Class PopulationForm
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
         RegisterButton.Enabled = True
         ViewDetailsButton.Enabled = True
-        UpdateButton.Enabled = True
+        UpdateButton.Enabled = False
+        SaveButton.Enabled = False
+        EditButton.Enabled = True
+        DeleteButton.Enabled = False
         CancelButton.Enabled = False
         DataGridView1.Visible = False
+        DataGridView2.Visible = False
         DataGridView3.Visible = False
         GroupBox1.Visible = False
         GroupBox2.Visible = False
         GroupBox3.Visible = False
-        SaveButton.Enabled = True
-        EditButton.Enabled = False
 
         Clear()
     End Sub
@@ -188,7 +194,7 @@ Public Class PopulationForm
             con.Open()
             cmd.ExecuteNonQuery()
             con.Close()
-            MessageBox.Show("Successfully Saved")
+            MessageBox.Show("Successfully Updated")
             Clear()
 
         Catch ex As Exception
@@ -236,6 +242,7 @@ Public Class PopulationForm
 
     Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
         DataGridView3.Visible = True
+        DeleteButton.Enabled = False
         GroupBox3.Visible = True
         GroupBox1.Visible = False
         GroupBox2.Visible = False
@@ -290,6 +297,8 @@ Public Class PopulationForm
         UpdateButton.Enabled = False
         EditButton.Enabled = True
         CancelButton.Enabled = False
+        DeleteButton.Enabled = False
+
         SaveFunction()
     End Sub
 
@@ -343,5 +352,29 @@ Public Class PopulationForm
         cmd.ExecuteNonQuery()
         MessageBox.Show("Successfully Saved")
         Clear()
+    End Sub
+    Private Sub DeleteFunction()
+
+        Dim ID = IDTextBox.Text
+        Dim con As New SqlConnection
+        Dim cmd As New SqlCommand
+        Dim query As String = String.Empty
+        query &= "DELETE FROM Population_Table WHERE ID=@ID"
+        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        With cmd
+            .Connection = con
+            .CommandType = CommandType.Text
+            .CommandText = query
+            .Parameters.AddWithValue("@ID", ID)
+        End With
+        con.Open()
+        cmd.ExecuteNonQuery()
+        con.Close()
+
+        MessageBox.Show("Successfully Deleted")
+    End Sub
+
+    Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+        DeleteFunction()
     End Sub
 End Class

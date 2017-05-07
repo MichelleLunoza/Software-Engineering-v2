@@ -19,8 +19,8 @@ Public Class CBMS_DetailsForm
         connection.Close()
         DataGridView1.DataSource = ds
         DataGridView1.DataMember = "Population_Table"
-        DataGridView1.Columns(0).Width = 100
-        DataGridView1.Columns(1).Width = 350
+        DataGridView1.Columns(0).Width = 200
+        DataGridView1.Columns(1).Width = 550
     End Sub
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
@@ -47,8 +47,8 @@ Public Class CBMS_DetailsForm
             adapt.SelectCommand = cmd
             adapt.Fill(dt)
             DataGridView1.DataSource = dt
-            DataGridView1.Columns(0).Width = 100
-            DataGridView1.Columns(1).Width = 170
+            DataGridView1.Columns(0).Width = 200
+            DataGridView1.Columns(1).Width = 550
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
