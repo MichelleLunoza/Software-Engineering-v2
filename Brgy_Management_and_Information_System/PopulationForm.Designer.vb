@@ -52,10 +52,14 @@ Partial Class PopulationForm
         Me.senior_citizenComboBox = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.Net_Income1TextBox = New System.Windows.Forms.TextBox()
         Me.six_twelve_yrs_oldComboBox = New System.Windows.Forms.ComboBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.IDTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.Label43 = New System.Windows.Forms.Label()
+        Me.Net_IncomeTextBox = New System.Windows.Forms.TextBox()
         Me.six_twelve_yrs_oldTextBox = New System.Windows.Forms.TextBox()
         Me.Label27 = New System.Windows.Forms.Label()
         Me.senior_citizenCategoryTextBox = New System.Windows.Forms.TextBox()
@@ -93,6 +97,8 @@ Partial Class PopulationForm
         Me.UpdateButton = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.NetIncome3TextBox = New System.Windows.Forms.TextBox()
         Me.sixCComboBox = New System.Windows.Forms.ComboBox()
         Me.Label29 = New System.Windows.Forms.Label()
         Me.ID3TextBox = New System.Windows.Forms.TextBox()
@@ -123,8 +129,6 @@ Partial Class PopulationForm
         Me.PurokCComboBox = New System.Windows.Forms.ComboBox()
         Me.EditButton = New System.Windows.Forms.Button()
         Me.SaveButton = New System.Windows.Forms.Button()
-        Me.Label43 = New System.Windows.Forms.Label()
-        Me.Net_IncomeTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -229,7 +233,7 @@ Partial Class PopulationForm
         '
         'HH_NumberTextBox
         '
-        Me.HH_NumberTextBox.Location = New System.Drawing.Point(216, 208)
+        Me.HH_NumberTextBox.Location = New System.Drawing.Point(216, 225)
         Me.HH_NumberTextBox.Name = "HH_NumberTextBox"
         Me.HH_NumberTextBox.Size = New System.Drawing.Size(203, 20)
         Me.HH_NumberTextBox.TabIndex = 99
@@ -237,7 +241,7 @@ Partial Class PopulationForm
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(72, 215)
+        Me.Label7.Location = New System.Drawing.Point(72, 232)
         Me.Label7.Name = "Label7"
         Me.Label7.Size = New System.Drawing.Size(66, 13)
         Me.Label7.TabIndex = 98
@@ -246,7 +250,7 @@ Partial Class PopulationForm
         'Label8
         '
         Me.Label8.AutoSize = True
-        Me.Label8.Location = New System.Drawing.Point(71, 239)
+        Me.Label8.Location = New System.Drawing.Point(71, 256)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(80, 13)
         Me.Label8.TabIndex = 100
@@ -287,7 +291,7 @@ Partial Class PopulationForm
         Me.OFWComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.OFWComboBox.FormattingEnabled = True
         Me.OFWComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.OFWComboBox.Location = New System.Drawing.Point(216, 231)
+        Me.OFWComboBox.Location = New System.Drawing.Point(216, 248)
         Me.OFWComboBox.Name = "OFWComboBox"
         Me.OFWComboBox.Size = New System.Drawing.Size(203, 21)
         Me.OFWComboBox.TabIndex = 105
@@ -297,7 +301,7 @@ Partial Class PopulationForm
         Me.PWDComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.PWDComboBox.FormattingEnabled = True
         Me.PWDComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.PWDComboBox.Location = New System.Drawing.Point(216, 258)
+        Me.PWDComboBox.Location = New System.Drawing.Point(216, 275)
         Me.PWDComboBox.Name = "PWDComboBox"
         Me.PWDComboBox.Size = New System.Drawing.Size(203, 21)
         Me.PWDComboBox.TabIndex = 107
@@ -305,7 +309,7 @@ Partial Class PopulationForm
         'Label9
         '
         Me.Label9.AutoSize = True
-        Me.Label9.Location = New System.Drawing.Point(71, 266)
+        Me.Label9.Location = New System.Drawing.Point(71, 283)
         Me.Label9.Name = "Label9"
         Me.Label9.Size = New System.Drawing.Size(81, 13)
         Me.Label9.TabIndex = 106
@@ -316,7 +320,7 @@ Partial Class PopulationForm
         Me.zero_twelve_monthsComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.zero_twelve_monthsComboBox.FormattingEnabled = True
         Me.zero_twelve_monthsComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.zero_twelve_monthsComboBox.Location = New System.Drawing.Point(216, 285)
+        Me.zero_twelve_monthsComboBox.Location = New System.Drawing.Point(216, 302)
         Me.zero_twelve_monthsComboBox.Name = "zero_twelve_monthsComboBox"
         Me.zero_twelve_monthsComboBox.Size = New System.Drawing.Size(203, 21)
         Me.zero_twelve_monthsComboBox.TabIndex = 109
@@ -324,7 +328,7 @@ Partial Class PopulationForm
         'Label10
         '
         Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(71, 293)
+        Me.Label10.Location = New System.Drawing.Point(71, 310)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(113, 13)
         Me.Label10.TabIndex = 108
@@ -335,7 +339,7 @@ Partial Class PopulationForm
         Me.two_five_yrs_oldComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.two_five_yrs_oldComboBox.FormattingEnabled = True
         Me.two_five_yrs_oldComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.two_five_yrs_oldComboBox.Location = New System.Drawing.Point(216, 312)
+        Me.two_five_yrs_oldComboBox.Location = New System.Drawing.Point(216, 329)
         Me.two_five_yrs_oldComboBox.Name = "two_five_yrs_oldComboBox"
         Me.two_five_yrs_oldComboBox.Size = New System.Drawing.Size(203, 21)
         Me.two_five_yrs_oldComboBox.TabIndex = 111
@@ -343,7 +347,7 @@ Partial Class PopulationForm
         'Label11
         '
         Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(71, 320)
+        Me.Label11.Location = New System.Drawing.Point(71, 337)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(103, 13)
         Me.Label11.TabIndex = 110
@@ -354,7 +358,7 @@ Partial Class PopulationForm
         Me.thirteen_seventeen_yrs_oldComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.thirteen_seventeen_yrs_oldComboBox.FormattingEnabled = True
         Me.thirteen_seventeen_yrs_oldComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.thirteen_seventeen_yrs_oldComboBox.Location = New System.Drawing.Point(216, 365)
+        Me.thirteen_seventeen_yrs_oldComboBox.Location = New System.Drawing.Point(216, 382)
         Me.thirteen_seventeen_yrs_oldComboBox.Name = "thirteen_seventeen_yrs_oldComboBox"
         Me.thirteen_seventeen_yrs_oldComboBox.Size = New System.Drawing.Size(203, 21)
         Me.thirteen_seventeen_yrs_oldComboBox.TabIndex = 113
@@ -362,7 +366,7 @@ Partial Class PopulationForm
         'Label12
         '
         Me.Label12.AutoSize = True
-        Me.Label12.Location = New System.Drawing.Point(71, 373)
+        Me.Label12.Location = New System.Drawing.Point(71, 390)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(115, 13)
         Me.Label12.TabIndex = 112
@@ -373,7 +377,7 @@ Partial Class PopulationForm
         Me.senior_citizenComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.senior_citizenComboBox.FormattingEnabled = True
         Me.senior_citizenComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.senior_citizenComboBox.Location = New System.Drawing.Point(216, 392)
+        Me.senior_citizenComboBox.Location = New System.Drawing.Point(216, 409)
         Me.senior_citizenComboBox.Name = "senior_citizenComboBox"
         Me.senior_citizenComboBox.Size = New System.Drawing.Size(203, 21)
         Me.senior_citizenComboBox.TabIndex = 115
@@ -381,7 +385,7 @@ Partial Class PopulationForm
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(71, 400)
+        Me.Label13.Location = New System.Drawing.Point(71, 417)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(119, 13)
         Me.Label13.TabIndex = 114
@@ -389,6 +393,8 @@ Partial Class PopulationForm
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.Label45)
+        Me.GroupBox1.Controls.Add(Me.Net_Income1TextBox)
         Me.GroupBox1.Controls.Add(Me.six_twelve_yrs_oldComboBox)
         Me.GroupBox1.Controls.Add(Me.Label28)
         Me.GroupBox1.Controls.Add(Me.IDTextBox)
@@ -417,20 +423,36 @@ Partial Class PopulationForm
         Me.GroupBox1.Controls.Add(Me.GenderComboBox)
         Me.GroupBox1.Controls.Add(Me.FamilyComboBox)
         Me.GroupBox1.Controls.Add(Me.PurokComboBox)
-        Me.GroupBox1.Location = New System.Drawing.Point(669, 256)
+        Me.GroupBox1.Location = New System.Drawing.Point(663, 256)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(478, 440)
+        Me.GroupBox1.Size = New System.Drawing.Size(478, 444)
         Me.GroupBox1.TabIndex = 116
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Personal Information"
         Me.GroupBox1.Visible = False
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(72, 206)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(65, 13)
+        Me.Label45.TabIndex = 118
+        Me.Label45.Text = "Net Income:"
+        '
+        'Net_Income1TextBox
+        '
+        Me.Net_Income1TextBox.Location = New System.Drawing.Point(216, 199)
+        Me.Net_Income1TextBox.Name = "Net_Income1TextBox"
+        Me.Net_Income1TextBox.Size = New System.Drawing.Size(203, 20)
+        Me.Net_Income1TextBox.TabIndex = 119
         '
         'six_twelve_yrs_oldComboBox
         '
         Me.six_twelve_yrs_oldComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.six_twelve_yrs_oldComboBox.FormattingEnabled = True
         Me.six_twelve_yrs_oldComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.six_twelve_yrs_oldComboBox.Location = New System.Drawing.Point(216, 339)
+        Me.six_twelve_yrs_oldComboBox.Location = New System.Drawing.Point(216, 356)
         Me.six_twelve_yrs_oldComboBox.Name = "six_twelve_yrs_oldComboBox"
         Me.six_twelve_yrs_oldComboBox.Size = New System.Drawing.Size(203, 21)
         Me.six_twelve_yrs_oldComboBox.TabIndex = 117
@@ -438,7 +460,7 @@ Partial Class PopulationForm
         'Label28
         '
         Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(71, 347)
+        Me.Label28.Location = New System.Drawing.Point(71, 364)
         Me.Label28.Name = "Label28"
         Me.Label28.Size = New System.Drawing.Size(109, 13)
         Me.Label28.TabIndex = 116
@@ -484,7 +506,7 @@ Partial Class PopulationForm
         Me.GroupBox2.Controls.Add(Me.Label25)
         Me.GroupBox2.Controls.Add(Me.HHNTextBox)
         Me.GroupBox2.Controls.Add(Me.Label26)
-        Me.GroupBox2.Location = New System.Drawing.Point(669, 256)
+        Me.GroupBox2.Location = New System.Drawing.Point(669, 255)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(478, 444)
         Me.GroupBox2.TabIndex = 117
@@ -492,9 +514,26 @@ Partial Class PopulationForm
         Me.GroupBox2.Text = "Personal Information"
         Me.GroupBox2.Visible = False
         '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(71, 206)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(65, 13)
+        Me.Label43.TabIndex = 126
+        Me.Label43.Text = "Net Income:"
+        '
+        'Net_IncomeTextBox
+        '
+        Me.Net_IncomeTextBox.Location = New System.Drawing.Point(215, 196)
+        Me.Net_IncomeTextBox.Name = "Net_IncomeTextBox"
+        Me.Net_IncomeTextBox.ReadOnly = True
+        Me.Net_IncomeTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.Net_IncomeTextBox.TabIndex = 127
+        '
         'six_twelve_yrs_oldTextBox
         '
-        Me.six_twelve_yrs_oldTextBox.Location = New System.Drawing.Point(216, 361)
+        Me.six_twelve_yrs_oldTextBox.Location = New System.Drawing.Point(216, 356)
         Me.six_twelve_yrs_oldTextBox.Name = "six_twelve_yrs_oldTextBox"
         Me.six_twelve_yrs_oldTextBox.ReadOnly = True
         Me.six_twelve_yrs_oldTextBox.Size = New System.Drawing.Size(203, 20)
@@ -503,7 +542,7 @@ Partial Class PopulationForm
         'Label27
         '
         Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(71, 371)
+        Me.Label27.Location = New System.Drawing.Point(71, 366)
         Me.Label27.Name = "Label27"
         Me.Label27.Size = New System.Drawing.Size(109, 13)
         Me.Label27.TabIndex = 124
@@ -511,7 +550,7 @@ Partial Class PopulationForm
         '
         'senior_citizenCategoryTextBox
         '
-        Me.senior_citizenCategoryTextBox.Location = New System.Drawing.Point(216, 414)
+        Me.senior_citizenCategoryTextBox.Location = New System.Drawing.Point(216, 409)
         Me.senior_citizenCategoryTextBox.Name = "senior_citizenCategoryTextBox"
         Me.senior_citizenCategoryTextBox.ReadOnly = True
         Me.senior_citizenCategoryTextBox.Size = New System.Drawing.Size(203, 20)
@@ -519,7 +558,7 @@ Partial Class PopulationForm
         '
         'thirteen_seventeen_yrs_oldTextBox
         '
-        Me.thirteen_seventeen_yrs_oldTextBox.Location = New System.Drawing.Point(216, 388)
+        Me.thirteen_seventeen_yrs_oldTextBox.Location = New System.Drawing.Point(216, 383)
         Me.thirteen_seventeen_yrs_oldTextBox.Name = "thirteen_seventeen_yrs_oldTextBox"
         Me.thirteen_seventeen_yrs_oldTextBox.ReadOnly = True
         Me.thirteen_seventeen_yrs_oldTextBox.Size = New System.Drawing.Size(203, 20)
@@ -527,7 +566,7 @@ Partial Class PopulationForm
         '
         'two_five_yrs_oldTextBox
         '
-        Me.two_five_yrs_oldTextBox.Location = New System.Drawing.Point(216, 332)
+        Me.two_five_yrs_oldTextBox.Location = New System.Drawing.Point(216, 327)
         Me.two_five_yrs_oldTextBox.Name = "two_five_yrs_oldTextBox"
         Me.two_five_yrs_oldTextBox.ReadOnly = True
         Me.two_five_yrs_oldTextBox.Size = New System.Drawing.Size(203, 20)
@@ -535,7 +574,7 @@ Partial Class PopulationForm
         '
         'zero_twelve_monthsTextBox
         '
-        Me.zero_twelve_monthsTextBox.Location = New System.Drawing.Point(216, 306)
+        Me.zero_twelve_monthsTextBox.Location = New System.Drawing.Point(216, 301)
         Me.zero_twelve_monthsTextBox.Name = "zero_twelve_monthsTextBox"
         Me.zero_twelve_monthsTextBox.ReadOnly = True
         Me.zero_twelve_monthsTextBox.Size = New System.Drawing.Size(203, 20)
@@ -543,7 +582,7 @@ Partial Class PopulationForm
         '
         'PWDCategoryTextBox
         '
-        Me.PWDCategoryTextBox.Location = New System.Drawing.Point(216, 280)
+        Me.PWDCategoryTextBox.Location = New System.Drawing.Point(216, 275)
         Me.PWDCategoryTextBox.Name = "PWDCategoryTextBox"
         Me.PWDCategoryTextBox.ReadOnly = True
         Me.PWDCategoryTextBox.Size = New System.Drawing.Size(203, 20)
@@ -551,7 +590,7 @@ Partial Class PopulationForm
         '
         'OFWCategoryTextBox
         '
-        Me.OFWCategoryTextBox.Location = New System.Drawing.Point(216, 253)
+        Me.OFWCategoryTextBox.Location = New System.Drawing.Point(216, 248)
         Me.OFWCategoryTextBox.Name = "OFWCategoryTextBox"
         Me.OFWCategoryTextBox.ReadOnly = True
         Me.OFWCategoryTextBox.Size = New System.Drawing.Size(203, 20)
@@ -559,7 +598,7 @@ Partial Class PopulationForm
         '
         'GenderTextBox
         '
-        Me.GenderTextBox.Location = New System.Drawing.Point(216, 172)
+        Me.GenderTextBox.Location = New System.Drawing.Point(216, 167)
         Me.GenderTextBox.Name = "GenderTextBox"
         Me.GenderTextBox.ReadOnly = True
         Me.GenderTextBox.Size = New System.Drawing.Size(203, 20)
@@ -567,7 +606,7 @@ Partial Class PopulationForm
         '
         'PurokTextBox
         '
-        Me.PurokTextBox.Location = New System.Drawing.Point(216, 145)
+        Me.PurokTextBox.Location = New System.Drawing.Point(216, 140)
         Me.PurokTextBox.Name = "PurokTextBox"
         Me.PurokTextBox.ReadOnly = True
         Me.PurokTextBox.Size = New System.Drawing.Size(203, 20)
@@ -575,7 +614,7 @@ Partial Class PopulationForm
         '
         'FamilyCategoryTextBox
         '
-        Me.FamilyCategoryTextBox.Location = New System.Drawing.Point(216, 114)
+        Me.FamilyCategoryTextBox.Location = New System.Drawing.Point(216, 109)
         Me.FamilyCategoryTextBox.Name = "FamilyCategoryTextBox"
         Me.FamilyCategoryTextBox.ReadOnly = True
         Me.FamilyCategoryTextBox.Size = New System.Drawing.Size(203, 20)
@@ -583,7 +622,7 @@ Partial Class PopulationForm
         '
         'ID2TextBox
         '
-        Me.ID2TextBox.Location = New System.Drawing.Point(216, 33)
+        Me.ID2TextBox.Location = New System.Drawing.Point(216, 28)
         Me.ID2TextBox.Name = "ID2TextBox"
         Me.ID2TextBox.ReadOnly = True
         Me.ID2TextBox.Size = New System.Drawing.Size(203, 20)
@@ -592,7 +631,7 @@ Partial Class PopulationForm
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(71, 40)
+        Me.Label14.Location = New System.Drawing.Point(71, 35)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(21, 13)
         Me.Label14.TabIndex = 86
@@ -601,7 +640,7 @@ Partial Class PopulationForm
         'Label15
         '
         Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(71, 421)
+        Me.Label15.Location = New System.Drawing.Point(71, 416)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(119, 13)
         Me.Label15.TabIndex = 114
@@ -610,7 +649,7 @@ Partial Class PopulationForm
         'Label16
         '
         Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(71, 66)
+        Me.Label16.Location = New System.Drawing.Point(71, 61)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(53, 13)
         Me.Label16.TabIndex = 88
@@ -618,7 +657,7 @@ Partial Class PopulationForm
         '
         'FamIDTextBox
         '
-        Me.FamIDTextBox.Location = New System.Drawing.Point(216, 59)
+        Me.FamIDTextBox.Location = New System.Drawing.Point(216, 54)
         Me.FamIDTextBox.Name = "FamIDTextBox"
         Me.FamIDTextBox.ReadOnly = True
         Me.FamIDTextBox.Size = New System.Drawing.Size(203, 20)
@@ -627,7 +666,7 @@ Partial Class PopulationForm
         'Label17
         '
         Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(71, 399)
+        Me.Label17.Location = New System.Drawing.Point(71, 394)
         Me.Label17.Name = "Label17"
         Me.Label17.Size = New System.Drawing.Size(115, 13)
         Me.Label17.TabIndex = 112
@@ -636,7 +675,7 @@ Partial Class PopulationForm
         'Label18
         '
         Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(71, 92)
+        Me.Label18.Location = New System.Drawing.Point(71, 87)
         Me.Label18.Name = "Label18"
         Me.Label18.Size = New System.Drawing.Size(38, 13)
         Me.Label18.TabIndex = 90
@@ -644,7 +683,7 @@ Partial Class PopulationForm
         '
         'Name2TextBox
         '
-        Me.Name2TextBox.Location = New System.Drawing.Point(216, 85)
+        Me.Name2TextBox.Location = New System.Drawing.Point(216, 80)
         Me.Name2TextBox.Name = "Name2TextBox"
         Me.Name2TextBox.ReadOnly = True
         Me.Name2TextBox.Size = New System.Drawing.Size(203, 20)
@@ -653,7 +692,7 @@ Partial Class PopulationForm
         'Label19
         '
         Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(71, 342)
+        Me.Label19.Location = New System.Drawing.Point(71, 337)
         Me.Label19.Name = "Label19"
         Me.Label19.Size = New System.Drawing.Size(103, 13)
         Me.Label19.TabIndex = 110
@@ -662,7 +701,7 @@ Partial Class PopulationForm
         'Label20
         '
         Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(71, 121)
+        Me.Label20.Location = New System.Drawing.Point(71, 116)
         Me.Label20.Name = "Label20"
         Me.Label20.Size = New System.Drawing.Size(84, 13)
         Me.Label20.TabIndex = 92
@@ -671,7 +710,7 @@ Partial Class PopulationForm
         'Label21
         '
         Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(72, 153)
+        Me.Label21.Location = New System.Drawing.Point(72, 148)
         Me.Label21.Name = "Label21"
         Me.Label21.Size = New System.Drawing.Size(38, 13)
         Me.Label21.TabIndex = 94
@@ -680,7 +719,7 @@ Partial Class PopulationForm
         'Label22
         '
         Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(71, 315)
+        Me.Label22.Location = New System.Drawing.Point(71, 310)
         Me.Label22.Name = "Label22"
         Me.Label22.Size = New System.Drawing.Size(113, 13)
         Me.Label22.TabIndex = 108
@@ -689,7 +728,7 @@ Partial Class PopulationForm
         'Label23
         '
         Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(72, 180)
+        Me.Label23.Location = New System.Drawing.Point(72, 175)
         Me.Label23.Name = "Label23"
         Me.Label23.Size = New System.Drawing.Size(45, 13)
         Me.Label23.TabIndex = 96
@@ -698,7 +737,7 @@ Partial Class PopulationForm
         'Label24
         '
         Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(72, 237)
+        Me.Label24.Location = New System.Drawing.Point(72, 232)
         Me.Label24.Name = "Label24"
         Me.Label24.Size = New System.Drawing.Size(66, 13)
         Me.Label24.TabIndex = 98
@@ -707,7 +746,7 @@ Partial Class PopulationForm
         'Label25
         '
         Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(71, 288)
+        Me.Label25.Location = New System.Drawing.Point(71, 283)
         Me.Label25.Name = "Label25"
         Me.Label25.Size = New System.Drawing.Size(81, 13)
         Me.Label25.TabIndex = 106
@@ -715,7 +754,7 @@ Partial Class PopulationForm
         '
         'HHNTextBox
         '
-        Me.HHNTextBox.Location = New System.Drawing.Point(216, 227)
+        Me.HHNTextBox.Location = New System.Drawing.Point(216, 222)
         Me.HHNTextBox.Name = "HHNTextBox"
         Me.HHNTextBox.ReadOnly = True
         Me.HHNTextBox.Size = New System.Drawing.Size(203, 20)
@@ -724,7 +763,7 @@ Partial Class PopulationForm
         'Label26
         '
         Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(71, 261)
+        Me.Label26.Location = New System.Drawing.Point(71, 256)
         Me.Label26.Name = "Label26"
         Me.Label26.Size = New System.Drawing.Size(80, 13)
         Me.Label26.TabIndex = 100
@@ -804,6 +843,8 @@ Partial Class PopulationForm
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.Label44)
+        Me.GroupBox3.Controls.Add(Me.NetIncome3TextBox)
         Me.GroupBox3.Controls.Add(Me.sixCComboBox)
         Me.GroupBox3.Controls.Add(Me.Label29)
         Me.GroupBox3.Controls.Add(Me.ID3TextBox)
@@ -834,18 +875,34 @@ Partial Class PopulationForm
         Me.GroupBox3.Controls.Add(Me.PurokCComboBox)
         Me.GroupBox3.Location = New System.Drawing.Point(669, 256)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(478, 440)
+        Me.GroupBox3.Size = New System.Drawing.Size(478, 444)
         Me.GroupBox3.TabIndex = 118
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Personal Information"
         Me.GroupBox3.Visible = False
+        '
+        'Label44
+        '
+        Me.Label44.AutoSize = True
+        Me.Label44.Location = New System.Drawing.Point(72, 207)
+        Me.Label44.Name = "Label44"
+        Me.Label44.Size = New System.Drawing.Size(65, 13)
+        Me.Label44.TabIndex = 118
+        Me.Label44.Text = "Net Income:"
+        '
+        'NetIncome3TextBox
+        '
+        Me.NetIncome3TextBox.Location = New System.Drawing.Point(216, 200)
+        Me.NetIncome3TextBox.Name = "NetIncome3TextBox"
+        Me.NetIncome3TextBox.Size = New System.Drawing.Size(203, 20)
+        Me.NetIncome3TextBox.TabIndex = 119
         '
         'sixCComboBox
         '
         Me.sixCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.sixCComboBox.FormattingEnabled = True
         Me.sixCComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.sixCComboBox.Location = New System.Drawing.Point(216, 339)
+        Me.sixCComboBox.Location = New System.Drawing.Point(216, 357)
         Me.sixCComboBox.Name = "sixCComboBox"
         Me.sixCComboBox.Size = New System.Drawing.Size(203, 21)
         Me.sixCComboBox.TabIndex = 117
@@ -853,7 +910,7 @@ Partial Class PopulationForm
         'Label29
         '
         Me.Label29.AutoSize = True
-        Me.Label29.Location = New System.Drawing.Point(71, 347)
+        Me.Label29.Location = New System.Drawing.Point(71, 365)
         Me.Label29.Name = "Label29"
         Me.Label29.Size = New System.Drawing.Size(109, 13)
         Me.Label29.TabIndex = 116
@@ -872,7 +929,7 @@ Partial Class PopulationForm
         Me.seniorCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.seniorCComboBox.FormattingEnabled = True
         Me.seniorCComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.seniorCComboBox.Location = New System.Drawing.Point(216, 392)
+        Me.seniorCComboBox.Location = New System.Drawing.Point(216, 410)
         Me.seniorCComboBox.Name = "seniorCComboBox"
         Me.seniorCComboBox.Size = New System.Drawing.Size(203, 21)
         Me.seniorCComboBox.TabIndex = 115
@@ -889,7 +946,7 @@ Partial Class PopulationForm
         'Label31
         '
         Me.Label31.AutoSize = True
-        Me.Label31.Location = New System.Drawing.Point(71, 400)
+        Me.Label31.Location = New System.Drawing.Point(71, 418)
         Me.Label31.Name = "Label31"
         Me.Label31.Size = New System.Drawing.Size(119, 13)
         Me.Label31.TabIndex = 114
@@ -909,7 +966,7 @@ Partial Class PopulationForm
         Me.thirteenCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.thirteenCComboBox.FormattingEnabled = True
         Me.thirteenCComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.thirteenCComboBox.Location = New System.Drawing.Point(216, 365)
+        Me.thirteenCComboBox.Location = New System.Drawing.Point(216, 383)
         Me.thirteenCComboBox.Name = "thirteenCComboBox"
         Me.thirteenCComboBox.Size = New System.Drawing.Size(203, 21)
         Me.thirteenCComboBox.TabIndex = 113
@@ -925,7 +982,7 @@ Partial Class PopulationForm
         'Label33
         '
         Me.Label33.AutoSize = True
-        Me.Label33.Location = New System.Drawing.Point(71, 373)
+        Me.Label33.Location = New System.Drawing.Point(71, 391)
         Me.Label33.Name = "Label33"
         Me.Label33.Size = New System.Drawing.Size(115, 13)
         Me.Label33.TabIndex = 112
@@ -945,7 +1002,7 @@ Partial Class PopulationForm
         Me.twoCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.twoCComboBox.FormattingEnabled = True
         Me.twoCComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.twoCComboBox.Location = New System.Drawing.Point(216, 312)
+        Me.twoCComboBox.Location = New System.Drawing.Point(216, 330)
         Me.twoCComboBox.Name = "twoCComboBox"
         Me.twoCComboBox.Size = New System.Drawing.Size(203, 21)
         Me.twoCComboBox.TabIndex = 111
@@ -960,7 +1017,7 @@ Partial Class PopulationForm
         'Label35
         '
         Me.Label35.AutoSize = True
-        Me.Label35.Location = New System.Drawing.Point(71, 320)
+        Me.Label35.Location = New System.Drawing.Point(71, 338)
         Me.Label35.Name = "Label35"
         Me.Label35.Size = New System.Drawing.Size(103, 13)
         Me.Label35.TabIndex = 110
@@ -980,7 +1037,7 @@ Partial Class PopulationForm
         Me.zeroCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.zeroCComboBox.FormattingEnabled = True
         Me.zeroCComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.zeroCComboBox.Location = New System.Drawing.Point(216, 285)
+        Me.zeroCComboBox.Location = New System.Drawing.Point(216, 303)
         Me.zeroCComboBox.Name = "zeroCComboBox"
         Me.zeroCComboBox.Size = New System.Drawing.Size(203, 21)
         Me.zeroCComboBox.TabIndex = 109
@@ -997,7 +1054,7 @@ Partial Class PopulationForm
         'Label38
         '
         Me.Label38.AutoSize = True
-        Me.Label38.Location = New System.Drawing.Point(71, 293)
+        Me.Label38.Location = New System.Drawing.Point(71, 311)
         Me.Label38.Name = "Label38"
         Me.Label38.Size = New System.Drawing.Size(113, 13)
         Me.Label38.TabIndex = 108
@@ -1017,7 +1074,7 @@ Partial Class PopulationForm
         Me.PWDCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.PWDCComboBox.FormattingEnabled = True
         Me.PWDCComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.PWDCComboBox.Location = New System.Drawing.Point(216, 258)
+        Me.PWDCComboBox.Location = New System.Drawing.Point(216, 276)
         Me.PWDCComboBox.Name = "PWDCComboBox"
         Me.PWDCComboBox.Size = New System.Drawing.Size(203, 21)
         Me.PWDCComboBox.TabIndex = 107
@@ -1025,7 +1082,7 @@ Partial Class PopulationForm
         'Label40
         '
         Me.Label40.AutoSize = True
-        Me.Label40.Location = New System.Drawing.Point(72, 215)
+        Me.Label40.Location = New System.Drawing.Point(72, 233)
         Me.Label40.Name = "Label40"
         Me.Label40.Size = New System.Drawing.Size(66, 13)
         Me.Label40.TabIndex = 98
@@ -1034,7 +1091,7 @@ Partial Class PopulationForm
         'Label41
         '
         Me.Label41.AutoSize = True
-        Me.Label41.Location = New System.Drawing.Point(71, 266)
+        Me.Label41.Location = New System.Drawing.Point(71, 284)
         Me.Label41.Name = "Label41"
         Me.Label41.Size = New System.Drawing.Size(81, 13)
         Me.Label41.TabIndex = 106
@@ -1042,7 +1099,7 @@ Partial Class PopulationForm
         '
         'HHN2TextBox
         '
-        Me.HHN2TextBox.Location = New System.Drawing.Point(216, 208)
+        Me.HHN2TextBox.Location = New System.Drawing.Point(216, 226)
         Me.HHN2TextBox.Name = "HHN2TextBox"
         Me.HHN2TextBox.Size = New System.Drawing.Size(203, 20)
         Me.HHN2TextBox.TabIndex = 99
@@ -1052,7 +1109,7 @@ Partial Class PopulationForm
         Me.OFWCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.OFWCComboBox.FormattingEnabled = True
         Me.OFWCComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.OFWCComboBox.Location = New System.Drawing.Point(216, 231)
+        Me.OFWCComboBox.Location = New System.Drawing.Point(216, 249)
         Me.OFWCComboBox.Name = "OFWCComboBox"
         Me.OFWCComboBox.Size = New System.Drawing.Size(203, 21)
         Me.OFWCComboBox.TabIndex = 105
@@ -1060,7 +1117,7 @@ Partial Class PopulationForm
         'Label42
         '
         Me.Label42.AutoSize = True
-        Me.Label42.Location = New System.Drawing.Point(71, 239)
+        Me.Label42.Location = New System.Drawing.Point(71, 257)
         Me.Label42.Name = "Label42"
         Me.Label42.Size = New System.Drawing.Size(80, 13)
         Me.Label42.TabIndex = 100
@@ -1114,23 +1171,6 @@ Partial Class PopulationForm
         Me.SaveButton.TabIndex = 125
         Me.SaveButton.Text = "Save"
         Me.SaveButton.UseVisualStyleBackColor = True
-        '
-        'Label43
-        '
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(71, 211)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(65, 13)
-        Me.Label43.TabIndex = 126
-        Me.Label43.Text = "Net Income:"
-        '
-        'Net_IncomeTextBox
-        '
-        Me.Net_IncomeTextBox.Location = New System.Drawing.Point(215, 201)
-        Me.Net_IncomeTextBox.Name = "Net_IncomeTextBox"
-        Me.Net_IncomeTextBox.ReadOnly = True
-        Me.Net_IncomeTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.Net_IncomeTextBox.TabIndex = 127
         '
         'PopulationForm
         '
@@ -1276,4 +1316,8 @@ Partial Class PopulationForm
     Friend WithEvents SaveButton As System.Windows.Forms.Button
     Friend WithEvents Label43 As System.Windows.Forms.Label
     Friend WithEvents Net_IncomeTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Label45 As System.Windows.Forms.Label
+    Friend WithEvents Net_Income1TextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Label44 As System.Windows.Forms.Label
+    Friend WithEvents NetIncome3TextBox As System.Windows.Forms.TextBox
 End Class
