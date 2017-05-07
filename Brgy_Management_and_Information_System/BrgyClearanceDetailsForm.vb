@@ -1,15 +1,15 @@
 ﻿Imports System.Data.SqlClient
+Imports Excel = Microsoft.Office.Interop.Excel
 Public Class BrgyClearanceDetailsForm
 
     Private Sub BrgyClearanceDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
-        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString
-        Timer1.Start()
-        Me.DateLabel.Text = DateTime.Now.ToString("mm/dd/yyy")
+        Me.MaximumSize = Screen.FromRectangle(Me.Bounds).WorkingArea.Size
+
     End Sub
 
     Private Sub SearchnameTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchnameTextBox.TextChanged
-        Dim con As SqlConnection = New SqlConnection("Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
+        Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
         Dim adapt As New SqlDataAdapter
         Dim dt As New DataTable
@@ -19,7 +19,7 @@ Public Class BrgyClearanceDetailsForm
             dt = New DataTable
             With cmd
                 .Connection = con
-                .CommandText = "SELECT * FROM Brgy_ClearanceTable WHERE Name Like'" & SearchnameTextBox.Text & "%'"
+                .CommandText = "SELECT * FROM Brgy_Clearance_Table WHERE Name Like'" & SearchnameTextBox.Text & "%'"
             End With
             adapt.SelectCommand = cmd
             adapt.Fill(dt)
@@ -36,7 +36,7 @@ Public Class BrgyClearanceDetailsForm
     End Sub
     Private Sub Display()
         DataGridView1.Refresh()
-        Dim con As String = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
         query &= "SELECT * FROM Brgy_Clearance_Table"
 
@@ -55,16 +55,14 @@ Public Class BrgyClearanceDetailsForm
         DataGridView1.Columns(1).Width = 170
         DataGridView1.Columns(2).Width = 150
         DataGridView1.Columns(3).Width = 150
-
     End Sub
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim row As DataGridViewRow = DataGridView1.CurrentRow
 
         IDTextBox.Text = row.Cells(0).Value.ToString()
         NameTextBox.Text = row.Cells(1).Value.ToString()
-        DateTextBox.Text = row.Cells(2).Value.ToString()
-        PurposeTextBox.Text = row.Cells(3).Value.ToString()
-        DataGridView1.Refresh()
+        DateTextBox.Text = row.Cells(3).Value.ToString()
+        PurposeTextBox.Text = row.Cells(2).Value.ToString()
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
@@ -84,7 +82,7 @@ Public Class BrgyClearanceDetailsForm
 
         Dim query As String = String.Empty
         query &= "UPDATE Brgy_Clearance_Table SET ID=@ID,Name=@Name,Purpose=@Purpose,Date=@datetime WHERE ID=@ID"
-        con.ConnectionString = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         With cmd
             .Connection = con
             .CommandType = CommandType.Text
@@ -125,12 +123,12 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
-        If DateTextBox.Text = "" Then
-            DateTextBox.Focus()
-            MessageBox.Show("Enter Date.", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        ElseIf PurposeTextBox.Text = "" Then
-            PurposeTextBox.Focus()
+        If PurposeTextBox.Text = "" Then
             MessageBox.Show("Enter purpose.", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            PurposeTextBox.Focus()
+        ElseIf DateTextBox.Text = "" Then
+            MessageBox.Show("Enter date.", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            DateTextBox.Focus()
         Else
 
             AddButton.Enabled = True
@@ -151,7 +149,7 @@ Public Class BrgyClearanceDetailsForm
             query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
 
 
-            con.ConnectionString = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
             With cmd
                 .Connection = con
                 .CommandType = CommandType.Text
@@ -168,10 +166,9 @@ Public Class BrgyClearanceDetailsForm
             NameTextBox.ReadOnly = True
             DateTextBox.ReadOnly = True
             PurposeTextBox.ReadOnly = True
-
-            Clear()
             DataGridView1.Visible = True
             DataGridView2.Visible = False
+            Clear()
         End If
     End Sub
 
@@ -189,17 +186,16 @@ Public Class BrgyClearanceDetailsForm
         DataGridView2.Visible = True
         Clear()
         AddFunction()
-
     End Sub
 
     Private Sub ClearButton1_Click(sender As Object, e As EventArgs) Handles ClearButton1.Click
         Clear()
     End Sub
-
     Private Sub AddFunction()
-        Dim con As String = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+
+        Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID, Name FROM Population"
+        query &= "SELECT ID, Name FROM Population_Table"
 
 
         Dim connection As New SqlConnection(con)
@@ -208,10 +204,10 @@ Public Class BrgyClearanceDetailsForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population")
+        dataadapter.Fill(ds, "Population_Table")
         connection.Close()
         DataGridView2.DataSource = ds
-        DataGridView2.DataMember = "Population"
+        DataGridView2.DataMember = "Population_Table"
         DataGridView2.Columns(0).Width = 150
         DataGridView2.Columns(1).Width = 420
 
@@ -222,6 +218,50 @@ Public Class BrgyClearanceDetailsForm
 
         IDTextBox.Text = row.Cells(0).Value.ToString()
         NameTextBox.Text = row.Cells(1).Value.ToString()
-        DataGridView1.Refresh()
+
+    End Sub
+
+    Private Sub ExportButton_Click(sender As Object, e As EventArgs) Handles ExportButton.Click
+        Dim xlApp As Excel.Application
+        Dim xlWorkBook As Excel.Workbook
+        Dim xlWorkSheet As Excel.Worksheet
+        Dim misValue As Object = System.Reflection.Missing.Value
+
+        Dim i As Int16, j As Int16
+
+        xlApp = New Excel.Application
+        xlWorkBook = xlApp.Workbooks.Add(misValue)
+        xlWorkSheet = xlWorkBook.Sheets("sheet1")
+
+
+        For i = 0 To DataGridView1.RowCount - 2
+            For j = 0 To DataGridView1.ColumnCount - 1
+                xlWorkSheet.Cells(i + 1, j + 1) = DataGridView1(j, i).Value.ToString()
+            Next
+        Next
+
+        xlWorkBook.SaveAs("C:\Downloads\Log.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, _
+         Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue)
+        xlWorkBook.Close(True, misValue, misValue)
+        xlApp.Quit()
+
+        releaseObject(xlWorkSheet)
+        releaseObject(xlWorkBook)
+        releaseObject(xlApp)
+
+        MessageBox.Show("Over")
+    End Sub
+
+
+    Private Sub releaseObject(ByVal obj As Object)
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch ex As Exception
+            obj = Nothing
+            MessageBox.Show("Exception Occured while releasing object " + ex.ToString())
+        Finally
+            GC.Collect()
+        End Try
     End Sub
 End Class

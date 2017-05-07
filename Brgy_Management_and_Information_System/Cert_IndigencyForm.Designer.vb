@@ -22,6 +22,7 @@ Partial Class Cert_IndigencyForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Cert_IndigencyForm))
         Me.PrintButton = New System.Windows.Forms.Button()
         Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
         Me.Label6 = New System.Windows.Forms.Label()
@@ -41,7 +42,7 @@ Partial Class Cert_IndigencyForm
         '
         'PrintButton
         '
-        Me.PrintButton.Location = New System.Drawing.Point(236, 183)
+        Me.PrintButton.Location = New System.Drawing.Point(137, 162)
         Me.PrintButton.Name = "PrintButton"
         Me.PrintButton.Size = New System.Drawing.Size(109, 35)
         Me.PrintButton.TabIndex = 57
@@ -99,7 +100,7 @@ Partial Class Cert_IndigencyForm
         '
         'SearchnameTextBox
         '
-        Me.SearchnameTextBox.Location = New System.Drawing.Point(178, 47)
+        Me.SearchnameTextBox.Location = New System.Drawing.Point(192, 211)
         Me.SearchnameTextBox.Name = "SearchnameTextBox"
         Me.SearchnameTextBox.Size = New System.Drawing.Size(281, 20)
         Me.SearchnameTextBox.TabIndex = 54
@@ -115,9 +116,9 @@ Partial Class Cert_IndigencyForm
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(75, 92)
+        Me.DataGridView1.Location = New System.Drawing.Point(89, 256)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(454, 396)
+        Me.DataGridView1.Size = New System.Drawing.Size(454, 260)
         Me.DataGridView1.TabIndex = 56
         '
         'Label3
@@ -141,9 +142,9 @@ Partial Class Cert_IndigencyForm
         Me.GroupBox1.Controls.Add(Me.IDTextBox)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.NameTextBox)
-        Me.GroupBox1.Location = New System.Drawing.Point(571, 110)
+        Me.GroupBox1.Location = New System.Drawing.Point(585, 277)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(377, 242)
+        Me.GroupBox1.Size = New System.Drawing.Size(377, 219)
         Me.GroupBox1.TabIndex = 55
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Personal Information"
@@ -152,7 +153,7 @@ Partial Class Cert_IndigencyForm
         '
         Me.Label.AutoSize = True
         Me.Label.BackColor = System.Drawing.Color.Transparent
-        Me.Label.Location = New System.Drawing.Point(72, 54)
+        Me.Label.Location = New System.Drawing.Point(86, 218)
         Me.Label.Name = "Label"
         Me.Label.Size = New System.Drawing.Size(75, 13)
         Me.Label.TabIndex = 57
@@ -162,11 +163,14 @@ Partial Class Cert_IndigencyForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1020, 534)
         Me.Controls.Add(Me.Label)
         Me.Controls.Add(Me.SearchnameTextBox)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox1)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "Cert_IndigencyForm"
