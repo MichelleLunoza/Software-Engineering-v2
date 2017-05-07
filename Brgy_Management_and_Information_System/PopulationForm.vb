@@ -79,6 +79,42 @@ Public Class PopulationForm
         CancelButton.Enabled = True
         UpdateButton.Enabled = False
         SaveButton.Enabled = True
+        DisplayRegister()
+    End Sub
+    Private Sub DisplayRegister()
+
+        Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        Dim query As String = String.Empty
+        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population_Table"
+
+
+
+        Dim connection As New SqlConnection(con)
+        Dim dataadapter As New SqlDataAdapter(query, connection)
+        Dim ds As New DataSet()
+
+
+        connection.Open()
+        dataadapter.Fill(ds, "Population_Table")
+        connection.Close()
+        DataGridView2.DataSource = ds
+        DataGridView2.DataMember = "Population_Table"
+        DataGridView2.Columns(0).Width = 100
+        DataGridView2.Columns(1).Width = 100
+        DataGridView2.Columns(2).Width = 150
+        DataGridView2.Columns(3).Width = 100
+        DataGridView2.Columns(4).Width = 100
+        DataGridView2.Columns(5).Width = 100
+        DataGridView2.Columns(6).Width = 100
+        DataGridView2.Columns(7).Width = 100
+        DataGridView2.Columns(8).Width = 100
+        DataGridView2.Columns(9).Width = 100
+        DataGridView2.Columns(9).Width = 100
+        DataGridView2.Columns(10).Width = 100
+        DataGridView2.Columns(11).Width = 100
+        DataGridView2.Columns(12).Width = 100
+        DataGridView2.Columns(13).Width = 100
+        DataGridView2.Columns(14).Width = 100
     End Sub
 
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
@@ -86,7 +122,6 @@ Public Class PopulationForm
         ViewDetailsButton.Enabled = True
         UpdateButton.Enabled = True
         CancelButton.Enabled = False
-        DataGridView2.Visible = False
         DataGridView1.Visible = False
         DataGridView3.Visible = False
         GroupBox1.Visible = False
@@ -266,6 +301,7 @@ Public Class PopulationForm
         Dim famCategory = FamilyComboBox.SelectedItem.ToString()
         Dim purok = PurokComboBox.SelectedItem.ToString()
         Dim gender = GenderComboBox.SelectedItem.ToString()
+        Dim net_income = Net_IncomeTextBox.Text
         Dim HHN = HH_NumberTextBox.Text
         Dim OFW = OFWComboBox.SelectedItem.ToString()
         Dim PWD = PWDComboBox.SelectedItem.ToString()
@@ -279,20 +315,20 @@ Public Class PopulationForm
 
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO Population_ (ID,Family_ID,Name,Family_Category,Purok,Gender,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category)"
-        query &= "VALUES (@ID,@Family_ID,@Name,@Family_Category,@Purok,@Gender,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen)"
+        query &= "INSERT INTO Population_Table (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category)"
+        query &= "VALUES (@Family_ID,@Name,@Family_Category,@Purok,@Gender,@net_income,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen)"
 
-        con.ConnectionString = "Data Source = AZKHABAN\SQLEXPRESS; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         With cmd
             .Connection = con
             .CommandType = CommandType.Text
             .CommandText = query
-            .Parameters.AddWithValue("@ID", ID)
             .Parameters.AddWithValue("@Family_ID", FamilyID)
             .Parameters.AddWithValue("@Name", Name)
             .Parameters.AddWithValue("@Family_Category", famCategory)
             .Parameters.AddWithValue("@Purok", purok)
             .Parameters.AddWithValue("@Gender", gender)
+            .Parameters.AddWithValue("@net_income", net_income)
             .Parameters.AddWithValue("@HHN", HHN)
             .Parameters.AddWithValue("@OFW", OFW)
             .Parameters.AddWithValue("@PWD", PWD)

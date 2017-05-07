@@ -89,7 +89,6 @@ Partial Class PopulationForm
         Me.HHNTextBox = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
         Me.TimeLabel = New System.Windows.Forms.Label()
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ViewDetailsButton = New System.Windows.Forms.Button()
         Me.RegisterButton = New System.Windows.Forms.Button()
@@ -129,12 +128,13 @@ Partial Class PopulationForm
         Me.PurokCComboBox = New System.Windows.Forms.ComboBox()
         Me.EditButton = New System.Windows.Forms.Button()
         Me.SaveButton = New System.Windows.Forms.Button()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ClearButton
@@ -777,15 +777,6 @@ Partial Class PopulationForm
         Me.TimeLabel.Size = New System.Drawing.Size(0, 13)
         Me.TimeLabel.TabIndex = 117
         '
-        'DataGridView2
-        '
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(41, 256)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(596, 426)
-        Me.DataGridView2.TabIndex = 118
-        Me.DataGridView2.Visible = False
-        '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -835,7 +826,7 @@ Partial Class PopulationForm
         'DataGridView3
         '
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(41, 256)
+        Me.DataGridView3.Location = New System.Drawing.Point(41, 247)
         Me.DataGridView3.Name = "DataGridView3"
         Me.DataGridView3.Size = New System.Drawing.Size(596, 426)
         Me.DataGridView3.TabIndex = 123
@@ -1172,6 +1163,15 @@ Partial Class PopulationForm
         Me.SaveButton.Text = "Save"
         Me.SaveButton.UseVisualStyleBackColor = True
         '
+        'DataGridView2
+        '
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Location = New System.Drawing.Point(41, 247)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(596, 426)
+        Me.DataGridView2.TabIndex = 126
+        Me.DataGridView2.Visible = False
+        '
         'PopulationForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1179,6 +1179,7 @@ Partial Class PopulationForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
+        Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.SaveButton)
@@ -1192,7 +1193,6 @@ Partial Class PopulationForm
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.Label)
         Me.Controls.Add(Me.SearchnameTextBox)
-        Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox3)
         Me.DoubleBuffered = True
@@ -1205,11 +1205,11 @@ Partial Class PopulationForm
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1244,7 +1244,6 @@ Partial Class PopulationForm
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents TimeLabel As System.Windows.Forms.Label
-    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents ViewDetailsButton As System.Windows.Forms.Button
     Friend WithEvents IDTextBox As System.Windows.Forms.TextBox
@@ -1320,4 +1319,5 @@ Partial Class PopulationForm
     Friend WithEvents Net_Income1TextBox As System.Windows.Forms.TextBox
     Friend WithEvents Label44 As System.Windows.Forms.Label
     Friend WithEvents NetIncome3TextBox As System.Windows.Forms.TextBox
+    Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
 End Class
