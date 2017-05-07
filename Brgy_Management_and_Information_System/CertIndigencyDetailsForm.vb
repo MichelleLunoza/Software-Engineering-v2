@@ -148,7 +148,7 @@ Public Class CertIndigencyDetailsForm
             query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
 
 
-            con.ConnectionString = "Data Source = AZKHABAN\SQLEXPRESS; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
             With cmd
                 .Connection = con
                 .CommandType = CommandType.Text
@@ -189,9 +189,9 @@ Public Class CertIndigencyDetailsForm
     End Sub
     Private Sub AddFunction()
 
-        Dim con As String = "Data Source = AZKHABAN\SQLEXPRESS; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID, Name FROM Population_"
+        query &= "SELECT ID, Name FROM Population_Table"
 
 
         Dim connection As New SqlConnection(con)
@@ -200,10 +200,10 @@ Public Class CertIndigencyDetailsForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population_")
+        dataadapter.Fill(ds, "Population_Table")
         connection.Close()
         DataGridView2.DataSource = ds
-        DataGridView2.DataMember = "Population_"
+        DataGridView2.DataMember = "Population_Table"
         DataGridView2.Columns(0).Width = 150
         DataGridView2.Columns(1).Width = 420
 
@@ -214,5 +214,27 @@ Public Class CertIndigencyDetailsForm
         IDTextBox.Text = row.Cells(0).Value.ToString()
         NameTextBox.Text = row.Cells(1).Value.ToString()
 
+    End Sub
+
+    Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+
+    End Sub
+    Private Sub DeleteFunction()
+
+        Dim ID = IDTextBox.Text
+        Dim con As New SqlConnection
+        Dim cmd As New SqlCommand
+        Dim query As String = String.Empty
+        query &= "DELETE FROM Certificate_Indigency_Table WHERE ID=@ID"
+        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        With cmd
+            .Connection = con
+            .CommandType = CommandType.Text
+            .CommandText = query
+            .Parameters.AddWithValue("@ID", ID)
+        End With
+        con.Open()
+        cmd.ExecuteNonQuery()
+        con.Close()
     End Sub
 End Class

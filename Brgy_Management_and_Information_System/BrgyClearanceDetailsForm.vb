@@ -264,4 +264,26 @@ Public Class BrgyClearanceDetailsForm
             GC.Collect()
         End Try
     End Sub
+
+    Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+        DeleteFunction()
+    End Sub
+    Private Sub DeleteFunction()
+
+        Dim ID = IDTextBox.Text
+        Dim con As New SqlConnection
+        Dim cmd As New SqlCommand
+        Dim query As String = String.Empty
+        query &= "DELETE FROM Brgy_Clearance_Table WHERE ID=@ID"
+        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        With cmd
+            .Connection = con
+            .CommandType = CommandType.Text
+            .CommandText = query
+            .Parameters.AddWithValue("@ID", ID)
+        End With
+        con.Open()
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
 End Class

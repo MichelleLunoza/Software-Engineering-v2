@@ -27,7 +27,6 @@ Partial Class CBMS_DetailsForm
         Me.Label = New System.Windows.Forms.Label()
         Me.ClearButton = New System.Windows.Forms.Button()
         Me.BackButton = New System.Windows.Forms.Button()
-        Me.ViewDetailsButton = New System.Windows.Forms.Button()
         Me.HHNumberDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CategoryDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.HeadFamilyDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -83,15 +82,6 @@ Partial Class CBMS_DetailsForm
         Me.BackButton.TabIndex = 73
         Me.BackButton.Text = "Back"
         Me.BackButton.UseVisualStyleBackColor = True
-        '
-        'ViewDetailsButton
-        '
-        Me.ViewDetailsButton.Location = New System.Drawing.Point(1202, 319)
-        Me.ViewDetailsButton.Name = "ViewDetailsButton"
-        Me.ViewDetailsButton.Size = New System.Drawing.Size(112, 56)
-        Me.ViewDetailsButton.TabIndex = 80
-        Me.ViewDetailsButton.Text = "Delete"
-        Me.ViewDetailsButton.UseVisualStyleBackColor = True
         '
         'HHNumberDataGridViewTextBoxColumn
         '
@@ -201,12 +191,12 @@ Partial Class CBMS_DetailsForm
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Location = New System.Drawing.Point(146, 319)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(657, 378)
+        Me.DataGridView1.Size = New System.Drawing.Size(875, 378)
         Me.DataGridView1.TabIndex = 85
         '
         'TotalPurokButton
         '
-        Me.TotalPurokButton.Location = New System.Drawing.Point(1202, 443)
+        Me.TotalPurokButton.Location = New System.Drawing.Point(1207, 437)
         Me.TotalPurokButton.Name = "TotalPurokButton"
         Me.TotalPurokButton.Size = New System.Drawing.Size(112, 56)
         Me.TotalPurokButton.TabIndex = 86
@@ -215,7 +205,7 @@ Partial Class CBMS_DetailsForm
         '
         'TotalFamilyButton
         '
-        Me.TotalFamilyButton.Location = New System.Drawing.Point(1202, 381)
+        Me.TotalFamilyButton.Location = New System.Drawing.Point(1207, 375)
         Me.TotalFamilyButton.Name = "TotalFamilyButton"
         Me.TotalFamilyButton.Size = New System.Drawing.Size(112, 56)
         Me.TotalFamilyButton.TabIndex = 87
@@ -224,7 +214,7 @@ Partial Class CBMS_DetailsForm
         '
         'OverallTotalButton
         '
-        Me.OverallTotalButton.Location = New System.Drawing.Point(1202, 505)
+        Me.OverallTotalButton.Location = New System.Drawing.Point(1207, 499)
         Me.OverallTotalButton.Name = "OverallTotalButton"
         Me.OverallTotalButton.Size = New System.Drawing.Size(112, 56)
         Me.OverallTotalButton.TabIndex = 88
@@ -247,7 +237,6 @@ Partial Class CBMS_DetailsForm
         Me.Controls.Add(Me.Label)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.BackButton)
-        Me.Controls.Add(Me.ViewDetailsButton)
         Me.DoubleBuffered = True
         Me.Name = "CBMS_DetailsForm"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -261,7 +250,6 @@ Partial Class CBMS_DetailsForm
     Friend WithEvents Label As System.Windows.Forms.Label
     Friend WithEvents ClearButton As System.Windows.Forms.Button
     Friend WithEvents BackButton As System.Windows.Forms.Button
-    Friend WithEvents ViewDetailsButton As System.Windows.Forms.Button
     Friend WithEvents HHNumberDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents CategoryDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents HeadFamilyDataGridViewTextBoxColumn As System.Windows.Forms.DataGridViewTextBoxColumn
