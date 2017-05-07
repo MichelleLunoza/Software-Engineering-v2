@@ -39,7 +39,7 @@ Partial Class MainForm
         '
         'LogoutButton
         '
-        Me.LogoutButton.Location = New System.Drawing.Point(534, 144)
+        Me.LogoutButton.Location = New System.Drawing.Point(576, 159)
         Me.LogoutButton.Name = "LogoutButton"
         Me.LogoutButton.Size = New System.Drawing.Size(75, 23)
         Me.LogoutButton.TabIndex = 26
@@ -53,7 +53,7 @@ Partial Class MainForm
         Me.CBMSButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CBMSButton.FlatAppearance.BorderSize = 0
         Me.CBMSButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.CBMSButton.Location = New System.Drawing.Point(185, 261)
+        Me.CBMSButton.Location = New System.Drawing.Point(222, 276)
         Me.CBMSButton.Name = "CBMSButton"
         Me.CBMSButton.Size = New System.Drawing.Size(255, 53)
         Me.CBMSButton.TabIndex = 25
@@ -66,7 +66,7 @@ Partial Class MainForm
         Me.ClearancesButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClearancesButton.FlatAppearance.BorderSize = 0
         Me.ClearancesButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ClearancesButton.Location = New System.Drawing.Point(185, 192)
+        Me.ClearancesButton.Location = New System.Drawing.Point(222, 204)
         Me.ClearancesButton.Name = "ClearancesButton"
         Me.ClearancesButton.Size = New System.Drawing.Size(255, 53)
         Me.ClearancesButton.TabIndex = 24
@@ -76,7 +76,7 @@ Partial Class MainForm
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(513, 80)
+        Me.Label3.Location = New System.Drawing.Point(518, 125)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(33, 13)
         Me.Label3.TabIndex = 31
@@ -86,7 +86,7 @@ Partial Class MainForm
         '
         Me.DateLabel.AutoSize = True
         Me.DateLabel.BackColor = System.Drawing.Color.Transparent
-        Me.DateLabel.Location = New System.Drawing.Point(430, 80)
+        Me.DateLabel.Location = New System.Drawing.Point(435, 125)
         Me.DateLabel.Name = "DateLabel"
         Me.DateLabel.Size = New System.Drawing.Size(0, 13)
         Me.DateLabel.TabIndex = 30
@@ -95,7 +95,7 @@ Partial Class MainForm
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(396, 80)
+        Me.Label2.Location = New System.Drawing.Point(401, 125)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(33, 13)
         Me.Label2.TabIndex = 29
@@ -105,7 +105,7 @@ Partial Class MainForm
         '
         Me.ULabel.AutoSize = True
         Me.ULabel.BackColor = System.Drawing.Color.Transparent
-        Me.ULabel.Location = New System.Drawing.Point(258, 80)
+        Me.ULabel.Location = New System.Drawing.Point(263, 125)
         Me.ULabel.Name = "ULabel"
         Me.ULabel.Size = New System.Drawing.Size(0, 13)
         Me.ULabel.TabIndex = 28
@@ -114,7 +114,7 @@ Partial Class MainForm
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(217, 80)
+        Me.Label1.Location = New System.Drawing.Point(222, 125)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 13)
         Me.Label1.TabIndex = 27
@@ -124,24 +124,29 @@ Partial Class MainForm
         '
         Me.TimeLabel.AutoSize = True
         Me.TimeLabel.BackColor = System.Drawing.Color.Transparent
-        Me.TimeLabel.Location = New System.Drawing.Point(552, 80)
+        Me.TimeLabel.Location = New System.Drawing.Point(557, 125)
         Me.TimeLabel.Name = "TimeLabel"
         Me.TimeLabel.Size = New System.Drawing.Size(0, 13)
         Me.TimeLabel.TabIndex = 32
         '
         'Button1
         '
-        Me.Button1.Location = New System.Drawing.Point(198, 331)
+        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
+        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.Button1.FlatAppearance.BorderSize = 0
+        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.Button1.Location = New System.Drawing.Point(222, 354)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(231, 43)
+        Me.Button1.Size = New System.Drawing.Size(255, 53)
         Me.Button1.TabIndex = 33
-        Me.Button1.Text = "Population"
         Me.Button1.UseVisualStyleBackColor = True
         '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(663, 458)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TimeLabel)
@@ -153,6 +158,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.LogoutButton)
         Me.Controls.Add(Me.CBMSButton)
         Me.Controls.Add(Me.ClearancesButton)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "MainForm"

@@ -3,12 +3,13 @@ Public Class PopulationForm
 
     Private Sub PopulationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         TimeLabel.Text = Date.Now.ToString()
+        Me.MaximumSize = Screen.FromRectangle(Me.Bounds).WorkingArea.Size
     End Sub
     Private Sub Display()
 
-        Dim con As String = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        Dim con As String = "Data Source = AZKHABAN\SQLEXPRESS; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population"
+        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population_"
 
 
 
@@ -18,10 +19,10 @@ Public Class PopulationForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population")
+        dataadapter.Fill(ds, "Population_")
         connection.Close()
         DataGridView1.DataSource = ds
-        DataGridView1.DataMember = "Population"
+        DataGridView1.DataMember = "Population_"
         DataGridView1.Columns(0).Width = 100
         DataGridView1.Columns(1).Width = 100
         DataGridView1.Columns(2).Width = 150
@@ -76,6 +77,7 @@ Public Class PopulationForm
         ViewDetailsButton.Enabled = False
         CancelButton.Enabled = True
         UpdateButton.Enabled = False
+        SaveButton.Enabled = True
     End Sub
 
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
@@ -89,6 +91,8 @@ Public Class PopulationForm
         GroupBox1.Visible = False
         GroupBox2.Visible = False
         GroupBox3.Visible = False
+        SaveButton.Enabled = True
+        EditButton.Enabled = False
 
         Clear()
     End Sub
@@ -118,8 +122,8 @@ Public Class PopulationForm
 
 
         Dim query As String = String.Empty
-        query &= "UPDATE Population SET ID=@ID,Family_ID=@Family_ID,Name=@Name,Family_Category=@famCategory,Purok=@purok,Gender=@gender,HH_Number=@HHN,OFW_Category=@OFW,PWD_Category=@PWD,zero_twelve_months_Category=@zero_twelve_months,two_five_yrs_old_Category=@two_five_yrs_old,six_twelve_yrs_old_Category=@six_twelve_yrs_old,thirteen_seventeen_Category=@thirteen_seventeen_yrs_old,senior_citizen_Category=@senior_citizen WHERE ID=@ID"
-        con.ConnectionString = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        query &= "UPDATE Population_ SET ID=@ID,Family_ID=@Family_ID,Name=@Name,Family_Category=@famCategory,Purok=@purok,Gender=@gender,HH_Number=@HHN,OFW_Category=@OFW,PWD_Category=@PWD,zero_twelve_months_Category=@zero_twelve_months,two_five_yrs_old_Category=@two_five_yrs_old,six_twelve_yrs_old_Category=@six_twelve_yrs_old,thirteen_seventeen_Category=@thirteen_seventeen_yrs_old,senior_citizen_Category=@senior_citizen WHERE ID=@ID"
+        con.ConnectionString = "Data Source = AZKHABAN\SQLEXPRESS; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         With cmd
 
 
@@ -150,9 +154,9 @@ Public Class PopulationForm
     End Sub
     Private Sub DisplayUpdateFunction()
         Dim query As String = String.Empty
-        Dim con As String = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        Dim con As String = "Data Source = AZKHABAN\SQLEXPRESS; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         'Dim query As String = String.Empty
-        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population"
+        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population_"
 
 
 
@@ -162,10 +166,10 @@ Public Class PopulationForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population")
+        dataadapter.Fill(ds, "Population_")
         connection.Close()
         DataGridView3.DataSource = ds
-        DataGridView3.DataMember = "Population"
+        DataGridView3.DataMember = "Population_"
         DataGridView3.Columns(0).Width = 100
         DataGridView3.Columns(1).Width = 100
         DataGridView3.Columns(2).Width = 150
@@ -227,5 +231,66 @@ Public Class PopulationForm
         EditButton.Enabled = False
         CancelButton.Enabled = True
         DisplayUpdateFunction()
+    End Sub
+
+    Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
+        RegisterButton.Enabled = True
+        SaveButton.Enabled = False
+        ViewDetailsButton.Enabled = True
+        UpdateButton.Enabled = False
+        EditButton.Enabled = True
+        CancelButton.Enabled = False
+        SaveFunction()
+    End Sub
+
+    Private Sub SaveFunction()
+
+        Dim ID = IDTextBox.Text
+        Dim FamilyID = Family_IDTextBox.Text
+        Dim Name = NameTextBox.Text
+        Dim famCategory = FamilyComboBox.SelectedItem.ToString()
+        Dim purok = PurokComboBox.SelectedItem.ToString()
+        Dim gender = GenderComboBox.SelectedItem.ToString()
+        Dim HHN = HH_NumberTextBox.Text
+        Dim OFW = OFWComboBox.SelectedItem.ToString()
+        Dim PWD = PWDComboBox.SelectedItem.ToString()
+        Dim zero_twelve_months = zero_twelve_monthsComboBox.SelectedItem.ToString()
+        Dim two_five_yrs_old = two_five_yrs_oldComboBox.SelectedItem.ToString()
+        Dim six_twelve_yrs_old = six_twelve_yrs_oldComboBox.SelectedItem.ToString()
+        Dim thirteen_seventeen_yrs_old = thirteen_seventeen_yrs_oldComboBox.SelectedItem.ToString()
+        Dim senior_citizen = senior_citizenComboBox.SelectedItem.ToString()
+        Dim con As New SqlConnection
+        Dim cmd As New SqlCommand
+
+
+        Dim query As String = String.Empty
+        query &= "INSERT INTO Population_ (ID,Family_ID,Name,Family_Category,Purok,Gender,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category)"
+        query &= "VALUES (@ID,@Family_ID,@Name,@Family_Category,@Purok,@Gender,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen)"
+
+        con.ConnectionString = "Data Source = AZKHABAN\SQLEXPRESS; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        With cmd
+            .Connection = con
+            .CommandType = CommandType.Text
+            .CommandText = query
+            .Parameters.AddWithValue("@ID", ID)
+            .Parameters.AddWithValue("@Family_ID", FamilyID)
+            .Parameters.AddWithValue("@Name", Name)
+            .Parameters.AddWithValue("@Family_Category", famCategory)
+            .Parameters.AddWithValue("@Purok", purok)
+            .Parameters.AddWithValue("@Gender", gender)
+            .Parameters.AddWithValue("@HHN", HHN)
+            .Parameters.AddWithValue("@OFW", OFW)
+            .Parameters.AddWithValue("@PWD", PWD)
+            .Parameters.AddWithValue("@zero_twelve_months", zero_twelve_months)
+            .Parameters.AddWithValue("@two_five_yrs_old", two_five_yrs_old)
+            .Parameters.AddWithValue("@six_twelve_yrs_old", six_twelve_yrs_old)
+            .Parameters.AddWithValue("@thirteen_seventeen_yrs_old", thirteen_seventeen_yrs_old)
+            .Parameters.AddWithValue("@senior_citizen", senior_citizen)
+        End With
+
+        con.Open()
+        cmd.ExecuteNonQuery()
+        MessageBox.Show("Successfully Saved")
+        Clear()
     End Sub
 End Class

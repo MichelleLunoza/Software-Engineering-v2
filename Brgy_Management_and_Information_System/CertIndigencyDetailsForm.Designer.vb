@@ -23,6 +23,7 @@ Partial Class CertIndigencyDetailsForm
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(CertIndigencyDetailsForm))
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
         Me.Label2 = New System.Windows.Forms.Label()
         Me.PurposeTextBox = New System.Windows.Forms.TextBox()
@@ -131,9 +132,10 @@ Partial Class CertIndigencyDetailsForm
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(898, 35)
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(1078, 199)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(33, 13)
+        Me.Label1.Size = New System.Drawing.Size(42, 16)
         Me.Label1.TabIndex = 92
         Me.Label1.Text = "Time:"
         '
@@ -141,9 +143,10 @@ Partial Class CertIndigencyDetailsForm
         '
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Location = New System.Drawing.Point(698, 35)
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(812, 199)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(33, 13)
+        Me.Label10.Size = New System.Drawing.Size(40, 16)
         Me.Label10.TabIndex = 90
         Me.Label10.Text = "Date:"
         '
@@ -152,7 +155,7 @@ Partial Class CertIndigencyDetailsForm
         Me.Label8.AutoSize = True
         Me.Label8.BackColor = System.Drawing.Color.Transparent
         Me.Label8.Font = New System.Drawing.Font("Century Gothic", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label8.Location = New System.Drawing.Point(361, 86)
+        Me.Label8.Location = New System.Drawing.Point(447, 258)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(506, 39)
         Me.Label8.TabIndex = 88
@@ -162,9 +165,10 @@ Partial Class CertIndigencyDetailsForm
         '
         Me.DateLabel.AutoSize = True
         Me.DateLabel.BackColor = System.Drawing.Color.Transparent
-        Me.DateLabel.Location = New System.Drawing.Point(732, 35)
+        Me.DateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateLabel.Location = New System.Drawing.Point(846, 199)
         Me.DateLabel.Name = "DateLabel"
-        Me.DateLabel.Size = New System.Drawing.Size(0, 13)
+        Me.DateLabel.Size = New System.Drawing.Size(0, 16)
         Me.DateLabel.TabIndex = 91
         '
         'DateTextBox
@@ -207,9 +211,10 @@ Partial Class CertIndigencyDetailsForm
         '
         Me.TimeLabel.AutoSize = True
         Me.TimeLabel.BackColor = System.Drawing.Color.Transparent
-        Me.TimeLabel.Location = New System.Drawing.Point(934, 35)
+        Me.TimeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TimeLabel.Location = New System.Drawing.Point(1114, 199)
         Me.TimeLabel.Name = "TimeLabel"
-        Me.TimeLabel.Size = New System.Drawing.Size(0, 13)
+        Me.TimeLabel.Size = New System.Drawing.Size(0, 16)
         Me.TimeLabel.TabIndex = 93
         '
         'EditButton
@@ -224,7 +229,7 @@ Partial Class CertIndigencyDetailsForm
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(30, 192)
+        Me.DataGridView1.Location = New System.Drawing.Point(129, 386)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(596, 271)
         Me.DataGridView1.TabIndex = 94
@@ -240,7 +245,7 @@ Partial Class CertIndigencyDetailsForm
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(432, 142)
+        Me.ClearButton.Location = New System.Drawing.Point(531, 336)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(75, 23)
         Me.ClearButton.TabIndex = 85
@@ -251,7 +256,7 @@ Partial Class CertIndigencyDetailsForm
         '
         Me.Label.AutoSize = True
         Me.Label.BackColor = System.Drawing.Color.Transparent
-        Me.Label.Location = New System.Drawing.Point(27, 149)
+        Me.Label.Location = New System.Drawing.Point(126, 343)
         Me.Label.Name = "Label"
         Me.Label.Size = New System.Drawing.Size(75, 13)
         Me.Label.TabIndex = 83
@@ -261,14 +266,15 @@ Partial Class CertIndigencyDetailsForm
         '
         Me.ULabel.AutoSize = True
         Me.ULabel.BackColor = System.Drawing.Color.Transparent
-        Me.ULabel.Location = New System.Drawing.Point(434, 35)
+        Me.ULabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ULabel.Location = New System.Drawing.Point(491, 199)
         Me.ULabel.Name = "ULabel"
-        Me.ULabel.Size = New System.Drawing.Size(0, 13)
+        Me.ULabel.Size = New System.Drawing.Size(0, 16)
         Me.ULabel.TabIndex = 82
         '
         'SearchnameTextBox
         '
-        Me.SearchnameTextBox.Location = New System.Drawing.Point(133, 145)
+        Me.SearchnameTextBox.Location = New System.Drawing.Point(232, 339)
         Me.SearchnameTextBox.Name = "SearchnameTextBox"
         Me.SearchnameTextBox.Size = New System.Drawing.Size(281, 20)
         Me.SearchnameTextBox.TabIndex = 84
@@ -301,7 +307,7 @@ Partial Class CertIndigencyDetailsForm
         Me.GroupBox1.Controls.Add(Me.EditButton)
         Me.GroupBox1.Controls.Add(Me.DeleteButton)
         Me.GroupBox1.Controls.Add(Me.UpdateButton)
-        Me.GroupBox1.Location = New System.Drawing.Point(667, 162)
+        Me.GroupBox1.Location = New System.Drawing.Point(766, 356)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(434, 301)
         Me.GroupBox1.TabIndex = 86
@@ -312,15 +318,16 @@ Partial Class CertIndigencyDetailsForm
         '
         Me.Label9.AutoSize = True
         Me.Label9.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label9.Location = New System.Drawing.Point(394, 35)
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(451, 199)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(35, 13)
+        Me.Label9.Size = New System.Drawing.Size(43, 16)
         Me.Label9.TabIndex = 89
         Me.Label9.Text = "User: "
         '
         'BackButton
         '
-        Me.BackButton.Location = New System.Drawing.Point(1045, 71)
+        Me.BackButton.Location = New System.Drawing.Point(1257, 241)
         Me.BackButton.Name = "BackButton"
         Me.BackButton.Size = New System.Drawing.Size(75, 23)
         Me.BackButton.TabIndex = 87
@@ -330,7 +337,7 @@ Partial Class CertIndigencyDetailsForm
         'DataGridView2
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(30, 192)
+        Me.DataGridView2.Location = New System.Drawing.Point(129, 386)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.Size = New System.Drawing.Size(596, 271)
         Me.DataGridView2.TabIndex = 95
@@ -340,7 +347,9 @@ Partial Class CertIndigencyDetailsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1129, 685)
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.ClientSize = New System.Drawing.Size(1344, 712)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label8)
@@ -355,6 +364,7 @@ Partial Class CertIndigencyDetailsForm
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.DataGridView2)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "CertIndigencyDetailsForm"

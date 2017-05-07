@@ -22,6 +22,7 @@ Partial Class ClearanceForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(ClearanceForm))
         Me.TimeLabel = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.DateLabel = New System.Windows.Forms.Label()
@@ -43,7 +44,7 @@ Partial Class ClearanceForm
         '
         Me.TimeLabel.AutoSize = True
         Me.TimeLabel.BackColor = System.Drawing.Color.Transparent
-        Me.TimeLabel.Location = New System.Drawing.Point(532, 89)
+        Me.TimeLabel.Location = New System.Drawing.Point(598, 140)
         Me.TimeLabel.Name = "TimeLabel"
         Me.TimeLabel.Size = New System.Drawing.Size(0, 13)
         Me.TimeLabel.TabIndex = 38
@@ -52,7 +53,7 @@ Partial Class ClearanceForm
         '
         Me.Label3.AutoSize = True
         Me.Label3.BackColor = System.Drawing.Color.Transparent
-        Me.Label3.Location = New System.Drawing.Point(496, 89)
+        Me.Label3.Location = New System.Drawing.Point(562, 140)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(33, 13)
         Me.Label3.TabIndex = 37
@@ -62,7 +63,7 @@ Partial Class ClearanceForm
         '
         Me.DateLabel.AutoSize = True
         Me.DateLabel.BackColor = System.Drawing.Color.Transparent
-        Me.DateLabel.Location = New System.Drawing.Point(413, 89)
+        Me.DateLabel.Location = New System.Drawing.Point(465, 140)
         Me.DateLabel.Name = "DateLabel"
         Me.DateLabel.Size = New System.Drawing.Size(0, 13)
         Me.DateLabel.TabIndex = 36
@@ -71,7 +72,7 @@ Partial Class ClearanceForm
         '
         Me.Label2.AutoSize = True
         Me.Label2.BackColor = System.Drawing.Color.Transparent
-        Me.Label2.Location = New System.Drawing.Point(379, 89)
+        Me.Label2.Location = New System.Drawing.Point(431, 140)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(33, 13)
         Me.Label2.TabIndex = 35
@@ -79,7 +80,7 @@ Partial Class ClearanceForm
         '
         'BackButton
         '
-        Me.BackButton.Location = New System.Drawing.Point(561, 121)
+        Me.BackButton.Location = New System.Drawing.Point(622, 176)
         Me.BackButton.Name = "BackButton"
         Me.BackButton.Size = New System.Drawing.Size(75, 23)
         Me.BackButton.TabIndex = 34
@@ -90,7 +91,7 @@ Partial Class ClearanceForm
         '
         Me.ULabel.AutoSize = True
         Me.ULabel.BackColor = System.Drawing.Color.Transparent
-        Me.ULabel.Location = New System.Drawing.Point(220, 89)
+        Me.ULabel.Location = New System.Drawing.Point(281, 140)
         Me.ULabel.Name = "ULabel"
         Me.ULabel.Size = New System.Drawing.Size(0, 13)
         Me.ULabel.TabIndex = 33
@@ -99,7 +100,7 @@ Partial Class ClearanceForm
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.SystemColors.ControlLightLight
-        Me.Label1.Location = New System.Drawing.Point(179, 89)
+        Me.Label1.Location = New System.Drawing.Point(240, 140)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 13)
         Me.Label1.TabIndex = 32
@@ -113,7 +114,7 @@ Partial Class ClearanceForm
         Me.GroupBox2.Controls.Add(Me.CIDButton)
         Me.GroupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox2.Location = New System.Drawing.Point(332, 202)
+        Me.GroupBox2.Location = New System.Drawing.Point(377, 237)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(263, 191)
         Me.GroupBox2.TabIndex = 40
@@ -148,7 +149,7 @@ Partial Class ClearanceForm
         Me.GroupBox1.Controls.Add(Me.CIButton)
         Me.GroupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.GroupBox1.Location = New System.Drawing.Point(47, 202)
+        Me.GroupBox1.Location = New System.Drawing.Point(92, 237)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(243, 191)
         Me.GroupBox1.TabIndex = 39
@@ -179,6 +180,8 @@ Partial Class ClearanceForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(709, 507)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -189,6 +192,7 @@ Partial Class ClearanceForm
         Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.ULabel)
         Me.Controls.Add(Me.Label1)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "ClearanceForm"

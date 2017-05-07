@@ -40,7 +40,7 @@ Partial Class CBMSForm
         '
         Me.TimeLabel.AutoSize = True
         Me.TimeLabel.BackColor = System.Drawing.Color.Transparent
-        Me.TimeLabel.Location = New System.Drawing.Point(492, 78)
+        Me.TimeLabel.Location = New System.Drawing.Point(536, 107)
         Me.TimeLabel.Name = "TimeLabel"
         Me.TimeLabel.Size = New System.Drawing.Size(0, 13)
         Me.TimeLabel.TabIndex = 80
@@ -49,7 +49,7 @@ Partial Class CBMSForm
         '
         Me.Label6.AutoSize = True
         Me.Label6.BackColor = System.Drawing.Color.Transparent
-        Me.Label6.Location = New System.Drawing.Point(456, 78)
+        Me.Label6.Location = New System.Drawing.Point(500, 107)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(33, 13)
         Me.Label6.TabIndex = 79
@@ -59,7 +59,7 @@ Partial Class CBMSForm
         '
         Me.DateLabel.AutoSize = True
         Me.DateLabel.BackColor = System.Drawing.Color.Transparent
-        Me.DateLabel.Location = New System.Drawing.Point(377, 78)
+        Me.DateLabel.Location = New System.Drawing.Point(421, 107)
         Me.DateLabel.Name = "DateLabel"
         Me.DateLabel.Size = New System.Drawing.Size(0, 13)
         Me.DateLabel.TabIndex = 78
@@ -68,7 +68,7 @@ Partial Class CBMSForm
         '
         Me.Label10.AutoSize = True
         Me.Label10.BackColor = System.Drawing.Color.Transparent
-        Me.Label10.Location = New System.Drawing.Point(343, 78)
+        Me.Label10.Location = New System.Drawing.Point(387, 107)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(33, 13)
         Me.Label10.TabIndex = 77
@@ -76,7 +76,7 @@ Partial Class CBMSForm
         '
         'BackButton
         '
-        Me.BackButton.Location = New System.Drawing.Point(499, 109)
+        Me.BackButton.Location = New System.Drawing.Point(551, 137)
         Me.BackButton.Name = "BackButton"
         Me.BackButton.Size = New System.Drawing.Size(75, 23)
         Me.BackButton.TabIndex = 76
@@ -87,7 +87,7 @@ Partial Class CBMSForm
         '
         Me.ULabel.AutoSize = True
         Me.ULabel.BackColor = System.Drawing.Color.Transparent
-        Me.ULabel.Location = New System.Drawing.Point(212, 78)
+        Me.ULabel.Location = New System.Drawing.Point(256, 107)
         Me.ULabel.Name = "ULabel"
         Me.ULabel.Size = New System.Drawing.Size(0, 13)
         Me.ULabel.TabIndex = 75
@@ -96,7 +96,7 @@ Partial Class CBMSForm
         '
         Me.Label1.AutoSize = True
         Me.Label1.BackColor = System.Drawing.Color.Transparent
-        Me.Label1.Location = New System.Drawing.Point(171, 78)
+        Me.Label1.Location = New System.Drawing.Point(215, 107)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(35, 13)
         Me.Label1.TabIndex = 74
@@ -110,9 +110,9 @@ Partial Class CBMSForm
         Me.BCDButton.FlatAppearance.BorderSize = 0
         Me.BCDButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.BCDButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.BCDButton.Location = New System.Drawing.Point(156, 147)
+        Me.BCDButton.Location = New System.Drawing.Point(210, 178)
         Me.BCDButton.Name = "BCDButton"
-        Me.BCDButton.Size = New System.Drawing.Size(231, 54)
+        Me.BCDButton.Size = New System.Drawing.Size(251, 64)
         Me.BCDButton.TabIndex = 72
         Me.BCDButton.UseVisualStyleBackColor = False
         '
@@ -124,9 +124,9 @@ Partial Class CBMSForm
         Me.CIDButton.FlatAppearance.BorderSize = 0
         Me.CIDButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.CIDButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CIDButton.Location = New System.Drawing.Point(156, 217)
+        Me.CIDButton.Location = New System.Drawing.Point(210, 262)
         Me.CIDButton.Name = "CIDButton"
-        Me.CIDButton.Size = New System.Drawing.Size(231, 54)
+        Me.CIDButton.Size = New System.Drawing.Size(251, 64)
         Me.CIDButton.TabIndex = 73
         Me.CIDButton.UseVisualStyleBackColor = False
         '
@@ -134,6 +134,8 @@ Partial Class CBMSForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
+        Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
+        Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(638, 394)
         Me.Controls.Add(Me.TimeLabel)
         Me.Controls.Add(Me.Label6)
@@ -144,6 +146,7 @@ Partial Class CBMSForm
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.BCDButton)
         Me.Controls.Add(Me.CIDButton)
+        Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "CBMSForm"

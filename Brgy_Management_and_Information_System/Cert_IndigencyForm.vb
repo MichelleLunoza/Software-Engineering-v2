@@ -13,9 +13,9 @@ Public Class Cert_IndigencyForm
     End Sub
 
     Private Sub Display()
-        Dim con As String = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID, Name FROM Population"
+        query &= "SELECT ID, Name FROM Population_Table WHERE Net_Income >= 12000"
 
         Dim connection As New SqlConnection(con)
         Dim dataadapter As New SqlDataAdapter(query, connection)
@@ -23,17 +23,17 @@ Public Class Cert_IndigencyForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population")
+        dataadapter.Fill(ds, "Population_Table")
         connection.Close()
         DataGridView1.DataSource = ds
-        DataGridView1.DataMember = "Population"
+        DataGridView1.DataMember = "Population_Table"
         DataGridView1.Columns(0).Width = 100
         DataGridView1.Columns(1).Width = 320
 
     End Sub
 
     Private Sub SearchnameTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchnameTextBox.TextChanged
-        Dim con As SqlConnection = New SqlConnection("Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
+        Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
         Dim adapt As New SqlDataAdapter
         Dim dt As New DataTable
@@ -44,7 +44,7 @@ Public Class Cert_IndigencyForm
             dt = New DataTable
             With cmd
                 .Connection = con
-                .CommandText = "SELECT ID,Name FROM Population WHERE Name Like'" & SearchnameTextBox.Text & "%'"
+                .CommandText = "SELECT ID,Name FROM Population_Table WHERE Name Like'" & SearchnameTextBox.Text & "%'"
             End With
             adapt.SelectCommand = cmd
             adapt.Fill(dt)
@@ -69,7 +69,7 @@ Public Class Cert_IndigencyForm
         Dim query As String = String.Empty
         query &= "INSERT INTO Certificate_Indigency_Table (ID,Name,Date,Purpose)"
         query &= "VALUES (@ID,@Name,@Date,@Purpose)"
-        con.ConnectionString = "Data Source = MIGUTIERREZ-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         With cmd
             .Connection = con
             .CommandType = CommandType.Text
