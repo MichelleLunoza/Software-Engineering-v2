@@ -44,7 +44,6 @@ C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_a
 C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\bin\Debug\Brgy_Management_and_Information_System.xml
 C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.BrgyClearanceDetailsForm.resources
 C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.BrgyClearanceForm.resources
-C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.CBMSForm.resources
 C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.CBMS_DetailsForm.resources
 C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.CertIndigencyDetailsForm.resources
 C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.Cert_IndigencyForm.resources

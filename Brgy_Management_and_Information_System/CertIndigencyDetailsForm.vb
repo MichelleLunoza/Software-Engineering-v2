@@ -3,7 +3,17 @@ Public Class CertIndigencyDetailsForm
 
     Private Sub CertIndigencyDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
-        Me.MaximumSize = Screen.FromRectangle(Me.Bounds).WorkingArea.Size
+        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString()
+        Me.DateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
+        Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
+
+        If ULabel.Text = "Guest" Then
+            AddButton.Enabled = False
+            EditButton.Enabled = False
+            SaveButton.Enabled = False
+            UpdateButton.Enabled = False
+            DeleteButton.Enabled = False
+        End If
     End Sub
     Private Sub Display()
         DataGridView1.Refresh()
@@ -217,6 +227,11 @@ Public Class CertIndigencyDetailsForm
     End Sub
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+        If IDTextBox.Text = "" Then
+            MessageBox.Show("Please select first from data gridview that you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            DeleteFunction()
+        End If
 
     End Sub
     Private Sub DeleteFunction()
@@ -236,5 +251,19 @@ Public Class CertIndigencyDetailsForm
         con.Open()
         cmd.ExecuteNonQuery()
         con.Close()
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs)
+        Me.Hide()
+        ClearanceForm.Show()
+    End Sub
+
+    Private Sub BackButton_Click_1(sender As Object, e As EventArgs) Handles BackButton.Click
+        Me.Hide()
+        ClearanceForm.Show()
+    End Sub
+
+    Private Sub ClearButton1_Click(sender As Object, e As EventArgs) Handles ClearButton1.Click
+        Clear()
     End Sub
 End Class

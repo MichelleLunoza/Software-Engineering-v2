@@ -310,7 +310,7 @@ Public Class PopulationForm
         Dim famCategory = FamilyComboBox.SelectedItem.ToString()
         Dim purok = PurokComboBox.SelectedItem.ToString()
         Dim gender = GenderComboBox.SelectedItem.ToString()
-        Dim net_income = Net_IncomeTextBox.Text
+        Dim net_income = Net_Income1TextBox.Text
         Dim HHN = HH_NumberTextBox.Text
         Dim OFW = OFWComboBox.SelectedItem.ToString()
         Dim PWD = PWDComboBox.SelectedItem.ToString()
@@ -355,7 +355,7 @@ Public Class PopulationForm
     End Sub
     Private Sub DeleteFunction()
 
-        Dim ID = IDTextBox.Text
+        Dim ID = ID2TextBox.Text
         Dim con As New SqlConnection
         Dim cmd As New SqlCommand
         Dim query As String = String.Empty

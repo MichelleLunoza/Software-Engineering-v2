@@ -166,7 +166,7 @@ Partial Class CertIndigencyDetailsForm
         Me.DateLabel.AutoSize = True
         Me.DateLabel.BackColor = System.Drawing.Color.Transparent
         Me.DateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.DateLabel.Location = New System.Drawing.Point(846, 199)
+        Me.DateLabel.Location = New System.Drawing.Point(856, 199)
         Me.DateLabel.Name = "DateLabel"
         Me.DateLabel.Size = New System.Drawing.Size(0, 16)
         Me.DateLabel.TabIndex = 91
@@ -212,7 +212,7 @@ Partial Class CertIndigencyDetailsForm
         Me.TimeLabel.AutoSize = True
         Me.TimeLabel.BackColor = System.Drawing.Color.Transparent
         Me.TimeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TimeLabel.Location = New System.Drawing.Point(1114, 199)
+        Me.TimeLabel.Location = New System.Drawing.Point(1125, 199)
         Me.TimeLabel.Name = "TimeLabel"
         Me.TimeLabel.Size = New System.Drawing.Size(0, 16)
         Me.TimeLabel.TabIndex = 93

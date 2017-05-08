@@ -4,7 +4,17 @@ Public Class BrgyClearanceDetailsForm
 
     Private Sub BrgyClearanceDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
-        Me.MaximumSize = Screen.FromRectangle(Me.Bounds).WorkingArea.Size
+        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString()
+        Me.DateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
+        Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
+
+        If ULabel.Text = "Guest" Then
+            AddButton.Enabled = False
+            EditButton.Enabled = False
+            SaveButton.Enabled = False
+            UpdateButton.Enabled = False
+            DeleteButton.Enabled = False
+        End If
 
     End Sub
 
@@ -266,7 +276,11 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
-        DeleteFunction()
+        If IDTextBox.Text = "" Then
+            MessageBox.Show("Please select first from data gridview that you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            DeleteFunction()
+        End If
     End Sub
     Private Sub DeleteFunction()
 
@@ -285,5 +299,10 @@ Public Class BrgyClearanceDetailsForm
         con.Open()
         cmd.ExecuteNonQuery()
         con.Close()
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        Me.Hide()
+        ClearanceForm.Show()
     End Sub
 End Class
