@@ -266,4 +266,51 @@ Public Class CertIndigencyDetailsForm
     Private Sub ClearButton1_Click(sender As Object, e As EventArgs) Handles ClearButton1.Click
         Clear()
     End Sub
+
+    Private Sub ExportButton_Click(sender As Object, e As EventArgs) Handles ExportButton.Click
+        Dim xlApp As Excel.Application
+        Dim xlWorkBook As Excel.Workbook
+        Dim xlWorkSheet As Excel.Worksheet
+        Dim misValue As Object = System.Reflection.Missing.Value
+        Dim i As Integer
+        Dim j As Integer
+        xlApp = New Excel.Application
+        xlWorkBook = xlApp.Workbooks.Add(misValue)
+        xlWorkSheet = xlWorkBook.Sheets.Add
+        xlWorkSheet.Name = "Sheet"
+        For i = 0 To DataGridView1.RowCount - 2
+            For j = 0 To DataGridView1.ColumnCount - 1
+                xlWorkSheet.Cells(i + 1, j + 1) = _
+                    DataGridView1(j, i).Value.ToString()
+            Next
+        Next
+        For j = 0 To DataGridView1.ColumnCount - 1
+            xlWorkSheet.Cells(1, j + 1) = DataGridView1.Columns(j).Name
+        Next
+        For i = 0 To DataGridView1.RowCount - 1
+            For j = 0 To DataGridView1.ColumnCount - 1
+                Dim cell As DataGridViewCell
+                cell = DataGridView1(j, i)
+                xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
+            Next
+        Next
+        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\Log_Certificate_Indigency.xlsx")
+        xlWorkBook.Close()
+        xlApp.Quit()
+        releaseObject(xlApp)
+        releaseObject(xlWorkBook)
+        releaseObject(xlWorkSheet)
+        MsgBox("You can find the file C:\Users\MiGutierrez\Downloads\Log_Certificate_Indigency.xlsx")
+    End Sub
+    Private Sub releaseObject(ByVal obj As Object)
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch ex As Exception
+            obj = Nothing
+            MessageBox.Show("Exception Occured while releasing object " + ex.ToString())
+        Finally
+            GC.Collect()
+        End Try
+    End Sub
 End Class

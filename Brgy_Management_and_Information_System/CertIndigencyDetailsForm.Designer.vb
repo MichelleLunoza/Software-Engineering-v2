@@ -54,6 +54,7 @@ Partial Class CertIndigencyDetailsForm
         Me.Label9 = New System.Windows.Forms.Label()
         Me.BackButton = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.ExportButton = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -343,6 +344,15 @@ Partial Class CertIndigencyDetailsForm
         Me.DataGridView2.TabIndex = 95
         Me.DataGridView2.Visible = False
         '
+        'ExportButton
+        '
+        Me.ExportButton.Location = New System.Drawing.Point(1220, 667)
+        Me.ExportButton.Name = "ExportButton"
+        Me.ExportButton.Size = New System.Drawing.Size(112, 33)
+        Me.ExportButton.TabIndex = 96
+        Me.ExportButton.Text = "Export in Excel"
+        Me.ExportButton.UseVisualStyleBackColor = True
+        '
         'CertIndigencyDetailsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -350,6 +360,7 @@ Partial Class CertIndigencyDetailsForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
+        Me.Controls.Add(Me.ExportButton)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.Label8)
@@ -408,4 +419,5 @@ Partial Class CertIndigencyDetailsForm
     Friend WithEvents Label9 As System.Windows.Forms.Label
     Friend WithEvents BackButton As System.Windows.Forms.Button
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents ExportButton As System.Windows.Forms.Button
 End Class

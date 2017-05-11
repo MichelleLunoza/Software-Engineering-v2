@@ -236,33 +236,36 @@ Public Class BrgyClearanceDetailsForm
         Dim xlWorkBook As Excel.Workbook
         Dim xlWorkSheet As Excel.Worksheet
         Dim misValue As Object = System.Reflection.Missing.Value
-
-        Dim i As Int16, j As Int16
-
+        Dim i As Integer
+        Dim j As Integer
         xlApp = New Excel.Application
         xlWorkBook = xlApp.Workbooks.Add(misValue)
-        xlWorkSheet = xlWorkBook.Sheets("sheet1")
-
-
+        xlWorkSheet = xlWorkBook.Sheets.Add
+        xlWorkSheet.Name = "Sheet"
         For i = 0 To DataGridView1.RowCount - 2
             For j = 0 To DataGridView1.ColumnCount - 1
-                xlWorkSheet.Cells(i + 1, j + 1) = DataGridView1(j, i).Value.ToString()
+                xlWorkSheet.Cells(i + 1, j + 1) = _
+                    DataGridView1(j, i).Value.ToString()
             Next
         Next
-
-        xlWorkBook.SaveAs("C:\Downloads\Log.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, _
-         Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue)
-        xlWorkBook.Close(True, misValue, misValue)
+        For j = 0 To DataGridView1.ColumnCount - 1
+            xlWorkSheet.Cells(1, j + 1) = DataGridView1.Columns(j).Name
+        Next
+        For i = 0 To DataGridView1.RowCount - 1
+            For j = 0 To DataGridView1.ColumnCount - 1
+                Dim cell As DataGridViewCell
+                cell = DataGridView1(j, i)
+                xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
+            Next
+        Next
+        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\Log_Brgy_Clearances.xlsx")
+        xlWorkBook.Close()
         xlApp.Quit()
-
-        releaseObject(xlWorkSheet)
-        releaseObject(xlWorkBook)
         releaseObject(xlApp)
-
-        MessageBox.Show("Over")
+        releaseObject(xlWorkBook)
+        releaseObject(xlWorkSheet)
+        MsgBox("You can find the file C:\Users\MiGutierrez\Downloads\Log_Brgy_Clearances.xlsx")
     End Sub
-
-
     Private Sub releaseObject(ByVal obj As Object)
         Try
             System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
