@@ -238,6 +238,7 @@ Public Class BrgyClearanceDetailsForm
         Dim misValue As Object = System.Reflection.Missing.Value
         Dim i As Integer
         Dim j As Integer
+        Dim filename As String = "Log_Brgy_Clearances-" & Now().ToString() & ".xlsx"
         xlApp = New Excel.Application
         xlWorkBook = xlApp.Workbooks.Add(misValue)
         xlWorkSheet = xlWorkBook.Sheets.Add
@@ -258,13 +259,13 @@ Public Class BrgyClearanceDetailsForm
                 xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
             Next
         Next
-        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\Log_Brgy_Clearances.xlsx")
+        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\Log_Brgy_Clearances-" & Now().ToString("yyyy-MM-dd-HH-mm-ss") & ".xlsx")
         xlWorkBook.Close()
         xlApp.Quit()
         releaseObject(xlApp)
         releaseObject(xlWorkBook)
         releaseObject(xlWorkSheet)
-        MsgBox("You can find the file C:\Users\MiGutierrez\Downloads\Log_Brgy_Clearances.xlsx")
+        MsgBox("You can find the file C:\Users\MiGutierrez\Downloads\Log_Brgy_Clearances(Date and time created).xlsx")
     End Sub
     Private Sub releaseObject(ByVal obj As Object)
         Try
