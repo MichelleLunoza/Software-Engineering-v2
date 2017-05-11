@@ -15,7 +15,7 @@ Public Class Cert_IndigencyForm
     Private Sub Display()
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID, Name FROM Population_Table WHERE Net_Income >= 12000"
+        query &= "SELECT ID, Name FROM Population_Table WHERE Net_Income <= 12000"
 
         Dim connection As New SqlConnection(con)
         Dim dataadapter As New SqlDataAdapter(query, connection)
@@ -82,5 +82,10 @@ Public Class Cert_IndigencyForm
 
         con.Open()
         cmd.ExecuteNonQuery()
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        Me.Hide()
+        ClearanceForm.Show()
     End Sub
 End Class

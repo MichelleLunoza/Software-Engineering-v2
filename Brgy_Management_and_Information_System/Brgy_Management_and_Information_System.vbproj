@@ -82,12 +82,6 @@
     <Compile Include="BrgyClearanceForm.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CBMSForm.Designer.vb">
-      <DependentUpon>CBMSForm.vb</DependentUpon>
-    </Compile>
-    <Compile Include="CBMSForm.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="CBMS_DetailsForm.Designer.vb">
       <DependentUpon>CBMS_DetailsForm.vb</DependentUpon>
     </Compile>
@@ -159,9 +153,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BrgyClearanceForm.resx">
       <DependentUpon>BrgyClearanceForm.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CBMSForm.resx">
-      <DependentUpon>CBMSForm.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CBMS_DetailsForm.resx">
       <DependentUpon>CBMS_DetailsForm.vb</DependentUpon>

@@ -22,19 +22,17 @@ Partial Class MainForm
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(MainForm))
         Me.LogoutButton = New System.Windows.Forms.Button()
         Me.CBMSButton = New System.Windows.Forms.Button()
         Me.ClearancesButton = New System.Windows.Forms.Button()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.DateLabel = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.ULabel = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.TimeLabel = New System.Windows.Forms.Label()
         Me.Button1 = New System.Windows.Forms.Button()
+        Me.userLabel = New System.Windows.Forms.Label()
+        Me.dateLabel = New System.Windows.Forms.Label()
+        Me.timeLabel = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'LogoutButton
@@ -82,15 +80,6 @@ Partial Class MainForm
         Me.Label3.TabIndex = 31
         Me.Label3.Text = "Time:"
         '
-        'DateLabel
-        '
-        Me.DateLabel.AutoSize = True
-        Me.DateLabel.BackColor = System.Drawing.Color.Transparent
-        Me.DateLabel.Location = New System.Drawing.Point(435, 125)
-        Me.DateLabel.Name = "DateLabel"
-        Me.DateLabel.Size = New System.Drawing.Size(0, 13)
-        Me.DateLabel.TabIndex = 30
-        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -101,15 +90,6 @@ Partial Class MainForm
         Me.Label2.TabIndex = 29
         Me.Label2.Text = "Date:"
         '
-        'ULabel
-        '
-        Me.ULabel.AutoSize = True
-        Me.ULabel.BackColor = System.Drawing.Color.Transparent
-        Me.ULabel.Location = New System.Drawing.Point(263, 125)
-        Me.ULabel.Name = "ULabel"
-        Me.ULabel.Size = New System.Drawing.Size(0, 13)
-        Me.ULabel.TabIndex = 28
-        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -119,15 +99,6 @@ Partial Class MainForm
         Me.Label1.Size = New System.Drawing.Size(35, 13)
         Me.Label1.TabIndex = 27
         Me.Label1.Text = "User: "
-        '
-        'TimeLabel
-        '
-        Me.TimeLabel.AutoSize = True
-        Me.TimeLabel.BackColor = System.Drawing.Color.Transparent
-        Me.TimeLabel.Location = New System.Drawing.Point(557, 125)
-        Me.TimeLabel.Name = "TimeLabel"
-        Me.TimeLabel.Size = New System.Drawing.Size(0, 13)
-        Me.TimeLabel.TabIndex = 32
         '
         'Button1
         '
@@ -141,6 +112,30 @@ Partial Class MainForm
         Me.Button1.TabIndex = 33
         Me.Button1.UseVisualStyleBackColor = True
         '
+        'userLabel
+        '
+        Me.userLabel.AutoSize = True
+        Me.userLabel.Location = New System.Drawing.Point(263, 125)
+        Me.userLabel.Name = "userLabel"
+        Me.userLabel.Size = New System.Drawing.Size(0, 13)
+        Me.userLabel.TabIndex = 34
+        '
+        'dateLabel
+        '
+        Me.dateLabel.AutoSize = True
+        Me.dateLabel.Location = New System.Drawing.Point(440, 125)
+        Me.dateLabel.Name = "dateLabel"
+        Me.dateLabel.Size = New System.Drawing.Size(0, 13)
+        Me.dateLabel.TabIndex = 35
+        '
+        'timeLabel
+        '
+        Me.timeLabel.AutoSize = True
+        Me.timeLabel.Location = New System.Drawing.Point(557, 125)
+        Me.timeLabel.Name = "timeLabel"
+        Me.timeLabel.Size = New System.Drawing.Size(0, 13)
+        Me.timeLabel.TabIndex = 36
+        '
         'MainForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -148,12 +143,12 @@ Partial Class MainForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(663, 458)
+        Me.Controls.Add(Me.timeLabel)
+        Me.Controls.Add(Me.dateLabel)
+        Me.Controls.Add(Me.userLabel)
         Me.Controls.Add(Me.Button1)
-        Me.Controls.Add(Me.TimeLabel)
         Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.DateLabel)
         Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.ULabel)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.LogoutButton)
         Me.Controls.Add(Me.CBMSButton)
@@ -172,11 +167,10 @@ Partial Class MainForm
     Friend WithEvents CBMSButton As System.Windows.Forms.Button
     Friend WithEvents ClearancesButton As System.Windows.Forms.Button
     Friend WithEvents Label3 As System.Windows.Forms.Label
-    Friend WithEvents DateLabel As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents ULabel As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Timer1 As System.Windows.Forms.Timer
-    Friend WithEvents TimeLabel As System.Windows.Forms.Label
     Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents userLabel As System.Windows.Forms.Label
+    Friend WithEvents dateLabel As System.Windows.Forms.Label
+    Friend WithEvents timeLabel As System.Windows.Forms.Label
 End Class

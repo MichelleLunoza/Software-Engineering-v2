@@ -4,7 +4,17 @@ Public Class BrgyClearanceDetailsForm
 
     Private Sub BrgyClearanceDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
-        Me.MaximumSize = Screen.FromRectangle(Me.Bounds).WorkingArea.Size
+        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString()
+        Me.DateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
+        Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
+
+        If ULabel.Text = "Guest" Then
+            AddButton.Enabled = False
+            EditButton.Enabled = False
+            SaveButton.Enabled = False
+            UpdateButton.Enabled = False
+            DeleteButton.Enabled = False
+        End If
 
     End Sub
 
@@ -226,33 +236,37 @@ Public Class BrgyClearanceDetailsForm
         Dim xlWorkBook As Excel.Workbook
         Dim xlWorkSheet As Excel.Worksheet
         Dim misValue As Object = System.Reflection.Missing.Value
-
-        Dim i As Int16, j As Int16
-
+        Dim i As Integer
+        Dim j As Integer
+        Dim filename As String = "Log_Brgy_Clearances-" & Now().ToString() & ".xlsx"
         xlApp = New Excel.Application
         xlWorkBook = xlApp.Workbooks.Add(misValue)
-        xlWorkSheet = xlWorkBook.Sheets("sheet1")
-
-
+        xlWorkSheet = xlWorkBook.Sheets.Add
+        xlWorkSheet.Name = "Sheet"
         For i = 0 To DataGridView1.RowCount - 2
             For j = 0 To DataGridView1.ColumnCount - 1
-                xlWorkSheet.Cells(i + 1, j + 1) = DataGridView1(j, i).Value.ToString()
+                xlWorkSheet.Cells(i + 1, j + 1) = _
+                    DataGridView1(j, i).Value.ToString()
             Next
         Next
-
-        xlWorkBook.SaveAs("C:\Downloads\Log.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, _
-         Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue)
-        xlWorkBook.Close(True, misValue, misValue)
+        For j = 0 To DataGridView1.ColumnCount - 1
+            xlWorkSheet.Cells(1, j + 1) = DataGridView1.Columns(j).Name
+        Next
+        For i = 0 To DataGridView1.RowCount - 1
+            For j = 0 To DataGridView1.ColumnCount - 1
+                Dim cell As DataGridViewCell
+                cell = DataGridView1(j, i)
+                xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
+            Next
+        Next
+        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\Log_Brgy_Clearances-" & Now().ToString("yyyy-MM-dd-HH-mm-ss") & ".xlsx")
+        xlWorkBook.Close()
         xlApp.Quit()
-
-        releaseObject(xlWorkSheet)
-        releaseObject(xlWorkBook)
         releaseObject(xlApp)
-
-        MessageBox.Show("Over")
+        releaseObject(xlWorkBook)
+        releaseObject(xlWorkSheet)
+        MsgBox("You can find the file C:\Users\MiGutierrez\Downloads\Log_Brgy_Clearances(Date and time created).xlsx")
     End Sub
-
-
     Private Sub releaseObject(ByVal obj As Object)
         Try
             System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
@@ -263,5 +277,36 @@ Public Class BrgyClearanceDetailsForm
         Finally
             GC.Collect()
         End Try
+    End Sub
+
+    Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+        If IDTextBox.Text = "" Then
+            MessageBox.Show("Please select first from data gridview that you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            DeleteFunction()
+        End If
+    End Sub
+    Private Sub DeleteFunction()
+
+        Dim ID = IDTextBox.Text
+        Dim con As New SqlConnection
+        Dim cmd As New SqlCommand
+        Dim query As String = String.Empty
+        query &= "DELETE FROM Brgy_Clearance_Table WHERE ID=@ID"
+        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        With cmd
+            .Connection = con
+            .CommandType = CommandType.Text
+            .CommandText = query
+            .Parameters.AddWithValue("@ID", ID)
+        End With
+        con.Open()
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        Me.Hide()
+        ClearanceForm.Show()
     End Sub
 End Class

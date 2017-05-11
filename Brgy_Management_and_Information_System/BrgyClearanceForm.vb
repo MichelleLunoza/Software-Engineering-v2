@@ -5,6 +5,10 @@ Public Class BrgyClearanceForm
 
     Private Sub BrgyClearanceDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
+        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString()
+        Me.DateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
+        Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
+
     End Sub
 
     Private Sub SearchnameTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchnameTextBox.TextChanged
@@ -84,5 +88,10 @@ Public Class BrgyClearanceForm
 
         con.Open()
         cmd.ExecuteNonQuery()
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        Me.Hide()
+        ClearanceForm.Show()
     End Sub
 End Class

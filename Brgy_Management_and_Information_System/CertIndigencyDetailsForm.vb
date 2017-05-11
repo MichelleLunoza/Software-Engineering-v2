@@ -1,9 +1,20 @@
 ﻿Imports System.Data.SqlClient
+Imports Excel = Microsoft.Office.Interop.Excel
 Public Class CertIndigencyDetailsForm
 
     Private Sub CertIndigencyDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
-        Me.MaximumSize = Screen.FromRectangle(Me.Bounds).WorkingArea.Size
+        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString()
+        Me.DateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
+        Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
+
+        If ULabel.Text = "Guest" Then
+            AddButton.Enabled = False
+            EditButton.Enabled = False
+            SaveButton.Enabled = False
+            UpdateButton.Enabled = False
+            DeleteButton.Enabled = False
+        End If
     End Sub
     Private Sub Display()
         DataGridView1.Refresh()
@@ -148,7 +159,7 @@ Public Class CertIndigencyDetailsForm
             query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
 
 
-            con.ConnectionString = "Data Source = AZKHABAN\SQLEXPRESS; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
             With cmd
                 .Connection = con
                 .CommandType = CommandType.Text
@@ -189,9 +200,9 @@ Public Class CertIndigencyDetailsForm
     End Sub
     Private Sub AddFunction()
 
-        Dim con As String = "Data Source = AZKHABAN\SQLEXPRESS; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID, Name FROM Population_"
+        query &= "SELECT ID, Name FROM Population_Table"
 
 
         Dim connection As New SqlConnection(con)
@@ -200,10 +211,10 @@ Public Class CertIndigencyDetailsForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population_")
+        dataadapter.Fill(ds, "Population_Table")
         connection.Close()
         DataGridView2.DataSource = ds
-        DataGridView2.DataMember = "Population_"
+        DataGridView2.DataMember = "Population_Table"
         DataGridView2.Columns(0).Width = 150
         DataGridView2.Columns(1).Width = 420
 
@@ -214,5 +225,94 @@ Public Class CertIndigencyDetailsForm
         IDTextBox.Text = row.Cells(0).Value.ToString()
         NameTextBox.Text = row.Cells(1).Value.ToString()
 
+    End Sub
+
+    Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+        If IDTextBox.Text = "" Then
+            MessageBox.Show("Please select first from data gridview that you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            DeleteFunction()
+        End If
+
+    End Sub
+    Private Sub DeleteFunction()
+
+        Dim ID = IDTextBox.Text
+        Dim con As New SqlConnection
+        Dim cmd As New SqlCommand
+        Dim query As String = String.Empty
+        query &= "DELETE FROM Certificate_Indigency_Table WHERE ID=@ID"
+        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        With cmd
+            .Connection = con
+            .CommandType = CommandType.Text
+            .CommandText = query
+            .Parameters.AddWithValue("@ID", ID)
+        End With
+        con.Open()
+        cmd.ExecuteNonQuery()
+        con.Close()
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs)
+        Me.Hide()
+        ClearanceForm.Show()
+    End Sub
+
+    Private Sub BackButton_Click_1(sender As Object, e As EventArgs) Handles BackButton.Click
+        Me.Hide()
+        ClearanceForm.Show()
+    End Sub
+
+    Private Sub ClearButton1_Click(sender As Object, e As EventArgs) Handles ClearButton1.Click
+        Clear()
+    End Sub
+
+    Private Sub ExportButton_Click(sender As Object, e As EventArgs) Handles ExportButton.Click
+        Dim xlApp As Excel.Application
+        Dim xlWorkBook As Excel.Workbook
+        Dim xlWorkSheet As Excel.Worksheet
+        Dim misValue As Object = System.Reflection.Missing.Value
+        Dim i As Integer
+        Dim j As Integer
+        Dim filename As String = "Log_Brgy_Clearances-" & Now().ToString() & ".xlsx"
+        xlApp = New Excel.Application
+        xlWorkBook = xlApp.Workbooks.Add(misValue)
+        xlWorkSheet = xlWorkBook.Sheets.Add
+        xlWorkSheet.Name = "Sheet"
+        For i = 0 To DataGridView1.RowCount - 2
+            For j = 0 To DataGridView1.ColumnCount - 1
+                xlWorkSheet.Cells(i + 1, j + 1) = _
+                    DataGridView1(j, i).Value.ToString()
+            Next
+        Next
+        For j = 0 To DataGridView1.ColumnCount - 1
+            xlWorkSheet.Cells(1, j + 1) = DataGridView1.Columns(j).Name
+        Next
+        For i = 0 To DataGridView1.RowCount - 1
+            For j = 0 To DataGridView1.ColumnCount - 1
+                Dim cell As DataGridViewCell
+                cell = DataGridView1(j, i)
+                xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
+            Next
+        Next
+        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\Log_Certificate_Indigency-" & Now().ToString() & ".xlsx")
+        xlWorkBook.Close()
+        xlApp.Quit()
+        releaseObject(xlApp)
+        releaseObject(xlWorkBook)
+        releaseObject(xlWorkSheet)
+        MsgBox("You can find the file C:\Users\MiGutierrez\Downloads\Log_Certificate_Indigency.xlsx")
+    End Sub
+    Private Sub releaseObject(ByVal obj As Object)
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch ex As Exception
+            obj = Nothing
+            MessageBox.Show("Exception Occured while releasing object " + ex.ToString())
+        Finally
+            GC.Collect()
+        End Try
     End Sub
 End Class

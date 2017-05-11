@@ -102,7 +102,7 @@ Partial Class ChangePassword
         Me.ValidateButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ValidateButton.FlatAppearance.BorderSize = 0
         Me.ValidateButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.ValidateButton.Location = New System.Drawing.Point(168, 383)
+        Me.ValidateButton.Location = New System.Drawing.Point(146, 383)
         Me.ValidateButton.Name = "ValidateButton"
         Me.ValidateButton.Size = New System.Drawing.Size(152, 46)
         Me.ValidateButton.TabIndex = 43
@@ -147,6 +147,7 @@ Partial Class ChangePassword
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(423, 140)
         Me.Panel2.TabIndex = 40
+        Me.Panel2.Visible = False
         '
         'Label4
         '
@@ -202,11 +203,11 @@ Partial Class ChangePassword
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(626, 496)
+        Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.ValidateButton)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.ChangePasswordButton)
         Me.Controls.Add(Me.Panel2)
-        Me.Controls.Add(Me.Panel1)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False

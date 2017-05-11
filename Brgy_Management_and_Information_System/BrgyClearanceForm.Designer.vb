@@ -36,6 +36,13 @@ Partial Class BrgyClearanceForm
         Me.SearchnameTextBox = New System.Windows.Forms.TextBox()
         Me.Label = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.BackButton = New System.Windows.Forms.Button()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label10 = New System.Windows.Forms.Label()
+        Me.DateLabel = New System.Windows.Forms.Label()
+        Me.TimeLabel = New System.Windows.Forms.Label()
+        Me.ULabel = New System.Windows.Forms.Label()
+        Me.Label9 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -163,6 +170,78 @@ Partial Class BrgyClearanceForm
         Me.DataGridView1.Size = New System.Drawing.Size(454, 296)
         Me.DataGridView1.TabIndex = 51
         '
+        'BackButton
+        '
+        Me.BackButton.Location = New System.Drawing.Point(933, 211)
+        Me.BackButton.Name = "BackButton"
+        Me.BackButton.Size = New System.Drawing.Size(75, 23)
+        Me.BackButton.TabIndex = 52
+        Me.BackButton.Text = "Back"
+        Me.BackButton.UseVisualStyleBackColor = True
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.BackColor = System.Drawing.Color.Transparent
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(812, 163)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(42, 16)
+        Me.Label2.TabIndex = 104
+        Me.Label2.Text = "Time:"
+        '
+        'Label10
+        '
+        Me.Label10.AutoSize = True
+        Me.Label10.BackColor = System.Drawing.Color.Transparent
+        Me.Label10.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label10.Location = New System.Drawing.Point(625, 163)
+        Me.Label10.Name = "Label10"
+        Me.Label10.Size = New System.Drawing.Size(40, 16)
+        Me.Label10.TabIndex = 102
+        Me.Label10.Text = "Date:"
+        '
+        'DateLabel
+        '
+        Me.DateLabel.AutoSize = True
+        Me.DateLabel.BackColor = System.Drawing.Color.Transparent
+        Me.DateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.DateLabel.Location = New System.Drawing.Point(671, 163)
+        Me.DateLabel.Name = "DateLabel"
+        Me.DateLabel.Size = New System.Drawing.Size(0, 16)
+        Me.DateLabel.TabIndex = 103
+        '
+        'TimeLabel
+        '
+        Me.TimeLabel.AutoSize = True
+        Me.TimeLabel.BackColor = System.Drawing.Color.Transparent
+        Me.TimeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TimeLabel.Location = New System.Drawing.Point(861, 163)
+        Me.TimeLabel.Name = "TimeLabel"
+        Me.TimeLabel.Size = New System.Drawing.Size(0, 16)
+        Me.TimeLabel.TabIndex = 105
+        '
+        'ULabel
+        '
+        Me.ULabel.AutoSize = True
+        Me.ULabel.BackColor = System.Drawing.Color.Transparent
+        Me.ULabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ULabel.Location = New System.Drawing.Point(385, 163)
+        Me.ULabel.Name = "ULabel"
+        Me.ULabel.Size = New System.Drawing.Size(0, 16)
+        Me.ULabel.TabIndex = 100
+        '
+        'Label9
+        '
+        Me.Label9.AutoSize = True
+        Me.Label9.BackColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label9.Location = New System.Drawing.Point(345, 163)
+        Me.Label9.Name = "Label9"
+        Me.Label9.Size = New System.Drawing.Size(43, 16)
+        Me.Label9.TabIndex = 101
+        Me.Label9.Text = "User: "
+        '
         'BrgyClearanceForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -170,6 +249,13 @@ Partial Class BrgyClearanceForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1020, 593)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.DateLabel)
+        Me.Controls.Add(Me.TimeLabel)
+        Me.Controls.Add(Me.ULabel)
+        Me.Controls.Add(Me.Label9)
+        Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Label)
@@ -200,4 +286,11 @@ Partial Class BrgyClearanceForm
     Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label6 As System.Windows.Forms.Label
     Friend WithEvents PrintButton As System.Windows.Forms.Button
+    Friend WithEvents BackButton As System.Windows.Forms.Button
+    Friend WithEvents Label2 As System.Windows.Forms.Label
+    Friend WithEvents Label10 As System.Windows.Forms.Label
+    Friend WithEvents DateLabel As System.Windows.Forms.Label
+    Friend WithEvents TimeLabel As System.Windows.Forms.Label
+    Friend WithEvents ULabel As System.Windows.Forms.Label
+    Friend WithEvents Label9 As System.Windows.Forms.Label
 End Class
