@@ -89,7 +89,7 @@ Public Class LoginForm
         Dim cmd As New SqlCommand
 
         Dim query As String = String.Empty
-        query &= "INSERT INTO Log_Account (User_Type,Date_Login)"
+        query &= "INSERT INTO LogAccount (User_Type,Date_Login)"
         query &= "VALUES (@User_Type,@Date_Login)"
 
 
@@ -104,6 +104,7 @@ Public Class LoginForm
 
         con.Open()
         cmd.ExecuteNonQuery()
+        TypeUserComboBox.SelectedIndex = -1
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
