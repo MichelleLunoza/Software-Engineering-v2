@@ -4,7 +4,7 @@ Public Class CertIndigencyDetailsForm
 
     Private Sub CertIndigencyDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
-        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString()
+        ULabel.Text = MainForm.userLabel.Text
         Me.DateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
         Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
 
@@ -275,7 +275,7 @@ Public Class CertIndigencyDetailsForm
         Dim misValue As Object = System.Reflection.Missing.Value
         Dim i As Integer
         Dim j As Integer
-        Dim filename As String = "Log_Brgy_Clearances-" & Now().ToString() & ".xlsx"
+        Dim filename As String = "Log_Certificate_Indigency-" & Now().ToString() & ".xlsx"
         xlApp = New Excel.Application
         xlWorkBook = xlApp.Workbooks.Add(misValue)
         xlWorkSheet = xlWorkBook.Sheets.Add
@@ -296,7 +296,7 @@ Public Class CertIndigencyDetailsForm
                 xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
             Next
         Next
-        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\Log_Certificate_Indigency-" & Now().ToString() & ".xlsx")
+        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\Log_Certificate_Indigency-" & Now().ToString("yyyy-MM-dd-HH-mm-ss") & ".xlsx")
         xlWorkBook.Close()
         xlApp.Quit()
         releaseObject(xlApp)

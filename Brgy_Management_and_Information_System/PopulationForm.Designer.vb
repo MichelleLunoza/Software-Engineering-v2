@@ -88,7 +88,6 @@ Partial Class PopulationForm
         Me.Label25 = New System.Windows.Forms.Label()
         Me.HHNTextBox = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.TimeLabel = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ViewDetailsButton = New System.Windows.Forms.Button()
         Me.RegisterButton = New System.Windows.Forms.Button()
@@ -770,14 +769,6 @@ Partial Class PopulationForm
         Me.Label26.TabIndex = 100
         Me.Label26.Text = "OFW Category:"
         '
-        'TimeLabel
-        '
-        Me.TimeLabel.AutoSize = True
-        Me.TimeLabel.Location = New System.Drawing.Point(969, 136)
-        Me.TimeLabel.Name = "TimeLabel"
-        Me.TimeLabel.Size = New System.Drawing.Size(0, 13)
-        Me.TimeLabel.TabIndex = 117
-        '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -1202,7 +1193,6 @@ Partial Class PopulationForm
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.RegisterButton)
         Me.Controls.Add(Me.ViewDetailsButton)
-        Me.Controls.Add(Me.TimeLabel)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.Label)
         Me.Controls.Add(Me.SearchnameTextBox)
@@ -1256,7 +1246,6 @@ Partial Class PopulationForm
     Friend WithEvents senior_citizenComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents TimeLabel As System.Windows.Forms.Label
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents ViewDetailsButton As System.Windows.Forms.Button
     Friend WithEvents IDTextBox As System.Windows.Forms.TextBox

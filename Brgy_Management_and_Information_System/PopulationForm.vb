@@ -2,7 +2,7 @@
 Public Class PopulationForm
 
     Private Sub PopulationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        TimeLabel.Text = Date.Now.ToString()
+
     End Sub
     Private Sub Display()
 

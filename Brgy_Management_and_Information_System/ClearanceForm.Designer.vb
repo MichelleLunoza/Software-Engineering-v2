@@ -32,10 +32,10 @@ Partial Class ClearanceForm
         Me.CIButton = New System.Windows.Forms.Button()
         Me.timeLabel = New System.Windows.Forms.Label()
         Me.dateLabel = New System.Windows.Forms.Label()
-        Me.userLabel = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
+        Me.ULabel = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -135,14 +135,6 @@ Partial Class ClearanceForm
         Me.dateLabel.Size = New System.Drawing.Size(0, 13)
         Me.dateLabel.TabIndex = 45
         '
-        'userLabel
-        '
-        Me.userLabel.AutoSize = True
-        Me.userLabel.Location = New System.Drawing.Point(290, 139)
-        Me.userLabel.Name = "userLabel"
-        Me.userLabel.Size = New System.Drawing.Size(0, 13)
-        Me.userLabel.TabIndex = 44
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -173,6 +165,14 @@ Partial Class ClearanceForm
         Me.Label1.TabIndex = 41
         Me.Label1.Text = "User: "
         '
+        'ULabel
+        '
+        Me.ULabel.AutoSize = True
+        Me.ULabel.Location = New System.Drawing.Point(284, 139)
+        Me.ULabel.Name = "ULabel"
+        Me.ULabel.Size = New System.Drawing.Size(0, 13)
+        Me.ULabel.TabIndex = 47
+        '
         'ClearanceForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -180,9 +180,9 @@ Partial Class ClearanceForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(709, 507)
+        Me.Controls.Add(Me.ULabel)
         Me.Controls.Add(Me.timeLabel)
         Me.Controls.Add(Me.dateLabel)
-        Me.Controls.Add(Me.userLabel)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -210,8 +210,8 @@ Partial Class ClearanceForm
     Friend WithEvents CIButton As System.Windows.Forms.Button
     Friend WithEvents timeLabel As System.Windows.Forms.Label
     Friend WithEvents dateLabel As System.Windows.Forms.Label
-    Friend WithEvents userLabel As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents ULabel As System.Windows.Forms.Label
 End Class
