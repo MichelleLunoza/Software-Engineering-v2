@@ -309,4 +309,8 @@ Public Class BrgyClearanceDetailsForm
         Me.Hide()
         ClearanceForm.Show()
     End Sub
+
+    Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
+
+    End Sub
 End Class

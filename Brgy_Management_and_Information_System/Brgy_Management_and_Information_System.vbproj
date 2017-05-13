@@ -46,10 +46,13 @@
     <OptionInfer>On</OptionInfer>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -146,6 +149,12 @@
     <Compile Include="PopulationForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PrintForm_Brgy_Clearance.Designer.vb">
+      <DependentUpon>PrintForm_Brgy_Clearance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintForm_Brgy_Clearance.vb">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BrgyClearanceDetailsForm.resx">
@@ -183,6 +192,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PopulationForm.resx">
       <DependentUpon>PopulationForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PrintForm_Brgy_Clearance.resx">
+      <DependentUpon>PrintForm_Brgy_Clearance.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
