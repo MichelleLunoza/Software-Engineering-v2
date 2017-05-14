@@ -70,7 +70,7 @@ Public Class CBMS_DetailsForm
         dt = New DataTable
         With cmd
             .Connection = con
-            .CommandText = "SELECT Purok AS 'Purok Name',ID,(SELECT COUNT(ID) FROM Population_Table) AS 'Total Population' FROM Population_Table WHERE Purok = 4"
+            .CommandText = "SELECT Purok AS 'Purok Name',(SELECT COUNT(ID) FROM Population_Table) AS 'Total Population' FROM Population_Table"
         End With
         adapt.SelectCommand = cmd
         adapt.Fill(dt)

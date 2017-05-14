@@ -161,12 +161,13 @@ Public Class PopulationForm
         Dim senior_citizen = seniorCComboBox.SelectedItem.ToString()
         Dim con As New SqlConnection
         Dim cmd As New SqlCommand
-
+        Dim uTime As Integer
+        uTime = (DateTime.UtcNow - New DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds
 
         Try
 
             Dim query As String = String.Empty
-            query &= "UPDATE Population_Table SET Family_ID=@Family_ID,Name=@Name,Family_Category=@famCategory,Purok=@purok,Gender=@gender,Net_Income=@net_income,HH_Number=@HHN,OFW_Category=@OFW,PWD_Category=@PWD,zero_twelve_months_Category=@zero_twelve_months,two_five_yrs_old_Category=@two_five_yrs_old,six_twelve_yrs_old_Category=@six_twelve_yrs_old,thirteen_seventeen_Category=@thirteen_seventeen_yrs_old,senior_citizen_Category=@senior_citizen WHERE ID=@ID"
+            query &= "UPDATE Population_Table SET Family_ID=@Family_ID,Name=@Name,Family_Category=@famCategory,Purok=@purok,Gender=@gender,Net_Income=@net_income,HH_Number=@HHN,OFW_Category=@OFW,PWD_Category=@PWD,zero_twelve_months_Category=@zero_twelve_months,two_five_yrs_old_Category=@two_five_yrs_old,six_twelve_yrs_old_Category=@six_twelve_yrs_old,thirteen_seventeen_Category=@thirteen_seventeen_yrs_old,senior_citizen_Category=@senior_citizen,DateTimeCreated=@DateTimeCreated WHERE ID=@ID"
             con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
             With cmd
 
@@ -189,6 +190,7 @@ Public Class PopulationForm
                 .Parameters.AddWithValue("@six_twelve_yrs_old", six_twelve_yrs_old)
                 .Parameters.AddWithValue("@thirteen_seventeen_yrs_old", thirteen_seventeen_yrs_old)
                 .Parameters.AddWithValue("@senior_citizen", senior_citizen)
+                .Parameters.AddWithValue("@DateTimeCreated", uTime)
             End With
 
             con.Open()
@@ -223,6 +225,9 @@ Public Class PopulationForm
         PurokTextBox.Clear()
         GenderTextBox.Clear()
         HH_NumberTextBox.Clear()
+        Net_Income1TextBox.Clear()
+        Net_IncomeTextBox.Clear()
+        NetIncome3TextBox.Clear()
         HHNTextBox.Clear()
         HHN2TextBox.Clear()
         OFWCategoryTextBox.Clear()
@@ -377,10 +382,13 @@ Public Class PopulationForm
                 Dim con As New SqlConnection
                 Dim cmd As New SqlCommand
 
+                Dim uTime As Integer
+                uTime = (DateTime.UtcNow - New DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds
+
 
                 Dim query As String = String.Empty
-                query &= "INSERT INTO Population_Table (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category)"
-                query &= "VALUES (@Family_ID,@Name,@Family_Category,@Purok,@Gender,@net_income,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen)"
+                query &= "INSERT INTO Population_Table (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category,DateTimeCreated)"
+                query &= "VALUES (@Family_ID,@Name,@Family_Category,@Purok,@Gender,@net_income,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen,@DateTimeCreated)"
 
                 con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
                 With cmd
@@ -401,6 +409,7 @@ Public Class PopulationForm
                     .Parameters.AddWithValue("@six_twelve_yrs_old", six_twelve_yrs_old)
                     .Parameters.AddWithValue("@thirteen_seventeen_yrs_old", thirteen_seventeen_yrs_old)
                     .Parameters.AddWithValue("@senior_citizen", senior_citizen)
+                    .Parameters.AddWithValue("@DateTimeCreated", uTime)
                 End With
 
                 con.Open()
@@ -416,27 +425,32 @@ Public Class PopulationForm
     End Sub
     Private Sub DeleteFunction()
         Try
-            Dim ID = ID2TextBox.Text
-            Dim con As New SqlConnection
-            Dim cmd As New SqlCommand
-            Dim query As String = String.Empty
-            query &= "DELETE FROM Population_Table WHERE ID=@ID"
-            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-            With cmd
-                .Connection = con
-                .CommandType = CommandType.Text
-                .CommandText = query
-                .Parameters.AddWithValue("@ID", ID)
-            End With
-            con.Open()
-            cmd.ExecuteNonQuery()
-            con.Close()
+            If ID2TextBox.Text = "" Then
+                MessageBox.Show("Please select first what you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
 
-            MessageBox.Show("Successfully Deleted")
+                Dim ID = ID2TextBox.Text
+                Dim con As New SqlConnection
+                Dim cmd As New SqlCommand
+                Dim query As String = String.Empty
+                query &= "DELETE FROM Population_Table WHERE ID=@ID"
+                con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+                With cmd
+                    .Connection = con
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@ID", ID)
+                End With
+                con.Open()
+                cmd.ExecuteNonQuery()
+                con.Close()
 
+                MessageBox.Show("Successfully Deleted")
+            End If
         Catch ex As Exception
             MessageBox.Show("Error while deleting data." & ex.Message)
         End Try
+
     End Sub
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
@@ -449,7 +463,30 @@ Public Class PopulationForm
 
     Private Sub FamilyComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FamilyComboBox.SelectedIndexChanged
         If FamilyComboBox.SelectedItem = "Member" Then
-            DataGridView1.Visible = True
+            DataGridView4.Visible = True
+            Label.Visible = False
+            SearchnameTextBox.Visible = False
+            ClearButton.Visible = False
+            DisplayHead_RegisterFunction()
         End If
+    End Sub
+    Private Sub DisplayHead_RegisterFunction()
+        Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        Dim query As String = String.Empty
+        query &= "SELECT Name FROM Population_Table"
+
+
+
+        Dim connection As New SqlConnection(con)
+        Dim dataadapter As New SqlDataAdapter(query, connection)
+        Dim ds As New DataSet()
+
+
+        connection.Open()
+        dataadapter.Fill(ds, "Population_Table")
+        connection.Close()
+        DataGridView4.DataSource = ds
+        DataGridView4.DataMember = "Population_Table"
+        DataGridView4.Columns(0).Width = 550
     End Sub
 End Class

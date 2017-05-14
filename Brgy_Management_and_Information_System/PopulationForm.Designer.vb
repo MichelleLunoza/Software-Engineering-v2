@@ -130,12 +130,14 @@ Partial Class PopulationForm
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.ClearButton1 = New System.Windows.Forms.Button()
+        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ClearButton
@@ -271,7 +273,7 @@ Partial Class PopulationForm
         '
         Me.PurokComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.PurokComboBox.FormattingEnabled = True
-        Me.PurokComboBox.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7"})
+        Me.PurokComboBox.Items.AddRange(New Object() {"Purok 1", "Purok 2", "Purok 3", "Purok 4", "Purok 5", "Purok 6", "Purok 7"})
         Me.PurokComboBox.Location = New System.Drawing.Point(216, 145)
         Me.PurokComboBox.Name = "PurokComboBox"
         Me.PurokComboBox.Size = New System.Drawing.Size(203, 21)
@@ -424,7 +426,7 @@ Partial Class PopulationForm
         Me.GroupBox1.Controls.Add(Me.GenderComboBox)
         Me.GroupBox1.Controls.Add(Me.FamilyComboBox)
         Me.GroupBox1.Controls.Add(Me.PurokComboBox)
-        Me.GroupBox1.Location = New System.Drawing.Point(663, 256)
+        Me.GroupBox1.Location = New System.Drawing.Point(669, 259)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(478, 444)
         Me.GroupBox1.TabIndex = 116
@@ -507,7 +509,7 @@ Partial Class PopulationForm
         Me.GroupBox2.Controls.Add(Me.Label25)
         Me.GroupBox2.Controls.Add(Me.HHNTextBox)
         Me.GroupBox2.Controls.Add(Me.Label26)
-        Me.GroupBox2.Location = New System.Drawing.Point(669, 255)
+        Me.GroupBox2.Location = New System.Drawing.Point(669, 259)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(478, 444)
         Me.GroupBox2.TabIndex = 117
@@ -1132,7 +1134,7 @@ Partial Class PopulationForm
         '
         Me.PurokCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.PurokCComboBox.FormattingEnabled = True
-        Me.PurokCComboBox.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7"})
+        Me.PurokCComboBox.Items.AddRange(New Object() {"Purok 1", "Purok 2", "Purok 3", "Purok 4", "Purok 5", "Purok 6", "Purok 7"})
         Me.PurokCComboBox.Location = New System.Drawing.Point(216, 145)
         Me.PurokCComboBox.Name = "PurokCComboBox"
         Me.PurokCComboBox.Size = New System.Drawing.Size(203, 21)
@@ -1185,6 +1187,15 @@ Partial Class PopulationForm
         Me.ClearButton1.Text = "Clear"
         Me.ClearButton1.UseVisualStyleBackColor = True
         '
+        'DataGridView4
+        '
+        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView4.Location = New System.Drawing.Point(41, 247)
+        Me.DataGridView4.Name = "DataGridView4"
+        Me.DataGridView4.Size = New System.Drawing.Size(596, 437)
+        Me.DataGridView4.TabIndex = 129
+        Me.DataGridView4.Visible = False
+        '
         'PopulationForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1192,11 +1203,13 @@ Partial Class PopulationForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
+        Me.Controls.Add(Me.DataGridView4)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.ClearButton1)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.DataGridView2)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.EditButton)
         Me.Controls.Add(Me.DataGridView3)
@@ -1208,7 +1221,6 @@ Partial Class PopulationForm
         Me.Controls.Add(Me.Label)
         Me.Controls.Add(Me.SearchnameTextBox)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.GroupBox3)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -1224,6 +1236,7 @@ Partial Class PopulationForm
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1335,4 +1348,5 @@ Partial Class PopulationForm
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents DeleteButton As System.Windows.Forms.Button
     Friend WithEvents ClearButton1 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView4 As System.Windows.Forms.DataGridView
 End Class
