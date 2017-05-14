@@ -46,13 +46,14 @@ Partial Class CBMS_DetailsForm
         Me.TotalFamilyButton = New System.Windows.Forms.Button()
         Me.OverallTotalButton = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.ExitButton = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'SearchTextBox
         '
-        Me.SearchTextBox.Location = New System.Drawing.Point(249, 283)
+        Me.SearchTextBox.Location = New System.Drawing.Point(290, 270)
         Me.SearchTextBox.Name = "SearchTextBox"
         Me.SearchTextBox.Size = New System.Drawing.Size(281, 20)
         Me.SearchTextBox.TabIndex = 75
@@ -61,7 +62,7 @@ Partial Class CBMS_DetailsForm
         '
         Me.Label.AutoSize = True
         Me.Label.BackColor = System.Drawing.Color.Transparent
-        Me.Label.Location = New System.Drawing.Point(143, 290)
+        Me.Label.Location = New System.Drawing.Point(184, 277)
         Me.Label.Name = "Label"
         Me.Label.Size = New System.Drawing.Size(80, 13)
         Me.Label.TabIndex = 74
@@ -69,7 +70,7 @@ Partial Class CBMS_DetailsForm
         '
         'ClearButton
         '
-        Me.ClearButton.Location = New System.Drawing.Point(548, 280)
+        Me.ClearButton.Location = New System.Drawing.Point(589, 267)
         Me.ClearButton.Name = "ClearButton"
         Me.ClearButton.Size = New System.Drawing.Size(75, 23)
         Me.ClearButton.TabIndex = 76
@@ -232,6 +233,16 @@ Partial Class CBMS_DetailsForm
         Me.DataGridView2.TabIndex = 89
         Me.DataGridView2.Visible = False
         '
+        'ExitButton
+        '
+        Me.ExitButton.Enabled = False
+        Me.ExitButton.Location = New System.Drawing.Point(1152, 505)
+        Me.ExitButton.Name = "ExitButton"
+        Me.ExitButton.Size = New System.Drawing.Size(112, 56)
+        Me.ExitButton.TabIndex = 90
+        Me.ExitButton.Text = "Exit"
+        Me.ExitButton.UseVisualStyleBackColor = True
+        '
         'CBMS_DetailsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -239,6 +250,7 @@ Partial Class CBMS_DetailsForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
+        Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.OverallTotalButton)
         Me.Controls.Add(Me.TotalFamilyButton)
         Me.Controls.Add(Me.TotalPurokButton)
@@ -282,4 +294,5 @@ Partial Class CBMS_DetailsForm
     Friend WithEvents TotalFamilyButton As System.Windows.Forms.Button
     Friend WithEvents OverallTotalButton As System.Windows.Forms.Button
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
+    Friend WithEvents ExitButton As System.Windows.Forms.Button
 End Class

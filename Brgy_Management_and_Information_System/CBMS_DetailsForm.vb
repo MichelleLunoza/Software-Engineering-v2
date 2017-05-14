@@ -55,6 +55,15 @@ Public Class CBMS_DetailsForm
         DataGridView1.Visible = False
         DataGridView2.Visible = True
 
+        Label.Visible = False
+        SearchTextBox.Visible = False
+        ClearButton.Visible = False
+
+        TotalFamilyButton.Enabled = False
+        TotalPurokButton.Enabled = False
+        OverallTotalButton.Enabled = False
+        ExitButton.Enabled = True
+
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
         Dim adapt As New SqlDataAdapter
@@ -86,6 +95,15 @@ Public Class CBMS_DetailsForm
     Private Sub TotalFamilyButton_Click(sender As Object, e As EventArgs) Handles TotalFamilyButton.Click
         DataGridView1.Visible = False
         DataGridView2.Visible = True
+
+        Label.Visible = False
+        SearchTextBox.Visible = False
+        ClearButton.Visible = False
+
+        TotalFamilyButton.Enabled = False
+        TotalPurokButton.Enabled = False
+        OverallTotalButton.Enabled = False
+        ExitButton.Enabled = True
 
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
@@ -119,6 +137,15 @@ Public Class CBMS_DetailsForm
         DataGridView1.Visible = False
         DataGridView2.Visible = True
 
+        Label.Visible = False
+        SearchTextBox.Visible = False
+        ClearButton.Visible = False
+
+        TotalFamilyButton.Enabled = False
+        TotalPurokButton.Enabled = False
+        OverallTotalButton.Enabled = False
+        ExitButton.Enabled = True
+
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
         Dim adapt As New SqlDataAdapter
@@ -141,5 +168,18 @@ Public Class CBMS_DetailsForm
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
         Me.Hide()
         MainForm.Show()
+    End Sub
+
+    Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        DataGridView1.Visible = True
+        DataGridView2.Visible = False
+        TotalFamilyButton.Enabled = True
+        TotalPurokButton.Enabled = True
+        OverallTotalButton.Enabled = True
+        ExitButton.Enabled = False
+
+        Label.Visible = True
+        SearchTextBox.Visible = True
+        ClearButton.Visible = True
     End Sub
 End Class
