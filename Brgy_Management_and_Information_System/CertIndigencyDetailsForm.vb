@@ -4,7 +4,7 @@ Public Class CertIndigencyDetailsForm
 
     Private Sub CertIndigencyDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
-        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString()
+        ULabel.Text = MainForm.userLabel.Text
         Me.DateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
         Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
 
@@ -89,28 +89,32 @@ Public Class CertIndigencyDetailsForm
         Dim con As New SqlConnection
         Dim cmd As New SqlCommand
 
+        Try
+            Dim query As String = String.Empty
+            query &= "UPDATE Certificate_Indigency_Table SET ID=@ID,Name=@Name,Purpose=@Purpose,Date=@datetime WHERE ID=@ID"
+            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+            With cmd
+                .Connection = con
+                .CommandType = CommandType.Text
+                .CommandText = query
+                .Parameters.AddWithValue("@ID", ID)
+                .Parameters.AddWithValue("@Name", Name)
+                .Parameters.AddWithValue("@Purpose", Purpose)
+                .Parameters.AddWithValue("@datetime", datetime)
+            End With
+            con.Open()
+            cmd.ExecuteNonQuery()
+            con.Close()
 
-        Dim query As String = String.Empty
-        query &= "UPDATE Certificate_Indigency_Table SET ID=@ID,Name=@Name,Purpose=@Purpose,Date=@datetime WHERE ID=@ID"
-        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-        With cmd
-            .Connection = con
-            .CommandType = CommandType.Text
-            .CommandText = query
-            .Parameters.AddWithValue("@ID", ID)
-            .Parameters.AddWithValue("@Name", Name)
-            .Parameters.AddWithValue("@Purpose", Purpose)
-            .Parameters.AddWithValue("@datetime", datetime)
-        End With
-        con.Open()
-        cmd.ExecuteNonQuery()
-        con.Close()
 
+            NameTextBox.ReadOnly = True
+            DateTextBox.ReadOnly = True
+            PurposeTextBox.ReadOnly = True
+            Clear()
 
-        NameTextBox.ReadOnly = True
-        DateTextBox.ReadOnly = True
-        PurposeTextBox.ReadOnly = True
-        Clear()
+        Catch ex As Exception
+            MessageBox.Show("Error while updating data." & ex.Message)
+        End Try
     End Sub
     Private Sub Clear()
         NameTextBox.Clear()
@@ -147,39 +151,44 @@ Public Class CertIndigencyDetailsForm
             SaveButton.Enabled = False
             DeleteButton.Enabled = True
 
-            Dim ID = IDTextBox.Text
-            Dim Name = NameTextBox.Text
-            Dim Purpose = PurposeTextBox.Text
-            Dim datetime = DateTextBox.Text
-            Dim con As New SqlConnection
-            Dim cmd As New SqlCommand
+            Try
+                Dim ID = IDTextBox.Text
+                Dim Name = NameTextBox.Text
+                Dim Purpose = PurposeTextBox.Text
+                Dim datetime = DateTextBox.Text
+                Dim con As New SqlConnection
+                Dim cmd As New SqlCommand
 
-            Dim query As String = String.Empty
-            query &= "INSERT INTO Certificate_Indigency_Table (ID,Name,Purpose,Date)"
-            query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
+                Dim query As String = String.Empty
+                query &= "INSERT INTO Certificate_Indigency_Table (ID,Name,Purpose,Date)"
+                query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
 
 
-            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-            With cmd
-                .Connection = con
-                .CommandType = CommandType.Text
-                .CommandText = query
-                .Parameters.AddWithValue("@ID", ID)
-                .Parameters.AddWithValue("@Name", Name)
-                .Parameters.AddWithValue("@Purpose", Purpose)
-                .Parameters.AddWithValue("@datetime", datetime)
-            End With
+                con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+                With cmd
+                    .Connection = con
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@ID", ID)
+                    .Parameters.AddWithValue("@Name", Name)
+                    .Parameters.AddWithValue("@Purpose", Purpose)
+                    .Parameters.AddWithValue("@datetime", datetime)
+                End With
 
-            con.Open()
-            cmd.ExecuteNonQuery()
+                con.Open()
+                cmd.ExecuteNonQuery()
 
-            NameTextBox.ReadOnly = True
-            DateTextBox.ReadOnly = True
-            PurposeTextBox.ReadOnly = True
+                NameTextBox.ReadOnly = True
+                DateTextBox.ReadOnly = True
+                PurposeTextBox.ReadOnly = True
 
-            DataGridView1.Visible = True
-            DataGridView2.Visible = False
-            Clear()
+                DataGridView1.Visible = True
+                DataGridView2.Visible = False
+                Clear()
+
+            Catch ex As Exception
+                MessageBox.Show("Error while Saving new data." & ex.Message)
+            End Try
         End If
     End Sub
 
@@ -237,21 +246,27 @@ Public Class CertIndigencyDetailsForm
     End Sub
     Private Sub DeleteFunction()
 
-        Dim ID = IDTextBox.Text
-        Dim con As New SqlConnection
-        Dim cmd As New SqlCommand
-        Dim query As String = String.Empty
-        query &= "DELETE FROM Certificate_Indigency_Table WHERE ID=@ID"
-        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-        With cmd
-            .Connection = con
-            .CommandType = CommandType.Text
-            .CommandText = query
-            .Parameters.AddWithValue("@ID", ID)
-        End With
-        con.Open()
-        cmd.ExecuteNonQuery()
-        con.Close()
+        Try
+            Dim ID = IDTextBox.Text
+            Dim con As New SqlConnection
+            Dim cmd As New SqlCommand
+            Dim query As String = String.Empty
+            query &= "DELETE FROM Certificate_Indigency_Table WHERE ID=@ID"
+            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+            With cmd
+                .Connection = con
+                .CommandType = CommandType.Text
+                .CommandText = query
+                .Parameters.AddWithValue("@ID", ID)
+            End With
+            con.Open()
+            cmd.ExecuteNonQuery()
+            con.Close()
+
+
+        Catch ex As Exception
+            MessageBox.Show("Error while deleting data." & ex.Message)
+        End Try
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs)
@@ -275,7 +290,7 @@ Public Class CertIndigencyDetailsForm
         Dim misValue As Object = System.Reflection.Missing.Value
         Dim i As Integer
         Dim j As Integer
-        Dim filename As String = "Log_Brgy_Clearances-" & Now().ToString() & ".xlsx"
+        Dim filename As String = "Log_Certificate_Indigency-" & Now().ToString() & ".xlsx"
         xlApp = New Excel.Application
         xlWorkBook = xlApp.Workbooks.Add(misValue)
         xlWorkSheet = xlWorkBook.Sheets.Add
@@ -296,7 +311,7 @@ Public Class CertIndigencyDetailsForm
                 xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
             Next
         Next
-        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\Log_Certificate_Indigency-" & Now().ToString() & ".xlsx")
+        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\Log_Certificate_Indigency-" & Now().ToString("yyyy-MM-dd-HH-mm-ss") & ".xlsx")
         xlWorkBook.Close()
         xlApp.Quit()
         releaseObject(xlApp)

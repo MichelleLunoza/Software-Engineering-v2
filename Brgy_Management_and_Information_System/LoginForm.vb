@@ -6,10 +6,13 @@ Public Class LoginForm
             passwordTextBox.ReadOnly = False
             usernameTextBox.ReadOnly = False
             Login()
+
+
         ElseIf TypeUserComboBox.SelectedItem = "Guest" Then
             MessageBox.Show("Welcome Guest", "Successfully Login", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Hide()
             MainForm.Show()
+            Save_Log()
         Else : TypeUserComboBox.SelectedItem = ""
             MessageBox.Show("Please choose the user type", "Unsuccessful Login", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End If
@@ -45,7 +48,7 @@ Public Class LoginForm
             While reader.Read()
 
                 Password = reader("password").ToString()
-                username = reader("UserName").ToString()
+                username = reader("username").ToString()
 
                 Password2 = passwordTextBox.Text()
 
@@ -58,9 +61,10 @@ Public Class LoginForm
 
                     usernameTextBox.Clear()
                     passwordTextBox.Clear()
-
+                    Save_Log()
                 End If
             End While
+
 
         Else
             MessageBox.Show("Username and Password do not match.", "Authentication Failure", MessageBoxButtons.OK, MessageBoxIcon.Exclamation)
@@ -73,11 +77,34 @@ Public Class LoginForm
         End If
         con.Close()
     End Sub
-
-
     Private Sub ChangePassButton_Click(sender As Object, e As EventArgs) Handles ChangePassButton.Click
         Me.Hide()
         ChangePassword.Show()
+    End Sub
+    Private Sub Save_Log()
+
+        Dim datetime = DateAndTime.Now.ToString()
+        Dim userType = TypeUserComboBox.SelectedItem.ToString()
+        Dim con As New SqlConnection
+        Dim cmd As New SqlCommand
+
+        Dim query As String = String.Empty
+        query &= "INSERT INTO LogAccount (User_Type,Date_Login)"
+        query &= "VALUES (@User_Type,@Date_Login)"
+
+
+        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        With cmd
+            .Connection = con
+            .CommandType = CommandType.Text
+            .CommandText = query
+            .Parameters.AddWithValue("@User_Type", userType)
+            .Parameters.AddWithValue("@Date_Login", datetime)
+        End With
+
+        con.Open()
+        cmd.ExecuteNonQuery()
+        TypeUserComboBox.SelectedIndex = -1
     End Sub
 
     Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click

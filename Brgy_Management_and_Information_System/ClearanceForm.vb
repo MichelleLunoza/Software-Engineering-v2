@@ -26,13 +26,14 @@
     End Sub
 
     Private Sub ClearanceForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        userLabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString()
-        Me.dateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
+        ULabel.Text = MainForm.userLabel.Text
+        Me.dateLabel.Text = Date.Now.ToString("MM-dd-yyyy")
         Me.timeLabel.Text = TimeOfDay.ToString("hh:mm")
 
-        If userLabel.Text = "Guest" Then
+        If ULabel.Text = "Guest" Then
             BCButton.Enabled = False
             CIButton.Enabled = False
         End If
     End Sub
+
 End Class

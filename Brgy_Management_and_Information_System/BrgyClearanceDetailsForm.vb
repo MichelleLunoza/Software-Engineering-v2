@@ -4,8 +4,8 @@ Public Class BrgyClearanceDetailsForm
 
     Private Sub BrgyClearanceDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
-        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString()
-        Me.DateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
+        ULabel.Text = MainForm.userLabel.Text
+        Me.DateLabel.Text = Date.Now.ToString("MM-dd-yyyy")
         Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
 
         If ULabel.Text = "Guest" Then
@@ -90,27 +90,34 @@ Public Class BrgyClearanceDetailsForm
         Dim cmd As New SqlCommand
 
 
-        Dim query As String = String.Empty
-        query &= "UPDATE Brgy_Clearance_Table SET ID=@ID,Name=@Name,Purpose=@Purpose,Date=@datetime WHERE ID=@ID"
-        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-        With cmd
-            .Connection = con
-            .CommandType = CommandType.Text
-            .CommandText = query
-            .Parameters.AddWithValue("@ID", ID)
-            .Parameters.AddWithValue("@Name", Name)
-            .Parameters.AddWithValue("@Purpose", Purpose)
-            .Parameters.AddWithValue("@datetime", datetime)
-        End With
-        con.Open()
-        cmd.ExecuteNonQuery()
-        con.Close()
+
+        Try
+            Dim query As String = String.Empty
+            query &= "UPDATE Brgy_Clearance_Table SET ID=@ID,Name=@Name,Purpose=@Purpose,Date=@datetime WHERE ID=@ID"
+            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+            With cmd
+                .Connection = con
+                .CommandType = CommandType.Text
+                .CommandText = query
+                .Parameters.AddWithValue("@ID", ID)
+                .Parameters.AddWithValue("@Name", Name)
+                .Parameters.AddWithValue("@Purpose", Purpose)
+                .Parameters.AddWithValue("@datetime", datetime)
+            End With
+            con.Open()
+            cmd.ExecuteNonQuery()
+            con.Close()
 
 
-        NameTextBox.ReadOnly = True
-        DateTextBox.ReadOnly = True
-        PurposeTextBox.ReadOnly = True
-        Clear()
+            NameTextBox.ReadOnly = True
+            DateTextBox.ReadOnly = True
+            PurposeTextBox.ReadOnly = True
+            Clear()
+
+
+        Catch ex As Exception
+            MessageBox.Show("Error while updating data." & ex.Message)
+        End Try
     End Sub
 
     Private Sub Clear()
@@ -141,44 +148,50 @@ Public Class BrgyClearanceDetailsForm
             DateTextBox.Focus()
         Else
 
-            AddButton.Enabled = True
-            UpdateButton.Enabled = False
-            EditButton.Enabled = True
-            SaveButton.Enabled = False
-            DeleteButton.Enabled = True
 
-            Dim ID = IDTextBox.Text
-            Dim Name = NameTextBox.Text
-            Dim Purpose = PurposeTextBox.Text
-            Dim datetime = DateTextBox.Text
-            Dim con As New SqlConnection
-            Dim cmd As New SqlCommand
+            Try
+                AddButton.Enabled = True
+                UpdateButton.Enabled = False
+                EditButton.Enabled = True
+                SaveButton.Enabled = False
+                DeleteButton.Enabled = True
 
-            Dim query As String = String.Empty
-            query &= "INSERT INTO Brgy_Clearance_Table (ID,Name,Purpose,Date)"
-            query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
+                Dim ID = IDTextBox.Text
+                Dim Name = NameTextBox.Text
+                Dim Purpose = PurposeTextBox.Text
+                Dim datetime = DateTextBox.Text
+                Dim con As New SqlConnection
+                Dim cmd As New SqlCommand
+
+                Dim query As String = String.Empty
+                query &= "INSERT INTO Brgy_Clearance_Table (ID,Name,Purpose,Date)"
+                query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
 
 
-            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-            With cmd
-                .Connection = con
-                .CommandType = CommandType.Text
-                .CommandText = query
-                .Parameters.AddWithValue("@ID", ID)
-                .Parameters.AddWithValue("@Name", Name)
-                .Parameters.AddWithValue("@Purpose", Purpose)
-                .Parameters.AddWithValue("@datetime", datetime)
-            End With
+                con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+                With cmd
+                    .Connection = con
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@ID", ID)
+                    .Parameters.AddWithValue("@Name", Name)
+                    .Parameters.AddWithValue("@Purpose", Purpose)
+                    .Parameters.AddWithValue("@datetime", datetime)
+                End With
 
-            con.Open()
-            cmd.ExecuteNonQuery()
+                con.Open()
+                cmd.ExecuteNonQuery()
 
-            NameTextBox.ReadOnly = True
-            DateTextBox.ReadOnly = True
-            PurposeTextBox.ReadOnly = True
-            DataGridView1.Visible = True
-            DataGridView2.Visible = False
-            Clear()
+                NameTextBox.ReadOnly = True
+                DateTextBox.ReadOnly = True
+                PurposeTextBox.ReadOnly = True
+                DataGridView1.Visible = True
+                DataGridView2.Visible = False
+                Clear()
+
+            Catch ex As Exception
+                MessageBox.Show("Error while Saving new data." & ex.Message)
+            End Try
         End If
     End Sub
 
@@ -287,26 +300,34 @@ Public Class BrgyClearanceDetailsForm
         End If
     End Sub
     Private Sub DeleteFunction()
+        Try
+            Dim ID = IDTextBox.Text
+            Dim con As New SqlConnection
+            Dim cmd As New SqlCommand
+            Dim query As String = String.Empty
+            query &= "DELETE FROM Brgy_Clearance_Table WHERE ID=@ID"
+            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+            With cmd
+                .Connection = con
+                .CommandType = CommandType.Text
+                .CommandText = query
+                .Parameters.AddWithValue("@ID", ID)
+            End With
+            con.Open()
+            cmd.ExecuteNonQuery()
+            con.Close()
 
-        Dim ID = IDTextBox.Text
-        Dim con As New SqlConnection
-        Dim cmd As New SqlCommand
-        Dim query As String = String.Empty
-        query &= "DELETE FROM Brgy_Clearance_Table WHERE ID=@ID"
-        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-        With cmd
-            .Connection = con
-            .CommandType = CommandType.Text
-            .CommandText = query
-            .Parameters.AddWithValue("@ID", ID)
-        End With
-        con.Open()
-        cmd.ExecuteNonQuery()
-        con.Close()
+        Catch ex As Exception
+            MessageBox.Show("Error while deleting data." & ex.Message)
+        End Try
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
         Me.Hide()
         ClearanceForm.Show()
+    End Sub
+
+    Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
+
     End Sub
 End Class

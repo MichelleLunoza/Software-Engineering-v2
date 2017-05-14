@@ -88,7 +88,6 @@ Partial Class PopulationForm
         Me.Label25 = New System.Windows.Forms.Label()
         Me.HHNTextBox = New System.Windows.Forms.TextBox()
         Me.Label26 = New System.Windows.Forms.Label()
-        Me.TimeLabel = New System.Windows.Forms.Label()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.ViewDetailsButton = New System.Windows.Forms.Button()
         Me.RegisterButton = New System.Windows.Forms.Button()
@@ -130,12 +129,15 @@ Partial Class PopulationForm
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DeleteButton = New System.Windows.Forms.Button()
+        Me.ClearButton1 = New System.Windows.Forms.Button()
+        Me.DataGridView4 = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'ClearButton
@@ -271,7 +273,7 @@ Partial Class PopulationForm
         '
         Me.PurokComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.PurokComboBox.FormattingEnabled = True
-        Me.PurokComboBox.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7"})
+        Me.PurokComboBox.Items.AddRange(New Object() {"Purok 1", "Purok 2", "Purok 3", "Purok 4", "Purok 5", "Purok 6", "Purok 7"})
         Me.PurokComboBox.Location = New System.Drawing.Point(216, 145)
         Me.PurokComboBox.Name = "PurokComboBox"
         Me.PurokComboBox.Size = New System.Drawing.Size(203, 21)
@@ -424,7 +426,7 @@ Partial Class PopulationForm
         Me.GroupBox1.Controls.Add(Me.GenderComboBox)
         Me.GroupBox1.Controls.Add(Me.FamilyComboBox)
         Me.GroupBox1.Controls.Add(Me.PurokComboBox)
-        Me.GroupBox1.Location = New System.Drawing.Point(663, 256)
+        Me.GroupBox1.Location = New System.Drawing.Point(669, 259)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(478, 444)
         Me.GroupBox1.TabIndex = 116
@@ -507,7 +509,7 @@ Partial Class PopulationForm
         Me.GroupBox2.Controls.Add(Me.Label25)
         Me.GroupBox2.Controls.Add(Me.HHNTextBox)
         Me.GroupBox2.Controls.Add(Me.Label26)
-        Me.GroupBox2.Location = New System.Drawing.Point(669, 255)
+        Me.GroupBox2.Location = New System.Drawing.Point(669, 259)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(478, 444)
         Me.GroupBox2.TabIndex = 117
@@ -770,14 +772,6 @@ Partial Class PopulationForm
         Me.Label26.TabIndex = 100
         Me.Label26.Text = "OFW Category:"
         '
-        'TimeLabel
-        '
-        Me.TimeLabel.AutoSize = True
-        Me.TimeLabel.Location = New System.Drawing.Point(969, 136)
-        Me.TimeLabel.Name = "TimeLabel"
-        Me.TimeLabel.Size = New System.Drawing.Size(0, 13)
-        Me.TimeLabel.TabIndex = 117
-        '
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
@@ -789,7 +783,7 @@ Partial Class PopulationForm
         '
         'ViewDetailsButton
         '
-        Me.ViewDetailsButton.Location = New System.Drawing.Point(1182, 297)
+        Me.ViewDetailsButton.Location = New System.Drawing.Point(1177, 259)
         Me.ViewDetailsButton.Name = "ViewDetailsButton"
         Me.ViewDetailsButton.Size = New System.Drawing.Size(117, 50)
         Me.ViewDetailsButton.TabIndex = 119
@@ -798,7 +792,7 @@ Partial Class PopulationForm
         '
         'RegisterButton
         '
-        Me.RegisterButton.Location = New System.Drawing.Point(1182, 408)
+        Me.RegisterButton.Location = New System.Drawing.Point(1177, 370)
         Me.RegisterButton.Name = "RegisterButton"
         Me.RegisterButton.Size = New System.Drawing.Size(117, 50)
         Me.RegisterButton.TabIndex = 120
@@ -808,7 +802,7 @@ Partial Class PopulationForm
         'CancelButton
         '
         Me.CancelButton.Enabled = False
-        Me.CancelButton.Location = New System.Drawing.Point(1182, 632)
+        Me.CancelButton.Location = New System.Drawing.Point(1177, 594)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(117, 50)
         Me.CancelButton.TabIndex = 121
@@ -818,7 +812,7 @@ Partial Class PopulationForm
         'UpdateButton
         '
         Me.UpdateButton.Enabled = False
-        Me.UpdateButton.Location = New System.Drawing.Point(1182, 520)
+        Me.UpdateButton.Location = New System.Drawing.Point(1177, 482)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(117, 50)
         Me.UpdateButton.TabIndex = 122
@@ -1140,7 +1134,7 @@ Partial Class PopulationForm
         '
         Me.PurokCComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
         Me.PurokCComboBox.FormattingEnabled = True
-        Me.PurokCComboBox.Items.AddRange(New Object() {"1", "2", "3", "4", "5", "6", "7"})
+        Me.PurokCComboBox.Items.AddRange(New Object() {"Purok 1", "Purok 2", "Purok 3", "Purok 4", "Purok 5", "Purok 6", "Purok 7"})
         Me.PurokCComboBox.Location = New System.Drawing.Point(216, 145)
         Me.PurokCComboBox.Name = "PurokCComboBox"
         Me.PurokCComboBox.Size = New System.Drawing.Size(203, 21)
@@ -1148,7 +1142,7 @@ Partial Class PopulationForm
         '
         'EditButton
         '
-        Me.EditButton.Location = New System.Drawing.Point(1182, 576)
+        Me.EditButton.Location = New System.Drawing.Point(1177, 538)
         Me.EditButton.Name = "EditButton"
         Me.EditButton.Size = New System.Drawing.Size(117, 50)
         Me.EditButton.TabIndex = 124
@@ -1158,7 +1152,7 @@ Partial Class PopulationForm
         'SaveButton
         '
         Me.SaveButton.Enabled = False
-        Me.SaveButton.Location = New System.Drawing.Point(1182, 464)
+        Me.SaveButton.Location = New System.Drawing.Point(1177, 426)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(117, 50)
         Me.SaveButton.TabIndex = 125
@@ -1177,12 +1171,30 @@ Partial Class PopulationForm
         'DeleteButton
         '
         Me.DeleteButton.Enabled = False
-        Me.DeleteButton.Location = New System.Drawing.Point(1182, 352)
+        Me.DeleteButton.Location = New System.Drawing.Point(1177, 314)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(117, 50)
         Me.DeleteButton.TabIndex = 127
         Me.DeleteButton.Text = "Delete"
         Me.DeleteButton.UseVisualStyleBackColor = True
+        '
+        'ClearButton1
+        '
+        Me.ClearButton1.Location = New System.Drawing.Point(1177, 650)
+        Me.ClearButton1.Name = "ClearButton1"
+        Me.ClearButton1.Size = New System.Drawing.Size(117, 50)
+        Me.ClearButton1.TabIndex = 128
+        Me.ClearButton1.Text = "Clear"
+        Me.ClearButton1.UseVisualStyleBackColor = True
+        '
+        'DataGridView4
+        '
+        Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView4.Location = New System.Drawing.Point(41, 247)
+        Me.DataGridView4.Name = "DataGridView4"
+        Me.DataGridView4.Size = New System.Drawing.Size(596, 437)
+        Me.DataGridView4.TabIndex = 129
+        Me.DataGridView4.Visible = False
         '
         'PopulationForm
         '
@@ -1191,10 +1203,13 @@ Partial Class PopulationForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
-        Me.Controls.Add(Me.DeleteButton)
-        Me.Controls.Add(Me.DataGridView2)
+        Me.Controls.Add(Me.DataGridView4)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.ClearButton1)
+        Me.Controls.Add(Me.DeleteButton)
+        Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.EditButton)
         Me.Controls.Add(Me.DataGridView3)
@@ -1202,12 +1217,10 @@ Partial Class PopulationForm
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.RegisterButton)
         Me.Controls.Add(Me.ViewDetailsButton)
-        Me.Controls.Add(Me.TimeLabel)
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.Label)
         Me.Controls.Add(Me.SearchnameTextBox)
         Me.Controls.Add(Me.DataGridView1)
-        Me.Controls.Add(Me.GroupBox3)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -1223,6 +1236,7 @@ Partial Class PopulationForm
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -1256,7 +1270,6 @@ Partial Class PopulationForm
     Friend WithEvents senior_citizenComboBox As System.Windows.Forms.ComboBox
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents TimeLabel As System.Windows.Forms.Label
     Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
     Friend WithEvents ViewDetailsButton As System.Windows.Forms.Button
     Friend WithEvents IDTextBox As System.Windows.Forms.TextBox
@@ -1334,4 +1347,6 @@ Partial Class PopulationForm
     Friend WithEvents NetIncome3TextBox As System.Windows.Forms.TextBox
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents DeleteButton As System.Windows.Forms.Button
+    Friend WithEvents ClearButton1 As System.Windows.Forms.Button
+    Friend WithEvents DataGridView4 As System.Windows.Forms.DataGridView
 End Class

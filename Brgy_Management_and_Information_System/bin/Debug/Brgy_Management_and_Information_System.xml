@@ -6,7 +6,123 @@ Brgy_Management_and_Information_System
 </name>
 </assembly>
 <members>
-<member name="P:Brgy_Management_and_Information_System.My.Resources.Resources.ResourceManager">
+<member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.AccountDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.Brgy_Clearance_TableDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.Certificate_Indigency_TableDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.LogAccountDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.Population_TableDataTable">
+	<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.AccountRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.Brgy_Clearance_TableRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.Certificate_Indigency_TableRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.LogAccountRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.Population_TableRow">
+	<summary>
+Represents strongly named DataRow class.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.AccountRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.Brgy_Clearance_TableRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.Certificate_Indigency_TableRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.LogAccountRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet.Population_TableRowChangeEvent">
+	<summary>
+Row event argument class
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSet">
+	<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.AccountTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.Brgy_Clearance_TableTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.Certificate_Indigency_TableTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.LogAccountTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.Population_TableTableAdapter">
+	<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member><member name="M:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(Brgy_Management_and_Information_System._Bayorbor_sDbDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Update rows in top-down order.
+</summary>
+</member><member name="M:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(Brgy_Management_and_Information_System._Bayorbor_sDbDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Insert rows in top-down order.
+</summary>
+</member><member name="M:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(Brgy_Management_and_Information_System._Bayorbor_sDbDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Delete rows in bottom-up order.
+</summary>
+</member><member name="M:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+	<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member><member name="M:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.TableAdapterManager.UpdateAll(Brgy_Management_and_Information_System._Bayorbor_sDbDataSet)">
+	<summary>
+Update all changes to the dataset.
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+	<summary>
+Update Order Option
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+	<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member><member name="T:Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.TableAdapterManager">
+	<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member><member name="P:Brgy_Management_and_Information_System.My.Resources.Resources.ResourceManager">
 	<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
