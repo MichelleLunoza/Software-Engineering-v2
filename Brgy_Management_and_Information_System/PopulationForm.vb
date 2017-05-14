@@ -238,6 +238,29 @@ Public Class PopulationForm
         NameTextBox.Clear()
         Net_IncomeTextBox.Clear()
 
+        FamilyComboBox.SelectedIndex = -1
+        FamilyComboBox.SelectedIndex = -1
+        PurokComboBox.SelectedIndex = -1
+        PurokCComboBox.SelectedIndex = -1
+        GenderComboBox.SelectedIndex = -1
+        GenderCComboBox.SelectedIndex = -1
+        OFWComboBox.SelectedIndex = -1
+        OFWCComboBox.SelectedIndex = -1
+        PWDComboBox.SelectedIndex = -1
+        PWDCComboBox.SelectedIndex = -1
+        zeroCComboBox.SelectedIndex = -1
+        zero_twelve_monthsComboBox.SelectedIndex = -1
+        twoCComboBox.SelectedIndex = -1
+        two_five_yrs_oldComboBox.SelectedIndex = -1
+        sixCComboBox.SelectedIndex = -1
+        six_twelve_yrs_oldComboBox.SelectedIndex = -1
+        thirteenCComboBox.SelectedIndex = -1
+        thirteen_seventeen_yrs_oldComboBox.SelectedIndex = -1
+        seniorCComboBox.SelectedIndex = -1
+        senior_citizenComboBox.SelectedIndex = -1
+
+
+
     End Sub
 
     Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
@@ -376,5 +399,9 @@ Public Class PopulationForm
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
         DeleteFunction()
+    End Sub
+
+    Private Sub ClearButton1_Click(sender As Object, e As EventArgs) Handles ClearButton1.Click
+        Clear()
     End Sub
 End Class

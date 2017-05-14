@@ -129,6 +129,7 @@ Partial Class PopulationForm
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DeleteButton = New System.Windows.Forms.Button()
+        Me.ClearButton1 = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -780,7 +781,7 @@ Partial Class PopulationForm
         '
         'ViewDetailsButton
         '
-        Me.ViewDetailsButton.Location = New System.Drawing.Point(1182, 297)
+        Me.ViewDetailsButton.Location = New System.Drawing.Point(1182, 273)
         Me.ViewDetailsButton.Name = "ViewDetailsButton"
         Me.ViewDetailsButton.Size = New System.Drawing.Size(117, 50)
         Me.ViewDetailsButton.TabIndex = 119
@@ -789,7 +790,7 @@ Partial Class PopulationForm
         '
         'RegisterButton
         '
-        Me.RegisterButton.Location = New System.Drawing.Point(1182, 408)
+        Me.RegisterButton.Location = New System.Drawing.Point(1182, 384)
         Me.RegisterButton.Name = "RegisterButton"
         Me.RegisterButton.Size = New System.Drawing.Size(117, 50)
         Me.RegisterButton.TabIndex = 120
@@ -799,7 +800,7 @@ Partial Class PopulationForm
         'CancelButton
         '
         Me.CancelButton.Enabled = False
-        Me.CancelButton.Location = New System.Drawing.Point(1182, 632)
+        Me.CancelButton.Location = New System.Drawing.Point(1182, 608)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(117, 50)
         Me.CancelButton.TabIndex = 121
@@ -809,7 +810,7 @@ Partial Class PopulationForm
         'UpdateButton
         '
         Me.UpdateButton.Enabled = False
-        Me.UpdateButton.Location = New System.Drawing.Point(1182, 520)
+        Me.UpdateButton.Location = New System.Drawing.Point(1182, 496)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(117, 50)
         Me.UpdateButton.TabIndex = 122
@@ -1139,7 +1140,7 @@ Partial Class PopulationForm
         '
         'EditButton
         '
-        Me.EditButton.Location = New System.Drawing.Point(1182, 576)
+        Me.EditButton.Location = New System.Drawing.Point(1182, 552)
         Me.EditButton.Name = "EditButton"
         Me.EditButton.Size = New System.Drawing.Size(117, 50)
         Me.EditButton.TabIndex = 124
@@ -1149,7 +1150,7 @@ Partial Class PopulationForm
         'SaveButton
         '
         Me.SaveButton.Enabled = False
-        Me.SaveButton.Location = New System.Drawing.Point(1182, 464)
+        Me.SaveButton.Location = New System.Drawing.Point(1182, 440)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(117, 50)
         Me.SaveButton.TabIndex = 125
@@ -1168,12 +1169,22 @@ Partial Class PopulationForm
         'DeleteButton
         '
         Me.DeleteButton.Enabled = False
-        Me.DeleteButton.Location = New System.Drawing.Point(1182, 352)
+        Me.DeleteButton.Location = New System.Drawing.Point(1182, 328)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(117, 50)
         Me.DeleteButton.TabIndex = 127
         Me.DeleteButton.Text = "Delete"
         Me.DeleteButton.UseVisualStyleBackColor = True
+        '
+        'ClearButton1
+        '
+        Me.ClearButton1.Enabled = False
+        Me.ClearButton1.Location = New System.Drawing.Point(1182, 671)
+        Me.ClearButton1.Name = "ClearButton1"
+        Me.ClearButton1.Size = New System.Drawing.Size(117, 50)
+        Me.ClearButton1.TabIndex = 128
+        Me.ClearButton1.Text = "Clear"
+        Me.ClearButton1.UseVisualStyleBackColor = True
         '
         'PopulationForm
         '
@@ -1182,6 +1193,7 @@ Partial Class PopulationForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
+        Me.Controls.Add(Me.ClearButton1)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.GroupBox1)
@@ -1323,4 +1335,5 @@ Partial Class PopulationForm
     Friend WithEvents NetIncome3TextBox As System.Windows.Forms.TextBox
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents DeleteButton As System.Windows.Forms.Button
+    Friend WithEvents ClearButton1 As System.Windows.Forms.Button
 End Class
