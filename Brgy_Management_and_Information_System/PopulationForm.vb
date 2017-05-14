@@ -132,6 +132,7 @@ Public Class PopulationForm
         DataGridView1.Visible = False
         DataGridView2.Visible = False
         DataGridView3.Visible = False
+        DataGridView4.Visible = False
         GroupBox1.Visible = False
         GroupBox2.Visible = False
         GroupBox3.Visible = False
@@ -382,6 +383,8 @@ Public Class PopulationForm
                 Dim con As New SqlConnection
                 Dim cmd As New SqlCommand
 
+                FamilyID = "0000000" + 1
+
                 Dim uTime As Integer
                 uTime = (DateTime.UtcNow - New DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds
 
@@ -425,10 +428,8 @@ Public Class PopulationForm
     End Sub
     Private Sub DataGridView4_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView4.CellClick
         Dim row As DataGridViewRow = DataGridView4.CurrentRow
-        Dim famID As String
-        famID = Family_IDTextBox.Text
-        famID = (famID + 1)
-        famID = row.Cells(0).Value.ToString()
+        
+        Family_IDTextBox.Text = row.Cells(0).Value.ToString()
     End Sub
     Private Sub DeleteFunction()
         Try
@@ -480,7 +481,7 @@ Public Class PopulationForm
     Private Sub DisplayHead_RegisterFunction()
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT Family_ID,Name FROM Population_Table"
+        query &= "SELECT Family_ID,Name FROM Population_Table WHERE Family_Category='Head'"
 
 
 
@@ -494,6 +495,7 @@ Public Class PopulationForm
         connection.Close()
         DataGridView4.DataSource = ds
         DataGridView4.DataMember = "Population_Table"
-        DataGridView4.Columns(0).Width = 550
+        DataGridView4.Columns(0).Width = 100
+        DataGridView4.Columns(1).Width = 500
     End Sub
 End Class

@@ -179,6 +179,7 @@ Partial Class PopulationForm
         '
         Me.Family_IDTextBox.Location = New System.Drawing.Point(216, 59)
         Me.Family_IDTextBox.Name = "Family_IDTextBox"
+        Me.Family_IDTextBox.ReadOnly = True
         Me.Family_IDTextBox.Size = New System.Drawing.Size(203, 20)
         Me.Family_IDTextBox.TabIndex = 89
         '
