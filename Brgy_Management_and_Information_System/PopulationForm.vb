@@ -423,6 +423,13 @@ Public Class PopulationForm
         End Try
 
     End Sub
+    Private Sub DataGridView4_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView4.CellClick
+        Dim row As DataGridViewRow = DataGridView4.CurrentRow
+        Dim famID As String
+        famID = Family_IDTextBox.Text
+        famID = (famID + 1)
+        famID = row.Cells(0).Value.ToString()
+    End Sub
     Private Sub DeleteFunction()
         Try
             If ID2TextBox.Text = "" Then
@@ -473,7 +480,7 @@ Public Class PopulationForm
     Private Sub DisplayHead_RegisterFunction()
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT Name FROM Population_Table"
+        query &= "SELECT Family_ID,Name FROM Population_Table"
 
 
 
