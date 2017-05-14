@@ -327,74 +327,116 @@ Public Class PopulationForm
 
     Private Sub SaveFunction()
 
-        Dim ID = IDTextBox.Text
-        Dim FamilyID = Family_IDTextBox.Text
-        Dim Name = NameTextBox.Text
-        Dim famCategory = FamilyComboBox.SelectedItem.ToString()
-        Dim purok = PurokComboBox.SelectedItem.ToString()
-        Dim gender = GenderComboBox.SelectedItem.ToString()
-        Dim net_income = Net_Income1TextBox.Text
-        Dim HHN = HH_NumberTextBox.Text
-        Dim OFW = OFWComboBox.SelectedItem.ToString()
-        Dim PWD = PWDComboBox.SelectedItem.ToString()
-        Dim zero_twelve_months = zero_twelve_monthsComboBox.SelectedItem.ToString()
-        Dim two_five_yrs_old = two_five_yrs_oldComboBox.SelectedItem.ToString()
-        Dim six_twelve_yrs_old = six_twelve_yrs_oldComboBox.SelectedItem.ToString()
-        Dim thirteen_seventeen_yrs_old = thirteen_seventeen_yrs_oldComboBox.SelectedItem.ToString()
-        Dim senior_citizen = senior_citizenComboBox.SelectedItem.ToString()
-        Dim con As New SqlConnection
-        Dim cmd As New SqlCommand
+
+        Try
+            If NameTextBox.Text = "" Then
+                MessageBox.Show("Please enter name", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                NameTextBox.Focus()
+            ElseIf FamilyComboBox.SelectedItem = "" Then
+                MessageBox.Show("Please choose from Family Category", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf PurokComboBox.SelectedItem = "" Then
+                MessageBox.Show("Please choose from Purok", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf GenderComboBox.SelectedItem = "" Then
+                MessageBox.Show("Please choose from gender", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf Net_Income1TextBox.Text = "" Then
+                Net_Income1TextBox.Focus()
+                MessageBox.Show("Please enter net income", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf HH_NumberTextBox.Text = "" Then
+                MessageBox.Show("Please enter Household Number", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+                HH_NumberTextBox.Focus()
+            ElseIf OFWComboBox.SelectedItem = "" Then
+                MessageBox.Show("Please choose from OFW Category", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf PWDComboBox.SelectedItem = "" Then
+                MessageBox.Show("Please choose from PWD Category", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf zero_twelve_monthsComboBox.SelectedItem = "" Then
+                MessageBox.Show("Please choose from zero to twelve months Category", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf two_five_yrs_oldComboBox.SelectedItem = "" Then
+                MessageBox.Show("Please choose from two to five years old Category", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf six_twelve_yrs_oldComboBox.SelectedItem = "" Then
+                MessageBox.Show("Please choose from six to twelve years old Category", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf thirteen_seventeen_yrs_oldComboBox.SelectedItem = "" Then
+                MessageBox.Show("Please choose from Family Category", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            ElseIf senior_citizenComboBox.SelectedItem = "" Then
+                MessageBox.Show("Please choose from Senior Citizen Category", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            Else
+                Dim ID = IDTextBox.Text
+                Dim FamilyID = Family_IDTextBox.Text
+                Dim Name = NameTextBox.Text
+                Dim famCategory = FamilyComboBox.SelectedItem.ToString()
+                Dim purok = PurokComboBox.SelectedItem.ToString()
+                Dim gender = GenderComboBox.SelectedItem.ToString()
+                Dim net_income = Net_Income1TextBox.Text
+                Dim HHN = HH_NumberTextBox.Text
+                Dim OFW = OFWComboBox.SelectedItem.ToString()
+                Dim PWD = PWDComboBox.SelectedItem.ToString()
+                Dim zero_twelve_months = zero_twelve_monthsComboBox.SelectedItem.ToString()
+                Dim two_five_yrs_old = two_five_yrs_oldComboBox.SelectedItem.ToString()
+                Dim six_twelve_yrs_old = six_twelve_yrs_oldComboBox.SelectedItem.ToString()
+                Dim thirteen_seventeen_yrs_old = thirteen_seventeen_yrs_oldComboBox.SelectedItem.ToString()
+                Dim senior_citizen = senior_citizenComboBox.SelectedItem.ToString()
+                Dim con As New SqlConnection
+                Dim cmd As New SqlCommand
 
 
-        Dim query As String = String.Empty
-        query &= "INSERT INTO Population_Table (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category)"
-        query &= "VALUES (@Family_ID,@Name,@Family_Category,@Purok,@Gender,@net_income,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen)"
+                Dim query As String = String.Empty
+                query &= "INSERT INTO Population_Table (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category)"
+                query &= "VALUES (@Family_ID,@Name,@Family_Category,@Purok,@Gender,@net_income,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen)"
 
-        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-        With cmd
-            .Connection = con
-            .CommandType = CommandType.Text
-            .CommandText = query
-            .Parameters.AddWithValue("@Family_ID", FamilyID)
-            .Parameters.AddWithValue("@Name", Name)
-            .Parameters.AddWithValue("@Family_Category", famCategory)
-            .Parameters.AddWithValue("@Purok", purok)
-            .Parameters.AddWithValue("@Gender", gender)
-            .Parameters.AddWithValue("@net_income", net_income)
-            .Parameters.AddWithValue("@HHN", HHN)
-            .Parameters.AddWithValue("@OFW", OFW)
-            .Parameters.AddWithValue("@PWD", PWD)
-            .Parameters.AddWithValue("@zero_twelve_months", zero_twelve_months)
-            .Parameters.AddWithValue("@two_five_yrs_old", two_five_yrs_old)
-            .Parameters.AddWithValue("@six_twelve_yrs_old", six_twelve_yrs_old)
-            .Parameters.AddWithValue("@thirteen_seventeen_yrs_old", thirteen_seventeen_yrs_old)
-            .Parameters.AddWithValue("@senior_citizen", senior_citizen)
-        End With
+                con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+                With cmd
+                    .Connection = con
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@Family_ID", FamilyID)
+                    .Parameters.AddWithValue("@Name", Name)
+                    .Parameters.AddWithValue("@Family_Category", famCategory)
+                    .Parameters.AddWithValue("@Purok", purok)
+                    .Parameters.AddWithValue("@Gender", gender)
+                    .Parameters.AddWithValue("@net_income", net_income)
+                    .Parameters.AddWithValue("@HHN", HHN)
+                    .Parameters.AddWithValue("@OFW", OFW)
+                    .Parameters.AddWithValue("@PWD", PWD)
+                    .Parameters.AddWithValue("@zero_twelve_months", zero_twelve_months)
+                    .Parameters.AddWithValue("@two_five_yrs_old", two_five_yrs_old)
+                    .Parameters.AddWithValue("@six_twelve_yrs_old", six_twelve_yrs_old)
+                    .Parameters.AddWithValue("@thirteen_seventeen_yrs_old", thirteen_seventeen_yrs_old)
+                    .Parameters.AddWithValue("@senior_citizen", senior_citizen)
+                End With
 
-        con.Open()
-        cmd.ExecuteNonQuery()
-        MessageBox.Show("Successfully Saved")
-        Clear()
+                con.Open()
+                cmd.ExecuteNonQuery()
+                MessageBox.Show("Successfully Saved")
+                Clear()
+            End If
+
+        Catch ex As Exception
+            MessageBox.Show("Error while Saving new data." & ex.Message)
+        End Try
+
     End Sub
     Private Sub DeleteFunction()
+        Try
+            Dim ID = ID2TextBox.Text
+            Dim con As New SqlConnection
+            Dim cmd As New SqlCommand
+            Dim query As String = String.Empty
+            query &= "DELETE FROM Population_Table WHERE ID=@ID"
+            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+            With cmd
+                .Connection = con
+                .CommandType = CommandType.Text
+                .CommandText = query
+                .Parameters.AddWithValue("@ID", ID)
+            End With
+            con.Open()
+            cmd.ExecuteNonQuery()
+            con.Close()
 
-        Dim ID = ID2TextBox.Text
-        Dim con As New SqlConnection
-        Dim cmd As New SqlCommand
-        Dim query As String = String.Empty
-        query &= "DELETE FROM Population_Table WHERE ID=@ID"
-        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-        With cmd
-            .Connection = con
-            .CommandType = CommandType.Text
-            .CommandText = query
-            .Parameters.AddWithValue("@ID", ID)
-        End With
-        con.Open()
-        cmd.ExecuteNonQuery()
-        con.Close()
+            MessageBox.Show("Successfully Deleted")
 
-        MessageBox.Show("Successfully Deleted")
+        Catch ex As Exception
+            MessageBox.Show("Error while deleting data." & ex.Message)
+        End Try
     End Sub
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
@@ -403,5 +445,11 @@ Public Class PopulationForm
 
     Private Sub ClearButton1_Click(sender As Object, e As EventArgs) Handles ClearButton1.Click
         Clear()
+    End Sub
+
+    Private Sub FamilyComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FamilyComboBox.SelectedIndexChanged
+        If FamilyComboBox.SelectedItem = "Member" Then
+            DataGridView1.Visible = True
+        End If
     End Sub
 End Class

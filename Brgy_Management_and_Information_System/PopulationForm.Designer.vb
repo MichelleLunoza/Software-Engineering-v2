@@ -781,7 +781,7 @@ Partial Class PopulationForm
         '
         'ViewDetailsButton
         '
-        Me.ViewDetailsButton.Location = New System.Drawing.Point(1182, 273)
+        Me.ViewDetailsButton.Location = New System.Drawing.Point(1177, 259)
         Me.ViewDetailsButton.Name = "ViewDetailsButton"
         Me.ViewDetailsButton.Size = New System.Drawing.Size(117, 50)
         Me.ViewDetailsButton.TabIndex = 119
@@ -790,7 +790,7 @@ Partial Class PopulationForm
         '
         'RegisterButton
         '
-        Me.RegisterButton.Location = New System.Drawing.Point(1182, 384)
+        Me.RegisterButton.Location = New System.Drawing.Point(1177, 370)
         Me.RegisterButton.Name = "RegisterButton"
         Me.RegisterButton.Size = New System.Drawing.Size(117, 50)
         Me.RegisterButton.TabIndex = 120
@@ -800,7 +800,7 @@ Partial Class PopulationForm
         'CancelButton
         '
         Me.CancelButton.Enabled = False
-        Me.CancelButton.Location = New System.Drawing.Point(1182, 608)
+        Me.CancelButton.Location = New System.Drawing.Point(1177, 594)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(117, 50)
         Me.CancelButton.TabIndex = 121
@@ -810,7 +810,7 @@ Partial Class PopulationForm
         'UpdateButton
         '
         Me.UpdateButton.Enabled = False
-        Me.UpdateButton.Location = New System.Drawing.Point(1182, 496)
+        Me.UpdateButton.Location = New System.Drawing.Point(1177, 482)
         Me.UpdateButton.Name = "UpdateButton"
         Me.UpdateButton.Size = New System.Drawing.Size(117, 50)
         Me.UpdateButton.TabIndex = 122
@@ -1140,7 +1140,7 @@ Partial Class PopulationForm
         '
         'EditButton
         '
-        Me.EditButton.Location = New System.Drawing.Point(1182, 552)
+        Me.EditButton.Location = New System.Drawing.Point(1177, 538)
         Me.EditButton.Name = "EditButton"
         Me.EditButton.Size = New System.Drawing.Size(117, 50)
         Me.EditButton.TabIndex = 124
@@ -1150,7 +1150,7 @@ Partial Class PopulationForm
         'SaveButton
         '
         Me.SaveButton.Enabled = False
-        Me.SaveButton.Location = New System.Drawing.Point(1182, 440)
+        Me.SaveButton.Location = New System.Drawing.Point(1177, 426)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(117, 50)
         Me.SaveButton.TabIndex = 125
@@ -1169,7 +1169,7 @@ Partial Class PopulationForm
         'DeleteButton
         '
         Me.DeleteButton.Enabled = False
-        Me.DeleteButton.Location = New System.Drawing.Point(1182, 328)
+        Me.DeleteButton.Location = New System.Drawing.Point(1177, 314)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(117, 50)
         Me.DeleteButton.TabIndex = 127
@@ -1178,8 +1178,7 @@ Partial Class PopulationForm
         '
         'ClearButton1
         '
-        Me.ClearButton1.Enabled = False
-        Me.ClearButton1.Location = New System.Drawing.Point(1182, 671)
+        Me.ClearButton1.Location = New System.Drawing.Point(1177, 650)
         Me.ClearButton1.Name = "ClearButton1"
         Me.ClearButton1.Size = New System.Drawing.Size(117, 50)
         Me.ClearButton1.TabIndex = 128
