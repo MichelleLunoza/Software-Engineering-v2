@@ -70,8 +70,19 @@ Public Class CBMS_DetailsForm
         adapt.SelectCommand = cmd
         adapt.Fill(dt)
         DataGridView2.DataSource = dt
+        DataGridView2.Columns(0).Width = 100
+        DataGridView2.Columns(1).Width = 100
+        DataGridView2.Columns(2).Width = 100
+        DataGridView2.Columns(3).Width = 100
+        DataGridView2.Columns(4).Width = 100
+        DataGridView2.Columns(5).Width = 100
+        DataGridView2.Columns(6).Width = 100
+        DataGridView2.Columns(7).Width = 100
+        DataGridView2.Columns(8).Width = 100
+        DataGridView2.Columns(9).Width = 100
+        DataGridView2.Columns(10).Width = 100
+        DataGridView2.Columns(11).Width = 100
     End Sub
-
     Private Sub TotalFamilyButton_Click(sender As Object, e As EventArgs) Handles TotalFamilyButton.Click
         DataGridView1.Visible = False
         DataGridView2.Visible = True
@@ -91,8 +102,42 @@ Public Class CBMS_DetailsForm
         adapt.SelectCommand = cmd
         adapt.Fill(dt)
         DataGridView2.DataSource = dt
+        DataGridView2.Columns(0).Width = 100
+        DataGridView2.Columns(1).Width = 200
+        DataGridView2.Columns(2).Width = 100
+        DataGridView2.Columns(3).Width = 100
+        DataGridView2.Columns(4).Width = 100
+        DataGridView2.Columns(5).Width = 100
+        DataGridView2.Columns(6).Width = 100
+        DataGridView2.Columns(7).Width = 100
+        DataGridView2.Columns(8).Width = 100
+        DataGridView2.Columns(9).Width = 100
+        DataGridView2.Columns(10).Width = 100
+        DataGridView2.Columns(11).Width = 100
     End Sub
+    Private Sub OverallTotalButton_Click(sender As Object, e As EventArgs) Handles OverallTotalButton.Click
+        DataGridView1.Visible = False
+        DataGridView2.Visible = True
 
+        Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
+        Dim cmd As New SqlCommand
+        Dim adapt As New SqlDataAdapter
+        Dim dt As New DataTable
+
+
+        con.Open()
+        dt = New DataTable
+        With cmd
+            .Connection = con
+            .CommandText = "SELECT pt.Name AS 'Name',(SELECT COUNT(ID) FROM Population_Table WHERE Purok =pt.Purok) AS 'Population' FROM Population_Table pt"
+        End With
+        adapt.SelectCommand = cmd
+        adapt.Fill(dt)
+        DataGridView2.DataSource = dt
+        DataGridView2.Columns(0).Width = 400
+        DataGridView2.Columns(1).Width = 400
+
+    End Sub
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
         Me.Hide()
         MainForm.Show()
