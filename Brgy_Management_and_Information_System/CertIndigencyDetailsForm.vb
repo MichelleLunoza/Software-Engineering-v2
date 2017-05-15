@@ -76,45 +76,49 @@ Public Class CertIndigencyDetailsForm
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
-        SaveButton.Enabled = False
-        EditButton.Enabled = True
-        DeleteButton.Enabled = True
-        AddButton.Enabled = True
-        UpdateButton.Enabled = False
+        If IDTextBox.Text = "" Then
+            MessageBox.Show("Please select first from datagridview what you want to edit", "Edit Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            SaveButton.Enabled = False
+            EditButton.Enabled = True
+            DeleteButton.Enabled = True
+            AddButton.Enabled = True
+            UpdateButton.Enabled = False
 
-        Dim ID = IDTextBox.Text
-        Dim Name = NameTextBox.Text
-        Dim Purpose = PurposeTextBox.Text
-        Dim datetime = DateTextBox.Text
-        Dim con As New SqlConnection
-        Dim cmd As New SqlCommand
+            Dim ID = IDTextBox.Text
+            Dim Name = NameTextBox.Text
+            Dim Purpose = PurposeTextBox.Text
+            Dim datetime = DateTextBox.Text
+            Dim con As New SqlConnection
+            Dim cmd As New SqlCommand
 
-        Try
-            Dim query As String = String.Empty
-            query &= "UPDATE Certificate_Indigency_Table SET ID=@ID,Name=@Name,Purpose=@Purpose,Date=@datetime WHERE ID=@ID"
-            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-            With cmd
-                .Connection = con
-                .CommandType = CommandType.Text
-                .CommandText = query
-                .Parameters.AddWithValue("@ID", ID)
-                .Parameters.AddWithValue("@Name", Name)
-                .Parameters.AddWithValue("@Purpose", Purpose)
-                .Parameters.AddWithValue("@datetime", datetime)
-            End With
-            con.Open()
-            cmd.ExecuteNonQuery()
-            con.Close()
+            Try
+                Dim query As String = String.Empty
+                query &= "UPDATE Certificate_Indigency_Table SET ID=@ID,Name=@Name,Purpose=@Purpose,Date=@datetime WHERE ID=@ID"
+                con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+                With cmd
+                    .Connection = con
+                    .CommandType = CommandType.Text
+                    .CommandText = query
+                    .Parameters.AddWithValue("@ID", ID)
+                    .Parameters.AddWithValue("@Name", Name)
+                    .Parameters.AddWithValue("@Purpose", Purpose)
+                    .Parameters.AddWithValue("@datetime", datetime)
+                End With
+                con.Open()
+                cmd.ExecuteNonQuery()
+                con.Close()
 
 
-            NameTextBox.ReadOnly = True
-            DateTextBox.ReadOnly = True
-            PurposeTextBox.ReadOnly = True
-            Clear()
-
-        Catch ex As Exception
-            MessageBox.Show("Error while updating data." & ex.Message)
-        End Try
+                NameTextBox.ReadOnly = True
+                DateTextBox.ReadOnly = True
+                PurposeTextBox.ReadOnly = True
+                Clear()
+                Display()
+            Catch ex As Exception
+                MessageBox.Show("Error while updating data." & ex.Message)
+            End Try
+        End If
     End Sub
     Private Sub Clear()
         NameTextBox.Clear()
@@ -185,7 +189,7 @@ Public Class CertIndigencyDetailsForm
                 DataGridView1.Visible = True
                 DataGridView2.Visible = False
                 Clear()
-
+                Display()
             Catch ex As Exception
                 MessageBox.Show("Error while Saving new data." & ex.Message)
             End Try

@@ -5,9 +5,13 @@ Public Class BrgyClearanceForm
 
     Private Sub BrgyClearanceDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
-        ULabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString()
-        Me.DateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
+        ULabel.Text = MainForm.userLabel.Text
+        Me.DateLabel.Text = Date.Now.ToString("MM-dd-yyyy")
         Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
+
+        If ULabel.Text = "Guest" Then
+            PrintButton.Enabled = False
+        End If
 
     End Sub
 

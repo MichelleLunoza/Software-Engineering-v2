@@ -4,6 +4,13 @@ Public Class Cert_IndigencyForm
 
     Private Sub Cert_IndigencyDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
+        ULabel.Text = MainForm.userLabel.Text
+        Me.DateLabel.Text = Date.Now.ToString("MM-dd-yyyy")
+        Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
+
+        If ULabel.Text = "Guest" Then
+            PrintButton.Enabled = False
+        End If
     End Sub
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim row As DataGridViewRow = DataGridView1.CurrentRow

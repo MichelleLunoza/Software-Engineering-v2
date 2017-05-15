@@ -65,7 +65,9 @@ Public Class BrgyClearanceDetailsForm
         DataGridView1.Columns(1).Width = 170
         DataGridView1.Columns(2).Width = 150
         DataGridView1.Columns(3).Width = 150
+
     End Sub
+
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim row As DataGridViewRow = DataGridView1.CurrentRow
 
@@ -113,11 +115,11 @@ Public Class BrgyClearanceDetailsForm
             DateTextBox.ReadOnly = True
             PurposeTextBox.ReadOnly = True
             Clear()
-
-
+            Display()
         Catch ex As Exception
             MessageBox.Show("Error while updating data." & ex.Message)
         End Try
+
     End Sub
 
     Private Sub Clear()
@@ -128,15 +130,19 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
-        NameTextBox.ReadOnly = False
-        PurposeTextBox.ReadOnly = False
-        DateTextBox.ReadOnly = False
+        If IDTextBox.Text = "" Then
+            MessageBox.Show("Please select first from datagridview what you want to edit", "Edit Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            NameTextBox.ReadOnly = False
+            PurposeTextBox.ReadOnly = False
+            DateTextBox.ReadOnly = False
 
-        EditButton.Enabled = False
-        SaveButton.Enabled = False
-        AddButton.Enabled = False
-        DeleteButton.Enabled = False
-        UpdateButton.Enabled = True
+            EditButton.Enabled = False
+            SaveButton.Enabled = False
+            AddButton.Enabled = False
+            DeleteButton.Enabled = False
+            UpdateButton.Enabled = True
+        End If
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
@@ -188,7 +194,7 @@ Public Class BrgyClearanceDetailsForm
                 DataGridView1.Visible = True
                 DataGridView2.Visible = False
                 Clear()
-
+                Display()
             Catch ex As Exception
                 MessageBox.Show("Error while Saving new data." & ex.Message)
             End Try
