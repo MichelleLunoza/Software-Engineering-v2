@@ -52,12 +52,49 @@ Partial Class PopulationForm
         Me.senior_citizenComboBox = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
+        Me.DateRegisteredDateTimePicker = New System.Windows.Forms.DateTimePicker()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.Label44 = New System.Windows.Forms.Label()
+        Me.NetIncome3TextBox = New System.Windows.Forms.TextBox()
+        Me.sixCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label29 = New System.Windows.Forms.Label()
+        Me.ID3TextBox = New System.Windows.Forms.TextBox()
+        Me.seniorCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label30 = New System.Windows.Forms.Label()
+        Me.Label31 = New System.Windows.Forms.Label()
+        Me.Label32 = New System.Windows.Forms.Label()
+        Me.thirteenCComboBox = New System.Windows.Forms.ComboBox()
+        Me.FamID2TextBox = New System.Windows.Forms.TextBox()
+        Me.Label33 = New System.Windows.Forms.Label()
+        Me.Label34 = New System.Windows.Forms.Label()
+        Me.twoCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Name3TextBox = New System.Windows.Forms.TextBox()
+        Me.Label35 = New System.Windows.Forms.Label()
+        Me.Label36 = New System.Windows.Forms.Label()
+        Me.zeroCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label37 = New System.Windows.Forms.Label()
+        Me.Label38 = New System.Windows.Forms.Label()
+        Me.Label39 = New System.Windows.Forms.Label()
+        Me.PWDCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label40 = New System.Windows.Forms.Label()
+        Me.Label41 = New System.Windows.Forms.Label()
+        Me.HHN2TextBox = New System.Windows.Forms.TextBox()
+        Me.OFWCComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label42 = New System.Windows.Forms.Label()
+        Me.GenderCComboBox = New System.Windows.Forms.ComboBox()
+        Me.FamCComboBox = New System.Windows.Forms.ComboBox()
+        Me.PurokCComboBox = New System.Windows.Forms.ComboBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label46 = New System.Windows.Forms.Label()
         Me.Label45 = New System.Windows.Forms.Label()
         Me.Net_Income1TextBox = New System.Windows.Forms.TextBox()
         Me.six_twelve_yrs_oldComboBox = New System.Windows.Forms.ComboBox()
         Me.Label28 = New System.Windows.Forms.Label()
         Me.IDTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.DateRegisteredTextBox = New System.Windows.Forms.TextBox()
+        Me.Label47 = New System.Windows.Forms.Label()
         Me.Label43 = New System.Windows.Forms.Label()
         Me.Net_IncomeTextBox = New System.Windows.Forms.TextBox()
         Me.six_twelve_yrs_oldTextBox = New System.Windows.Forms.TextBox()
@@ -94,54 +131,17 @@ Partial Class PopulationForm
         Me.CancelButton = New System.Windows.Forms.Button()
         Me.UpdateButton = New System.Windows.Forms.Button()
         Me.DataGridView3 = New System.Windows.Forms.DataGridView()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.Label44 = New System.Windows.Forms.Label()
-        Me.NetIncome3TextBox = New System.Windows.Forms.TextBox()
-        Me.sixCComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label29 = New System.Windows.Forms.Label()
-        Me.ID3TextBox = New System.Windows.Forms.TextBox()
-        Me.seniorCComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label30 = New System.Windows.Forms.Label()
-        Me.Label31 = New System.Windows.Forms.Label()
-        Me.Label32 = New System.Windows.Forms.Label()
-        Me.thirteenCComboBox = New System.Windows.Forms.ComboBox()
-        Me.FamID2TextBox = New System.Windows.Forms.TextBox()
-        Me.Label33 = New System.Windows.Forms.Label()
-        Me.Label34 = New System.Windows.Forms.Label()
-        Me.twoCComboBox = New System.Windows.Forms.ComboBox()
-        Me.Name3TextBox = New System.Windows.Forms.TextBox()
-        Me.Label35 = New System.Windows.Forms.Label()
-        Me.Label36 = New System.Windows.Forms.Label()
-        Me.zeroCComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label37 = New System.Windows.Forms.Label()
-        Me.Label38 = New System.Windows.Forms.Label()
-        Me.Label39 = New System.Windows.Forms.Label()
-        Me.PWDCComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label40 = New System.Windows.Forms.Label()
-        Me.Label41 = New System.Windows.Forms.Label()
-        Me.HHN2TextBox = New System.Windows.Forms.TextBox()
-        Me.OFWCComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label42 = New System.Windows.Forms.Label()
-        Me.GenderCComboBox = New System.Windows.Forms.ComboBox()
-        Me.FamCComboBox = New System.Windows.Forms.ComboBox()
-        Me.PurokCComboBox = New System.Windows.Forms.ComboBox()
         Me.EditButton = New System.Windows.Forms.Button()
         Me.SaveButton = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.ClearButton1 = New System.Windows.Forms.Button()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label47 = New System.Windows.Forms.Label()
-        Me.DateRegisteredTextBox = New System.Windows.Forms.TextBox()
-        Me.Label48 = New System.Windows.Forms.Label()
-        Me.DateRegisteredDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1.SuspendLayout()
+        Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox3.SuspendLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -403,6 +403,7 @@ Partial Class PopulationForm
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox1.Controls.Add(Me.Label46)
         Me.GroupBox1.Controls.Add(Me.Label45)
@@ -435,7 +436,7 @@ Partial Class PopulationForm
         Me.GroupBox1.Controls.Add(Me.GenderComboBox)
         Me.GroupBox1.Controls.Add(Me.FamilyComboBox)
         Me.GroupBox1.Controls.Add(Me.PurokComboBox)
-        Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
+        Me.GroupBox1.Location = New System.Drawing.Point(678, 216)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(478, 484)
         Me.GroupBox1.TabIndex = 116
@@ -443,405 +444,8 @@ Partial Class PopulationForm
         Me.GroupBox1.Text = "Personal Information"
         Me.GroupBox1.Visible = False
         '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(72, 206)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(65, 13)
-        Me.Label45.TabIndex = 118
-        Me.Label45.Text = "Net Income:"
-        '
-        'Net_Income1TextBox
-        '
-        Me.Net_Income1TextBox.Location = New System.Drawing.Point(216, 199)
-        Me.Net_Income1TextBox.Name = "Net_Income1TextBox"
-        Me.Net_Income1TextBox.Size = New System.Drawing.Size(203, 20)
-        Me.Net_Income1TextBox.TabIndex = 119
-        '
-        'six_twelve_yrs_oldComboBox
-        '
-        Me.six_twelve_yrs_oldComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.six_twelve_yrs_oldComboBox.FormattingEnabled = True
-        Me.six_twelve_yrs_oldComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.six_twelve_yrs_oldComboBox.Location = New System.Drawing.Point(216, 356)
-        Me.six_twelve_yrs_oldComboBox.Name = "six_twelve_yrs_oldComboBox"
-        Me.six_twelve_yrs_oldComboBox.Size = New System.Drawing.Size(203, 21)
-        Me.six_twelve_yrs_oldComboBox.TabIndex = 117
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(71, 364)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(109, 13)
-        Me.Label28.TabIndex = 116
-        Me.Label28.Text = "6-12 yrs old Category:"
-        '
-        'IDTextBox
-        '
-        Me.IDTextBox.Location = New System.Drawing.Point(216, 33)
-        Me.IDTextBox.Name = "IDTextBox"
-        Me.IDTextBox.ReadOnly = True
-        Me.IDTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.IDTextBox.TabIndex = 87
-        '
-        'GroupBox2
-        '
-        Me.GroupBox2.Controls.Add(Me.DateRegisteredTextBox)
-        Me.GroupBox2.Controls.Add(Me.Label47)
-        Me.GroupBox2.Controls.Add(Me.Label43)
-        Me.GroupBox2.Controls.Add(Me.Net_IncomeTextBox)
-        Me.GroupBox2.Controls.Add(Me.six_twelve_yrs_oldTextBox)
-        Me.GroupBox2.Controls.Add(Me.Label27)
-        Me.GroupBox2.Controls.Add(Me.senior_citizenCategoryTextBox)
-        Me.GroupBox2.Controls.Add(Me.thirteen_seventeen_yrs_oldTextBox)
-        Me.GroupBox2.Controls.Add(Me.two_five_yrs_oldTextBox)
-        Me.GroupBox2.Controls.Add(Me.zero_twelve_monthsTextBox)
-        Me.GroupBox2.Controls.Add(Me.PWDCategoryTextBox)
-        Me.GroupBox2.Controls.Add(Me.OFWCategoryTextBox)
-        Me.GroupBox2.Controls.Add(Me.GenderTextBox)
-        Me.GroupBox2.Controls.Add(Me.PurokTextBox)
-        Me.GroupBox2.Controls.Add(Me.FamilyCategoryTextBox)
-        Me.GroupBox2.Controls.Add(Me.ID2TextBox)
-        Me.GroupBox2.Controls.Add(Me.Label14)
-        Me.GroupBox2.Controls.Add(Me.Label15)
-        Me.GroupBox2.Controls.Add(Me.Label16)
-        Me.GroupBox2.Controls.Add(Me.FamIDTextBox)
-        Me.GroupBox2.Controls.Add(Me.Label17)
-        Me.GroupBox2.Controls.Add(Me.Label18)
-        Me.GroupBox2.Controls.Add(Me.Name2TextBox)
-        Me.GroupBox2.Controls.Add(Me.Label19)
-        Me.GroupBox2.Controls.Add(Me.Label20)
-        Me.GroupBox2.Controls.Add(Me.Label21)
-        Me.GroupBox2.Controls.Add(Me.Label22)
-        Me.GroupBox2.Controls.Add(Me.Label23)
-        Me.GroupBox2.Controls.Add(Me.Label24)
-        Me.GroupBox2.Controls.Add(Me.Label25)
-        Me.GroupBox2.Controls.Add(Me.HHNTextBox)
-        Me.GroupBox2.Controls.Add(Me.Label26)
-        Me.GroupBox2.Location = New System.Drawing.Point(668, 201)
-        Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(478, 472)
-        Me.GroupBox2.TabIndex = 117
-        Me.GroupBox2.TabStop = False
-        Me.GroupBox2.Text = "Personal Information"
-        Me.GroupBox2.Visible = False
-        '
-        'Label43
-        '
-        Me.Label43.AutoSize = True
-        Me.Label43.Location = New System.Drawing.Point(71, 206)
-        Me.Label43.Name = "Label43"
-        Me.Label43.Size = New System.Drawing.Size(65, 13)
-        Me.Label43.TabIndex = 126
-        Me.Label43.Text = "Net Income:"
-        '
-        'Net_IncomeTextBox
-        '
-        Me.Net_IncomeTextBox.Location = New System.Drawing.Point(215, 196)
-        Me.Net_IncomeTextBox.Name = "Net_IncomeTextBox"
-        Me.Net_IncomeTextBox.ReadOnly = True
-        Me.Net_IncomeTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.Net_IncomeTextBox.TabIndex = 127
-        '
-        'six_twelve_yrs_oldTextBox
-        '
-        Me.six_twelve_yrs_oldTextBox.Location = New System.Drawing.Point(216, 356)
-        Me.six_twelve_yrs_oldTextBox.Name = "six_twelve_yrs_oldTextBox"
-        Me.six_twelve_yrs_oldTextBox.ReadOnly = True
-        Me.six_twelve_yrs_oldTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.six_twelve_yrs_oldTextBox.TabIndex = 125
-        '
-        'Label27
-        '
-        Me.Label27.AutoSize = True
-        Me.Label27.Location = New System.Drawing.Point(71, 366)
-        Me.Label27.Name = "Label27"
-        Me.Label27.Size = New System.Drawing.Size(109, 13)
-        Me.Label27.TabIndex = 124
-        Me.Label27.Text = "6-12 yrs old Category:"
-        '
-        'senior_citizenCategoryTextBox
-        '
-        Me.senior_citizenCategoryTextBox.Location = New System.Drawing.Point(216, 409)
-        Me.senior_citizenCategoryTextBox.Name = "senior_citizenCategoryTextBox"
-        Me.senior_citizenCategoryTextBox.ReadOnly = True
-        Me.senior_citizenCategoryTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.senior_citizenCategoryTextBox.TabIndex = 123
-        '
-        'thirteen_seventeen_yrs_oldTextBox
-        '
-        Me.thirteen_seventeen_yrs_oldTextBox.Location = New System.Drawing.Point(216, 383)
-        Me.thirteen_seventeen_yrs_oldTextBox.Name = "thirteen_seventeen_yrs_oldTextBox"
-        Me.thirteen_seventeen_yrs_oldTextBox.ReadOnly = True
-        Me.thirteen_seventeen_yrs_oldTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.thirteen_seventeen_yrs_oldTextBox.TabIndex = 123
-        '
-        'two_five_yrs_oldTextBox
-        '
-        Me.two_five_yrs_oldTextBox.Location = New System.Drawing.Point(216, 327)
-        Me.two_five_yrs_oldTextBox.Name = "two_five_yrs_oldTextBox"
-        Me.two_five_yrs_oldTextBox.ReadOnly = True
-        Me.two_five_yrs_oldTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.two_five_yrs_oldTextBox.TabIndex = 122
-        '
-        'zero_twelve_monthsTextBox
-        '
-        Me.zero_twelve_monthsTextBox.Location = New System.Drawing.Point(216, 301)
-        Me.zero_twelve_monthsTextBox.Name = "zero_twelve_monthsTextBox"
-        Me.zero_twelve_monthsTextBox.ReadOnly = True
-        Me.zero_twelve_monthsTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.zero_twelve_monthsTextBox.TabIndex = 122
-        '
-        'PWDCategoryTextBox
-        '
-        Me.PWDCategoryTextBox.Location = New System.Drawing.Point(216, 275)
-        Me.PWDCategoryTextBox.Name = "PWDCategoryTextBox"
-        Me.PWDCategoryTextBox.ReadOnly = True
-        Me.PWDCategoryTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.PWDCategoryTextBox.TabIndex = 119
-        '
-        'OFWCategoryTextBox
-        '
-        Me.OFWCategoryTextBox.Location = New System.Drawing.Point(216, 248)
-        Me.OFWCategoryTextBox.Name = "OFWCategoryTextBox"
-        Me.OFWCategoryTextBox.ReadOnly = True
-        Me.OFWCategoryTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.OFWCategoryTextBox.TabIndex = 118
-        '
-        'GenderTextBox
-        '
-        Me.GenderTextBox.Location = New System.Drawing.Point(216, 167)
-        Me.GenderTextBox.Name = "GenderTextBox"
-        Me.GenderTextBox.ReadOnly = True
-        Me.GenderTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.GenderTextBox.TabIndex = 117
-        '
-        'PurokTextBox
-        '
-        Me.PurokTextBox.Location = New System.Drawing.Point(216, 140)
-        Me.PurokTextBox.Name = "PurokTextBox"
-        Me.PurokTextBox.ReadOnly = True
-        Me.PurokTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.PurokTextBox.TabIndex = 116
-        '
-        'FamilyCategoryTextBox
-        '
-        Me.FamilyCategoryTextBox.Location = New System.Drawing.Point(216, 109)
-        Me.FamilyCategoryTextBox.Name = "FamilyCategoryTextBox"
-        Me.FamilyCategoryTextBox.ReadOnly = True
-        Me.FamilyCategoryTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.FamilyCategoryTextBox.TabIndex = 115
-        '
-        'ID2TextBox
-        '
-        Me.ID2TextBox.Location = New System.Drawing.Point(216, 28)
-        Me.ID2TextBox.Name = "ID2TextBox"
-        Me.ID2TextBox.ReadOnly = True
-        Me.ID2TextBox.Size = New System.Drawing.Size(203, 20)
-        Me.ID2TextBox.TabIndex = 87
-        '
-        'Label14
-        '
-        Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(71, 35)
-        Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(21, 13)
-        Me.Label14.TabIndex = 86
-        Me.Label14.Text = "ID:"
-        '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Location = New System.Drawing.Point(71, 416)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(119, 13)
-        Me.Label15.TabIndex = 114
-        Me.Label15.Text = "Senior Citizen Category:"
-        '
-        'Label16
-        '
-        Me.Label16.AutoSize = True
-        Me.Label16.Location = New System.Drawing.Point(71, 61)
-        Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(53, 13)
-        Me.Label16.TabIndex = 88
-        Me.Label16.Text = "Family ID:"
-        '
-        'FamIDTextBox
-        '
-        Me.FamIDTextBox.Location = New System.Drawing.Point(216, 54)
-        Me.FamIDTextBox.Name = "FamIDTextBox"
-        Me.FamIDTextBox.ReadOnly = True
-        Me.FamIDTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.FamIDTextBox.TabIndex = 89
-        '
-        'Label17
-        '
-        Me.Label17.AutoSize = True
-        Me.Label17.Location = New System.Drawing.Point(71, 394)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(115, 13)
-        Me.Label17.TabIndex = 112
-        Me.Label17.Text = "13-17 yrs old Category:"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(71, 87)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(38, 13)
-        Me.Label18.TabIndex = 90
-        Me.Label18.Text = "Name:"
-        '
-        'Name2TextBox
-        '
-        Me.Name2TextBox.Location = New System.Drawing.Point(216, 80)
-        Me.Name2TextBox.Name = "Name2TextBox"
-        Me.Name2TextBox.ReadOnly = True
-        Me.Name2TextBox.Size = New System.Drawing.Size(203, 20)
-        Me.Name2TextBox.TabIndex = 91
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(71, 337)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(103, 13)
-        Me.Label19.TabIndex = 110
-        Me.Label19.Text = "2-5 yrs old Category:"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(71, 116)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(84, 13)
-        Me.Label20.TabIndex = 92
-        Me.Label20.Text = "Family Category:"
-        '
-        'Label21
-        '
-        Me.Label21.AutoSize = True
-        Me.Label21.Location = New System.Drawing.Point(72, 148)
-        Me.Label21.Name = "Label21"
-        Me.Label21.Size = New System.Drawing.Size(38, 13)
-        Me.Label21.TabIndex = 94
-        Me.Label21.Text = "Purok:"
-        '
-        'Label22
-        '
-        Me.Label22.AutoSize = True
-        Me.Label22.Location = New System.Drawing.Point(71, 310)
-        Me.Label22.Name = "Label22"
-        Me.Label22.Size = New System.Drawing.Size(113, 13)
-        Me.Label22.TabIndex = 108
-        Me.Label22.Text = "0-12 months Category:"
-        '
-        'Label23
-        '
-        Me.Label23.AutoSize = True
-        Me.Label23.Location = New System.Drawing.Point(72, 175)
-        Me.Label23.Name = "Label23"
-        Me.Label23.Size = New System.Drawing.Size(45, 13)
-        Me.Label23.TabIndex = 96
-        Me.Label23.Text = "Gender:"
-        '
-        'Label24
-        '
-        Me.Label24.AutoSize = True
-        Me.Label24.Location = New System.Drawing.Point(72, 232)
-        Me.Label24.Name = "Label24"
-        Me.Label24.Size = New System.Drawing.Size(66, 13)
-        Me.Label24.TabIndex = 98
-        Me.Label24.Text = "HH Number:"
-        '
-        'Label25
-        '
-        Me.Label25.AutoSize = True
-        Me.Label25.Location = New System.Drawing.Point(71, 283)
-        Me.Label25.Name = "Label25"
-        Me.Label25.Size = New System.Drawing.Size(81, 13)
-        Me.Label25.TabIndex = 106
-        Me.Label25.Text = "PWD Category:"
-        '
-        'HHNTextBox
-        '
-        Me.HHNTextBox.Location = New System.Drawing.Point(216, 222)
-        Me.HHNTextBox.Name = "HHNTextBox"
-        Me.HHNTextBox.ReadOnly = True
-        Me.HHNTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.HHNTextBox.TabIndex = 99
-        '
-        'Label26
-        '
-        Me.Label26.AutoSize = True
-        Me.Label26.Location = New System.Drawing.Point(71, 256)
-        Me.Label26.Name = "Label26"
-        Me.Label26.Size = New System.Drawing.Size(80, 13)
-        Me.Label26.TabIndex = 100
-        Me.Label26.Text = "OFW Category:"
-        '
-        'DataGridView1
-        '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(41, 256)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(596, 426)
-        Me.DataGridView1.TabIndex = 82
-        Me.DataGridView1.Visible = False
-        '
-        'ViewDetailsButton
-        '
-        Me.ViewDetailsButton.Location = New System.Drawing.Point(1177, 259)
-        Me.ViewDetailsButton.Name = "ViewDetailsButton"
-        Me.ViewDetailsButton.Size = New System.Drawing.Size(117, 50)
-        Me.ViewDetailsButton.TabIndex = 119
-        Me.ViewDetailsButton.Text = "View Details"
-        Me.ViewDetailsButton.UseVisualStyleBackColor = True
-        '
-        'RegisterButton
-        '
-        Me.RegisterButton.Location = New System.Drawing.Point(1177, 370)
-        Me.RegisterButton.Name = "RegisterButton"
-        Me.RegisterButton.Size = New System.Drawing.Size(117, 50)
-        Me.RegisterButton.TabIndex = 120
-        Me.RegisterButton.Text = "Register"
-        Me.RegisterButton.UseVisualStyleBackColor = True
-        '
-        'CancelButton
-        '
-        Me.CancelButton.Enabled = False
-        Me.CancelButton.Location = New System.Drawing.Point(1177, 594)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(117, 50)
-        Me.CancelButton.TabIndex = 121
-        Me.CancelButton.Text = "Cancel"
-        Me.CancelButton.UseVisualStyleBackColor = True
-        '
-        'UpdateButton
-        '
-        Me.UpdateButton.Enabled = False
-        Me.UpdateButton.Location = New System.Drawing.Point(1177, 482)
-        Me.UpdateButton.Name = "UpdateButton"
-        Me.UpdateButton.Size = New System.Drawing.Size(117, 50)
-        Me.UpdateButton.TabIndex = 122
-        Me.UpdateButton.Text = "Update"
-        Me.UpdateButton.UseVisualStyleBackColor = True
-        '
-        'DataGridView3
-        '
-        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(41, 247)
-        Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.Size = New System.Drawing.Size(596, 426)
-        Me.DataGridView3.TabIndex = 123
-        Me.DataGridView3.Visible = False
-        '
         'GroupBox3
         '
-        Me.GroupBox3.Controls.Add(Me.GroupBox1)
         Me.GroupBox3.Controls.Add(Me.DateRegisteredDateTimePicker)
         Me.GroupBox3.Controls.Add(Me.Label48)
         Me.GroupBox3.Controls.Add(Me.Label44)
@@ -874,13 +478,29 @@ Partial Class PopulationForm
         Me.GroupBox3.Controls.Add(Me.GenderCComboBox)
         Me.GroupBox3.Controls.Add(Me.FamCComboBox)
         Me.GroupBox3.Controls.Add(Me.PurokCComboBox)
-        Me.GroupBox3.Location = New System.Drawing.Point(668, 202)
+        Me.GroupBox3.Location = New System.Drawing.Point(0, 2)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(478, 482)
         Me.GroupBox3.TabIndex = 118
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Personal Information"
         Me.GroupBox3.Visible = False
+        '
+        'DateRegisteredDateTimePicker
+        '
+        Me.DateRegisteredDateTimePicker.Location = New System.Drawing.Point(219, 437)
+        Me.DateRegisteredDateTimePicker.Name = "DateRegisteredDateTimePicker"
+        Me.DateRegisteredDateTimePicker.Size = New System.Drawing.Size(200, 20)
+        Me.DateRegisteredDateTimePicker.TabIndex = 121
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(72, 444)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(87, 13)
+        Me.Label48.TabIndex = 120
+        Me.Label48.Text = "Date Registered:"
         '
         'Label44
         '
@@ -1154,9 +774,438 @@ Partial Class PopulationForm
         Me.PurokCComboBox.Size = New System.Drawing.Size(203, 21)
         Me.PurokCComboBox.TabIndex = 103
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(219, 438)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.TabIndex = 121
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(72, 444)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(87, 13)
+        Me.Label46.TabIndex = 120
+        Me.Label46.Text = "Date Registered:"
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(72, 206)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(65, 13)
+        Me.Label45.TabIndex = 118
+        Me.Label45.Text = "Net Income:"
+        '
+        'Net_Income1TextBox
+        '
+        Me.Net_Income1TextBox.Location = New System.Drawing.Point(216, 199)
+        Me.Net_Income1TextBox.Name = "Net_Income1TextBox"
+        Me.Net_Income1TextBox.Size = New System.Drawing.Size(203, 20)
+        Me.Net_Income1TextBox.TabIndex = 119
+        '
+        'six_twelve_yrs_oldComboBox
+        '
+        Me.six_twelve_yrs_oldComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.six_twelve_yrs_oldComboBox.FormattingEnabled = True
+        Me.six_twelve_yrs_oldComboBox.Items.AddRange(New Object() {"yes", "no"})
+        Me.six_twelve_yrs_oldComboBox.Location = New System.Drawing.Point(216, 356)
+        Me.six_twelve_yrs_oldComboBox.Name = "six_twelve_yrs_oldComboBox"
+        Me.six_twelve_yrs_oldComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.six_twelve_yrs_oldComboBox.TabIndex = 117
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(71, 364)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(109, 13)
+        Me.Label28.TabIndex = 116
+        Me.Label28.Text = "6-12 yrs old Category:"
+        '
+        'IDTextBox
+        '
+        Me.IDTextBox.Location = New System.Drawing.Point(216, 33)
+        Me.IDTextBox.Name = "IDTextBox"
+        Me.IDTextBox.ReadOnly = True
+        Me.IDTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.IDTextBox.TabIndex = 87
+        '
+        'GroupBox2
+        '
+        Me.GroupBox2.Controls.Add(Me.DateRegisteredTextBox)
+        Me.GroupBox2.Controls.Add(Me.Label47)
+        Me.GroupBox2.Controls.Add(Me.Label43)
+        Me.GroupBox2.Controls.Add(Me.Net_IncomeTextBox)
+        Me.GroupBox2.Controls.Add(Me.six_twelve_yrs_oldTextBox)
+        Me.GroupBox2.Controls.Add(Me.Label27)
+        Me.GroupBox2.Controls.Add(Me.senior_citizenCategoryTextBox)
+        Me.GroupBox2.Controls.Add(Me.thirteen_seventeen_yrs_oldTextBox)
+        Me.GroupBox2.Controls.Add(Me.two_five_yrs_oldTextBox)
+        Me.GroupBox2.Controls.Add(Me.zero_twelve_monthsTextBox)
+        Me.GroupBox2.Controls.Add(Me.PWDCategoryTextBox)
+        Me.GroupBox2.Controls.Add(Me.OFWCategoryTextBox)
+        Me.GroupBox2.Controls.Add(Me.GenderTextBox)
+        Me.GroupBox2.Controls.Add(Me.PurokTextBox)
+        Me.GroupBox2.Controls.Add(Me.FamilyCategoryTextBox)
+        Me.GroupBox2.Controls.Add(Me.ID2TextBox)
+        Me.GroupBox2.Controls.Add(Me.Label14)
+        Me.GroupBox2.Controls.Add(Me.Label15)
+        Me.GroupBox2.Controls.Add(Me.Label16)
+        Me.GroupBox2.Controls.Add(Me.FamIDTextBox)
+        Me.GroupBox2.Controls.Add(Me.Label17)
+        Me.GroupBox2.Controls.Add(Me.Label18)
+        Me.GroupBox2.Controls.Add(Me.Name2TextBox)
+        Me.GroupBox2.Controls.Add(Me.Label19)
+        Me.GroupBox2.Controls.Add(Me.Label20)
+        Me.GroupBox2.Controls.Add(Me.Label21)
+        Me.GroupBox2.Controls.Add(Me.Label22)
+        Me.GroupBox2.Controls.Add(Me.Label23)
+        Me.GroupBox2.Controls.Add(Me.Label24)
+        Me.GroupBox2.Controls.Add(Me.Label25)
+        Me.GroupBox2.Controls.Add(Me.HHNTextBox)
+        Me.GroupBox2.Controls.Add(Me.Label26)
+        Me.GroupBox2.Location = New System.Drawing.Point(678, 218)
+        Me.GroupBox2.Name = "GroupBox2"
+        Me.GroupBox2.Size = New System.Drawing.Size(478, 472)
+        Me.GroupBox2.TabIndex = 117
+        Me.GroupBox2.TabStop = False
+        Me.GroupBox2.Text = "Personal Information"
+        Me.GroupBox2.Visible = False
+        '
+        'DateRegisteredTextBox
+        '
+        Me.DateRegisteredTextBox.Location = New System.Drawing.Point(215, 431)
+        Me.DateRegisteredTextBox.Name = "DateRegisteredTextBox"
+        Me.DateRegisteredTextBox.ReadOnly = True
+        Me.DateRegisteredTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.DateRegisteredTextBox.TabIndex = 129
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(72, 438)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(87, 13)
+        Me.Label47.TabIndex = 128
+        Me.Label47.Text = "Date Registered:"
+        '
+        'Label43
+        '
+        Me.Label43.AutoSize = True
+        Me.Label43.Location = New System.Drawing.Point(71, 206)
+        Me.Label43.Name = "Label43"
+        Me.Label43.Size = New System.Drawing.Size(65, 13)
+        Me.Label43.TabIndex = 126
+        Me.Label43.Text = "Net Income:"
+        '
+        'Net_IncomeTextBox
+        '
+        Me.Net_IncomeTextBox.Location = New System.Drawing.Point(215, 196)
+        Me.Net_IncomeTextBox.Name = "Net_IncomeTextBox"
+        Me.Net_IncomeTextBox.ReadOnly = True
+        Me.Net_IncomeTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.Net_IncomeTextBox.TabIndex = 127
+        '
+        'six_twelve_yrs_oldTextBox
+        '
+        Me.six_twelve_yrs_oldTextBox.Location = New System.Drawing.Point(216, 356)
+        Me.six_twelve_yrs_oldTextBox.Name = "six_twelve_yrs_oldTextBox"
+        Me.six_twelve_yrs_oldTextBox.ReadOnly = True
+        Me.six_twelve_yrs_oldTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.six_twelve_yrs_oldTextBox.TabIndex = 125
+        '
+        'Label27
+        '
+        Me.Label27.AutoSize = True
+        Me.Label27.Location = New System.Drawing.Point(71, 366)
+        Me.Label27.Name = "Label27"
+        Me.Label27.Size = New System.Drawing.Size(109, 13)
+        Me.Label27.TabIndex = 124
+        Me.Label27.Text = "6-12 yrs old Category:"
+        '
+        'senior_citizenCategoryTextBox
+        '
+        Me.senior_citizenCategoryTextBox.Location = New System.Drawing.Point(216, 409)
+        Me.senior_citizenCategoryTextBox.Name = "senior_citizenCategoryTextBox"
+        Me.senior_citizenCategoryTextBox.ReadOnly = True
+        Me.senior_citizenCategoryTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.senior_citizenCategoryTextBox.TabIndex = 123
+        '
+        'thirteen_seventeen_yrs_oldTextBox
+        '
+        Me.thirteen_seventeen_yrs_oldTextBox.Location = New System.Drawing.Point(216, 383)
+        Me.thirteen_seventeen_yrs_oldTextBox.Name = "thirteen_seventeen_yrs_oldTextBox"
+        Me.thirteen_seventeen_yrs_oldTextBox.ReadOnly = True
+        Me.thirteen_seventeen_yrs_oldTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.thirteen_seventeen_yrs_oldTextBox.TabIndex = 123
+        '
+        'two_five_yrs_oldTextBox
+        '
+        Me.two_five_yrs_oldTextBox.Location = New System.Drawing.Point(216, 327)
+        Me.two_five_yrs_oldTextBox.Name = "two_five_yrs_oldTextBox"
+        Me.two_five_yrs_oldTextBox.ReadOnly = True
+        Me.two_five_yrs_oldTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.two_five_yrs_oldTextBox.TabIndex = 122
+        '
+        'zero_twelve_monthsTextBox
+        '
+        Me.zero_twelve_monthsTextBox.Location = New System.Drawing.Point(216, 301)
+        Me.zero_twelve_monthsTextBox.Name = "zero_twelve_monthsTextBox"
+        Me.zero_twelve_monthsTextBox.ReadOnly = True
+        Me.zero_twelve_monthsTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.zero_twelve_monthsTextBox.TabIndex = 122
+        '
+        'PWDCategoryTextBox
+        '
+        Me.PWDCategoryTextBox.Location = New System.Drawing.Point(216, 275)
+        Me.PWDCategoryTextBox.Name = "PWDCategoryTextBox"
+        Me.PWDCategoryTextBox.ReadOnly = True
+        Me.PWDCategoryTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.PWDCategoryTextBox.TabIndex = 119
+        '
+        'OFWCategoryTextBox
+        '
+        Me.OFWCategoryTextBox.Location = New System.Drawing.Point(216, 248)
+        Me.OFWCategoryTextBox.Name = "OFWCategoryTextBox"
+        Me.OFWCategoryTextBox.ReadOnly = True
+        Me.OFWCategoryTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.OFWCategoryTextBox.TabIndex = 118
+        '
+        'GenderTextBox
+        '
+        Me.GenderTextBox.Location = New System.Drawing.Point(216, 167)
+        Me.GenderTextBox.Name = "GenderTextBox"
+        Me.GenderTextBox.ReadOnly = True
+        Me.GenderTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.GenderTextBox.TabIndex = 117
+        '
+        'PurokTextBox
+        '
+        Me.PurokTextBox.Location = New System.Drawing.Point(216, 140)
+        Me.PurokTextBox.Name = "PurokTextBox"
+        Me.PurokTextBox.ReadOnly = True
+        Me.PurokTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.PurokTextBox.TabIndex = 116
+        '
+        'FamilyCategoryTextBox
+        '
+        Me.FamilyCategoryTextBox.Location = New System.Drawing.Point(216, 109)
+        Me.FamilyCategoryTextBox.Name = "FamilyCategoryTextBox"
+        Me.FamilyCategoryTextBox.ReadOnly = True
+        Me.FamilyCategoryTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.FamilyCategoryTextBox.TabIndex = 115
+        '
+        'ID2TextBox
+        '
+        Me.ID2TextBox.Location = New System.Drawing.Point(216, 28)
+        Me.ID2TextBox.Name = "ID2TextBox"
+        Me.ID2TextBox.ReadOnly = True
+        Me.ID2TextBox.Size = New System.Drawing.Size(203, 20)
+        Me.ID2TextBox.TabIndex = 87
+        '
+        'Label14
+        '
+        Me.Label14.AutoSize = True
+        Me.Label14.Location = New System.Drawing.Point(71, 35)
+        Me.Label14.Name = "Label14"
+        Me.Label14.Size = New System.Drawing.Size(21, 13)
+        Me.Label14.TabIndex = 86
+        Me.Label14.Text = "ID:"
+        '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Location = New System.Drawing.Point(71, 416)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(119, 13)
+        Me.Label15.TabIndex = 114
+        Me.Label15.Text = "Senior Citizen Category:"
+        '
+        'Label16
+        '
+        Me.Label16.AutoSize = True
+        Me.Label16.Location = New System.Drawing.Point(71, 61)
+        Me.Label16.Name = "Label16"
+        Me.Label16.Size = New System.Drawing.Size(53, 13)
+        Me.Label16.TabIndex = 88
+        Me.Label16.Text = "Family ID:"
+        '
+        'FamIDTextBox
+        '
+        Me.FamIDTextBox.Location = New System.Drawing.Point(216, 54)
+        Me.FamIDTextBox.Name = "FamIDTextBox"
+        Me.FamIDTextBox.ReadOnly = True
+        Me.FamIDTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.FamIDTextBox.TabIndex = 89
+        '
+        'Label17
+        '
+        Me.Label17.AutoSize = True
+        Me.Label17.Location = New System.Drawing.Point(71, 394)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(115, 13)
+        Me.Label17.TabIndex = 112
+        Me.Label17.Text = "13-17 yrs old Category:"
+        '
+        'Label18
+        '
+        Me.Label18.AutoSize = True
+        Me.Label18.Location = New System.Drawing.Point(71, 87)
+        Me.Label18.Name = "Label18"
+        Me.Label18.Size = New System.Drawing.Size(38, 13)
+        Me.Label18.TabIndex = 90
+        Me.Label18.Text = "Name:"
+        '
+        'Name2TextBox
+        '
+        Me.Name2TextBox.Location = New System.Drawing.Point(216, 80)
+        Me.Name2TextBox.Name = "Name2TextBox"
+        Me.Name2TextBox.ReadOnly = True
+        Me.Name2TextBox.Size = New System.Drawing.Size(203, 20)
+        Me.Name2TextBox.TabIndex = 91
+        '
+        'Label19
+        '
+        Me.Label19.AutoSize = True
+        Me.Label19.Location = New System.Drawing.Point(71, 337)
+        Me.Label19.Name = "Label19"
+        Me.Label19.Size = New System.Drawing.Size(103, 13)
+        Me.Label19.TabIndex = 110
+        Me.Label19.Text = "2-5 yrs old Category:"
+        '
+        'Label20
+        '
+        Me.Label20.AutoSize = True
+        Me.Label20.Location = New System.Drawing.Point(71, 116)
+        Me.Label20.Name = "Label20"
+        Me.Label20.Size = New System.Drawing.Size(84, 13)
+        Me.Label20.TabIndex = 92
+        Me.Label20.Text = "Family Category:"
+        '
+        'Label21
+        '
+        Me.Label21.AutoSize = True
+        Me.Label21.Location = New System.Drawing.Point(72, 148)
+        Me.Label21.Name = "Label21"
+        Me.Label21.Size = New System.Drawing.Size(38, 13)
+        Me.Label21.TabIndex = 94
+        Me.Label21.Text = "Purok:"
+        '
+        'Label22
+        '
+        Me.Label22.AutoSize = True
+        Me.Label22.Location = New System.Drawing.Point(71, 310)
+        Me.Label22.Name = "Label22"
+        Me.Label22.Size = New System.Drawing.Size(113, 13)
+        Me.Label22.TabIndex = 108
+        Me.Label22.Text = "0-12 months Category:"
+        '
+        'Label23
+        '
+        Me.Label23.AutoSize = True
+        Me.Label23.Location = New System.Drawing.Point(72, 175)
+        Me.Label23.Name = "Label23"
+        Me.Label23.Size = New System.Drawing.Size(45, 13)
+        Me.Label23.TabIndex = 96
+        Me.Label23.Text = "Gender:"
+        '
+        'Label24
+        '
+        Me.Label24.AutoSize = True
+        Me.Label24.Location = New System.Drawing.Point(72, 232)
+        Me.Label24.Name = "Label24"
+        Me.Label24.Size = New System.Drawing.Size(66, 13)
+        Me.Label24.TabIndex = 98
+        Me.Label24.Text = "HH Number:"
+        '
+        'Label25
+        '
+        Me.Label25.AutoSize = True
+        Me.Label25.Location = New System.Drawing.Point(71, 283)
+        Me.Label25.Name = "Label25"
+        Me.Label25.Size = New System.Drawing.Size(81, 13)
+        Me.Label25.TabIndex = 106
+        Me.Label25.Text = "PWD Category:"
+        '
+        'HHNTextBox
+        '
+        Me.HHNTextBox.Location = New System.Drawing.Point(216, 222)
+        Me.HHNTextBox.Name = "HHNTextBox"
+        Me.HHNTextBox.ReadOnly = True
+        Me.HHNTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.HHNTextBox.TabIndex = 99
+        '
+        'Label26
+        '
+        Me.Label26.AutoSize = True
+        Me.Label26.Location = New System.Drawing.Point(71, 256)
+        Me.Label26.Name = "Label26"
+        Me.Label26.Size = New System.Drawing.Size(80, 13)
+        Me.Label26.TabIndex = 100
+        Me.Label26.Text = "OFW Category:"
+        '
+        'DataGridView1
+        '
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(41, 256)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(596, 426)
+        Me.DataGridView1.TabIndex = 82
+        Me.DataGridView1.Visible = False
+        '
+        'ViewDetailsButton
+        '
+        Me.ViewDetailsButton.Location = New System.Drawing.Point(1171, 218)
+        Me.ViewDetailsButton.Name = "ViewDetailsButton"
+        Me.ViewDetailsButton.Size = New System.Drawing.Size(117, 50)
+        Me.ViewDetailsButton.TabIndex = 119
+        Me.ViewDetailsButton.Text = "View Details"
+        Me.ViewDetailsButton.UseVisualStyleBackColor = True
+        '
+        'RegisterButton
+        '
+        Me.RegisterButton.Location = New System.Drawing.Point(1171, 329)
+        Me.RegisterButton.Name = "RegisterButton"
+        Me.RegisterButton.Size = New System.Drawing.Size(117, 50)
+        Me.RegisterButton.TabIndex = 120
+        Me.RegisterButton.Text = "Register"
+        Me.RegisterButton.UseVisualStyleBackColor = True
+        '
+        'CancelButton
+        '
+        Me.CancelButton.Enabled = False
+        Me.CancelButton.Location = New System.Drawing.Point(1171, 553)
+        Me.CancelButton.Name = "CancelButton"
+        Me.CancelButton.Size = New System.Drawing.Size(117, 50)
+        Me.CancelButton.TabIndex = 121
+        Me.CancelButton.Text = "Cancel"
+        Me.CancelButton.UseVisualStyleBackColor = True
+        '
+        'UpdateButton
+        '
+        Me.UpdateButton.Enabled = False
+        Me.UpdateButton.Location = New System.Drawing.Point(1171, 441)
+        Me.UpdateButton.Name = "UpdateButton"
+        Me.UpdateButton.Size = New System.Drawing.Size(117, 50)
+        Me.UpdateButton.TabIndex = 122
+        Me.UpdateButton.Text = "Update"
+        Me.UpdateButton.UseVisualStyleBackColor = True
+        '
+        'DataGridView3
+        '
+        Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView3.Location = New System.Drawing.Point(41, 247)
+        Me.DataGridView3.Name = "DataGridView3"
+        Me.DataGridView3.Size = New System.Drawing.Size(596, 426)
+        Me.DataGridView3.TabIndex = 123
+        Me.DataGridView3.Visible = False
+        '
         'EditButton
         '
-        Me.EditButton.Location = New System.Drawing.Point(1177, 538)
+        Me.EditButton.Location = New System.Drawing.Point(1171, 497)
         Me.EditButton.Name = "EditButton"
         Me.EditButton.Size = New System.Drawing.Size(117, 50)
         Me.EditButton.TabIndex = 124
@@ -1166,7 +1215,7 @@ Partial Class PopulationForm
         'SaveButton
         '
         Me.SaveButton.Enabled = False
-        Me.SaveButton.Location = New System.Drawing.Point(1177, 426)
+        Me.SaveButton.Location = New System.Drawing.Point(1171, 385)
         Me.SaveButton.Name = "SaveButton"
         Me.SaveButton.Size = New System.Drawing.Size(117, 50)
         Me.SaveButton.TabIndex = 125
@@ -1185,7 +1234,7 @@ Partial Class PopulationForm
         'DeleteButton
         '
         Me.DeleteButton.Enabled = False
-        Me.DeleteButton.Location = New System.Drawing.Point(1177, 314)
+        Me.DeleteButton.Location = New System.Drawing.Point(1171, 273)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(117, 50)
         Me.DeleteButton.TabIndex = 127
@@ -1194,7 +1243,7 @@ Partial Class PopulationForm
         '
         'ClearButton1
         '
-        Me.ClearButton1.Location = New System.Drawing.Point(1177, 650)
+        Me.ClearButton1.Location = New System.Drawing.Point(1171, 609)
         Me.ClearButton1.Name = "ClearButton1"
         Me.ClearButton1.Size = New System.Drawing.Size(117, 50)
         Me.ClearButton1.TabIndex = 128
@@ -1210,55 +1259,6 @@ Partial Class PopulationForm
         Me.DataGridView4.TabIndex = 129
         Me.DataGridView4.Visible = False
         '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(72, 444)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(87, 13)
-        Me.Label46.TabIndex = 120
-        Me.Label46.Text = "Date Registered:"
-        '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(219, 438)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 121
-        '
-        'Label47
-        '
-        Me.Label47.AutoSize = True
-        Me.Label47.Location = New System.Drawing.Point(72, 438)
-        Me.Label47.Name = "Label47"
-        Me.Label47.Size = New System.Drawing.Size(87, 13)
-        Me.Label47.TabIndex = 128
-        Me.Label47.Text = "Date Registered:"
-        '
-        'DateRegisteredTextBox
-        '
-        Me.DateRegisteredTextBox.Location = New System.Drawing.Point(215, 431)
-        Me.DateRegisteredTextBox.Name = "DateRegisteredTextBox"
-        Me.DateRegisteredTextBox.ReadOnly = True
-        Me.DateRegisteredTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.DateRegisteredTextBox.TabIndex = 129
-        '
-        'Label48
-        '
-        Me.Label48.AutoSize = True
-        Me.Label48.Location = New System.Drawing.Point(72, 444)
-        Me.Label48.Name = "Label48"
-        Me.Label48.Size = New System.Drawing.Size(87, 13)
-        Me.Label48.TabIndex = 120
-        Me.Label48.Text = "Date Registered:"
-        '
-        'DateRegisteredDateTimePicker
-        '
-        Me.DateRegisteredDateTimePicker.Location = New System.Drawing.Point(219, 437)
-        Me.DateRegisteredDateTimePicker.Name = "DateRegisteredDateTimePicker"
-        Me.DateRegisteredDateTimePicker.Size = New System.Drawing.Size(200, 20)
-        Me.DateRegisteredDateTimePicker.TabIndex = 121
-        '
         'PopulationForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1266,9 +1266,8 @@ Partial Class PopulationForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
-        Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.DataGridView4)
-        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.ClearButton1)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.DataGridView2)
@@ -1283,6 +1282,7 @@ Partial Class PopulationForm
         Me.Controls.Add(Me.Label)
         Me.Controls.Add(Me.SearchnameTextBox)
         Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.GroupBox2)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
@@ -1291,12 +1291,12 @@ Partial Class PopulationForm
         Me.Text = "PopulationForm"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        Me.GroupBox3.ResumeLayout(False)
+        Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView3, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView4, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

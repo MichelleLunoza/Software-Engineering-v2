@@ -289,7 +289,7 @@ Public Class PopulationForm
 
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen',DateRegistered AS 'Date Registered' FROM PopulationTable"
+        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen',DateTimeRegistered AS 'Date Registered' FROM PopulationTable"
 
 
 
@@ -387,10 +387,6 @@ Public Class PopulationForm
                 Dim con As New SqlConnection
                 Dim cmd As New SqlCommand
 
-                FamilyID = "0000000" + 1
-
-                
-
 
                 Dim query As String = String.Empty
                 query &= "INSERT INTO PopulationTable (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category,DateTimeRegistered)"
@@ -422,6 +418,8 @@ Public Class PopulationForm
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("Successfully Saved")
                 Clear()
+                DataGridView4.Visible = False
+                DisplayRegister()
             End If
 
         Catch ex As Exception
@@ -429,10 +427,37 @@ Public Class PopulationForm
         End Try
 
     End Sub
+
+    Private Sub RetrieveLast_Family_ID()
+
+        Dim FamilyID As Integer
+        Dim con As New SqlConnection
+        Dim cmd As New SqlCommand
+
+        FamilyID = "0000" + 1
+
+        Dim query As String = String.Empty
+        query &= "SELECT * FROM table WHERE Family_ID = @FamID"
+        query &= "SELECT @FamID := MAX(Family_ID) FROM PopulationTable"
+        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+        With cmd
+            .Connection = con
+            .CommandType = CommandType.Text
+            .CommandText = query
+            .Parameters.AddWithValue("@FamID", FamilyID)
+        End With
+        con.Open()
+        cmd.ExecuteNonQuery()
+        con.Close()
+
+    End Sub
     Private Sub DataGridView4_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView4.CellClick
         Dim row As DataGridViewRow = DataGridView4.CurrentRow
         
         Family_IDTextBox.Text = row.Cells(0).Value.ToString()
+        HH_NumberTextBox.Text = row.Cells(3).Value.ToString()
+
+
     End Sub
     Private Sub DeleteFunction()
         Try
@@ -484,7 +509,7 @@ Public Class PopulationForm
     Private Sub DisplayHead_RegisterFunction()
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT Family_ID,Name FROM PopulationTable WHERE Family_Category='Head'"
+        query &= "SELECT Family_ID,Name,Purok,HH_Number FROM PopulationTable WHERE Family_Category='Head'"
 
 
 
@@ -499,6 +524,8 @@ Public Class PopulationForm
         DataGridView4.DataSource = ds
         DataGridView4.DataMember = "PopulationTable"
         DataGridView4.Columns(0).Width = 100
-        DataGridView4.Columns(1).Width = 500
+        DataGridView4.Columns(1).Width = 200
+        DataGridView4.Columns(2).Width = 100
+        DataGridView4.Columns(3).Width = 100
     End Sub
 End Class

@@ -6,7 +6,7 @@ Public Class CBMS_DetailsForm
     Private Sub DisplayData()
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID,Name AS 'Head of Family' FROM Population_Table WHERE Family_Category = 'Head'"
+        query &= "SELECT ID,Name AS 'Head of Family' FROM PopulationTable WHERE Family_Category = 'Head'"
 
 
         Dim connection As New SqlConnection(con)
@@ -115,7 +115,7 @@ Public Class CBMS_DetailsForm
         dt = New DataTable
         With cmd
             .Connection = con
-            .CommandText = "SELECT DISTINCT pt.HH_Number AS 'HHN', pt.Name AS 'Head of Family',(SELECT COUNT(ID) FROM Population_Table WHERE Purok =pt.Purok) AS 'Total Population',(SELECT COUNT(Gender) FROM Population_Table WHERE Gender = 'Male' and Purok =pt.Purok) AS 'Total Male',(SELECT COUNT(Gender) FROM Population_Table WHERE Gender='Female' and Purok =pt.Purok) AS 'Total Female',(SELECT COUNT(OFW_Category) FROM Population_Table WHERE OFW_Category='yes' and Purok =pt.Purok) AS 'Total OFW',(SELECT COUNT(PWD_Category) FROM Population_Table WHERE PWD_Category='yes' and Purok =pt.Purok) AS 'Total PWD',(SELECT COUNT(zero_twelve_months_Category) FROM Population_Table WHERE zero_twelve_months_Category='yes' and Purok =pt.Purok) AS '0-12 Months',(SELECT COUNT(two_five_yrs_old_Category) FROM Population_Table WHERE two_five_yrs_old_Category='yes' and Purok =pt.Purok) AS '2-5 Yrs Old',(SELECT COUNT(six_twelve_yrs_old_Category) FROM Population_Table WHERE six_twelve_yrs_old_Category='yes' and Purok =pt.Purok) AS '6-12 Yrs Old',(SELECT COUNT(thirteen_seventeen_Category) FROM Population_Table WHERE thirteen_seventeen_Category='yes' and Purok =pt.Purok) AS '13-17 Yrs Old',(SELECT COUNT(senior_citizen_Category) FROM Population_Table WHERE senior_citizen_Category='yes' and Purok =pt.Purok) AS 'Senior Citizen' FROM Population_Table pt WHERE Family_Category='Head'"
+            .CommandText = "SELECT DISTINCT pt.HH_Number AS 'HHN', pt.Name AS 'Head of Family',(SELECT COUNT(ID) FROM PopulationTable WHERE Purok =pt.Purok) AS 'Total Population',(SELECT COUNT(Gender) FROM PopulationTable WHERE Gender = 'Male' and Purok =pt.Purok) AS 'Total Male',(SELECT COUNT(Gender) FROM PopulationTable WHERE Gender='Female' and Purok =pt.Purok) AS 'Total Female',(SELECT COUNT(OFW_Category) FROM PopulationTable WHERE OFW_Category='yes' and Purok =pt.Purok) AS 'Total OFW',(SELECT COUNT(PWD_Category) FROM PopulationTable WHERE PWD_Category='yes' and Purok =pt.Purok) AS 'Total PWD',(SELECT COUNT(zero_twelve_months_Category) FROM PopulationTable WHERE zero_twelve_months_Category='yes' and Purok =pt.Purok) AS '0-12 Months',(SELECT COUNT(two_five_yrs_old_Category) FROM PopulationTable WHERE two_five_yrs_old_Category='yes' and Purok =pt.Purok) AS '2-5 Yrs Old',(SELECT COUNT(six_twelve_yrs_old_Category) FROM PopulationTable WHERE six_twelve_yrs_old_Category='yes' and Purok =pt.Purok) AS '6-12 Yrs Old',(SELECT COUNT(thirteen_seventeen_Category) FROM PopulationTable WHERE thirteen_seventeen_Category='yes' and Purok =pt.Purok) AS '13-17 Yrs Old',(SELECT COUNT(senior_citizen_Category) FROM PopulationTable WHERE senior_citizen_Category='yes' and Purok =pt.Purok) AS 'Senior Citizen' FROM PopulationTable pt WHERE Family_Category='Head'"
         End With
         adapt.SelectCommand = cmd
         adapt.Fill(dt)
@@ -156,7 +156,7 @@ Public Class CBMS_DetailsForm
         dt = New DataTable
         With cmd
             .Connection = con
-            .CommandText = "SELECT pt.Name AS 'Name',(SELECT COUNT(ID) FROM PopulationTable WHERE Purok =pt.Purok) AS 'Population' FROM PopulationTable pt"
+            .CommandText = "SELECT DISTINCT pt.Name AS 'Name',(SELECT COUNT(ID) FROM PopulationTable WHERE HH_Number=pt.HH_Number) AS 'Population' FROM PopulationTable pt WHERE Family_Category='Head'"
         End With
         adapt.SelectCommand = cmd
         adapt.Fill(dt)
