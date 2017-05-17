@@ -7,10 +7,13 @@ Public Class LoginForm
             usernameTextBox.ReadOnly = False
             Login()
 
+           
+
 
         ElseIf TypeUserComboBox.SelectedItem = "Guest" Then
             MessageBox.Show("Welcome Guest", "Successfully Login", MessageBoxButtons.OK, MessageBoxIcon.Information)
             Me.Hide()
+
             MainForm.Show()
             Save_Log()
         Else : TypeUserComboBox.SelectedItem = ""

@@ -14,6 +14,7 @@ Public Class CertIndigencyDetailsForm
             SaveButton.Enabled = False
             UpdateButton.Enabled = False
             DeleteButton.Enabled = False
+            ExportButton.Enabled = False
         End If
     End Sub
     Private Sub Display()

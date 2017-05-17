@@ -4,12 +4,22 @@
         userLabel.Text = LoginForm.TypeUserComboBox.SelectedItem.ToString()
         Me.dateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
         Me.timeLabel.Text = TimeOfDay.ToString("hh:mm")
+
+        If userLabel.Text = "Guest" Then
+            CBMSButton.Visible = False
+            PopulationButton.Visible = False
+        End If
     End Sub
 
     Private Sub LogoutButton_Click(sender As Object, e As EventArgs) Handles LogoutButton.Click
-        LoginForm.Show()
-        Me.Hide()
-      
+        DialogResult = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+        If DialogResult = Windows.Forms.DialogResult.Yes Then
+            LoginForm.Show()
+            Me.Hide()
+            Application.DoEvents()
+        End If
+
+        
     End Sub
 
     Private Sub CBMSButton_Click(sender As Object, e As EventArgs) Handles CBMSButton.Click
@@ -22,7 +32,7 @@
         ClearanceForm.Show()
     End Sub
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles PopulationButton.Click
         Me.Hide()
         PopulationForm.Show()
     End Sub

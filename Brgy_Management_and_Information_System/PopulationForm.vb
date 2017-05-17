@@ -4,6 +4,27 @@ Public Class PopulationForm
     Private Sub PopulationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
+    Private Sub RetrieveLastFamilyID()
+
+        Dim con As New SqlConnection
+        Dim cmd As New SqlCommand
+        Dim FamID = Family_IDTextBox.Text
+
+            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
+            con.Open()
+
+            cmd.Connection = con
+        cmd.CommandText = "SELECT MAX(Family_ID) FROM PopulationTable"
+
+            Dim reader As SqlDataReader = cmd.ExecuteReader()
+            If reader.HasRows Then
+                While reader.Read()
+
+                FamID = reader("Family_ID").ToString()
+                MessageBox.Show(FamID)
+                End While
+            End If
+    End Sub
     Private Sub Display()
 
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
@@ -267,6 +288,8 @@ Public Class PopulationForm
         seniorCComboBox.SelectedIndex = -1
         senior_citizenComboBox.SelectedIndex = -1
 
+        DataGridView1.Visible = True
+
 
 
     End Sub
@@ -368,6 +391,7 @@ Public Class PopulationForm
             ElseIf senior_citizenComboBox.SelectedItem = "" Then
                 MessageBox.Show("Please choose from Senior Citizen Category", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
+
                 Dim ID = IDTextBox.Text
                 Dim FamilyID = Family_IDTextBox.Text
                 Dim Name = NameTextBox.Text
@@ -383,7 +407,7 @@ Public Class PopulationForm
                 Dim six_twelve_yrs_old = six_twelve_yrs_oldComboBox.SelectedItem.ToString()
                 Dim thirteen_seventeen_yrs_old = thirteen_seventeen_yrs_oldComboBox.SelectedItem.ToString()
                 Dim senior_citizen = senior_citizenComboBox.SelectedItem.ToString()
-                Dim DateRegistered = DateRegisteredDateTimePicker.Value.ToString("MM-dd-yyyy")
+                Dim DateRegistered = DateTimePicker1.Value.ToString("MM-dd-yyyy")
                 Dim con As New SqlConnection
                 Dim cmd As New SqlCommand
 
@@ -413,13 +437,14 @@ Public Class PopulationForm
                     .Parameters.AddWithValue("@senior_citizen", senior_citizen)
                     .Parameters.AddWithValue("@DateTimeRegistered", DateRegistered)
                 End With
-
                 con.Open()
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("Successfully Saved")
                 Clear()
                 DataGridView4.Visible = False
                 DisplayRegister()
+
+
             End If
 
         Catch ex As Exception
@@ -427,36 +452,12 @@ Public Class PopulationForm
         End Try
 
     End Sub
-
-    Private Sub RetrieveLast_Family_ID()
-
-        Dim FamilyID As Integer
-        Dim con As New SqlConnection
-        Dim cmd As New SqlCommand
-
-        FamilyID = "0000" + 1
-
-        Dim query As String = String.Empty
-        query &= "SELECT * FROM table WHERE Family_ID = @FamID"
-        query &= "SELECT @FamID := MAX(Family_ID) FROM PopulationTable"
-        con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-        With cmd
-            .Connection = con
-            .CommandType = CommandType.Text
-            .CommandText = query
-            .Parameters.AddWithValue("@FamID", FamilyID)
-        End With
-        con.Open()
-        cmd.ExecuteNonQuery()
-        con.Close()
-
-    End Sub
     Private Sub DataGridView4_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView4.CellClick
         Dim row As DataGridViewRow = DataGridView4.CurrentRow
         
         Family_IDTextBox.Text = row.Cells(0).Value.ToString()
         HH_NumberTextBox.Text = row.Cells(3).Value.ToString()
-
+        PurokComboBox.SelectedItem = row.Cells(2).Value.ToString()
 
     End Sub
     Private Sub DeleteFunction()
@@ -491,6 +492,7 @@ Public Class PopulationForm
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
         DeleteFunction()
+        Display()
     End Sub
 
     Private Sub ClearButton1_Click(sender As Object, e As EventArgs) Handles ClearButton1.Click
@@ -504,6 +506,8 @@ Public Class PopulationForm
             SearchnameTextBox.Visible = False
             ClearButton.Visible = False
             DisplayHead_RegisterFunction()
+        Else
+            RetrieveLastFamilyID()
         End If
     End Sub
     Private Sub DisplayHead_RegisterFunction()
@@ -527,5 +531,10 @@ Public Class PopulationForm
         DataGridView4.Columns(1).Width = 200
         DataGridView4.Columns(2).Width = 100
         DataGridView4.Columns(3).Width = 100
+    End Sub
+
+    Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        Me.Hide()
+        MainForm.Show()
     End Sub
 End Class

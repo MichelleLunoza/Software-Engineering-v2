@@ -29,7 +29,7 @@ Partial Class MainForm
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.PopulationButton = New System.Windows.Forms.Button()
         Me.userLabel = New System.Windows.Forms.Label()
         Me.dateLabel = New System.Windows.Forms.Label()
         Me.timeLabel = New System.Windows.Forms.Label()
@@ -100,17 +100,17 @@ Partial Class MainForm
         Me.Label1.TabIndex = 27
         Me.Label1.Text = "User: "
         '
-        'Button1
+        'PopulationButton
         '
-        Me.Button1.BackgroundImage = CType(resources.GetObject("Button1.BackgroundImage"), System.Drawing.Image)
-        Me.Button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
-        Me.Button1.FlatAppearance.BorderSize = 0
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.Location = New System.Drawing.Point(222, 354)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(255, 53)
-        Me.Button1.TabIndex = 33
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.PopulationButton.BackgroundImage = CType(resources.GetObject("PopulationButton.BackgroundImage"), System.Drawing.Image)
+        Me.PopulationButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
+        Me.PopulationButton.FlatAppearance.BorderSize = 0
+        Me.PopulationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.PopulationButton.Location = New System.Drawing.Point(222, 354)
+        Me.PopulationButton.Name = "PopulationButton"
+        Me.PopulationButton.Size = New System.Drawing.Size(255, 53)
+        Me.PopulationButton.TabIndex = 33
+        Me.PopulationButton.UseVisualStyleBackColor = True
         '
         'userLabel
         '
@@ -146,7 +146,7 @@ Partial Class MainForm
         Me.Controls.Add(Me.timeLabel)
         Me.Controls.Add(Me.dateLabel)
         Me.Controls.Add(Me.userLabel)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.PopulationButton)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
@@ -169,7 +169,7 @@ Partial Class MainForm
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents PopulationButton As System.Windows.Forms.Button
     Friend WithEvents userLabel As System.Windows.Forms.Label
     Friend WithEvents dateLabel As System.Windows.Forms.Label
     Friend WithEvents timeLabel As System.Windows.Forms.Label

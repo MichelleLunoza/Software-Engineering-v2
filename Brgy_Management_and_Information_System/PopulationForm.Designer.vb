@@ -137,6 +137,7 @@ Partial Class PopulationForm
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.ClearButton1 = New System.Windows.Forms.Button()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
+        Me.BackButton = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -403,7 +404,6 @@ Partial Class PopulationForm
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.GroupBox3)
         Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox1.Controls.Add(Me.Label46)
         Me.GroupBox1.Controls.Add(Me.Label45)
@@ -478,7 +478,7 @@ Partial Class PopulationForm
         Me.GroupBox3.Controls.Add(Me.GenderCComboBox)
         Me.GroupBox3.Controls.Add(Me.FamCComboBox)
         Me.GroupBox3.Controls.Add(Me.PurokCComboBox)
-        Me.GroupBox3.Location = New System.Drawing.Point(0, 2)
+        Me.GroupBox3.Location = New System.Drawing.Point(672, 212)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(478, 482)
         Me.GroupBox3.TabIndex = 118
@@ -1259,6 +1259,15 @@ Partial Class PopulationForm
         Me.DataGridView4.TabIndex = 129
         Me.DataGridView4.Visible = False
         '
+        'BackButton
+        '
+        Me.BackButton.Location = New System.Drawing.Point(1248, 165)
+        Me.BackButton.Name = "BackButton"
+        Me.BackButton.Size = New System.Drawing.Size(75, 33)
+        Me.BackButton.TabIndex = 130
+        Me.BackButton.Text = "Back"
+        Me.BackButton.UseVisualStyleBackColor = True
+        '
         'PopulationForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1266,7 +1275,9 @@ Partial Class PopulationForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
+        Me.Controls.Add(Me.BackButton)
         Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.DataGridView4)
         Me.Controls.Add(Me.ClearButton1)
         Me.Controls.Add(Me.DeleteButton)
@@ -1417,4 +1428,5 @@ Partial Class PopulationForm
     Friend WithEvents Label47 As System.Windows.Forms.Label
     Friend WithEvents DateRegisteredDateTimePicker As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label48 As System.Windows.Forms.Label
+    Friend WithEvents BackButton As System.Windows.Forms.Button
 End Class
