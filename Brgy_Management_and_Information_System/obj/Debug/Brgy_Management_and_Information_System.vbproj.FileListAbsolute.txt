@@ -97,3 +97,5 @@ C:\Users\MiGutierrez\Downloads\Software-Engineering-v2\Brgy_Management_and_Infor
 C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.vbproj.ResolveComReference.cache
 C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.vbprojResolveAssemblyReference.cache
 C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\Brgy_Management_and_Information_System.PrintForm_Brgy_Clearance.resources
+C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\RdlCompile.cache
+C:\Users\MiGutierrez\Desktop\Git Files\Software-Engineering-v2\Brgy_Management_and_Information_System\obj\Debug\RdlCompile.compiled

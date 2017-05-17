@@ -215,7 +215,7 @@ Public Class CertIndigencyDetailsForm
 
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID, Name FROM Population_Table"
+        query &= "SELECT ID, Name FROM PopulationTable"
 
 
         Dim connection As New SqlConnection(con)
@@ -224,10 +224,10 @@ Public Class CertIndigencyDetailsForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population_Table")
+        dataadapter.Fill(ds, "PopulationTable")
         connection.Close()
         DataGridView2.DataSource = ds
-        DataGridView2.DataMember = "Population_Table"
+        DataGridView2.DataMember = "PopulationTable"
         DataGridView2.Columns(0).Width = 150
         DataGridView2.Columns(1).Width = 420
 

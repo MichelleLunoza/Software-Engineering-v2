@@ -131,6 +131,12 @@ Partial Class PopulationForm
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.ClearButton1 = New System.Windows.Forms.Button()
         Me.DataGridView4 = New System.Windows.Forms.DataGridView()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label47 = New System.Windows.Forms.Label()
+        Me.DateRegisteredTextBox = New System.Windows.Forms.TextBox()
+        Me.Label48 = New System.Windows.Forms.Label()
+        Me.DateRegisteredDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -397,6 +403,8 @@ Partial Class PopulationForm
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
+        Me.GroupBox1.Controls.Add(Me.Label46)
         Me.GroupBox1.Controls.Add(Me.Label45)
         Me.GroupBox1.Controls.Add(Me.Net_Income1TextBox)
         Me.GroupBox1.Controls.Add(Me.six_twelve_yrs_oldComboBox)
@@ -427,9 +435,9 @@ Partial Class PopulationForm
         Me.GroupBox1.Controls.Add(Me.GenderComboBox)
         Me.GroupBox1.Controls.Add(Me.FamilyComboBox)
         Me.GroupBox1.Controls.Add(Me.PurokComboBox)
-        Me.GroupBox1.Location = New System.Drawing.Point(669, 259)
+        Me.GroupBox1.Location = New System.Drawing.Point(0, 0)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(478, 444)
+        Me.GroupBox1.Size = New System.Drawing.Size(478, 484)
         Me.GroupBox1.TabIndex = 116
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Personal Information"
@@ -480,6 +488,8 @@ Partial Class PopulationForm
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.DateRegisteredTextBox)
+        Me.GroupBox2.Controls.Add(Me.Label47)
         Me.GroupBox2.Controls.Add(Me.Label43)
         Me.GroupBox2.Controls.Add(Me.Net_IncomeTextBox)
         Me.GroupBox2.Controls.Add(Me.six_twelve_yrs_oldTextBox)
@@ -510,9 +520,9 @@ Partial Class PopulationForm
         Me.GroupBox2.Controls.Add(Me.Label25)
         Me.GroupBox2.Controls.Add(Me.HHNTextBox)
         Me.GroupBox2.Controls.Add(Me.Label26)
-        Me.GroupBox2.Location = New System.Drawing.Point(669, 259)
+        Me.GroupBox2.Location = New System.Drawing.Point(668, 201)
         Me.GroupBox2.Name = "GroupBox2"
-        Me.GroupBox2.Size = New System.Drawing.Size(478, 444)
+        Me.GroupBox2.Size = New System.Drawing.Size(478, 472)
         Me.GroupBox2.TabIndex = 117
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Personal Information"
@@ -831,6 +841,9 @@ Partial Class PopulationForm
         '
         'GroupBox3
         '
+        Me.GroupBox3.Controls.Add(Me.GroupBox1)
+        Me.GroupBox3.Controls.Add(Me.DateRegisteredDateTimePicker)
+        Me.GroupBox3.Controls.Add(Me.Label48)
         Me.GroupBox3.Controls.Add(Me.Label44)
         Me.GroupBox3.Controls.Add(Me.NetIncome3TextBox)
         Me.GroupBox3.Controls.Add(Me.sixCComboBox)
@@ -861,9 +874,9 @@ Partial Class PopulationForm
         Me.GroupBox3.Controls.Add(Me.GenderCComboBox)
         Me.GroupBox3.Controls.Add(Me.FamCComboBox)
         Me.GroupBox3.Controls.Add(Me.PurokCComboBox)
-        Me.GroupBox3.Location = New System.Drawing.Point(669, 256)
+        Me.GroupBox3.Location = New System.Drawing.Point(668, 202)
         Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(478, 444)
+        Me.GroupBox3.Size = New System.Drawing.Size(478, 482)
         Me.GroupBox3.TabIndex = 118
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Personal Information"
@@ -1197,6 +1210,55 @@ Partial Class PopulationForm
         Me.DataGridView4.TabIndex = 129
         Me.DataGridView4.Visible = False
         '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(72, 444)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(87, 13)
+        Me.Label46.TabIndex = 120
+        Me.Label46.Text = "Date Registered:"
+        '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(219, 438)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.TabIndex = 121
+        '
+        'Label47
+        '
+        Me.Label47.AutoSize = True
+        Me.Label47.Location = New System.Drawing.Point(72, 438)
+        Me.Label47.Name = "Label47"
+        Me.Label47.Size = New System.Drawing.Size(87, 13)
+        Me.Label47.TabIndex = 128
+        Me.Label47.Text = "Date Registered:"
+        '
+        'DateRegisteredTextBox
+        '
+        Me.DateRegisteredTextBox.Location = New System.Drawing.Point(215, 431)
+        Me.DateRegisteredTextBox.Name = "DateRegisteredTextBox"
+        Me.DateRegisteredTextBox.ReadOnly = True
+        Me.DateRegisteredTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.DateRegisteredTextBox.TabIndex = 129
+        '
+        'Label48
+        '
+        Me.Label48.AutoSize = True
+        Me.Label48.Location = New System.Drawing.Point(72, 444)
+        Me.Label48.Name = "Label48"
+        Me.Label48.Size = New System.Drawing.Size(87, 13)
+        Me.Label48.TabIndex = 120
+        Me.Label48.Text = "Date Registered:"
+        '
+        'DateRegisteredDateTimePicker
+        '
+        Me.DateRegisteredDateTimePicker.Location = New System.Drawing.Point(219, 437)
+        Me.DateRegisteredDateTimePicker.Name = "DateRegisteredDateTimePicker"
+        Me.DateRegisteredDateTimePicker.Size = New System.Drawing.Size(200, 20)
+        Me.DateRegisteredDateTimePicker.TabIndex = 121
+        '
         'PopulationForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -1204,10 +1266,9 @@ Partial Class PopulationForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
-        Me.Controls.Add(Me.DataGridView4)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
+        Me.Controls.Add(Me.DataGridView4)
+        Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.ClearButton1)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.DataGridView2)
@@ -1350,4 +1411,10 @@ Partial Class PopulationForm
     Friend WithEvents DeleteButton As System.Windows.Forms.Button
     Friend WithEvents ClearButton1 As System.Windows.Forms.Button
     Friend WithEvents DataGridView4 As System.Windows.Forms.DataGridView
+    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label46 As System.Windows.Forms.Label
+    Friend WithEvents DateRegisteredTextBox As System.Windows.Forms.TextBox
+    Friend WithEvents Label47 As System.Windows.Forms.Label
+    Friend WithEvents DateRegisteredDateTimePicker As System.Windows.Forms.DateTimePicker
+    Friend WithEvents Label48 As System.Windows.Forms.Label
 End Class

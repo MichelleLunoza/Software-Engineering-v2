@@ -26,7 +26,7 @@ Public Class BrgyClearanceForm
             dt = New DataTable
             With cmd
                 .Connection = con
-                .CommandText = "SELECT ID,Name FROM Population_Table WHERE Name Like'" & SearchnameTextBox.Text & "%'"
+                .CommandText = "SELECT ID,Name FROM PopulationTable WHERE Name Like'" & SearchnameTextBox.Text & "%'"
             End With
             adapt.SelectCommand = cmd
             adapt.Fill(dt)
@@ -44,7 +44,7 @@ Public Class BrgyClearanceForm
 
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID, Name FROM Population_Table"
+        query &= "SELECT ID, Name FROM PopulationTable"
 
 
         Dim connection As New SqlConnection(con)
@@ -53,10 +53,10 @@ Public Class BrgyClearanceForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population_Table")
+        dataadapter.Fill(ds, "PopulationTable")
         connection.Close()
         DataGridView1.DataSource = ds
-        DataGridView1.DataMember = "Population_Table"
+        DataGridView1.DataMember = "PopulationTable"
         DataGridView1.Columns(0).Width = 100
         DataGridView1.Columns(1).Width = 320
 

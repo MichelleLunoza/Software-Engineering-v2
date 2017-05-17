@@ -8,7 +8,7 @@ Public Class PopulationForm
 
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population_Table"
+        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen',DateTimeRegistered AS 'Date Registered' FROM PopulationTable"
 
 
 
@@ -18,10 +18,10 @@ Public Class PopulationForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population_Table")
+        dataadapter.Fill(ds, "PopulationTable")
         connection.Close()
         DataGridView1.DataSource = ds
-        DataGridView1.DataMember = "Population_Table"
+        DataGridView1.DataMember = "PopulationTable"
         DataGridView1.Columns(0).Width = 100
         DataGridView1.Columns(1).Width = 100
         DataGridView1.Columns(2).Width = 150
@@ -37,6 +37,7 @@ Public Class PopulationForm
         DataGridView1.Columns(11).Width = 100
         DataGridView1.Columns(12).Width = 100
         DataGridView1.Columns(13).Width = 100
+        DataGridView1.Columns(14).Width = 100
         DataGridView1.Columns(14).Width = 100
     End Sub
 
@@ -69,7 +70,7 @@ Public Class PopulationForm
         thirteen_seventeen_yrs_oldTextBox.Text = row.Cells(12).Value.ToString()
         six_twelve_yrs_oldTextBox.Text = row.Cells(13).Value.ToString()
         senior_citizenCategoryTextBox.Text = row.Cells(14).Value.ToString()
-
+        DateRegisteredTextBox.Text = row.Cells(15).Value.ToString()
     End Sub
     Private Sub RegisterButton_Click(sender As Object, e As EventArgs) Handles RegisterButton.Click
         DataGridView2.Visible = True
@@ -89,7 +90,7 @@ Public Class PopulationForm
 
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population_Table"
+        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen',DateTimeRegistered AS 'Date Registered' FROM PopulationTable"
 
 
 
@@ -99,10 +100,10 @@ Public Class PopulationForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population_Table")
+        dataadapter.Fill(ds, "PopulationTable")
         connection.Close()
         DataGridView2.DataSource = ds
-        DataGridView2.DataMember = "Population_Table"
+        DataGridView2.DataMember = "PopulationTable"
         DataGridView2.Columns(0).Width = 100
         DataGridView2.Columns(1).Width = 100
         DataGridView2.Columns(2).Width = 150
@@ -118,6 +119,7 @@ Public Class PopulationForm
         DataGridView2.Columns(11).Width = 100
         DataGridView2.Columns(12).Width = 100
         DataGridView2.Columns(13).Width = 100
+        DataGridView2.Columns(14).Width = 100
         DataGridView2.Columns(14).Width = 100
     End Sub
 
@@ -160,15 +162,15 @@ Public Class PopulationForm
         Dim six_twelve_yrs_old = sixCComboBox.SelectedItem.ToString()
         Dim thirteen_seventeen_yrs_old = thirteenCComboBox.SelectedItem.ToString()
         Dim senior_citizen = seniorCComboBox.SelectedItem.ToString()
+        Dim DateRegistered = DateRegisteredDateTimePicker.Value.ToString("MM-dd-yyyy")
         Dim con As New SqlConnection
         Dim cmd As New SqlCommand
-        Dim uTime As Integer
-        uTime = (DateTime.UtcNow - New DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds
+     
 
         Try
 
             Dim query As String = String.Empty
-            query &= "UPDATE Population_Table SET Family_ID=@Family_ID,Name=@Name,Family_Category=@famCategory,Purok=@purok,Gender=@gender,Net_Income=@net_income,HH_Number=@HHN,OFW_Category=@OFW,PWD_Category=@PWD,zero_twelve_months_Category=@zero_twelve_months,two_five_yrs_old_Category=@two_five_yrs_old,six_twelve_yrs_old_Category=@six_twelve_yrs_old,thirteen_seventeen_Category=@thirteen_seventeen_yrs_old,senior_citizen_Category=@senior_citizen,DateTimeCreated=@DateTimeCreated WHERE ID=@ID"
+            query &= "UPDATE PopulationTable SET Family_ID=@Family_ID,Name=@Name,Family_Category=@famCategory,Purok=@purok,Gender=@gender,Net_Income=@net_income,HH_Number=@HHN,OFW_Category=@OFW,PWD_Category=@PWD,zero_twelve_months_Category=@zero_twelve_months,two_five_yrs_old_Category=@two_five_yrs_old,six_twelve_yrs_old_Category=@six_twelve_yrs_old,thirteen_seventeen_Category=@thirteen_seventeen_yrs_old,senior_citizen_Category=@senior_citizen,DateTimeRegistered=@DateTimeRegistered WHERE ID=@ID"
             con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
             With cmd
 
@@ -191,7 +193,7 @@ Public Class PopulationForm
                 .Parameters.AddWithValue("@six_twelve_yrs_old", six_twelve_yrs_old)
                 .Parameters.AddWithValue("@thirteen_seventeen_yrs_old", thirteen_seventeen_yrs_old)
                 .Parameters.AddWithValue("@senior_citizen", senior_citizen)
-                .Parameters.AddWithValue("@DateTimeCreated", uTime)
+                .Parameters.AddWithValue("@DateTimeRegistered", DateRegistered)
             End With
 
             con.Open()
@@ -287,7 +289,7 @@ Public Class PopulationForm
 
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen' FROM Population_Table"
+        query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen',DateRegistered AS 'Date Registered' FROM PopulationTable"
 
 
 
@@ -297,10 +299,10 @@ Public Class PopulationForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population_Table")
+        dataadapter.Fill(ds, "PopulationTable")
         connection.Close()
         DataGridView3.DataSource = ds
-        DataGridView3.DataMember = "Population_Table"
+        DataGridView3.DataMember = "PopulationTable"
         DataGridView3.Columns(0).Width = 100
         DataGridView3.Columns(1).Width = 100
         DataGridView3.Columns(2).Width = 150
@@ -317,6 +319,7 @@ Public Class PopulationForm
         DataGridView3.Columns(12).Width = 100
         DataGridView3.Columns(13).Width = 100
         DataGridView3.Columns(14).Width = 100
+        DataGridView3.Columns(15).Width = 100
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
@@ -380,18 +383,18 @@ Public Class PopulationForm
                 Dim six_twelve_yrs_old = six_twelve_yrs_oldComboBox.SelectedItem.ToString()
                 Dim thirteen_seventeen_yrs_old = thirteen_seventeen_yrs_oldComboBox.SelectedItem.ToString()
                 Dim senior_citizen = senior_citizenComboBox.SelectedItem.ToString()
+                Dim DateRegistered = DateRegisteredDateTimePicker.Value.ToString("MM-dd-yyyy")
                 Dim con As New SqlConnection
                 Dim cmd As New SqlCommand
 
                 FamilyID = "0000000" + 1
 
-                Dim uTime As Integer
-                uTime = (DateTime.UtcNow - New DateTime(1970, 1, 1, 0, 0, 0)).TotalSeconds
+                
 
 
                 Dim query As String = String.Empty
-                query &= "INSERT INTO Population_Table (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category,DateTimeCreated)"
-                query &= "VALUES (@Family_ID,@Name,@Family_Category,@Purok,@Gender,@net_income,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen,@DateTimeCreated)"
+                query &= "INSERT INTO PopulationTable (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category,DateTimeRegistered)"
+                query &= "VALUES (@Family_ID,@Name,@Family_Category,@Purok,@Gender,@net_income,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen,@DateTimeRegistered)"
 
                 con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
                 With cmd
@@ -412,7 +415,7 @@ Public Class PopulationForm
                     .Parameters.AddWithValue("@six_twelve_yrs_old", six_twelve_yrs_old)
                     .Parameters.AddWithValue("@thirteen_seventeen_yrs_old", thirteen_seventeen_yrs_old)
                     .Parameters.AddWithValue("@senior_citizen", senior_citizen)
-                    .Parameters.AddWithValue("@DateTimeCreated", uTime)
+                    .Parameters.AddWithValue("@DateTimeRegistered", DateRegistered)
                 End With
 
                 con.Open()
@@ -441,7 +444,7 @@ Public Class PopulationForm
                 Dim con As New SqlConnection
                 Dim cmd As New SqlCommand
                 Dim query As String = String.Empty
-                query &= "DELETE FROM Population_Table WHERE ID=@ID"
+                query &= "DELETE FROM PopulationTable WHERE ID=@ID"
                 con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
                 With cmd
                     .Connection = con
@@ -481,7 +484,7 @@ Public Class PopulationForm
     Private Sub DisplayHead_RegisterFunction()
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
-        query &= "SELECT Family_ID,Name FROM Population_Table WHERE Family_Category='Head'"
+        query &= "SELECT Family_ID,Name FROM PopulationTable WHERE Family_Category='Head'"
 
 
 
@@ -491,10 +494,10 @@ Public Class PopulationForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "Population_Table")
+        dataadapter.Fill(ds, "PopulationTable")
         connection.Close()
         DataGridView4.DataSource = ds
-        DataGridView4.DataMember = "Population_Table"
+        DataGridView4.DataMember = "PopulationTable"
         DataGridView4.Columns(0).Width = 100
         DataGridView4.Columns(1).Width = 500
     End Sub
