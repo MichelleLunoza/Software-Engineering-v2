@@ -4,27 +4,6 @@ Public Class PopulationForm
     Private Sub PopulationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
-    Private Sub RetrieveLastFamilyID()
-
-        Dim con As New SqlConnection
-        Dim cmd As New SqlCommand
-        Dim FamID = Family_IDTextBox.Text
-
-            con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
-            con.Open()
-
-            cmd.Connection = con
-        cmd.CommandText = "SELECT MAX(Family_ID) FROM PopulationTable"
-
-            Dim reader As SqlDataReader = cmd.ExecuteReader()
-            If reader.HasRows Then
-                While reader.Read()
-
-                FamID = reader("Family_ID").ToString()
-                MessageBox.Show(FamID)
-                End While
-            End If
-    End Sub
     Private Sub Display()
 
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
@@ -391,7 +370,7 @@ Public Class PopulationForm
             ElseIf senior_citizenComboBox.SelectedItem = "" Then
                 MessageBox.Show("Please choose from Senior Citizen Category", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
-
+                Dim number As Integer
                 Dim ID = IDTextBox.Text
                 Dim FamilyID = Family_IDTextBox.Text
                 Dim Name = NameTextBox.Text
@@ -411,7 +390,8 @@ Public Class PopulationForm
                 Dim con As New SqlConnection
                 Dim cmd As New SqlCommand
 
-
+                number = Int(Rnd() * 50) + 1
+                FamilyID = number
                 Dim query As String = String.Empty
                 query &= "INSERT INTO PopulationTable (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category,DateTimeRegistered)"
                 query &= "VALUES (@Family_ID,@Name,@Family_Category,@Purok,@Gender,@net_income,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen,@DateTimeRegistered)"
@@ -506,8 +486,6 @@ Public Class PopulationForm
             SearchnameTextBox.Visible = False
             ClearButton.Visible = False
             DisplayHead_RegisterFunction()
-        Else
-            RetrieveLastFamilyID()
         End If
     End Sub
     Private Sub DisplayHead_RegisterFunction()

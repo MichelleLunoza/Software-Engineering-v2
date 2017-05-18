@@ -1,4 +1,6 @@
 ﻿Imports System.Data.SqlClient
+Imports Microsoft.Reporting.WinForms
+
 Public Class CBMS_DetailsForm
     Private Sub CBMS_DetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DisplayData()
@@ -181,5 +183,9 @@ Public Class CBMS_DetailsForm
         Label.Visible = True
         SearchTextBox.Visible = True
         ClearButton.Visible = True
+    End Sub
+
+    Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
+        
     End Sub
 End Class

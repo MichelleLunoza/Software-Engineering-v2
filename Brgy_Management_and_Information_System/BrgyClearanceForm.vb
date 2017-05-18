@@ -92,6 +92,8 @@ Public Class BrgyClearanceForm
 
         con.Open()
         cmd.ExecuteNonQuery()
+
+
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click

@@ -149,10 +149,22 @@
     <Compile Include="PopulationForm.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="PrintCBMS.Designer.vb">
+      <DependentUpon>PrintCBMS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="PrintCBMS.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PrintForm_Brgy_Clearance.Designer.vb">
       <DependentUpon>PrintForm_Brgy_Clearance.vb</DependentUpon>
     </Compile>
     <Compile Include="PrintForm_Brgy_Clearance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print_BC.Designer.vb">
+      <DependentUpon>Print_BC.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Print_BC.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Print_Form_Indigency.Designer.vb">
@@ -204,8 +216,14 @@
     <EmbeddedResource Include="PopulationForm.resx">
       <DependentUpon>PopulationForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="PrintCBMS.resx">
+      <DependentUpon>PrintCBMS.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PrintForm_Brgy_Clearance.resx">
       <DependentUpon>PrintForm_Brgy_Clearance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Print_BC.resx">
+      <DependentUpon>Print_BC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Print_Form_Indigency.resx">
       <DependentUpon>Print_Form_Indigency.vb</DependentUpon>

@@ -47,6 +47,7 @@ Partial Class CBMS_DetailsForm
         Me.OverallTotalButton = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.ExitButton = New System.Windows.Forms.Button()
+        Me.PrintButton = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -243,6 +244,15 @@ Partial Class CBMS_DetailsForm
         Me.ExitButton.Text = "Exit"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
+        'PrintButton
+        '
+        Me.PrintButton.Location = New System.Drawing.Point(1220, 654)
+        Me.PrintButton.Name = "PrintButton"
+        Me.PrintButton.Size = New System.Drawing.Size(112, 33)
+        Me.PrintButton.TabIndex = 91
+        Me.PrintButton.Text = "Print"
+        Me.PrintButton.UseVisualStyleBackColor = True
+        '
         'CBMS_DetailsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -250,6 +260,7 @@ Partial Class CBMS_DetailsForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
+        Me.Controls.Add(Me.PrintButton)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.OverallTotalButton)
         Me.Controls.Add(Me.TotalFamilyButton)
@@ -295,4 +306,5 @@ Partial Class CBMS_DetailsForm
     Friend WithEvents OverallTotalButton As System.Windows.Forms.Button
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents ExitButton As System.Windows.Forms.Button
+    Friend WithEvents PrintButton As System.Windows.Forms.Button
 End Class
