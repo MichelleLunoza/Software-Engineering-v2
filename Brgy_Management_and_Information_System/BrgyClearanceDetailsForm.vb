@@ -333,4 +333,9 @@ Public Class BrgyClearanceDetailsForm
         Me.Hide()
         ClearanceForm.Show()
     End Sub
+
+    Private Sub PrintLogButton_Click(sender As Object, e As EventArgs) Handles PrintLogButton.Click
+        Me.Hide()
+        Print_BC.Show()
+    End Sub
 End Class

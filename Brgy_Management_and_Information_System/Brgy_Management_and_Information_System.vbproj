@@ -161,16 +161,22 @@
     <Compile Include="PrintForm_Brgy_Clearance.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Print.Designer.vb">
-      <DependentUpon>Print.vb</DependentUpon>
+    <Compile Include="Print_LBC.Designer.vb">
+      <DependentUpon>Print_LBC.vb</DependentUpon>
     </Compile>
-    <Compile Include="Print.vb">
+    <Compile Include="Print_LBC.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Print_Form_Indigency.Designer.vb">
       <DependentUpon>Print_Form_Indigency.vb</DependentUpon>
     </Compile>
     <Compile Include="Print_Form_Indigency.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Print_LCI.Designer.vb">
+      <DependentUpon>Print_LCI.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Print_LCI.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="_Bayorbor_sDbDataSet.Designer.vb">
@@ -223,14 +229,19 @@
     <EmbeddedResource Include="PrintForm_Brgy_Clearance.resx">
       <DependentUpon>PrintForm_Brgy_Clearance.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Print.resx">
-      <DependentUpon>Print.vb</DependentUpon>
+    <EmbeddedResource Include="Print_LBC.resx">
+      <DependentUpon>Print_LBC.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Print_Form_Indigency.resx">
       <DependentUpon>Print_Form_Indigency.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Print_LCI.resx">
+      <DependentUpon>Print_LCI.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Report2.rdlc" />
+    <EmbeddedResource Include="Report3.rdlc" />
+    <EmbeddedResource Include="Report4.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <None Include="My Project\Application.myapp">

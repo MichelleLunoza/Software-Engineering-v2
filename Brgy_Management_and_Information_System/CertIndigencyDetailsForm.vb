@@ -335,4 +335,9 @@ Public Class CertIndigencyDetailsForm
             GC.Collect()
         End Try
     End Sub
+
+    Private Sub PrintLogButton_Click(sender As Object, e As EventArgs) Handles PrintLogButton.Click
+        Me.Hide()
+        Print_LCI.Show()
+    End Sub
 End Class
