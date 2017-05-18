@@ -124,6 +124,11 @@ Public Class PopulationForm
     End Sub
 
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+        DataGridView1.Visible = False
+        DataGridView2.Visible = False
+        DataGridView3.Visible = False
+        DataGridView4.Visible = False
+
         RegisterButton.Enabled = True
         ViewDetailsButton.Enabled = True
         UpdateButton.Enabled = False
@@ -131,10 +136,6 @@ Public Class PopulationForm
         EditButton.Enabled = True
         DeleteButton.Enabled = False
         CancelButton.Enabled = False
-        DataGridView1.Visible = False
-        DataGridView2.Visible = False
-        DataGridView3.Visible = False
-        DataGridView4.Visible = False
         GroupBox1.Visible = False
         GroupBox2.Visible = False
         GroupBox3.Visible = False
@@ -144,6 +145,15 @@ Public Class PopulationForm
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
         updateData()
+        DisplayUpdate()
+        Clear()
+        UpdateButton.Enabled = False
+        SaveButton.Enabled = False
+        EditButton.Enabled = True
+        ViewDetailsButton.Enabled = True
+        DeleteButton.Enabled = False
+        ClearButton.Enabled = False
+        CancelButton.Enabled = False
     End Sub
     Private Sub updateData()
 
@@ -212,6 +222,9 @@ Public Class PopulationForm
 
         ID3TextBox.Text = row.Cells(0).Value.ToString()
         FamID2TextBox.Text = row.Cells(1).Value.ToString()
+        FamCComboBox.SelectedItem = row.Cells(3).Value.ToString()
+        PurokCComboBox.SelectedItem = row.Cells(4).Value.ToString()
+        GenderCComboBox.SelectedItem = row.Cells(5).Value.ToString()
         NetIncome3TextBox.Text = row.Cells(6).Value.ToString()
         Name3TextBox.Text = row.Cells(2).Value.ToString()
         HHN2TextBox.Text = row.Cells(7).Value.ToString()
@@ -247,7 +260,7 @@ Public Class PopulationForm
         Net_IncomeTextBox.Clear()
 
         FamilyComboBox.SelectedIndex = -1
-        FamilyComboBox.SelectedIndex = -1
+        FamCComboBox.SelectedIndex = -1
         PurokComboBox.SelectedIndex = -1
         PurokCComboBox.SelectedIndex = -1
         GenderComboBox.SelectedIndex = -1
@@ -390,8 +403,9 @@ Public Class PopulationForm
                 Dim con As New SqlConnection
                 Dim cmd As New SqlCommand
 
-                number = Int(Rnd() * 50) + 1
+                number = CInt(Math.Ceiling(Rnd() * 1000)) + 1
                 FamilyID = number
+
                 Dim query As String = String.Empty
                 query &= "INSERT INTO PopulationTable (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category,DateTimeRegistered)"
                 query &= "VALUES (@Family_ID,@Name,@Family_Category,@Purok,@Gender,@net_income,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen,@DateTimeRegistered)"
@@ -421,9 +435,8 @@ Public Class PopulationForm
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("Successfully Saved")
                 Clear()
-                DataGridView4.Visible = False
                 DisplayRegister()
-
+                con.Close()
 
             End If
 
@@ -439,12 +452,10 @@ Public Class PopulationForm
         HH_NumberTextBox.Text = row.Cells(3).Value.ToString()
         PurokComboBox.SelectedItem = row.Cells(2).Value.ToString()
 
+
     End Sub
     Private Sub DeleteFunction()
-        Try
-            If ID2TextBox.Text = "" Then
-                MessageBox.Show("Please select first what you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
-            Else
+            Try
 
                 Dim ID = ID2TextBox.Text
                 Dim con As New SqlConnection
@@ -461,9 +472,19 @@ Public Class PopulationForm
                 con.Open()
                 cmd.ExecuteNonQuery()
                 con.Close()
+            Clear()
+            DeleteButton.Enabled = False
+            UpdateButton.Enabled = False
+            ViewDetailsButton.Enabled = True
+            RegisterButton.Enabled = True
+            CancelButton.Enabled = False
+            ClearButton.Enabled = False
+            SaveButton.Enabled = False
+            EditButton.Enabled = True
+            GroupBox2.Visible = False
+            DataGridView1.Visible = False
 
                 MessageBox.Show("Successfully Deleted")
-            End If
         Catch ex As Exception
             MessageBox.Show("Error while deleting data." & ex.Message)
         End Try
@@ -471,8 +492,28 @@ Public Class PopulationForm
     End Sub
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
-        DeleteFunction()
-        Display()
+
+        If ID2TextBox.Text = "" Then
+            MessageBox.Show("Please select first what you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            DialogResult = MessageBox.Show("Are you sure you want to delete?", "Deleting", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If DialogResult = Windows.Forms.DialogResult.Yes Then
+                DeleteFunction()
+                Display()
+                Clear()
+                DeleteButton.Enabled = False
+                UpdateButton.Enabled = False
+                ViewDetailsButton.Enabled = True
+                RegisterButton.Enabled = True
+                CancelButton.Enabled = False
+                ClearButton.Enabled = False
+                SaveButton.Enabled = False
+                EditButton.Enabled = True
+            End If
+        End If
+
+ 
+
     End Sub
 
     Private Sub ClearButton1_Click(sender As Object, e As EventArgs) Handles ClearButton1.Click
@@ -505,10 +546,10 @@ Public Class PopulationForm
         connection.Close()
         DataGridView4.DataSource = ds
         DataGridView4.DataMember = "PopulationTable"
-        DataGridView4.Columns(0).Width = 100
+        DataGridView4.Columns(0).Width = 150
         DataGridView4.Columns(1).Width = 200
-        DataGridView4.Columns(2).Width = 100
-        DataGridView4.Columns(3).Width = 100
+        DataGridView4.Columns(2).Width = 150
+        DataGridView4.Columns(3).Width = 150
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click

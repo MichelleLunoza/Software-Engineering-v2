@@ -186,6 +186,19 @@ Public Class CBMS_DetailsForm
     End Sub
 
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
-        
+     
+
+        Dim dt As New DataTable
+            With dt
+                .Columns.Add("ID")
+                .Columns.Add("Name")
+            End With
+
+            For Each row As DataGridViewRow In DataGridView1.Rows
+                dt.Rows.Add(row.Cells(0).Value, row.Cells(1).Value)
+            Next
+            PrintCBMS.ReportViewer1.LocalReport.DataSources.Item(0).Value = dt
+            PrintCBMS.ShowDialog()
+            PrintCBMS.Dispose()
     End Sub
 End Class

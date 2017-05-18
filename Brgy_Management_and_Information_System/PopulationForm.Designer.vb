@@ -52,6 +52,13 @@ Partial Class PopulationForm
         Me.senior_citizenComboBox = New System.Windows.Forms.ComboBox()
         Me.Label13 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.Label46 = New System.Windows.Forms.Label()
+        Me.Label45 = New System.Windows.Forms.Label()
+        Me.Net_Income1TextBox = New System.Windows.Forms.TextBox()
+        Me.six_twelve_yrs_oldComboBox = New System.Windows.Forms.ComboBox()
+        Me.Label28 = New System.Windows.Forms.Label()
+        Me.IDTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.DateRegisteredDateTimePicker = New System.Windows.Forms.DateTimePicker()
         Me.Label48 = New System.Windows.Forms.Label()
@@ -85,13 +92,6 @@ Partial Class PopulationForm
         Me.GenderCComboBox = New System.Windows.Forms.ComboBox()
         Me.FamCComboBox = New System.Windows.Forms.ComboBox()
         Me.PurokCComboBox = New System.Windows.Forms.ComboBox()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
-        Me.Label46 = New System.Windows.Forms.Label()
-        Me.Label45 = New System.Windows.Forms.Label()
-        Me.Net_Income1TextBox = New System.Windows.Forms.TextBox()
-        Me.six_twelve_yrs_oldComboBox = New System.Windows.Forms.ComboBox()
-        Me.Label28 = New System.Windows.Forms.Label()
-        Me.IDTextBox = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.DateRegisteredTextBox = New System.Windows.Forms.TextBox()
         Me.Label47 = New System.Windows.Forms.Label()
@@ -444,6 +444,65 @@ Partial Class PopulationForm
         Me.GroupBox1.Text = "Personal Information"
         Me.GroupBox1.Visible = False
         '
+        'DateTimePicker1
+        '
+        Me.DateTimePicker1.Location = New System.Drawing.Point(219, 438)
+        Me.DateTimePicker1.Name = "DateTimePicker1"
+        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
+        Me.DateTimePicker1.TabIndex = 121
+        '
+        'Label46
+        '
+        Me.Label46.AutoSize = True
+        Me.Label46.Location = New System.Drawing.Point(72, 444)
+        Me.Label46.Name = "Label46"
+        Me.Label46.Size = New System.Drawing.Size(87, 13)
+        Me.Label46.TabIndex = 120
+        Me.Label46.Text = "Date Registered:"
+        '
+        'Label45
+        '
+        Me.Label45.AutoSize = True
+        Me.Label45.Location = New System.Drawing.Point(72, 206)
+        Me.Label45.Name = "Label45"
+        Me.Label45.Size = New System.Drawing.Size(65, 13)
+        Me.Label45.TabIndex = 118
+        Me.Label45.Text = "Net Income:"
+        '
+        'Net_Income1TextBox
+        '
+        Me.Net_Income1TextBox.Location = New System.Drawing.Point(216, 199)
+        Me.Net_Income1TextBox.Name = "Net_Income1TextBox"
+        Me.Net_Income1TextBox.Size = New System.Drawing.Size(203, 20)
+        Me.Net_Income1TextBox.TabIndex = 119
+        '
+        'six_twelve_yrs_oldComboBox
+        '
+        Me.six_twelve_yrs_oldComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.six_twelve_yrs_oldComboBox.FormattingEnabled = True
+        Me.six_twelve_yrs_oldComboBox.Items.AddRange(New Object() {"yes", "no"})
+        Me.six_twelve_yrs_oldComboBox.Location = New System.Drawing.Point(216, 356)
+        Me.six_twelve_yrs_oldComboBox.Name = "six_twelve_yrs_oldComboBox"
+        Me.six_twelve_yrs_oldComboBox.Size = New System.Drawing.Size(203, 21)
+        Me.six_twelve_yrs_oldComboBox.TabIndex = 117
+        '
+        'Label28
+        '
+        Me.Label28.AutoSize = True
+        Me.Label28.Location = New System.Drawing.Point(71, 364)
+        Me.Label28.Name = "Label28"
+        Me.Label28.Size = New System.Drawing.Size(109, 13)
+        Me.Label28.TabIndex = 116
+        Me.Label28.Text = "6-12 yrs old Category:"
+        '
+        'IDTextBox
+        '
+        Me.IDTextBox.Location = New System.Drawing.Point(216, 33)
+        Me.IDTextBox.Name = "IDTextBox"
+        Me.IDTextBox.ReadOnly = True
+        Me.IDTextBox.Size = New System.Drawing.Size(203, 20)
+        Me.IDTextBox.TabIndex = 87
+        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.DateRegisteredDateTimePicker)
@@ -774,65 +833,6 @@ Partial Class PopulationForm
         Me.PurokCComboBox.Size = New System.Drawing.Size(203, 21)
         Me.PurokCComboBox.TabIndex = 103
         '
-        'DateTimePicker1
-        '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(219, 438)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(200, 20)
-        Me.DateTimePicker1.TabIndex = 121
-        '
-        'Label46
-        '
-        Me.Label46.AutoSize = True
-        Me.Label46.Location = New System.Drawing.Point(72, 444)
-        Me.Label46.Name = "Label46"
-        Me.Label46.Size = New System.Drawing.Size(87, 13)
-        Me.Label46.TabIndex = 120
-        Me.Label46.Text = "Date Registered:"
-        '
-        'Label45
-        '
-        Me.Label45.AutoSize = True
-        Me.Label45.Location = New System.Drawing.Point(72, 206)
-        Me.Label45.Name = "Label45"
-        Me.Label45.Size = New System.Drawing.Size(65, 13)
-        Me.Label45.TabIndex = 118
-        Me.Label45.Text = "Net Income:"
-        '
-        'Net_Income1TextBox
-        '
-        Me.Net_Income1TextBox.Location = New System.Drawing.Point(216, 199)
-        Me.Net_Income1TextBox.Name = "Net_Income1TextBox"
-        Me.Net_Income1TextBox.Size = New System.Drawing.Size(203, 20)
-        Me.Net_Income1TextBox.TabIndex = 119
-        '
-        'six_twelve_yrs_oldComboBox
-        '
-        Me.six_twelve_yrs_oldComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.six_twelve_yrs_oldComboBox.FormattingEnabled = True
-        Me.six_twelve_yrs_oldComboBox.Items.AddRange(New Object() {"yes", "no"})
-        Me.six_twelve_yrs_oldComboBox.Location = New System.Drawing.Point(216, 356)
-        Me.six_twelve_yrs_oldComboBox.Name = "six_twelve_yrs_oldComboBox"
-        Me.six_twelve_yrs_oldComboBox.Size = New System.Drawing.Size(203, 21)
-        Me.six_twelve_yrs_oldComboBox.TabIndex = 117
-        '
-        'Label28
-        '
-        Me.Label28.AutoSize = True
-        Me.Label28.Location = New System.Drawing.Point(71, 364)
-        Me.Label28.Name = "Label28"
-        Me.Label28.Size = New System.Drawing.Size(109, 13)
-        Me.Label28.TabIndex = 116
-        Me.Label28.Text = "6-12 yrs old Category:"
-        '
-        'IDTextBox
-        '
-        Me.IDTextBox.Location = New System.Drawing.Point(216, 33)
-        Me.IDTextBox.Name = "IDTextBox"
-        Me.IDTextBox.ReadOnly = True
-        Me.IDTextBox.Size = New System.Drawing.Size(203, 20)
-        Me.IDTextBox.TabIndex = 87
-        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.DateRegisteredTextBox)
@@ -1150,9 +1150,9 @@ Partial Class PopulationForm
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(41, 256)
+        Me.DataGridView1.Location = New System.Drawing.Point(43, 255)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(596, 426)
+        Me.DataGridView1.Size = New System.Drawing.Size(588, 426)
         Me.DataGridView1.TabIndex = 82
         Me.DataGridView1.Visible = False
         '
@@ -1197,9 +1197,9 @@ Partial Class PopulationForm
         'DataGridView3
         '
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(41, 247)
+        Me.DataGridView3.Location = New System.Drawing.Point(45, 254)
         Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.Size = New System.Drawing.Size(596, 426)
+        Me.DataGridView3.Size = New System.Drawing.Size(598, 437)
         Me.DataGridView3.TabIndex = 123
         Me.DataGridView3.Visible = False
         '
@@ -1225,7 +1225,7 @@ Partial Class PopulationForm
         'DataGridView2
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(41, 247)
+        Me.DataGridView2.Location = New System.Drawing.Point(51, 258)
         Me.DataGridView2.Name = "DataGridView2"
         Me.DataGridView2.Size = New System.Drawing.Size(596, 437)
         Me.DataGridView2.TabIndex = 126
@@ -1253,9 +1253,9 @@ Partial Class PopulationForm
         'DataGridView4
         '
         Me.DataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView4.Location = New System.Drawing.Point(41, 247)
+        Me.DataGridView4.Location = New System.Drawing.Point(47, 256)
         Me.DataGridView4.Name = "DataGridView4"
-        Me.DataGridView4.Size = New System.Drawing.Size(596, 437)
+        Me.DataGridView4.Size = New System.Drawing.Size(596, 438)
         Me.DataGridView4.TabIndex = 129
         Me.DataGridView4.Visible = False
         '
@@ -1275,16 +1275,16 @@ Partial Class PopulationForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
-        Me.Controls.Add(Me.BackButton)
-        Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.DataGridView4)
+        Me.Controls.Add(Me.DataGridView3)
+        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.GroupBox1)
+        Me.Controls.Add(Me.BackButton)
+        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.ClearButton1)
         Me.Controls.Add(Me.DeleteButton)
-        Me.Controls.Add(Me.DataGridView2)
         Me.Controls.Add(Me.SaveButton)
         Me.Controls.Add(Me.EditButton)
-        Me.Controls.Add(Me.DataGridView3)
         Me.Controls.Add(Me.UpdateButton)
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.RegisterButton)
@@ -1292,8 +1292,8 @@ Partial Class PopulationForm
         Me.Controls.Add(Me.ClearButton)
         Me.Controls.Add(Me.Label)
         Me.Controls.Add(Me.SearchnameTextBox)
-        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox2)
+        Me.Controls.Add(Me.DataGridView2)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False

@@ -55,7 +55,6 @@ Partial Class BrgyClearanceDetailsForm
         Me.TimeLabel = New System.Windows.Forms.Label()
         Me.ULabel = New System.Windows.Forms.Label()
         Me.Label9 = New System.Windows.Forms.Label()
-        Me.PrintButton = New System.Windows.Forms.Button()
         Me.GroupBox1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -354,15 +353,6 @@ Partial Class BrgyClearanceDetailsForm
         Me.Label9.TabIndex = 95
         Me.Label9.Text = "User: "
         '
-        'PrintButton
-        '
-        Me.PrintButton.Location = New System.Drawing.Point(1102, 667)
-        Me.PrintButton.Name = "PrintButton"
-        Me.PrintButton.Size = New System.Drawing.Size(112, 33)
-        Me.PrintButton.TabIndex = 100
-        Me.PrintButton.Text = "Print"
-        Me.PrintButton.UseVisualStyleBackColor = True
-        '
         'BrgyClearanceDetailsForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -370,7 +360,6 @@ Partial Class BrgyClearanceDetailsForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
-        Me.Controls.Add(Me.PrintButton)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label10)
         Me.Controls.Add(Me.DateLabel)
@@ -431,5 +420,4 @@ Partial Class BrgyClearanceDetailsForm
     Friend WithEvents TimeLabel As System.Windows.Forms.Label
     Friend WithEvents ULabel As System.Windows.Forms.Label
     Friend WithEvents Label9 As System.Windows.Forms.Label
-    Friend WithEvents PrintButton As System.Windows.Forms.Button
 End Class
