@@ -1275,7 +1275,6 @@ Partial Class PopulationForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
-        Me.Controls.Add(Me.DataGridView4)
         Me.Controls.Add(Me.DataGridView3)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.GroupBox1)
@@ -1294,6 +1293,7 @@ Partial Class PopulationForm
         Me.Controls.Add(Me.SearchnameTextBox)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.DataGridView2)
+        Me.Controls.Add(Me.DataGridView4)
         Me.DoubleBuffered = True
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False

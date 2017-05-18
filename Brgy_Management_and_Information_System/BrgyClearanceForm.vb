@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports Microsoft.Reporting.WinForms
 
 Public Class BrgyClearanceForm
 
@@ -93,6 +94,21 @@ Public Class BrgyClearanceForm
         con.Open()
         cmd.ExecuteNonQuery()
 
+
+        Dim content As New ReportParameter("content", Me.NameTextBox.Text)
+        PrintForm_Brgy_Clearance.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content})
+
+        Dim content1 As New ReportParameter("content1", Me.DateTimePicker1.Value.ToString("dd"))
+        PrintForm_Brgy_Clearance.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content1})
+
+        Dim content2 As New ReportParameter("content2", Me.DateTimePicker1.Value.ToString("MMMM"))
+        PrintForm_Brgy_Clearance.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content2})
+
+        Dim content3 As New ReportParameter("content3", Me.DateTimePicker1.Value.ToString("yyyy"))
+        PrintForm_Brgy_Clearance.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content3})
+
+        Me.Hide()
+        PrintForm_Brgy_Clearance.Show()
 
     End Sub
 

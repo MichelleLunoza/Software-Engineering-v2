@@ -435,7 +435,7 @@ Public Class PopulationForm
                 cmd.ExecuteNonQuery()
                 MessageBox.Show("Successfully Saved")
                 Clear()
-                DisplayRegister()
+                Display()
                 con.Close()
 
             End If

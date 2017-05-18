@@ -1,4 +1,5 @@
 ﻿Imports System.Data.SqlClient
+Imports Microsoft.Reporting.WinForms
 
 Public Class Cert_IndigencyForm
 
@@ -89,6 +90,22 @@ Public Class Cert_IndigencyForm
 
         con.Open()
         cmd.ExecuteNonQuery()
+
+
+        Dim content As New ReportParameter("content", Me.NameTextBox.Text)
+        Print_Form_Indigency.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content})
+
+        Dim content1 As New ReportParameter("content1", Me.DateTimePicker1.Value.ToString("dd"))
+        Print_Form_Indigency.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content1})
+
+        Dim content2 As New ReportParameter("content2", Me.DateTimePicker1.Value.ToString("MMMM"))
+        Print_Form_Indigency.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content2})
+
+        Dim content3 As New ReportParameter("content3", Me.DateTimePicker1.Value.ToString("yyyy"))
+        Print_Form_Indigency.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content3})
+
+        Me.Hide()
+        Print_Form_Indigency.Show()
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click

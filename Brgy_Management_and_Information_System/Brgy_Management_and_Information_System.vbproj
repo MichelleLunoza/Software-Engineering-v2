@@ -201,6 +201,7 @@
     <EmbeddedResource Include="ClearanceForm.resx">
       <DependentUpon>ClearanceForm.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Copy of Report1.rdlc" />
     <EmbeddedResource Include="LoginForm.resx">
       <DependentUpon>LoginForm.vb</DependentUpon>
     </EmbeddedResource>
