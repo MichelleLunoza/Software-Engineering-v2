@@ -3,11 +3,13 @@ Imports Excel = Microsoft.Office.Interop.Excel
 Public Class CertIndigencyDetailsForm
 
     Private Sub CertIndigencyDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'calls the function display for the datagrid view format
         Display()
         ULabel.Text = MainForm.userLabel.Text
         Me.DateLabel.Text = Date.Now.ToString("MM/dd/yyyy")
         Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
 
+        'conditions when user logged in as guest
         If ULabel.Text = "Guest" Then
             AddButton.Enabled = False
             EditButton.Enabled = False
@@ -19,6 +21,7 @@ Public Class CertIndigencyDetailsForm
     End Sub
     Private Sub Display()
         DataGridView1.Refresh()
+        'initialization of connString and  query
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
         query &= "SELECT * FROM Certificate_Indigency_Table"
@@ -42,7 +45,7 @@ Public Class CertIndigencyDetailsForm
     End Sub
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim row As DataGridViewRow = DataGridView1.CurrentRow
-
+        'setting of values wwhen a row is selected from the datagrid view
         IDTextBox.Text = row.Cells(0).Value.ToString()
         NameTextBox.Text = row.Cells(1).Value.ToString()
         DateTextBox.Text = row.Cells(3).Value.ToString()
@@ -289,23 +292,26 @@ Public Class CertIndigencyDetailsForm
     End Sub
 
     Private Sub ExportButton_Click(sender As Object, e As EventArgs) Handles ExportButton.Click
+        'syntax for the importing of data into an excel spreadsheet
         Dim xlApp As Excel.Application
         Dim xlWorkBook As Excel.Workbook
         Dim xlWorkSheet As Excel.Worksheet
         Dim misValue As Object = System.Reflection.Missing.Value
         Dim i As Integer
         Dim j As Integer
-        Dim filename As String = "Log_Certificate_Indigency-" & Now().ToString() & ".xlsx"
+        Dim filename As String = "Log_Certificate_Indigency-" & Now().ToString() & ".xlsx" 'setting of file name of the excel spreadsheet with the current date
         xlApp = New Excel.Application
         xlWorkBook = xlApp.Workbooks.Add(misValue)
         xlWorkSheet = xlWorkBook.Sheets.Add
         xlWorkSheet.Name = "Sheet"
+        'setting of number of rows alloted for the data from the datagrid view
         For i = 0 To DataGridView1.RowCount - 2
             For j = 0 To DataGridView1.ColumnCount - 1
                 xlWorkSheet.Cells(i + 1, j + 1) = _
                     DataGridView1(j, i).Value.ToString()
             Next
         Next
+        'setting of number of columns alloted for the data from the datagrid view
         For j = 0 To DataGridView1.ColumnCount - 1
             xlWorkSheet.Cells(1, j + 1) = DataGridView1.Columns(j).Name
         Next
@@ -325,6 +331,7 @@ Public Class CertIndigencyDetailsForm
         MsgBox("You can find the file C:\Users\MiGutierrez\Downloads\Log_Certificate_Indigency.xlsx")
     End Sub
     Private Sub releaseObject(ByVal obj As Object)
+        'exception handdling when error occurs when releasing an object
         Try
             System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
             obj = Nothing
@@ -339,5 +346,9 @@ Public Class CertIndigencyDetailsForm
     Private Sub PrintLogButton_Click(sender As Object, e As EventArgs) Handles PrintLogButton.Click
         Me.Hide()
         Print_LCI.Show()
+    End Sub
+
+    Private Sub ClearButton_Click(sender As Object, e As EventArgs) Handles ClearButton.Click
+        SearchnameTextBox.Clear()
     End Sub
 End Class

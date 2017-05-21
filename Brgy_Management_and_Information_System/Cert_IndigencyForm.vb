@@ -4,7 +4,9 @@ Imports Microsoft.Reporting.WinForms
 Public Class Cert_IndigencyForm
 
     Private Sub Cert_IndigencyDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'calls the function display
         Display()
+        'displays the current time and the user logged in
         ULabel.Text = MainForm.userLabel.Text
         Me.DateLabel.Text = Date.Now.ToString("MM-dd-yyyy")
         Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
@@ -14,13 +16,15 @@ Public Class Cert_IndigencyForm
         End If
     End Sub
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-        Dim row As DataGridViewRow = DataGridView1.CurrentRow
 
+        Dim row As DataGridViewRow = DataGridView1.CurrentRow
+        'setting initial values for id and name
         IDTextBox.Text = row.Cells(0).Value.ToString()
         NameTextBox.Text = row.Cells(1).Value.ToString()
     End Sub
 
     Private Sub Display()
+        'initialization of ConnString and query
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
         query &= "SELECT ID, Name FROM PopulationTable WHERE Net_Income <= 12000"
@@ -28,7 +32,6 @@ Public Class Cert_IndigencyForm
         Dim connection As New SqlConnection(con)
         Dim dataadapter As New SqlDataAdapter(query, connection)
         Dim ds As New DataSet()
-
 
         connection.Open()
         dataadapter.Fill(ds, "PopulationTable")
@@ -52,7 +55,7 @@ Public Class Cert_IndigencyForm
             dt = New DataTable
             With cmd
                 .Connection = con
-                .CommandText = "SELECT ID,Name FROM PopulationTable WHERE Name Like'" & SearchnameTextBox.Text & "%'"
+                .CommandText = "SELECT ID,Name FROM PopulationTable WHERE Name Like'" & SearchnameTextBox.Text & "%'" 'query for searching the name
             End With
             adapt.SelectCommand = cmd
             adapt.Fill(dt)
@@ -65,7 +68,6 @@ Public Class Cert_IndigencyForm
         adapt.Dispose()
         con.Close()
     End Sub
-
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
         Dim ID = IDTextBox.Text
         Dim Name = NameTextBox.Text
@@ -74,6 +76,7 @@ Public Class Cert_IndigencyForm
         Dim con As New SqlConnection
         Dim cmd As New SqlCommand
 
+        'insertion of data in Certificate of Indigency Table
         Dim query As String = String.Empty
         query &= "INSERT INTO Certificate_Indigency_Table (ID,Name,Date,Purpose)"
         query &= "VALUES (@ID,@Name,@Date,@Purpose)"
@@ -91,7 +94,7 @@ Public Class Cert_IndigencyForm
         con.Open()
         cmd.ExecuteNonQuery()
 
-
+        'setting parameters in order to get the selected value from the previous form
         Dim content As New ReportParameter("content", Me.NameTextBox.Text)
         Print_Form_Indigency.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content})
 

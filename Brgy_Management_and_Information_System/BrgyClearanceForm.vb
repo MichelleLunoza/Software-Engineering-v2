@@ -6,10 +6,12 @@ Public Class BrgyClearanceForm
 
     Private Sub BrgyClearanceDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Display()
+        'Show date and time and userlabel
         ULabel.Text = MainForm.userLabel.Text
         Me.DateLabel.Text = Date.Now.ToString("MM-dd-yyyy")
         Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
 
+        'If the user type is Guest, buttons are disabled
         If ULabel.Text = "Guest" Then
             PrintButton.Enabled = False
         End If
@@ -17,6 +19,7 @@ Public Class BrgyClearanceForm
     End Sub
 
     Private Sub SearchnameTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchnameTextBox.TextChanged
+        'Search name in textbox
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
         Dim adapt As New SqlDataAdapter
@@ -27,8 +30,10 @@ Public Class BrgyClearanceForm
             dt = New DataTable
             With cmd
                 .Connection = con
+                'Update Query
                 .CommandText = "SELECT ID,Name FROM PopulationTable WHERE Name Like'" & SearchnameTextBox.Text & "%'"
             End With
+            'Display data in datagridview
             adapt.SelectCommand = cmd
             adapt.Fill(dt)
             DataGridView1.DataSource = dt
@@ -40,11 +45,13 @@ Public Class BrgyClearanceForm
         adapt.Dispose()
         con.Close()
     End Sub
-
+    'Display Function
     Private Sub Display()
 
+        'ConnectionString
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
+        'Display Query
         query &= "SELECT ID, Name FROM PopulationTable"
 
 
@@ -52,7 +59,7 @@ Public Class BrgyClearanceForm
         Dim dataadapter As New SqlDataAdapter(query, connection)
         Dim ds As New DataSet()
 
-
+        'Display data in datagridview
         connection.Open()
         dataadapter.Fill(ds, "PopulationTable")
         connection.Close()
@@ -63,6 +70,7 @@ Public Class BrgyClearanceForm
 
     End Sub
     Private Sub DataGridView1_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        'Transfer data from datagridview to textboxes
         Dim row As DataGridViewRow = DataGridView1.CurrentRow
 
         IDTextBox.Text = row.Cells(0).Value.ToString()
@@ -70,6 +78,7 @@ Public Class BrgyClearanceForm
     End Sub
 
     Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
+        'Print Function
         Dim ID = IDTextBox.Text
         Dim Name = NameTextBox.Text
         Dim Purpose = PurposeTextBox.Text
@@ -78,8 +87,10 @@ Public Class BrgyClearanceForm
         Dim cmd As New SqlCommand
 
         Dim query As String = String.Empty
+        'Add Query
         query &= "INSERT INTO Brgy_Clearance_Table (ID,Name,Date,Purpose)"
         query &= "VALUES (@ID,@Name,@Date,@Purpose)"
+        'ConnectionString
         con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         With cmd
             .Connection = con
@@ -94,7 +105,7 @@ Public Class BrgyClearanceForm
         con.Open()
         cmd.ExecuteNonQuery()
 
-
+        'Transfer Data to report viewer and report.rdlc
         Dim content As New ReportParameter("content", Me.NameTextBox.Text)
         PrintForm_Brgy_Clearance.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content})
 
@@ -107,6 +118,7 @@ Public Class BrgyClearanceForm
         Dim content3 As New ReportParameter("content3", Me.DateTimePicker1.Value.ToString("yyyy"))
         PrintForm_Brgy_Clearance.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content3})
 
+        'Proceed to PrintForm_Brgy_Clearance
         Me.Hide()
         PrintForm_Brgy_Clearance.Show()
 

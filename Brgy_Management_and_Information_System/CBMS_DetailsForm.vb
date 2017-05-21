@@ -4,8 +4,10 @@ Imports Excel = Microsoft.Office.Interop.Excel
 
 Public Class CBMS_DetailsForm
     Private Sub CBMS_DetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        'ConnectionString
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
+        'Display Query
         query &= "SELECT ID,Name AS 'Head of Family' FROM PopulationTable WHERE Family_Category = 'Head'"
 
 
@@ -13,7 +15,7 @@ Public Class CBMS_DetailsForm
         Dim dataadapter As New SqlDataAdapter(query, connection)
         Dim ds As New DataSet()
 
-
+        'Display data in datagridview
         connection.Open()
         dataadapter.Fill(ds, "PopulationTable")
         connection.Close()
@@ -23,6 +25,8 @@ Public Class CBMS_DetailsForm
         DataGridView1.Columns(1).Width = 550
     End Sub
     Private Sub ExportButton_Click(sender As Object, e As EventArgs) Handles ExportButton.Click
+        'Export Function (Total - Family)
+        'Export data from datagridview to excel file
         Dim xlApp As Excel.Application
         Dim xlWorkBook As Excel.Workbook
         Dim xlWorkSheet As Excel.Worksheet
@@ -50,6 +54,9 @@ Public Class CBMS_DetailsForm
                 xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
             Next
         Next
+
+        'Default name
+        'Saving excel file
         xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\CBMS_Total(Family)-" & Now().ToString("yyyy-MM-dd-HH-mm-ss") & ".xlsx")
         xlWorkBook.Close()
         xlApp.Quit()
@@ -74,6 +81,9 @@ Public Class CBMS_DetailsForm
 
     End Sub
     Private Sub SearchTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchTextBox.TextChanged
+        'Search name in textbox
+
+        'ConnectionString
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
         Dim adapt As New SqlDataAdapter
@@ -84,9 +94,11 @@ Public Class CBMS_DetailsForm
             dt = New DataTable
             With cmd
                 .Connection = con
+                'Query for Searching
                 .CommandText = "SELECT ID,Name FROM PopulationTable WHERE Family_Category = 'Head' and Name Like'" & SearchTextBox.Text & "%'"
             End With
             adapt.SelectCommand = cmd
+            'Display data in datagridview
             adapt.Fill(dt)
             DataGridView1.DataSource = dt
             DataGridView1.Columns(0).Width = 200
@@ -99,6 +111,7 @@ Public Class CBMS_DetailsForm
     End Sub
 
     Private Sub TotalPurokButton_Click(sender As Object, e As EventArgs) Handles TotalPurokButton.Click
+        'Total  by Purok
         DataGridView1.Visible = False
         DataGridView2.Visible = True
 
@@ -114,7 +127,7 @@ Public Class CBMS_DetailsForm
         ExportButton.Visible = False
         Export3Button.Visible = False
 
-
+        'ConnectionString
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
         Dim adapt As New SqlDataAdapter
@@ -125,8 +138,10 @@ Public Class CBMS_DetailsForm
         dt = New DataTable
         With cmd
             .Connection = con
+            'Query for Counting total by purok
             .CommandText = "SELECT DISTINCT pt.Purok AS 'Purok Name',(SELECT COUNT(HH_Number) FROM PopulationTable WHERE Purok =pt.Purok) AS 'Total HHN',(SELECT COUNT(ID) FROM PopulationTable WHERE Purok =pt.Purok) AS 'Total Population',(SELECT COUNT(Gender) FROM PopulationTable WHERE Gender = 'Male' and Purok =pt.Purok) AS 'Total Male',(SELECT COUNT(Gender) FROM PopulationTable WHERE Gender='Female' and Purok =pt.Purok) AS 'Total Female',(SELECT COUNT(OFW_Category) FROM PopulationTable WHERE OFW_Category='yes' and Purok =pt.Purok) AS 'Total OFW',(SELECT COUNT(PWD_Category) FROM PopulationTable WHERE PWD_Category='yes' and Purok =pt.Purok) AS 'Total PWD',(SELECT COUNT(zero_twelve_months_Category) FROM PopulationTable WHERE zero_twelve_months_Category='yes' and Purok =pt.Purok) AS '0-12 Months',(SELECT COUNT(two_five_yrs_old_Category) FROM PopulationTable WHERE two_five_yrs_old_Category='yes' and Purok =pt.Purok) AS '2-5 Yrs Old',(SELECT COUNT(six_twelve_yrs_old_Category) FROM PopulationTable WHERE six_twelve_yrs_old_Category='yes' and Purok =pt.Purok) AS '6-12 Yrs Old',(SELECT COUNT(thirteen_seventeen_Category) FROM PopulationTable WHERE thirteen_seventeen_Category='yes' and Purok =pt.Purok) AS '13-17 Yrs Old',(SELECT COUNT(senior_citizen_Category) FROM PopulationTable WHERE senior_citizen_Category='yes' and Purok =pt.Purok) AS 'Senior Citizen' FROM PopulationTable pt"
         End With
+        'Display data in datagridview (Total by purok result)
         adapt.SelectCommand = cmd
         adapt.Fill(dt)
         DataGridView2.DataSource = dt
@@ -144,6 +159,7 @@ Public Class CBMS_DetailsForm
         DataGridView2.Columns(11).Width = 100
     End Sub
     Private Sub TotalFamilyButton_Click(sender As Object, e As EventArgs) Handles TotalFamilyButton.Click
+        'Total (Family) Function
         DataGridView1.Visible = False
         DataGridView2.Visible = True
 
@@ -157,7 +173,7 @@ Public Class CBMS_DetailsForm
         ExitButton.Enabled = True
         ExportButton.Enabled = True
 
-
+        'ConnectionString
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
         Dim adapt As New SqlDataAdapter
@@ -168,8 +184,10 @@ Public Class CBMS_DetailsForm
         dt = New DataTable
         With cmd
             .Connection = con
+            'Query for COunting Total (Family )
             .CommandText = "SELECT DISTINCT pt.HH_Number AS 'HHN', pt.Name AS 'Head of Family',(SELECT COUNT(ID) FROM PopulationTable WHERE Purok =pt.Purok) AS 'Total Population',(SELECT COUNT(Gender) FROM PopulationTable WHERE Gender = 'Male' and Purok =pt.Purok) AS 'Total Male',(SELECT COUNT(Gender) FROM PopulationTable WHERE Gender='Female' and Purok =pt.Purok) AS 'Total Female',(SELECT COUNT(OFW_Category) FROM PopulationTable WHERE OFW_Category='yes' and Purok =pt.Purok) AS 'Total OFW',(SELECT COUNT(PWD_Category) FROM PopulationTable WHERE PWD_Category='yes' and Purok =pt.Purok) AS 'Total PWD',(SELECT COUNT(zero_twelve_months_Category) FROM PopulationTable WHERE zero_twelve_months_Category='yes' and Purok =pt.Purok) AS '0-12 Months',(SELECT COUNT(two_five_yrs_old_Category) FROM PopulationTable WHERE two_five_yrs_old_Category='yes' and Purok =pt.Purok) AS '2-5 Yrs Old',(SELECT COUNT(six_twelve_yrs_old_Category) FROM PopulationTable WHERE six_twelve_yrs_old_Category='yes' and Purok =pt.Purok) AS '6-12 Yrs Old',(SELECT COUNT(thirteen_seventeen_Category) FROM PopulationTable WHERE thirteen_seventeen_Category='yes' and Purok =pt.Purok) AS '13-17 Yrs Old',(SELECT COUNT(senior_citizen_Category) FROM PopulationTable WHERE senior_citizen_Category='yes' and Purok =pt.Purok) AS 'Senior Citizen' FROM PopulationTable pt WHERE Family_Category='Head'"
         End With
+        'Display data in datagridview (Total (Family) )
         adapt.SelectCommand = cmd
         adapt.Fill(dt)
         DataGridView2.DataSource = dt
@@ -187,6 +205,7 @@ Public Class CBMS_DetailsForm
         DataGridView2.Columns(11).Width = 100
     End Sub
     Private Sub OverallTotalButton_Click(sender As Object, e As EventArgs) Handles OverallTotalButton.Click
+        'Overall Total Function
         DataGridView1.Visible = False
         DataGridView2.Visible = True
 
@@ -202,6 +221,7 @@ Public Class CBMS_DetailsForm
         Export2Button.Visible = False
         Export3Button.Visible = True
 
+        'ConnectionString
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
         Dim adapt As New SqlDataAdapter
@@ -212,8 +232,10 @@ Public Class CBMS_DetailsForm
         dt = New DataTable
         With cmd
             .Connection = con
+            'Query for Counting Overall Total
             .CommandText = "SELECT DISTINCT pt.Name AS 'Head of Family',(SELECT COUNT(ID) FROM PopulationTable WHERE Purok =pt.Purok) AS 'Population' FROM PopulationTable pt WHERE Family_Category='Head'"
         End With
+        'Display data in datagridview (Overall Total)
         adapt.SelectCommand = cmd
         adapt.Fill(dt)
         DataGridView2.DataSource = dt
@@ -222,11 +244,14 @@ Public Class CBMS_DetailsForm
 
     End Sub
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        'Back function 
+        'back to previous form
         Me.Hide()
         MainForm.Show()
     End Sub
 
     Private Sub ExitButton_Click(sender As Object, e As EventArgs) Handles ExitButton.Click
+        'Exit Function
         DataGridView1.Visible = True
         DataGridView2.Visible = False
         TotalFamilyButton.Enabled = True
@@ -242,15 +267,9 @@ Public Class CBMS_DetailsForm
         SearchTextBox.Visible = True
         ClearButton.Visible = True
     End Sub
-
-   
-    Private Sub PrintLogsDataGrid()
-
-        Dim rds As New ReportDataSource("rds", Me.DataGridView1.DataSource)
-        PrintCBMS.ReportViewer1.LocalReport.DataSources.Add(rds)
-    End Sub
-
     Private Sub Export2Button_Click(sender As Object, e As EventArgs) Handles Export2Button.Click
+        'export Function (Total - by Purok)
+        'Export data from datagridview to excel file
         Dim xlApp As Excel.Application
         Dim xlWorkBook As Excel.Workbook
         Dim xlWorkSheet As Excel.Worksheet
@@ -278,6 +297,8 @@ Public Class CBMS_DetailsForm
                 xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
             Next
         Next
+        'Default name
+        'Saving excel file
         xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\CBMS_Total_by_Purok-" & Now().ToString("yyyy-MM-dd-HH-mm-ss") & ".xlsx")
         xlWorkBook.Close()
         xlApp.Quit()
@@ -288,6 +309,8 @@ Public Class CBMS_DetailsForm
     End Sub
 
     Private Sub Export3Button_Click(sender As Object, e As EventArgs) Handles Export3Button.Click
+        'Export Function (Overall Total)
+        'Export data from datagridview to excel file
         Dim xlApp As Excel.Application
         Dim xlWorkBook As Excel.Workbook
         Dim xlWorkSheet As Excel.Worksheet
@@ -315,6 +338,8 @@ Public Class CBMS_DetailsForm
                 xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
             Next
         Next
+        'Default name
+        'Saving excel file
         xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\CBMS_OverAll_Total-" & Now().ToString("yyyy-MM-dd-HH-mm-ss") & ".xlsx")
         xlWorkBook.Close()
         xlApp.Quit()

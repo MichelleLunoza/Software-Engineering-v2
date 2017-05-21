@@ -4,11 +4,14 @@ Imports Microsoft.Reporting.WinForms
 Public Class BrgyClearanceDetailsForm
 
     Private Sub BrgyClearanceDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
         Display()
+        'Show date and time and userlabel
         ULabel.Text = MainForm.userLabel.Text
         Me.DateLabel.Text = Date.Now.ToString("MM-dd-yyyy")
         Me.TimeLabel.Text = TimeOfDay.ToString("hh:mm")
 
+        'If the user type is Guest, buttons are disabled
         If ULabel.Text = "Guest" Then
             AddButton.Enabled = False
             EditButton.Enabled = False
@@ -21,6 +24,8 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub SearchnameTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchnameTextBox.TextChanged
+        'Search in textbox
+        'connectionString
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
         Dim adapt As New SqlDataAdapter
@@ -31,8 +36,10 @@ Public Class BrgyClearanceDetailsForm
             dt = New DataTable
             With cmd
                 .Connection = con
+                'Query
                 .CommandText = "SELECT * FROM Brgy_Clearance_Table WHERE Name Like'" & SearchnameTextBox.Text & "%'"
             End With
+            'Display data in datagridview
             adapt.SelectCommand = cmd
             adapt.Fill(dt)
             DataGridView1.DataSource = dt
@@ -46,10 +53,14 @@ Public Class BrgyClearanceDetailsForm
         adapt.Dispose()
         con.Close()
     End Sub
+    'Display Function
     Private Sub Display()
+
         DataGridView1.Refresh()
+        'ConnectionString
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
+        'Query
         query &= "SELECT * FROM Brgy_Clearance_Table"
 
 
@@ -57,7 +68,7 @@ Public Class BrgyClearanceDetailsForm
         Dim dataadapter As New SqlDataAdapter(query, connection)
         Dim ds As New DataSet()
 
-
+        'Display data in datagridview
         connection.Open()
         dataadapter.Fill(ds, "Brgy_Clearance_Table")
         connection.Close()
@@ -71,6 +82,7 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+        'Transfer data from datagridview to textboxes
         Dim row As DataGridViewRow = DataGridView1.CurrentRow
 
         IDTextBox.Text = row.Cells(0).Value.ToString()
@@ -80,6 +92,7 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
+        'Update Function
         SaveButton.Enabled = False
         EditButton.Enabled = True
         DeleteButton.Enabled = True
@@ -97,7 +110,9 @@ Public Class BrgyClearanceDetailsForm
 
         Try
             Dim query As String = String.Empty
+            'Update Query
             query &= "UPDATE Brgy_Clearance_Table SET ID=@ID,Name=@Name,Purpose=@Purpose,Date=@datetime WHERE ID=@ID"
+            'ConnectionString
             con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
             With cmd
                 .Connection = con
@@ -123,7 +138,7 @@ Public Class BrgyClearanceDetailsForm
         End Try
 
     End Sub
-
+    'Clear 
     Private Sub Clear()
         NameTextBox.Clear()
         PurposeTextBox.Clear()
@@ -132,6 +147,7 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
+        'Edit
         If IDTextBox.Text = "" Then
             MessageBox.Show("Please select first from datagridview what you want to edit", "Edit Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
@@ -148,6 +164,7 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub SaveButton_Click(sender As Object, e As EventArgs) Handles SaveButton.Click
+        'Save Function
         If PurposeTextBox.Text = "" Then
             MessageBox.Show("Enter purpose.", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
             PurposeTextBox.Focus()
@@ -171,10 +188,11 @@ Public Class BrgyClearanceDetailsForm
                 Dim cmd As New SqlCommand
 
                 Dim query As String = String.Empty
+                'Add Query
                 query &= "INSERT INTO Brgy_Clearance_Table (ID,Name,Purpose,Date)"
                 query &= "VALUES (@ID,@Name,@Purpose,@datetime)"
 
-
+                'ConnectionString
                 con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
                 With cmd
                     .Connection = con
@@ -203,6 +221,7 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub AddButton_Click(sender As Object, e As EventArgs) Handles AddButton.Click
+        'Add
         AddButton.Enabled = False
         UpdateButton.Enabled = False
         EditButton.Enabled = False
@@ -221,10 +240,13 @@ Public Class BrgyClearanceDetailsForm
     Private Sub ClearButton1_Click(sender As Object, e As EventArgs) Handles ClearButton1.Click
         Clear()
     End Sub
+    'Add Function
     Private Sub AddFunction()
 
+        'ConnectionString
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
+        'Add Query
         query &= "SELECT ID, Name FROM PopulationTable"
 
 
@@ -232,7 +254,7 @@ Public Class BrgyClearanceDetailsForm
         Dim dataadapter As New SqlDataAdapter(query, connection)
         Dim ds As New DataSet()
 
-
+        'Display Data in Datagridview
         connection.Open()
         dataadapter.Fill(ds, "PopulationTable")
         connection.Close()
@@ -244,6 +266,7 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub DataGridView2_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView2.CellClick
+        'Transfer data from datagridview to textboxes
         Dim row As DataGridViewRow = DataGridView2.CurrentRow
 
         IDTextBox.Text = row.Cells(0).Value.ToString()
@@ -252,6 +275,8 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub ExportButton_Click(sender As Object, e As EventArgs) Handles ExportButton.Click
+        'Export Function
+        'Export data from datagridview to excel file
         Dim xlApp As Excel.Application
         Dim xlWorkBook As Excel.Workbook
         Dim xlWorkSheet As Excel.Worksheet
@@ -279,6 +304,8 @@ Public Class BrgyClearanceDetailsForm
                 xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
             Next
         Next
+        'Default name
+        'Saving excel file
         xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\Log_Brgy_Clearances-" & Now().ToString("yyyy-MM-dd-HH-mm-ss") & ".xlsx")
         xlWorkBook.Close()
         xlApp.Quit()
@@ -300,19 +327,23 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+        'Delete
         If IDTextBox.Text = "" Then
             MessageBox.Show("Please select first from data gridview that you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
             DeleteFunction()
         End If
     End Sub
+    'Delete Function
     Private Sub DeleteFunction()
         Try
             Dim ID = IDTextBox.Text
             Dim con As New SqlConnection
             Dim cmd As New SqlCommand
             Dim query As String = String.Empty
+            'Delete Query
             query &= "DELETE FROM Brgy_Clearance_Table WHERE ID=@ID"
+            'ConnectionString
             con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
             With cmd
                 .Connection = con
@@ -330,12 +361,13 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
+        'Back to previous form
         Me.Hide()
         ClearanceForm.Show()
     End Sub
 
     Private Sub PrintLogButton_Click(sender As Object, e As EventArgs) Handles PrintLogButton.Click
-
+        'Proceed to Print BC Form
         Me.Hide()
         Print_BC.Show()
     End Sub

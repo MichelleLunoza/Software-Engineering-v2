@@ -10,11 +10,10 @@ Public Class PopulationForm
 
     End Sub
     Private Sub Display()
-
+        'function for the formatting of the datagrid view
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
         query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen',DateTimeRegistered AS 'Date Registered' FROM PopulationTable"
-
 
 
         Dim connection As New SqlConnection(con)
@@ -23,10 +22,11 @@ Public Class PopulationForm
 
 
         connection.Open()
-        dataadapter.Fill(ds, "PopulationTable")
+        dataadapter.Fill(ds, "PopulationTable") 'displays data in the datagrid view
         connection.Close()
         DataGridView1.DataSource = ds
         DataGridView1.DataMember = "PopulationTable"
+        'formatting of column width
         DataGridView1.Columns(0).Width = 100
         DataGridView1.Columns(1).Width = 100
         DataGridView1.Columns(2).Width = 150
@@ -58,11 +58,11 @@ Public Class PopulationForm
         DataGridView3.Visible = False
         DataGridView4.Visible = False
         DeleteButton.Enabled = True
-        Display()
+        Display() 'calls the display function for the formatting of the datagid view
     End Sub
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView1.CellClick
         Dim row As DataGridViewRow = DataGridView1.CurrentRow
-
+        'setting of values to respective textboxes from the datagrid view
         ID2TextBox.Text = row.Cells(0).Value.ToString()
         FamIDTextBox.Text = row.Cells(1).Value.ToString()
         Name2TextBox.Text = row.Cells(2).Value.ToString()
@@ -94,26 +94,28 @@ Public Class PopulationForm
         UpdateButton.Enabled = False
         SaveButton.Enabled = True
         DeleteButton.Enabled = False
-        DisplayRegister()
+        DisplayRegister() 'calls the display reqister function
     End Sub
-    Private Sub DisplayRegister()
+    Private Sub DisplayRegister() 'function that holds display register
 
+        'initialization connString and query
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
         query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen',DateTimeRegistered AS 'Date Registered' FROM PopulationTable"
 
-
-
+        'initialization of variables
         Dim connection As New SqlConnection(con)
         Dim dataadapter As New SqlDataAdapter(query, connection)
         Dim ds As New DataSet()
 
 
         connection.Open()
-        dataadapter.Fill(ds, "PopulationTable")
+        dataadapter.Fill(ds, "PopulationTable") 'fills the datagrid view
         connection.Close()
         DataGridView2.DataSource = ds
         DataGridView2.DataMember = "PopulationTable"
+
+        'setting the column width of the datagrid view
         DataGridView2.Columns(0).Width = 100
         DataGridView2.Columns(1).Width = 100
         DataGridView2.Columns(2).Width = 150
@@ -150,23 +152,30 @@ Public Class PopulationForm
         GroupBox2.Visible = False
         GroupBox3.Visible = False
 
-        Clear()
+        Clear() 'calls the clear function
     End Sub
 
     Private Sub UpdateButton_Click(sender As Object, e As EventArgs) Handles UpdateButton.Click
-        updateData()
-        DisplayUpdate()
-        Clear()
-        UpdateButton.Enabled = False
-        SaveButton.Enabled = False
-        EditButton.Enabled = True
-        ViewDetailsButton.Enabled = True
-        DeleteButton.Enabled = False
-        ClearButton.Enabled = False
-        CancelButton.Enabled = False
+        If ID3TextBox.Text = "" Then
+            'error handling when there are no selected row in the database
+            MessageBox.Show("Please select what you want to update", "Update Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            'calls de functions needed when the operation is successful
+            updateData()
+            DisplayUpdate()
+            Clear()
+            UpdateButton.Enabled = False
+            SaveButton.Enabled = False
+            EditButton.Enabled = True
+            RegisterButton.Enabled = True
+            ViewDetailsButton.Enabled = True
+            DeleteButton.Enabled = False
+            ClearButton.Enabled = False
+            CancelButton.Enabled = False
+        End If
     End Sub
     Private Sub updateData()
-
+        'initialization of variables
         Dim ID = ID3TextBox.Text
         Dim FamilyID = FamID2TextBox.Text
         Dim Name = Name3TextBox.Text
@@ -190,6 +199,7 @@ Public Class PopulationForm
         Try
 
             Dim query As String = String.Empty
+            'query for the updating of the selected row in the datagrid view
             query &= "UPDATE PopulationTable SET Family_ID=@Family_ID,Name=@Name,Family_Category=@famCategory,Purok=@purok,Gender=@gender,Net_Income=@net_income,HH_Number=@HHN,OFW_Category=@OFW,PWD_Category=@PWD,zero_twelve_months_Category=@zero_twelve_months,two_five_yrs_old_Category=@two_five_yrs_old,six_twelve_yrs_old_Category=@six_twelve_yrs_old,thirteen_seventeen_Category=@thirteen_seventeen_yrs_old,senior_citizen_Category=@senior_citizen,DateTimeRegistered=@DateTimeRegistered WHERE ID=@ID"
             con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
             With cmd
@@ -198,6 +208,7 @@ Public Class PopulationForm
                 .Connection = con
                 .CommandType = CommandType.Text
                 .CommandText = query
+                'setting of parameters with their respective variable
                 .Parameters.AddWithValue("ID", ID)
                 .Parameters.AddWithValue("@Family_ID", FamilyID)
                 .Parameters.AddWithValue("@Name", Name)
@@ -229,7 +240,7 @@ Public Class PopulationForm
    
     Private Sub DataGridView3_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView3.CellClick
         Dim row As DataGridViewRow = DataGridView3.CurrentRow
-
+        'setting of values to respective textboxes from the datagrid view
         ID3TextBox.Text = row.Cells(0).Value.ToString()
         FamID2TextBox.Text = row.Cells(1).Value.ToString()
         FamCComboBox.SelectedItem = row.Cells(3).Value.ToString()
@@ -241,7 +252,7 @@ Public Class PopulationForm
 
     End Sub
 
-    Private Sub Clear()
+    Private Sub Clear() 'function that clears all of the user inputted data in the form
         IDTextBox.Clear()
         ID2TextBox.Clear()
         ID3TextBox.Clear()
@@ -312,26 +323,27 @@ Public Class PopulationForm
         UpdateButton.Enabled = True
         EditButton.Enabled = False
         CancelButton.Enabled = True
-        DisplayUpdate()
+        DisplayUpdate() 'calls the display for the update
     End Sub
     Private Sub DisplayUpdate()
-
+        'initialization of connString and Query
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
         query &= "SELECT ID,Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category AS '0-12 Months',two_five_yrs_old_Category AS '2-5 Yrs Old',six_twelve_yrs_old_Category AS '6-12 Yrs Old',thirteen_seventeen_Category AS '13-17 Yrs Old',senior_citizen_Category AS 'Senior Citizen',DateTimeRegistered AS 'Date Registered' FROM PopulationTable"
 
 
-
+        'initializtion of variables
         Dim connection As New SqlConnection(con)
         Dim dataadapter As New SqlDataAdapter(query, connection)
         Dim ds As New DataSet()
 
 
         connection.Open()
-        dataadapter.Fill(ds, "PopulationTable")
+        dataadapter.Fill(ds, "PopulationTable") 'fills the datagrid view
         connection.Close()
         DataGridView3.DataSource = ds
         DataGridView3.DataMember = "PopulationTable"
+        'setting the column width of the datagrid view
         DataGridView3.Columns(0).Width = 100
         DataGridView3.Columns(1).Width = 100
         DataGridView3.Columns(2).Width = 150
@@ -360,7 +372,7 @@ Public Class PopulationForm
         CancelButton.Enabled = False
         DeleteButton.Enabled = False
 
-        SaveFunction()
+        SaveFunction() 'calls the save function
     End Sub
 
     Private Sub SaveFunction()
@@ -391,7 +403,7 @@ Start:
 
 
 
-
+        'error handling for invalid user inputs
         Try
             If NameTextBox.Text = "" Then
                 MessageBox.Show("Please enter name", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -423,6 +435,7 @@ Start:
             ElseIf senior_citizenComboBox.SelectedItem = "" Then
                 MessageBox.Show("Please choose from Senior Citizen Category", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
             Else
+                'the path taken when there are no invalid user inputs
                 Dim number As Integer
                 Dim ID = IDTextBox.Text
                 Dim FamilyID = Family_IDTextBox.Text
@@ -446,14 +459,17 @@ Start:
 
 
                 Dim query As String = String.Empty
+                'insertion of data with their respective fields
                 query &= "INSERT INTO PopulationTable (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category,DateTimeRegistered)"
+                'setting of values according to their respective fields
                 query &= "VALUES (@Family_ID,@Name,@Family_Category,@Purok,@Gender,@net_income,@HHN,@OFW,@PWD,@zero_twelve_months,@two_five_yrs_old,@six_twelve_yrs_old,@thirteen_seventeen_yrs_old,@senior_citizen,@DateTimeRegistered)"
-
+                'initialization of connString
                 con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
                 With cmd
                     .Connection = con
                     .CommandType = CommandType.Text
                     .CommandText = query
+                    'setting of parameters with their respective variable
                     .Parameters.AddWithValue("@Family_ID", FamilyID)
                     .Parameters.AddWithValue("@Name", Name)
                     .Parameters.AddWithValue("@Family_Category", famCategory)
@@ -476,6 +492,7 @@ Start:
                 Clear()
                 Display()
                 con.Close()
+                DisplayRegister()
 
             End If
 
@@ -487,7 +504,7 @@ Start:
 
     Private Sub DataGridView4_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView4.CellClick
         Dim row As DataGridViewRow = DataGridView4.CurrentRow
-        
+        'setting of values to respective textboxes from the datagrid view
         Family_IDTextBox.Text = row.Cells(0).Value.ToString()
         HH_NumberTextBox.Text = row.Cells(3).Value.ToString()
         PurokComboBox.SelectedItem = row.Cells(2).Value.ToString()
@@ -534,10 +551,13 @@ Start:
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
 
         If ID2TextBox.Text = "" Then
+            'error handling when the user doesn't have any chosen roww to be deleted
             MessageBox.Show("Please select first what you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
+            'displays a dialog box that asks the user if he is certain to delete the record
             DialogResult = MessageBox.Show("Are you sure you want to delete?", "Deleting", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
             If DialogResult = Windows.Forms.DialogResult.Yes Then
+                'calls the necessary functions for the operation
                 DeleteFunction()
                 Display()
                 Clear()
@@ -550,6 +570,7 @@ Start:
                 SaveButton.Enabled = False
                 EditButton.Enabled = False
                 GroupBox2.Visible = True
+                DataGridView1.Visible = True
             End If
         End If
 
@@ -558,12 +579,11 @@ Start:
     End Sub
 
     Private Sub ClearButton1_Click(sender As Object, e As EventArgs) Handles ClearButton1.Click
-        Clear()
-        
-
+        Clear() 'calls the clear function
     End Sub
 
     Private Sub FamilyComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FamilyComboBox.SelectedIndexChanged
+        'setting the limitation and automatically sets values
         If FamilyComboBox.SelectedItem = "Member" Then
             DataGridView4.Visible = True
             DataGridView3.Visible = False
@@ -573,25 +593,34 @@ Start:
             SearchnameTextBox.Visible = False
             ClearButton.Visible = False
             DisplayHead_RegisterFunction()
+        Else
+            DataGridView4.Visible = False
+            DataGridView3.Visible = False
+            DataGridView2.Visible = True
+            DataGridView1.Visible = False
         End If
     End Sub
     Private Sub DisplayHead_RegisterFunction()
+
+        'initialization of connection string and query
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
+        'query for the selection of head and setting of values according to FamilyID, Name, Purok and HH_Number
         query &= "SELECT Family_ID,Name,Purok,HH_Number FROM PopulationTable WHERE Family_Category='Head'"
 
 
-
+        'initialization of values
         Dim connection As New SqlConnection(con)
         Dim dataadapter As New SqlDataAdapter(query, connection)
         Dim ds As New DataSet()
 
 
         connection.Open()
-        dataadapter.Fill(ds, "PopulationTable")
+        dataadapter.Fill(ds, "PopulationTable") 'displays data in the datagrid view
         connection.Close()
         DataGridView4.DataSource = ds
         DataGridView4.DataMember = "PopulationTable"
+        'setting the column width of the datagrid view
         DataGridView4.Columns(0).Width = 150
         DataGridView4.Columns(1).Width = 200
         DataGridView4.Columns(2).Width = 150
@@ -601,5 +630,36 @@ Start:
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
         Me.Hide()
         MainForm.Show()
+    End Sub
+
+    Private Sub SearchnameTextBox_TextChanged(sender As Object, e As EventArgs) Handles SearchnameTextBox.TextChanged
+        'Search in textbox
+        'connectionString
+        Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
+        Dim cmd As New SqlCommand
+        Dim adapt As New SqlDataAdapter
+        Dim dt As New DataTable
+
+        Try
+            con.Open()
+            dt = New DataTable
+            With cmd
+                .Connection = con
+                'Query
+                .CommandText = "SELECT * FROM PopulationTable WHERE Family_Category= 'Head' and Name Like'" & SearchnameTextBox.Text & "%'"
+            End With
+            'Display data in datagridview
+            adapt.SelectCommand = cmd
+            adapt.Fill(dt)
+            DataGridView1.DataSource = dt
+            DataGridView1.Columns(0).Width = 100
+            DataGridView1.Columns(1).Width = 170
+            DataGridView1.Columns(2).Width = 150
+            DataGridView1.Columns(3).Width = 150
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        adapt.Dispose()
+        con.Close()
     End Sub
 End Class
