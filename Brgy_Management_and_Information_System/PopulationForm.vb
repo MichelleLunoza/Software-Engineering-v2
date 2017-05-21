@@ -1,7 +1,12 @@
 ﻿Imports System.Data.SqlClient
 Public Class PopulationForm
 
+    ' Dimension the variables used in the programme
+    Dim intNumber As Integer
+    Dim arrNumber(0 To 0) As Integer
+    Dim i, x, y As Integer
     Private Sub PopulationForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
 
     End Sub
     Private Sub Display()
@@ -352,6 +357,32 @@ Public Class PopulationForm
     Private Sub SaveFunction()
 
 
+        For x = 0 To 0
+Start:
+            Randomize()
+            intNumber = Int((1000 * Rnd()) + 1) ' Random number 1 to 1000
+            For y = 0 To 0
+                ' Check arrNumber (y)
+                'If intnumber has already been selected,
+                'Then go and select another one.
+                If intNumber = arrNumber(y) Then
+                    GoTo Start
+                End If
+            Next y
+
+            'Place the next non-repeated number in the arrNumber(x).
+            arrNumber(x) = intNumber
+
+        Next x
+        For i = 0 To 0
+            Family_IDTextBox.Text = Family_IDTextBox.Text & (arrNumber(i))
+        Next
+
+
+
+
+
+
         Try
             If NameTextBox.Text = "" Then
                 MessageBox.Show("Please enter name", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
@@ -403,8 +434,7 @@ Public Class PopulationForm
                 Dim con As New SqlConnection
                 Dim cmd As New SqlCommand
 
-                number = CInt(Math.Ceiling(Rnd() * 1000)) + 1
-                FamilyID = number
+
 
                 Dim query As String = String.Empty
                 query &= "INSERT INTO PopulationTable (Family_ID,Name,Family_Category,Purok,Gender,Net_Income,HH_Number,OFW_Category,PWD_Category,zero_twelve_months_Category,two_five_yrs_old_Category,six_twelve_yrs_old_Category,thirteen_seventeen_Category,senior_citizen_Category,DateTimeRegistered)"
@@ -445,6 +475,7 @@ Public Class PopulationForm
         End Try
 
     End Sub
+
     Private Sub DataGridView4_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles DataGridView4.CellClick
         Dim row As DataGridViewRow = DataGridView4.CurrentRow
         
