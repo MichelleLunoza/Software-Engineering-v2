@@ -1127,7 +1127,7 @@
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>day of                                  ,             </Value>
+                <Value>day of                                  ,                  </Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>Franklin Gothic Book</FontFamily>
@@ -1378,7 +1378,7 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>1.55903in</Top>
+        <Top>1.6in</Top>
         <Left>3.9675in</Left>
         <Height>0.27084in</Height>
         <Width>1.48958in</Width>
@@ -1401,7 +1401,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=Parameters!content1.Value</Value>
-                <Style />
+                <Style>
+                  <FontSize>13pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -1409,8 +1411,8 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>2.85416in</Top>
-        <Left>4.20313in</Left>
+        <Top>2.75in</Top>
+        <Left>4.223in</Left>
         <Height>0.19792in</Height>
         <Width>0.40625in</Width>
         <ZIndex>6</ZIndex>
@@ -1432,7 +1434,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=Parameters!content2.Value</Value>
-                <Style />
+                <Style>
+                  <FontSize>13pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -1440,7 +1444,7 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>2.85416in</Top>
+        <Top>2.75in</Top>
         <Left>5.10938in</Left>
         <Height>0.19792in</Height>
         <Width>1.32291in</Width>
@@ -1483,7 +1487,7 @@
         </Style>
       </Line>
       <Line Name="Line2">
-        <Top>3.05in</Top>
+        <Top>2.96in</Top>
         <Left>4.2175in</Left>
         <Height>0in</Height>
         <Width>0.39188in</Width>
@@ -1495,7 +1499,7 @@
         </Style>
       </Line>
       <Line Name="Line3">
-        <Top>3.05in</Top>
+        <Top>2.96in</Top>
         <Left>5.13417in</Left>
         <Height>0in</Height>
         <Width>1.29812in</Width>
@@ -1514,7 +1518,9 @@
             <TextRuns>
               <TextRun>
                 <Value>=Parameters!content3.Value</Value>
-                <Style />
+                <Style>
+                  <FontSize>13pt</FontSize>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -1523,10 +1529,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>2.82292in</Top>
+        <Top>2.75in</Top>
         <Left>6.60292in</Left>
-        <Height>0.25in</Height>
-        <Width>0.42708in</Width>
+        <Height>0.19792in</Height>
+        <Width>0.59375in</Width>
         <ZIndex>12</ZIndex>
         <Style>
           <Border>
@@ -1539,10 +1545,10 @@
         </Style>
       </Textbox>
       <Line Name="Line7">
-        <Top>3.05in</Top>
+        <Top>2.96in</Top>
         <Left>6.60292in</Left>
         <Height>0in</Height>
-        <Width>0.42708in</Width>
+        <Width>0.59375in</Width>
         <ZIndex>13</ZIndex>
         <Style>
           <Border>

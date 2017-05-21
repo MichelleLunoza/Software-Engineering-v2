@@ -1,11 +1,9 @@
 ﻿Imports System.Data.SqlClient
 Imports Microsoft.Reporting.WinForms
+Imports Excel = Microsoft.Office.Interop.Excel
 
 Public Class CBMS_DetailsForm
     Private Sub CBMS_DetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        DisplayData()
-    End Sub
-    Private Sub DisplayData()
         Dim con As String = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
         Dim query As String = String.Empty
         query &= "SELECT ID,Name AS 'Head of Family' FROM PopulationTable WHERE Family_Category = 'Head'"
@@ -23,6 +21,53 @@ Public Class CBMS_DetailsForm
         DataGridView1.DataMember = "PopulationTable"
         DataGridView1.Columns(0).Width = 200
         DataGridView1.Columns(1).Width = 550
+    End Sub
+    Private Sub ExportButton_Click(sender As Object, e As EventArgs) Handles ExportButton.Click
+        Dim xlApp As Excel.Application
+        Dim xlWorkBook As Excel.Workbook
+        Dim xlWorkSheet As Excel.Worksheet
+        Dim misValue As Object = System.Reflection.Missing.Value
+        Dim i As Integer
+        Dim j As Integer
+        Dim filename As String = "CBMS_Total(Family-" & Now().ToString() & ".xlsx"
+        xlApp = New Excel.Application
+        xlWorkBook = xlApp.Workbooks.Add(misValue)
+        xlWorkSheet = xlWorkBook.Sheets.Add
+        xlWorkSheet.Name = "Sheet"
+        For i = 0 To DataGridView2.RowCount - 2
+            For j = 0 To DataGridView2.ColumnCount - 1
+                xlWorkSheet.Cells(i + 1, j + 1) = _
+                    DataGridView2(j, i).Value.ToString()
+            Next
+        Next
+        For j = 0 To DataGridView2.ColumnCount - 1
+            xlWorkSheet.Cells(1, j + 1) = DataGridView2.Columns(j).Name
+        Next
+        For i = 0 To DataGridView2.RowCount - 1
+            For j = 0 To DataGridView2.ColumnCount - 1
+                Dim cell As DataGridViewCell
+                cell = DataGridView2(j, i)
+                xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
+            Next
+        Next
+        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\CBMS_Total(Family)-" & Now().ToString("yyyy-MM-dd-HH-mm-ss") & ".xlsx")
+        xlWorkBook.Close()
+        xlApp.Quit()
+        releaseObject(xlApp)
+        releaseObject(xlWorkBook)
+        releaseObject(xlWorkSheet)
+        MsgBox("You can find the file C:\Users\MiGutierrez\Downloads\CBMS_Total(Family)(Date and time created).xlsx")
+    End Sub
+    Private Sub releaseObject(ByVal obj As Object)
+        Try
+            System.Runtime.InteropServices.Marshal.ReleaseComObject(obj)
+            obj = Nothing
+        Catch ex As Exception
+            obj = Nothing
+            MessageBox.Show("Exception Occured while releasing object " + ex.ToString())
+        Finally
+            GC.Collect()
+        End Try
     End Sub
 
     Private Sub GroupBox1_Enter(sender As Object, e As EventArgs)
@@ -65,6 +110,10 @@ Public Class CBMS_DetailsForm
         TotalPurokButton.Enabled = False
         OverallTotalButton.Enabled = False
         ExitButton.Enabled = True
+        Export2Button.Visible = True
+        ExportButton.Visible = False
+        Export3Button.Visible = False
+
 
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
@@ -106,6 +155,8 @@ Public Class CBMS_DetailsForm
         TotalPurokButton.Enabled = False
         OverallTotalButton.Enabled = False
         ExitButton.Enabled = True
+        ExportButton.Enabled = True
+
 
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
@@ -147,6 +198,9 @@ Public Class CBMS_DetailsForm
         TotalPurokButton.Enabled = False
         OverallTotalButton.Enabled = False
         ExitButton.Enabled = True
+        ExportButton.Visible = False
+        Export2Button.Visible = False
+        Export3Button.Visible = True
 
         Dim con As SqlConnection = New SqlConnection("Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True")
         Dim cmd As New SqlCommand
@@ -158,7 +212,7 @@ Public Class CBMS_DetailsForm
         dt = New DataTable
         With cmd
             .Connection = con
-            .CommandText = "SELECT DISTINCT pt.Name AS 'Name',(SELECT COUNT(ID) FROM PopulationTable WHERE HH_Number=pt.HH_Number) AS 'Population' FROM PopulationTable pt WHERE Family_Category='Head'"
+            .CommandText = "SELECT DISTINCT pt.Name AS 'Head of Family',(SELECT COUNT(ID) FROM PopulationTable WHERE Purok =pt.Purok) AS 'Population' FROM PopulationTable pt WHERE Family_Category='Head'"
         End With
         adapt.SelectCommand = cmd
         adapt.Fill(dt)
@@ -179,14 +233,94 @@ Public Class CBMS_DetailsForm
         TotalPurokButton.Enabled = True
         OverallTotalButton.Enabled = True
         ExitButton.Enabled = False
+        ExportButton.Enabled = False
+        ExportButton.Visible = True
+        Export2Button.Visible = False
+        Export3Button.Visible = False
 
         Label.Visible = True
         SearchTextBox.Visible = True
         ClearButton.Visible = True
     End Sub
 
-    Private Sub PrintButton_Click(sender As Object, e As EventArgs) Handles PrintButton.Click
-     
+   
+    Private Sub PrintLogsDataGrid()
 
+        Dim rds As New ReportDataSource("rds", Me.DataGridView1.DataSource)
+        PrintCBMS.ReportViewer1.LocalReport.DataSources.Add(rds)
+    End Sub
+
+    Private Sub Export2Button_Click(sender As Object, e As EventArgs) Handles Export2Button.Click
+        Dim xlApp As Excel.Application
+        Dim xlWorkBook As Excel.Workbook
+        Dim xlWorkSheet As Excel.Worksheet
+        Dim misValue As Object = System.Reflection.Missing.Value
+        Dim i As Integer
+        Dim j As Integer
+        Dim filename As String = "CBMS_Total_by_Purok-" & Now().ToString() & ".xlsx"
+        xlApp = New Excel.Application
+        xlWorkBook = xlApp.Workbooks.Add(misValue)
+        xlWorkSheet = xlWorkBook.Sheets.Add
+        xlWorkSheet.Name = "Sheet"
+        For i = 0 To DataGridView2.RowCount - 2
+            For j = 0 To DataGridView2.ColumnCount - 1
+                xlWorkSheet.Cells(i + 1, j + 1) = _
+                    DataGridView2(j, i).Value.ToString()
+            Next
+        Next
+        For j = 0 To DataGridView2.ColumnCount - 1
+            xlWorkSheet.Cells(1, j + 1) = DataGridView2.Columns(j).Name
+        Next
+        For i = 0 To DataGridView2.RowCount - 1
+            For j = 0 To DataGridView2.ColumnCount - 1
+                Dim cell As DataGridViewCell
+                cell = DataGridView2(j, i)
+                xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
+            Next
+        Next
+        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\CBMS_Total_by_Purok-" & Now().ToString("yyyy-MM-dd-HH-mm-ss") & ".xlsx")
+        xlWorkBook.Close()
+        xlApp.Quit()
+        releaseObject(xlApp)
+        releaseObject(xlWorkBook)
+        releaseObject(xlWorkSheet)
+        MsgBox("You can find the file C:\Users\MiGutierrez\Downloads\CBMS_Total_by_Purok(Date and time created).xlsx")
+    End Sub
+
+    Private Sub Export3Button_Click(sender As Object, e As EventArgs) Handles Export3Button.Click
+        Dim xlApp As Excel.Application
+        Dim xlWorkBook As Excel.Workbook
+        Dim xlWorkSheet As Excel.Worksheet
+        Dim misValue As Object = System.Reflection.Missing.Value
+        Dim i As Integer
+        Dim j As Integer
+        Dim filename As String = "CBMS_OverAll_Total-" & Now().ToString() & ".xlsx"
+        xlApp = New Excel.Application
+        xlWorkBook = xlApp.Workbooks.Add(misValue)
+        xlWorkSheet = xlWorkBook.Sheets.Add
+        xlWorkSheet.Name = "Sheet"
+        For i = 0 To DataGridView2.RowCount - 2
+            For j = 0 To DataGridView2.ColumnCount - 1
+                xlWorkSheet.Cells(i + 1, j + 1) = _
+                    DataGridView2(j, i).Value.ToString()
+            Next
+        Next
+        For j = 0 To DataGridView2.ColumnCount - 1
+            xlWorkSheet.Cells(1, j + 1) = DataGridView2.Columns(j).Name
+        Next
+        For i = 0 To DataGridView2.RowCount - 1
+            For j = 0 To DataGridView2.ColumnCount - 1
+                Dim cell As DataGridViewCell
+                cell = DataGridView2(j, i)
+                xlWorkSheet.Cells(i + 2, j + 1) = cell.Value
+            Next
+        Next
+        xlWorkSheet.SaveAs("C:\Users\MiGutierrez\Downloads\CBMS_OverAll_Total-" & Now().ToString("yyyy-MM-dd-HH-mm-ss") & ".xlsx")
+        xlWorkBook.Close()
+        xlApp.Quit()
+        releaseObject(xlApp)
+        releaseObject(xlWorkBook)
+        releaseObject(xlWorkSheet)
+        MsgBox("You can find the file C:\Users\MiGutierrez\Downloads\CBMS_OverAll_Total-(Date and time created).xlsx")
     End Sub
 End Class

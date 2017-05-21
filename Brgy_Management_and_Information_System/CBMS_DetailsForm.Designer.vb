@@ -47,7 +47,9 @@ Partial Class CBMS_DetailsForm
         Me.OverallTotalButton = New System.Windows.Forms.Button()
         Me.DataGridView2 = New System.Windows.Forms.DataGridView()
         Me.ExitButton = New System.Windows.Forms.Button()
-        Me.PrintButton = New System.Windows.Forms.Button()
+        Me.ExportButton = New System.Windows.Forms.Button()
+        Me.Export2Button = New System.Windows.Forms.Button()
+        Me.Export3Button = New System.Windows.Forms.Button()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -244,14 +246,35 @@ Partial Class CBMS_DetailsForm
         Me.ExitButton.Text = "Exit"
         Me.ExitButton.UseVisualStyleBackColor = True
         '
-        'PrintButton
+        'ExportButton
         '
-        Me.PrintButton.Location = New System.Drawing.Point(1220, 654)
-        Me.PrintButton.Name = "PrintButton"
-        Me.PrintButton.Size = New System.Drawing.Size(112, 33)
-        Me.PrintButton.TabIndex = 91
-        Me.PrintButton.Text = "Print"
-        Me.PrintButton.UseVisualStyleBackColor = True
+        Me.ExportButton.Enabled = False
+        Me.ExportButton.Location = New System.Drawing.Point(1185, 654)
+        Me.ExportButton.Name = "ExportButton"
+        Me.ExportButton.Size = New System.Drawing.Size(112, 33)
+        Me.ExportButton.TabIndex = 91
+        Me.ExportButton.Text = "Export Data"
+        Me.ExportButton.UseVisualStyleBackColor = True
+        '
+        'Export2Button
+        '
+        Me.Export2Button.Location = New System.Drawing.Point(1185, 654)
+        Me.Export2Button.Name = "Export2Button"
+        Me.Export2Button.Size = New System.Drawing.Size(112, 33)
+        Me.Export2Button.TabIndex = 92
+        Me.Export2Button.Text = "Export Data"
+        Me.Export2Button.UseVisualStyleBackColor = True
+        Me.Export2Button.Visible = False
+        '
+        'Export3Button
+        '
+        Me.Export3Button.Location = New System.Drawing.Point(1185, 654)
+        Me.Export3Button.Name = "Export3Button"
+        Me.Export3Button.Size = New System.Drawing.Size(112, 33)
+        Me.Export3Button.TabIndex = 93
+        Me.Export3Button.Text = "Export Data"
+        Me.Export3Button.UseVisualStyleBackColor = True
+        Me.Export3Button.Visible = False
         '
         'CBMS_DetailsForm
         '
@@ -260,7 +283,9 @@ Partial Class CBMS_DetailsForm
         Me.BackgroundImage = CType(resources.GetObject("$this.BackgroundImage"), System.Drawing.Image)
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.ClientSize = New System.Drawing.Size(1344, 712)
-        Me.Controls.Add(Me.PrintButton)
+        Me.Controls.Add(Me.ExportButton)
+        Me.Controls.Add(Me.Export2Button)
+        Me.Controls.Add(Me.Export3Button)
         Me.Controls.Add(Me.ExitButton)
         Me.Controls.Add(Me.OverallTotalButton)
         Me.Controls.Add(Me.TotalFamilyButton)
@@ -306,5 +331,7 @@ Partial Class CBMS_DetailsForm
     Friend WithEvents OverallTotalButton As System.Windows.Forms.Button
     Friend WithEvents DataGridView2 As System.Windows.Forms.DataGridView
     Friend WithEvents ExitButton As System.Windows.Forms.Button
-    Friend WithEvents PrintButton As System.Windows.Forms.Button
+    Friend WithEvents ExportButton As System.Windows.Forms.Button
+    Friend WithEvents Export2Button As System.Windows.Forms.Button
+    Friend WithEvents Export3Button As System.Windows.Forms.Button
 End Class

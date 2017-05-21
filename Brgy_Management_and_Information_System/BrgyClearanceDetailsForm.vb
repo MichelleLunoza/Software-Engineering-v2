@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports Excel = Microsoft.Office.Interop.Excel
+Imports Microsoft.Reporting.WinForms
 Public Class BrgyClearanceDetailsForm
 
     Private Sub BrgyClearanceDetailsForm_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -154,7 +155,6 @@ Public Class BrgyClearanceDetailsForm
             MessageBox.Show("Enter date.", "Saving Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
             DateTextBox.Focus()
         Else
-
 
             Try
                 AddButton.Enabled = True
@@ -335,7 +335,10 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
     Private Sub PrintLogButton_Click(sender As Object, e As EventArgs) Handles PrintLogButton.Click
+
         Me.Hide()
         Print_BC.Show()
     End Sub
+
+  
 End Class

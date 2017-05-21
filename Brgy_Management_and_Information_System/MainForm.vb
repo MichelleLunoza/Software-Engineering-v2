@@ -16,7 +16,7 @@
         If DialogResult = Windows.Forms.DialogResult.Yes Then
             LoginForm.Show()
             Me.Hide()
-            Application.DoEvents()
+            Me.Refresh()
         End If
 
         
