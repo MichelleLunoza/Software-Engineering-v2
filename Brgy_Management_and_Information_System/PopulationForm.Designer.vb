@@ -1150,9 +1150,9 @@ Partial Class PopulationForm
         'DataGridView1
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(43, 255)
+        Me.DataGridView1.Location = New System.Drawing.Point(47, 256)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(588, 426)
+        Me.DataGridView1.Size = New System.Drawing.Size(596, 438)
         Me.DataGridView1.TabIndex = 82
         Me.DataGridView1.Visible = False
         '
@@ -1197,9 +1197,9 @@ Partial Class PopulationForm
         'DataGridView3
         '
         Me.DataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView3.Location = New System.Drawing.Point(45, 254)
+        Me.DataGridView3.Location = New System.Drawing.Point(47, 256)
         Me.DataGridView3.Name = "DataGridView3"
-        Me.DataGridView3.Size = New System.Drawing.Size(598, 437)
+        Me.DataGridView3.Size = New System.Drawing.Size(596, 438)
         Me.DataGridView3.TabIndex = 123
         Me.DataGridView3.Visible = False
         '
@@ -1225,9 +1225,9 @@ Partial Class PopulationForm
         'DataGridView2
         '
         Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Location = New System.Drawing.Point(51, 258)
+        Me.DataGridView2.Location = New System.Drawing.Point(47, 256)
         Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(596, 437)
+        Me.DataGridView2.Size = New System.Drawing.Size(596, 438)
         Me.DataGridView2.TabIndex = 126
         Me.DataGridView2.Visible = False
         '

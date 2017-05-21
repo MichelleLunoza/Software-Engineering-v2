@@ -54,6 +54,9 @@ Public Class PopulationForm
         CancelButton.Enabled = True
         EditButton.Enabled = False
         DataGridView1.Visible = True
+        DataGridView2.Visible = False
+        DataGridView3.Visible = False
+        DataGridView4.Visible = False
         DeleteButton.Enabled = True
         Display()
     End Sub
@@ -80,6 +83,8 @@ Public Class PopulationForm
     Private Sub RegisterButton_Click(sender As Object, e As EventArgs) Handles RegisterButton.Click
         DataGridView2.Visible = True
         DataGridView1.Visible = False
+        DataGridView3.Visible = False
+        DataGridView4.Visible = False
         GroupBox1.Visible = True
         GroupBox2.Visible = False
         RegisterButton.Enabled = False
@@ -262,6 +267,7 @@ Public Class PopulationForm
         Name2TextBox.Clear()
         Name3TextBox.Clear()
         NameTextBox.Clear()
+        DateRegisteredTextBox.Clear()
         Net_IncomeTextBox.Clear()
 
         FamilyComboBox.SelectedIndex = -1
@@ -285,7 +291,7 @@ Public Class PopulationForm
         seniorCComboBox.SelectedIndex = -1
         senior_citizenComboBox.SelectedIndex = -1
 
-        DataGridView1.Visible = True
+
 
 
 
@@ -293,6 +299,9 @@ Public Class PopulationForm
 
     Private Sub EditButton_Click(sender As Object, e As EventArgs) Handles EditButton.Click
         DataGridView3.Visible = True
+        DataGridView1.Visible = False
+        DataGridView2.Visible = False
+        DataGridView4.Visible = False
         DeleteButton.Enabled = False
         GroupBox3.Visible = True
         GroupBox1.Visible = False
@@ -532,14 +541,15 @@ Start:
                 DeleteFunction()
                 Display()
                 Clear()
-                DeleteButton.Enabled = False
                 UpdateButton.Enabled = False
-                ViewDetailsButton.Enabled = True
-                RegisterButton.Enabled = True
-                CancelButton.Enabled = False
+                ViewDetailsButton.Enabled = False
+                DeleteButton.Enabled = True
+                RegisterButton.Enabled = False
+                CancelButton.Enabled = True
                 ClearButton.Enabled = False
                 SaveButton.Enabled = False
-                EditButton.Enabled = True
+                EditButton.Enabled = False
+                GroupBox2.Visible = True
             End If
         End If
 
@@ -549,11 +559,16 @@ Start:
 
     Private Sub ClearButton1_Click(sender As Object, e As EventArgs) Handles ClearButton1.Click
         Clear()
+        
+
     End Sub
 
     Private Sub FamilyComboBox_SelectedIndexChanged(sender As Object, e As EventArgs) Handles FamilyComboBox.SelectedIndexChanged
         If FamilyComboBox.SelectedItem = "Member" Then
             DataGridView4.Visible = True
+            DataGridView3.Visible = False
+            DataGridView2.Visible = False
+            DataGridView1.Visible = False
             Label.Visible = False
             SearchnameTextBox.Visible = False
             ClearButton.Visible = False
