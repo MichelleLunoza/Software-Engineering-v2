@@ -24,13 +24,23 @@ Partial Class Print_Form_Indigency
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me._Bayorbor_sDbDataSet = New Brgy_Management_and_Information_System._Bayorbor_sDbDataSet()
         Me.Certificate_Indigency_TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me._Bayorbor_sDbDataSet = New Brgy_Management_and_Information_System._Bayorbor_sDbDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Certificate_Indigency_TableTableAdapter = New Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.Certificate_Indigency_TableTableAdapter()
-        CType(Me._Bayorbor_sDbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Certificate_Indigency_TableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me._Bayorbor_sDbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'Certificate_Indigency_TableBindingSource
+        '
+        Me.Certificate_Indigency_TableBindingSource.DataMember = "Certificate_Indigency_Table"
+        Me.Certificate_Indigency_TableBindingSource.DataSource = Me._Bayorbor_sDbDataSet
+        '
+        '_Bayorbor_sDbDataSet
+        '
+        Me._Bayorbor_sDbDataSet.DataSetName = "_Bayorbor_sDbDataSet"
+        Me._Bayorbor_sDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -44,16 +54,6 @@ Partial Class Print_Form_Indigency
         Me.ReportViewer1.Size = New System.Drawing.Size(813, 627)
         Me.ReportViewer1.TabIndex = 0
         '
-        '_Bayorbor_sDbDataSet
-        '
-        Me._Bayorbor_sDbDataSet.DataSetName = "_Bayorbor_sDbDataSet"
-        Me._Bayorbor_sDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Certificate_Indigency_TableBindingSource
-        '
-        Me.Certificate_Indigency_TableBindingSource.DataMember = "Certificate_Indigency_Table"
-        Me.Certificate_Indigency_TableBindingSource.DataSource = Me._Bayorbor_sDbDataSet
-        '
         'Certificate_Indigency_TableTableAdapter
         '
         Me.Certificate_Indigency_TableTableAdapter.ClearBeforeFill = True
@@ -65,9 +65,10 @@ Partial Class Print_Form_Indigency
         Me.ClientSize = New System.Drawing.Size(813, 627)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "Print_Form_Indigency"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Print_Form_Indigency"
-        CType(Me._Bayorbor_sDbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Certificate_Indigency_TableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me._Bayorbor_sDbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

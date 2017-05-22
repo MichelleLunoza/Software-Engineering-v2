@@ -24,13 +24,23 @@ Partial Class PrintForm_Brgy_Clearance
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim ReportDataSource1 As Microsoft.Reporting.WinForms.ReportDataSource = New Microsoft.Reporting.WinForms.ReportDataSource()
-        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
-        Me._Bayorbor_sDbDataSet = New Brgy_Management_and_Information_System._Bayorbor_sDbDataSet()
         Me.Brgy_Clearance_TableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me._Bayorbor_sDbDataSet = New Brgy_Management_and_Information_System._Bayorbor_sDbDataSet()
+        Me.ReportViewer1 = New Microsoft.Reporting.WinForms.ReportViewer()
         Me.Brgy_Clearance_TableTableAdapter = New Brgy_Management_and_Information_System._Bayorbor_sDbDataSetTableAdapters.Brgy_Clearance_TableTableAdapter()
-        CType(Me._Bayorbor_sDbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.Brgy_Clearance_TableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me._Bayorbor_sDbDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
+        '
+        'Brgy_Clearance_TableBindingSource
+        '
+        Me.Brgy_Clearance_TableBindingSource.DataMember = "Brgy_Clearance_Table"
+        Me.Brgy_Clearance_TableBindingSource.DataSource = Me._Bayorbor_sDbDataSet
+        '
+        '_Bayorbor_sDbDataSet
+        '
+        Me._Bayorbor_sDbDataSet.DataSetName = "_Bayorbor_sDbDataSet"
+        Me._Bayorbor_sDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'ReportViewer1
         '
@@ -44,16 +54,6 @@ Partial Class PrintForm_Brgy_Clearance
         Me.ReportViewer1.Size = New System.Drawing.Size(813, 627)
         Me.ReportViewer1.TabIndex = 0
         '
-        '_Bayorbor_sDbDataSet
-        '
-        Me._Bayorbor_sDbDataSet.DataSetName = "_Bayorbor_sDbDataSet"
-        Me._Bayorbor_sDbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
-        '
-        'Brgy_Clearance_TableBindingSource
-        '
-        Me.Brgy_Clearance_TableBindingSource.DataMember = "Brgy_Clearance_Table"
-        Me.Brgy_Clearance_TableBindingSource.DataSource = Me._Bayorbor_sDbDataSet
-        '
         'Brgy_Clearance_TableTableAdapter
         '
         Me.Brgy_Clearance_TableTableAdapter.ClearBeforeFill = True
@@ -65,9 +65,10 @@ Partial Class PrintForm_Brgy_Clearance
         Me.ClientSize = New System.Drawing.Size(813, 627)
         Me.Controls.Add(Me.ReportViewer1)
         Me.Name = "PrintForm_Brgy_Clearance"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "PrintForm_Brgy_Clearance"
-        CType(Me._Bayorbor_sDbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.Brgy_Clearance_TableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me._Bayorbor_sDbDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub

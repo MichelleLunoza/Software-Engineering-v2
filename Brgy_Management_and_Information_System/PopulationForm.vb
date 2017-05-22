@@ -541,7 +541,7 @@ Start:
             GroupBox2.Visible = False
             DataGridView1.Visible = False
 
-                MessageBox.Show("Successfully Deleted")
+            MessageBox.Show("Successfully Deleted")
         Catch ex As Exception
             MessageBox.Show("Error while deleting data." & ex.Message)
         End Try

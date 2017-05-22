@@ -107,7 +107,6 @@ Public Class Cert_IndigencyForm
         Dim content3 As New ReportParameter("content3", Me.DateTimePicker1.Value.ToString("yyyy"))
         Print_Form_Indigency.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content3})
 
-        Me.Hide()
         Print_Form_Indigency.Show()
     End Sub
 

@@ -245,10 +245,14 @@ Public Class CertIndigencyDetailsForm
     End Sub
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+        'Delete
         If IDTextBox.Text = "" Then
             MessageBox.Show("Please select first from data gridview that you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
-            DeleteFunction()
+            DialogResult = MessageBox.Show("Are you sure you want to delete it?", "Deleting", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If DialogResult = Windows.Forms.DialogResult.Yes Then
+                DeleteFunction()
+            End If
         End If
 
     End Sub
@@ -270,7 +274,8 @@ Public Class CertIndigencyDetailsForm
             con.Open()
             cmd.ExecuteNonQuery()
             con.Close()
-
+            Display()
+            Clear()
 
         Catch ex As Exception
             MessageBox.Show("Error while deleting data." & ex.Message)

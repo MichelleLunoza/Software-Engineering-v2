@@ -119,7 +119,6 @@ Public Class BrgyClearanceForm
         PrintForm_Brgy_Clearance.ReportViewer1.LocalReport.SetParameters(New ReportParameter() {content3})
 
         'Proceed to PrintForm_Brgy_Clearance
-        Me.Hide()
         PrintForm_Brgy_Clearance.Show()
 
     End Sub

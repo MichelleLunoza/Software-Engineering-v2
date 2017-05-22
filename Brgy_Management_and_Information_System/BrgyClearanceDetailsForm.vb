@@ -325,25 +325,14 @@ Public Class BrgyClearanceDetailsForm
             GC.Collect()
         End Try
     End Sub
-
-    Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
-        'Delete
-        If IDTextBox.Text = "" Then
-            MessageBox.Show("Please select first from data gridview that you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
-        Else
-            DeleteFunction()
-        End If
-    End Sub
     'Delete Function
-    Private Sub DeleteFunction()
+    Private Sub Delete()
         Try
             Dim ID = IDTextBox.Text
             Dim con As New SqlConnection
             Dim cmd As New SqlCommand
             Dim query As String = String.Empty
-            'Delete Query
             query &= "DELETE FROM Brgy_Clearance_Table WHERE ID=@ID"
-            'ConnectionString
             con.ConnectionString = "Data Source = MiGutierrez-PC; Initial Catalog = Bayorbor'sDb; Integrated Security = True"
             With cmd
                 .Connection = con
@@ -354,12 +343,24 @@ Public Class BrgyClearanceDetailsForm
             con.Open()
             cmd.ExecuteNonQuery()
             con.Close()
-
+            Display()
+            Clear()
         Catch ex As Exception
             MessageBox.Show("Error while deleting data." & ex.Message)
         End Try
     End Sub
+    Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+        'Delete
+        If IDTextBox.Text = "" Then
+            MessageBox.Show("Please select first from data gridview that you want to delete", "Deleting Failure", MessageBoxButtons.OK, MessageBoxIcon.Error)
+        Else
+            DialogResult = MessageBox.Show("Are you sure you want to delete it?", "Deleting", MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+            If DialogResult = Windows.Forms.DialogResult.Yes Then
+                Delete()
+            End If
+        End If
 
+    End Sub
     Private Sub BackButton_Click(sender As Object, e As EventArgs) Handles BackButton.Click
         'Back to previous form
         Me.Hide()
@@ -373,4 +374,7 @@ Public Class BrgyClearanceDetailsForm
     End Sub
 
   
+    Private Sub GroupBox1_Enter(sender As Object, e As EventArgs) Handles GroupBox1.Enter
+
+    End Sub
 End Class
